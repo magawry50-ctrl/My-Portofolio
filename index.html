@@ -185,11 +185,28 @@
         .shadow-card { box-shadow: 0 4px 20px rgba(6, 40, 108, 0.06); }
         .shadow-card-hover { box-shadow: 0 10px 28px rgba(6, 40, 108, 0.12); }
         
-        /* Accordion Transition */
+        /* Organic Accordion Motion (CSS Grid 0fr -> 1fr) */
         .accordion-content {
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1); 
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-content > div {
+            min-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.44s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .accordion-content.open > div {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- Directional Styling Overrides for Project Icons & Lists --- */
@@ -408,10 +425,16 @@
           #experience .accordion-toggle .material-symbols-outlined:not(.accordion-icon),
           #experience .featured-exp-toggle .material-symbols-outlined:not(.accordion-icon) { font-size: 1.875rem !important; } 
         }
+        #experience .accordion-icon {
+            transition: transform 0.44s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
         #experience .accordion-content {
+            border-top: 0px solid transparent !important;
+        }
+        #experience .accordion-content.open {
             border-top: 1px solid rgba(0, 60, 180, 0.2) !important;
         }
-        .dark #experience .accordion-content {
+        .dark #experience .accordion-content.open {
             border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
         }
 
@@ -6788,64 +6811,77 @@
 
         if (!content) return; 
 
+        // Cancel any running anchor animation
+        if (window._accordionAnchorRaf) {
+            cancelAnimationFrame(window._accordionAnchorRaf);
+            window._accordionAnchorRaf = null;
+        }
+
         // Check if the content is currently open
-        const isOpen = content.classList.contains('open') || (content.style.maxHeight && content.style.maxHeight !== '0px');
+        const isOpen = content.classList.contains('open');
         const card = experienceItem || projectCard || toggle;
 
         if (isOpen) {
-          // Close: transition smoothly from scrollHeight down to 0
-          content.style.maxHeight = content.scrollHeight + 'px';
-          content.offsetHeight; // Force reflow
-          requestAnimationFrame(() => {
-              content.style.maxHeight = '0px'; 
-              content.classList.remove('open');
-              if (icon) icon.style.transform = 'rotate(0deg)';
-          });
+          // Close: transition smoothly via CSS Grid 0fr
+          content.classList.remove('open');
+          if (icon) icon.style.transform = 'rotate(0deg)';
         } else {
-          // Calculate any height being collapsed above this card before closing other accordions
-          let heightAboveRemoved = 0;
+          // Close other open accordions in the same section smoothly
           const section = toggle.closest('section');
           if (section) {
               section.querySelectorAll('.accordion-content.open').forEach(openContent => {
                   if (openContent !== content) {
-                      // Check if openContent is above card in DOM order
-                      if (openContent.compareDocumentPosition(card) & Node.DOCUMENT_POSITION_FOLLOWING) {
-                          heightAboveRemoved += openContent.offsetHeight;
-                      }
-                      openContent.style.maxHeight = '0px';
                       openContent.classList.remove('open');
-                      const prevToggle = openContent.previousElementSibling;
-                      const openIcon = prevToggle ? prevToggle.querySelector('.accordion-icon') : null;
-                      if (openIcon) openIcon.style.transform = 'rotate(0deg)';
+                      const otherCard = openContent.closest('.featured-exp-card') || openContent.closest('article') || openContent.closest('.border.rounded-2xl');
+                      const otherIcon = otherCard ? otherCard.querySelector('.accordion-icon') : null;
+                      if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
                   }
               });
           }
 
-          // Open with plenty of ceiling during expansion
-          content.style.maxHeight = (content.scrollHeight + 800) + 'px';
+          // Open clicked accordion smoothly via CSS Grid 1fr
           content.classList.add('open');
           if (icon) icon.style.transform = 'rotate(180deg)';
           if (content.querySelector('#fp-team-masonry, #kreston-team-masonry') && typeof initTeamMasonryGrid === 'function') {
-              setTimeout(initTeamMasonryGrid, 50);
+              setTimeout(initTeamMasonryGrid, 40);
           }
 
-          // Once opening transition completes (400ms), remove max-height constraint completely so all gallery photos render fully
-          setTimeout(() => {
-              if (content.classList.contains('open')) {
-                  content.style.maxHeight = 'none';
+          // Organic Anchor Glide: tracks the clicked card smoothly during sibling collapse without jumping
+          const initialTop = card.getBoundingClientRect().top;
+          // Target comfortable viewing offset from top of viewport: 95px (clears top bar)
+          const targetViewportTop = (initialTop > 200 || initialTop < 80) ? 95 : initialTop;
+          const startTime = performance.now();
+          const duration = 560;
+
+          const stopAnchor = () => {
+              if (window._accordionAnchorRaf) {
+                  cancelAnimationFrame(window._accordionAnchorRaf);
+                  window._accordionAnchorRaf = null;
               }
-          }, 400);
+              window.removeEventListener('wheel', stopAnchor);
+              window.removeEventListener('touchmove', stopAnchor);
+          };
+          window.addEventListener('wheel', stopAnchor, { passive: true, once: true });
+          window.addEventListener('touchmove', stopAnchor, { passive: true, once: true });
 
-          // Smoothly scroll to the clicked card header with precise compensation
-          const headerOffset = 90;
-          const currentCardAbsoluteTop = card.getBoundingClientRect().top + window.pageYOffset;
-          const finalCardAbsoluteTop = currentCardAbsoluteTop - heightAboveRemoved;
-          const targetScrollY = Math.max(0, finalCardAbsoluteTop - headerOffset);
+          const stepAnchor = (now) => {
+              const elapsed = now - startTime;
+              if (elapsed >= duration) {
+                  stopAnchor();
+                  return;
+              }
 
-          window.scrollTo({
-              top: targetScrollY,
-              behavior: 'smooth'
-          });
+              const currentTop = card.getBoundingClientRect().top;
+              const diff = currentTop - targetViewportTop;
+
+              if (Math.abs(diff) > 0.4) {
+                  window.scrollBy({ top: diff * 0.18, behavior: 'instant' });
+              }
+
+              window._accordionAnchorRaf = requestAnimationFrame(stepAnchor);
+          };
+
+          window._accordionAnchorRaf = requestAnimationFrame(stepAnchor);
         }
     };
 
