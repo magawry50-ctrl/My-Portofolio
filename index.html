@@ -2845,88 +2845,8 @@
         </button>
     </aside>
 
-    <!-- Toggle Buttons Wrapper (Fixed permanently in top-left in both AR and EN) -->
+    <!-- Toggle & Navigation Dock Wrapper (Fixed permanently on the left in both AR and EN) -->
     <div class="fixed top-6 left-6 z-50 flex flex-col items-center gap-2.5" id="toggle-wrapper">
-        <!-- Theme Toggle (Matching exact container & pill design of language toggle) -->
-        <div id="theme-toggle-container"
-             class="relative flex items-center justify-center p-1 rounded-[14px] color-transition no-select shadow-inner w-[46px] h-[44px]"
-             style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);">
-            <button id="theme-toggle" 
-                    type="button"
-                    aria-label="تبديل المظهر / Toggle Dark/Light Mode" 
-                    title="تبديل المظهر (نهاري / ليلي)"
-                    class="theme-switch-btn relative flex h-[36px] w-[38px] items-center justify-center rounded-[10px] color-transition cursor-pointer overflow-hidden hover:opacity-90 active:scale-95 transition-all"
-                    style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                <!-- Sun Icon (Lucide equivalent) -->
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                     viewBox="0 0 24 24" 
-                     fill="none" 
-                     stroke="currentColor" 
-                     stroke-width="2" 
-                     stroke-linecap="round" 
-                     stroke-linejoin="round" 
-                     class="theme-icon-sun text-amber-500">
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2" />
-                    <path d="M12 20v2" />
-                    <path d="m4.93 4.93 1.41 1.41" />
-                    <path d="m17.66 17.66 1.41 1.41" />
-                    <path d="M2 12h2" />
-                    <path d="M20 12h2" />
-                    <path d="m6.34 17.66-1.41 1.41" />
-                    <path d="m19.07 4.93-1.41 1.41" />
-                </svg>
-                <!-- Moon Icon (Lucide equivalent) -->
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                     viewBox="0 0 24 24" 
-                     fill="none" 
-                     stroke="currentColor" 
-                     stroke-width="2" 
-                     stroke-linecap="round" 
-                     stroke-linejoin="round" 
-                     class="theme-icon-moon text-teal-400">
-                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-                </svg>
-            </button>
-        </div>
-        <!-- Vertical Elastic Segmented Language Toggle (AR - EN) -->
-        <div id="elastic-lang-toggle" 
-             dir="ltr"
-             class="relative flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center"
-             style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);"
-             role="radiogroup" 
-             aria-label="Language selection / اختيار اللغة">
-             
-            <!-- Animated Elastic Sliding Pill (Exact 10px Radius, Vertical Y-Axis Spring) -->
-            <div id="elastic-pill"
-                 class="absolute top-1 left-1 w-[38px] h-[36px] rounded-[10px] pointer-events-none color-transition"
-                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-            </div>
-
-            <!-- Option 0: AR -->
-            <button id="btn-lang-ar"
-                    type="button"
-                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-bold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-900 dark:text-white"
-                    role="radio"
-                    aria-checked="true"
-                    aria-label="اللغة العربية / Arabic">
-                <span class="icon-transition select-none">AR</span>
-            </button>
-
-            <!-- Option 1: EN -->
-            <button id="btn-lang-en"
-                    type="button"
-                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-semibold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-400 dark:text-zinc-500"
-                    role="radio"
-                    aria-checked="false"
-                    aria-label="English Language / الإنجليزية">
-                <span class="icon-transition select-none">EN</span>
-            </button>
-        </div>
-
-        <!-- Subtle Divider -->
-        <div class="w-5 h-[1px] bg-zinc-300/80 dark:bg-zinc-700/60 my-0.5 opacity-60 hidden md:block"></div>
-
         <!-- Side Navigation Bar (Vertical Dock) -->
         <nav id="side-nav-bar"
              class="relative hidden md:flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center w-[46px]"
@@ -3088,6 +3008,87 @@
             </a>
 
         </nav>
+
+        <!-- Subtle Divider -->
+        <div class="w-5 h-[1px] bg-zinc-300/80 dark:bg-zinc-700/60 my-0.5 opacity-60 hidden md:block"></div>
+
+        <!-- Theme Toggle (Matching exact container & pill design of language toggle) -->
+        <div id="theme-toggle-container"
+             class="relative flex items-center justify-center p-1 rounded-[14px] color-transition no-select shadow-inner w-[46px] h-[44px]"
+             style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);">
+            <button id="theme-toggle" 
+                    type="button"
+                    aria-label="تبديل المظهر / Toggle Dark/Light Mode" 
+                    title="تبديل المظهر (نهاري / ليلي)"
+                    class="theme-switch-btn relative flex h-[36px] w-[38px] items-center justify-center rounded-[10px] color-transition cursor-pointer overflow-hidden hover:opacity-90 active:scale-95 transition-all"
+                    style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <!-- Sun Icon (Lucide equivalent) -->
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     stroke-width="2" 
+                     stroke-linecap="round" 
+                     stroke-linejoin="round" 
+                     class="theme-icon-sun text-amber-500">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2" />
+                    <path d="M12 20v2" />
+                    <path d="m4.93 4.93 1.41 1.41" />
+                    <path d="m17.66 17.66 1.41 1.41" />
+                    <path d="M2 12h2" />
+                    <path d="M20 12h2" />
+                    <path d="m6.34 17.66-1.41 1.41" />
+                    <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+                <!-- Moon Icon (Lucide equivalent) -->
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     stroke-width="2" 
+                     stroke-linecap="round" 
+                     stroke-linejoin="round" 
+                     class="theme-icon-moon text-teal-400">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Vertical Elastic Segmented Language Toggle (AR - EN) -->
+        <div id="elastic-lang-toggle" 
+             dir="ltr"
+             class="relative flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center"
+             style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);"
+             role="radiogroup" 
+             aria-label="Language selection / اختيار اللغة">
+             
+            <!-- Animated Elastic Sliding Pill (Exact 10px Radius, Vertical Y-Axis Spring) -->
+            <div id="elastic-pill"
+                 class="absolute top-1 left-1 w-[38px] h-[36px] rounded-[10px] pointer-events-none color-transition"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+            </div>
+
+            <!-- Option 0: AR -->
+            <button id="btn-lang-ar"
+                    type="button"
+                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-bold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-900 dark:text-white"
+                    role="radio"
+                    aria-checked="true"
+                    aria-label="اللغة العربية / Arabic">
+                <span class="icon-transition select-none">AR</span>
+            </button>
+
+            <!-- Option 1: EN -->
+            <button id="btn-lang-en"
+                    type="button"
+                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-semibold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-400 dark:text-zinc-500"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="English Language / الإنجليزية">
+                <span class="icon-transition select-none">EN</span>
+            </button>
+        </div>
     </div>
 
     <!-- تحديد اتجاه النص لليمين لليسار (RTL) - يتم التحكم به عبر JS -->
