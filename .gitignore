@@ -1,0 +1,12 @@
+# Temporary & Scratch files
+scratch/
+*.bak
+*.tmp
+scratch_transcript.txt
+step*.json
+user_prompt_origin.txt
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini

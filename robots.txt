@@ -1,0 +1,7 @@
+# Allow all web crawlers and search engines
+User-agent: *
+Allow: /
+
+# Sitemap location
+# Note: Update this domain if your Cloudflare domain is different
+Sitemap: https://almaghawry.com/sitemap.xml
