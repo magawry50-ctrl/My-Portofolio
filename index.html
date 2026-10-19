@@ -185,23 +185,17 @@
         .shadow-card { box-shadow: 0 4px 20px rgba(6, 40, 108, 0.06); }
         .shadow-card-hover { box-shadow: 0 10px 28px rgba(6, 40, 108, 0.12); }
         
-        /* Organic Accordion Motion (CSS Grid 0fr -> 1fr) */
+        /* Organic Accordion Motion */
         .accordion-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 0;
             overflow: hidden;
-        }
-        .accordion-content.open {
-            grid-template-rows: 1fr;
+            transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .accordion-content > div {
-            min-height: 0;
-            overflow: hidden;
             opacity: 0;
-            transform: translateY(-8px);
-            transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.44s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(-6px);
+            transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
         .accordion-content.open > div {
@@ -6822,16 +6816,26 @@
         const card = experienceItem || projectCard || toggle;
 
         if (isOpen) {
-          // Close: transition smoothly via CSS Grid 0fr
-          content.classList.remove('open');
-          if (icon) icon.style.transform = 'rotate(0deg)';
+          // Close: transition smoothly from current scrollHeight down to 0
+          content.style.maxHeight = content.scrollHeight + 'px';
+          content.offsetHeight; // Force reflow
+          requestAnimationFrame(() => {
+              content.style.maxHeight = '0px';
+              content.classList.remove('open');
+              if (icon) icon.style.transform = 'rotate(0deg)';
+          });
         } else {
-          // Close other open accordions in the same section smoothly
+          // Close other open accordions in the same section smoothly down to 0
           const section = toggle.closest('section');
           if (section) {
               section.querySelectorAll('.accordion-content.open').forEach(openContent => {
                   if (openContent !== content) {
-                      openContent.classList.remove('open');
+                      openContent.style.maxHeight = openContent.scrollHeight + 'px';
+                      openContent.offsetHeight; // Force reflow
+                      requestAnimationFrame(() => {
+                          openContent.style.maxHeight = '0px';
+                          openContent.classList.remove('open');
+                      });
                       const otherCard = openContent.closest('.featured-exp-card') || openContent.closest('article') || openContent.closest('.border.rounded-2xl');
                       const otherIcon = otherCard ? otherCard.querySelector('.accordion-icon') : null;
                       if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
@@ -6839,12 +6843,20 @@
               });
           }
 
-          // Open clicked accordion smoothly via CSS Grid 1fr
+          // Open clicked accordion smoothly to exact scrollHeight
           content.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
           if (icon) icon.style.transform = 'rotate(180deg)';
           if (content.querySelector('#fp-team-masonry, #kreston-team-masonry') && typeof initTeamMasonryGrid === 'function') {
               setTimeout(initTeamMasonryGrid, 40);
           }
+
+          // Allow natural expansion once animation completes
+          setTimeout(() => {
+              if (content.classList.contains('open')) {
+                  content.style.maxHeight = 'none';
+              }
+          }, 460);
 
           // Organic Anchor Glide: tracks the clicked card smoothly during sibling collapse without jumping
           const initialTop = card.getBoundingClientRect().top;
