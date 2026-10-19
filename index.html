@@ -2845,174 +2845,206 @@
         </button>
     </aside>
 
-    <!-- Toggle & Navigation Dock Wrapper (Fixed permanently on the left in both AR and EN) -->
-    <div class="fixed top-6 left-6 z-50 flex flex-col items-center gap-2.5" id="toggle-wrapper">
-        <!-- Side Navigation Bar (Vertical Dock) -->
-        <nav id="side-nav-bar"
-             class="relative hidden md:flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center w-[46px]"
+    <!-- Side Navigation Bar (Vertical Dock - Aligned with Hero Card Top) -->
+    <nav id="side-nav-bar"
+         class="fixed left-6 top-28 z-40 hidden md:flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center w-[46px]"
+         style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);"
+         role="navigation"
+         aria-label="التنقل السريع / Quick Navigation">
+
+        <!-- Nav 1: Home -->
+        <a href="#home"
+           class="side-nav-item is-active relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="home"
+           data-i18n-key="nav_home"
+           aria-label="الرئيسية"
+           aria-current="true">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_home">الرئيسية</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 2: Experience -->
+        <a href="#experience"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="experience"
+           data-i18n-key="nav_experience"
+           aria-label="الخبرات والمسار">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_experience">الخبرات والمسار</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 3: Skills -->
+        <a href="#skills"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="skills"
+           data-i18n-key="nav_skills"
+           aria-label="القدرات والمهارات">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                <polyline points="2 17 12 22 22 17"/>
+                <polyline points="2 12 12 17 22 12"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_skills">القدرات والمهارات</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 4: Projects -->
+        <a href="#work"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="work"
+           data-i18n-key="nav_work"
+           aria-label="المشاريع والنماذج">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_work">المشاريع والنماذج</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 5: Advisory & Products -->
+        <a href="#client-works"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="client-works"
+           data-i18n-key="nav_advisory"
+           aria-label="أعمال واستشارات">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_advisory">أعمال واستشارات</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 6: Patents -->
+        <a href="#patents"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="patents"
+           data-i18n-key="nav_patents"
+           aria-label="الملكية الفكرية">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                <path d="m9 12 2 2 4-4"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_patents">الملكية الفكرية</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 7: Interests -->
+        <a href="#interests"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="interests"
+           data-i18n-key="nav_interests"
+           aria-label="مجالات الاهتمام">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_interests">مجالات الاهتمام</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+        <!-- Nav 8: Contact -->
+        <a href="#contact"
+           class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
+           data-target="contact"
+           data-i18n-key="nav_contact"
+           aria-label="تواصل معي">
+            <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_contact">تواصل معي</span>
+                <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
+                      style="border-right-color: var(--seg-pill);"></span>
+            </div>
+        </a>
+
+    </nav>
+
+    <!-- Theme & Language Toggles Wrapper (Fixed permanently in Bottom-Left Corner) -->
+    <div class="fixed bottom-6 left-6 z-50 flex flex-col items-center gap-2.5" id="toggle-wrapper">
+        <!-- Vertical Elastic Segmented Language Toggle (AR - EN) (Above Theme Toggle) -->
+        <div id="elastic-lang-toggle" 
+             dir="ltr"
+             class="relative flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center"
              style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);"
-             role="navigation"
-             aria-label="التنقل السريع / Quick Navigation">
+             role="radiogroup" 
+             aria-label="Language selection / اختيار اللغة">
+             
+            <!-- Animated Elastic Sliding Pill (Exact 10px Radius, Vertical Y-Axis Spring) -->
+            <div id="elastic-pill"
+                 class="absolute top-1 left-1 w-[38px] h-[36px] rounded-[10px] pointer-events-none color-transition"
+                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
+            </div>
 
-            <!-- Nav 1: Home -->
-            <a href="#home"
-               class="side-nav-item is-active relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="home"
-               data-i18n-key="nav_home"
-               aria-label="الرئيسية"
-               aria-current="true">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                    <polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_home">الرئيسية</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
+            <!-- Option 0: AR -->
+            <button id="btn-lang-ar"
+                    type="button"
+                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-bold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-900 dark:text-white"
+                    role="radio"
+                    aria-checked="true"
+                    aria-label="اللغة العربية / Arabic">
+                <span class="icon-transition select-none">AR</span>
+            </button>
 
-            <!-- Nav 2: Experience -->
-            <a href="#experience"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="experience"
-               data-i18n-key="nav_experience"
-               aria-label="الخبرات والمسار">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_experience">الخبرات والمسار</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
+            <!-- Option 1: EN -->
+            <button id="btn-lang-en"
+                    type="button"
+                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-semibold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-400 dark:text-zinc-500"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="English Language / الإنجليزية">
+                <span class="icon-transition select-none">EN</span>
+            </button>
+        </div>
 
-            <!-- Nav 3: Skills -->
-            <a href="#skills"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="skills"
-               data-i18n-key="nav_skills"
-               aria-label="القدرات والمهارات">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                    <polyline points="2 17 12 22 22 17"/>
-                    <polyline points="2 12 12 17 22 12"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_skills">القدرات والمهارات</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
-
-            <!-- Nav 4: Projects -->
-            <a href="#work"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="work"
-               data-i18n-key="nav_work"
-               aria-label="المشاريع والنماذج">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_work">المشاريع والنماذج</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
-
-            <!-- Nav 5: Advisory & Products -->
-            <a href="#client-works"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="client-works"
-               data-i18n-key="nav_advisory"
-               aria-label="أعمال واستشارات">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                    <path d="M2 12h20"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_advisory">أعمال واستشارات</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
-
-            <!-- Nav 6: Patents -->
-            <a href="#patents"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="patents"
-               data-i18n-key="nav_patents"
-               aria-label="الملكية الفكرية">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-                    <path d="m9 12 2 2 4-4"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_patents">الملكية الفكرية</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
-
-            <!-- Nav 7: Interests -->
-            <a href="#interests"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="interests"
-               data-i18n-key="nav_interests"
-               aria-label="مجالات الاهتمام">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_interests">مجالات الاهتمام</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
-
-            <!-- Nav 8: Contact -->
-            <a href="#contact"
-               class="side-nav-item relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] color-transition cursor-pointer group"
-               data-target="contact"
-               data-i18n-key="nav_contact"
-               aria-label="تواصل معي">
-                <svg class="side-nav-icon w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect width="20" height="16" x="2" y="4" rx="2"/>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                <div class="side-nav-tooltip flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg"
-                     style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-                    <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
-                    <span class="text-zinc-800 dark:text-zinc-100 font-medium text-[12px]" data-i18n="nav_contact">تواصل معي</span>
-                    <span class="absolute right-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-[4px] border-y-transparent border-r-[5px]"
-                          style="border-right-color: var(--seg-pill);"></span>
-                </div>
-            </a>
-
-        </nav>
-
-        <!-- Subtle Divider -->
-        <div class="w-5 h-[1px] bg-zinc-300/80 dark:bg-zinc-700/60 my-0.5 opacity-60 hidden md:block"></div>
-
-        <!-- Theme Toggle (Matching exact container & pill design of language toggle) -->
+        <!-- Theme Toggle (Matching exact container & pill design of language toggle - Bottom-most corner) -->
         <div id="theme-toggle-container"
              class="relative flex items-center justify-center p-1 rounded-[14px] color-transition no-select shadow-inner w-[46px] h-[44px]"
              style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);">
@@ -3052,41 +3084,6 @@
                      class="theme-icon-moon text-teal-400">
                     <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                 </svg>
-            </button>
-        </div>
-
-        <!-- Vertical Elastic Segmented Language Toggle (AR - EN) -->
-        <div id="elastic-lang-toggle" 
-             dir="ltr"
-             class="relative flex flex-col p-1 rounded-[14px] gap-1 color-transition no-select shadow-inner items-center"
-             style="background-color: var(--seg-bg); border: 1px solid var(--seg-border);"
-             role="radiogroup" 
-             aria-label="Language selection / اختيار اللغة">
-             
-            <!-- Animated Elastic Sliding Pill (Exact 10px Radius, Vertical Y-Axis Spring) -->
-            <div id="elastic-pill"
-                 class="absolute top-1 left-1 w-[38px] h-[36px] rounded-[10px] pointer-events-none color-transition"
-                 style="background-color: var(--seg-pill); border: 1px solid var(--seg-pill-border); box-shadow: var(--seg-pill-shadow);">
-            </div>
-
-            <!-- Option 0: AR -->
-            <button id="btn-lang-ar"
-                    type="button"
-                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-bold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-900 dark:text-white"
-                    role="radio"
-                    aria-checked="true"
-                    aria-label="اللغة العربية / Arabic">
-                <span class="icon-transition select-none">AR</span>
-            </button>
-
-            <!-- Option 1: EN -->
-            <button id="btn-lang-en"
-                    type="button"
-                    class="relative z-10 w-[38px] h-[36px] flex items-center justify-center rounded-[10px] font-semibold text-xs tracking-wider uppercase color-transition touch-none cursor-pointer text-zinc-400 dark:text-zinc-500"
-                    role="radio"
-                    aria-checked="false"
-                    aria-label="English Language / الإنجليزية">
-                <span class="icon-transition select-none">EN</span>
             </button>
         </div>
     </div>
