@@ -1,0 +1,25 @@
+/* HERO135/136: reference-derived entry panels; own copy and existing local fonts. */
+#mm-profile-wrapper .page-entry-hero{position:relative;display:flex;align-items:center;width:100%;min-height:var(--identity-hero-height,0px);margin:0 0 56px;padding:0;border-radius:28px;overflow:hidden;isolation:isolate;color:#fff;background:radial-gradient(760px 420px at 12% 8%,rgba(61,123,255,.2),transparent 60%),radial-gradient(720px 420px at 88% 70%,rgba(47,217,255,.22),transparent 62%),linear-gradient(200deg,#06286c 0%,#04185a 75%);background-color:#04185a}
+#portfolio-view-collaborate.has-entry-hero{padding-top:var(--notch-offset,24px)}
+.page-entry-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.page-entry-copy{position:relative;z-index:1;box-sizing:border-box;width:100%;padding:120px 44px;color:#fff;text-align:start}
+html[lang="en"] #mm-profile-wrapper .page-entry-hero :is(h1,p,span){font-family:PortfolioInter,Arial,sans-serif!important;font-optical-sizing:auto}
+#mm-profile-wrapper .page-entry-hero h1{max-width:665.4px;margin:0 0 12px;color:#fff!important;font-size:clamp(32.8px,calc(27.2px + 1.9vw),60px);line-height:1.12;font-weight:515!important;letter-spacing:-.02em;text-align:start!important}
+#mm-profile-wrapper .page-entry-hero h1 span{font-weight:inherit}
+#mm-profile-wrapper .page-entry-hero h1 .page-entry-accent{color:#2fd9ff!important;background:linear-gradient(100deg,#5b91ff,#2fd9ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.page-entry-head{margin-bottom:clamp(28px,3vw,44px)}
+#mm-profile-wrapper .page-entry-hero .page-entry-subtitle{max-width:589.7px;margin:0;color:#fff!important;font-size:clamp(16px,1.4vw,20px);font-weight:265;line-height:1.6;text-align:start!important}
+.page-entry-body{max-width:571.34px;margin-top:32px}
+#mm-profile-wrapper .page-entry-hero .page-entry-body p{margin:0 0 12px;color:rgba(255,255,255,.85)!important;font-size:16.96px;font-weight:350;line-height:1.65;text-align:start!important}
+#mm-profile-wrapper .page-entry-hero .page-entry-body p:last-child{margin-bottom:0}
+.page-entry-overline{position:relative;display:inline-flex;align-items:center;gap:.55em;isolation:isolate;margin-bottom:16px;padding:.5em 1em;border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font-size:clamp(12.8px,calc(12.32px + .16vw),14.08px);line-height:1.65;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.page-entry-overline::before{content:"";position:absolute;inset:0;padding:1.5px;border-radius:inherit;background:linear-gradient(100deg,#3d7bff,#2fd9ff);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.page-entry-overline::after{content:"";width:7px;height:7px;order:-1;border-radius:50%;background:#2fd9ff;box-shadow:0 0 10px 2px rgba(47,217,255,.22)}
+html[lang="ar"] #mm-profile-wrapper .page-entry-hero h1{font-family:Almarai,sans-serif!important;font-weight:700!important;letter-spacing:0}
+html[lang="ar"] #mm-profile-wrapper .page-entry-hero :is(.page-entry-subtitle,.page-entry-body p){font-weight:400}
+html[lang="ar"] .page-entry-overline{font-weight:700;letter-spacing:0}
+@media(min-width:768px){html[dir="ltr"] .page-entry-copy{padding-left:var(--entry-left-clearance,76px)}html[dir="rtl"] .page-entry-copy{padding-right:var(--entry-right-clearance,76px)}#mm-profile-wrapper .page-entry-hero h1{max-width:none}}
+@media(max-width:767px){#mm-profile-wrapper .page-entry-hero{margin-bottom:40px}.page-entry-copy{padding:84px 24px 52px}#mm-profile-wrapper .page-entry-hero h1{font-size:clamp(32.8px,calc(27.2px + 1.9vw),42px)}.page-entry-body{margin-top:24px}#mm-profile-wrapper .page-entry-hero .page-entry-body p{font-size:16px}}
+/* Only an initialized owner can arm an unfinished first-visible entry. */
+.page-entry-hero[data-entry-phase="pending"] .page-entry-copy{opacity:0;transform:translateY(50px)}
+@media(prefers-reduced-motion:reduce){.page-entry-hero[data-entry-phase] .page-entry-copy{opacity:1;transform:none}}

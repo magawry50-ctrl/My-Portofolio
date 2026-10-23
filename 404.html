@@ -1,53 +1,49 @@
 <!DOCTYPE html>
-<html lang="ar" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - الصفحة غير موجودة | محمد المغاوري</title>
+    <title>404 - Page not found | Mohamed Al-Maghawry</title>
     
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-teal': '#14b8a6',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind 3.4.17 compiled locally; final-head stylesheet preserves the incumbent cascade. -->
+    
     
     <!-- Prevent Theme Flash -->
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+            if (new URLSearchParams(location.search).get('lang') === 'ar') {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                document.title = '404 - الصفحة غير موجودة | محمد المغاوري';
             }
         })();
     </script>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="./assets/fonts/vendor/almarai-v19.css">
+    <link rel="stylesheet" href="./assets/fonts/vendor/material-symbols-v380.css">
     
     <style>
         body {
             font-family: 'Almarai', system-ui, -apple-system, sans-serif;
         }
+        .home-link { min-height: 48px; }
+        @media (max-width: 360px) {
+            body { padding: 16px; }
+            body > div { padding: 28px 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .home-link { transition: none; transform: none; }
+        }
     </style>
+    <link id="portfolio-tailwind" rel="stylesheet" href="./assets/tailwind-404.a4fa366c5c1f.css">
 </head>
 
 <body class="bg-gray-50 text-gray-900 min-h-screen flex items-center justify-center p-6 antialiased dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -60,19 +56,32 @@
 
         <h1 class="text-6xl font-extrabold text-teal-600 dark:text-teal-400 mb-2">404</h1>
         
-        <h2 class="text-2xl font-bold mb-3">الصفحة غير موجودة</h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-2 leading-relaxed">
-            عذرًا، الصفحة أو الرابط الذي تحاول الوصول إليه غير موجود أو ربما تم نقله.
-        </p>
-        <p class="text-sm text-gray-400 dark:text-gray-500 mb-8">
+        <h2 id="error-title" class="text-2xl font-bold mb-3">Page not found</h2>
+        <p id="error-description" class="text-gray-600 dark:text-gray-400 mb-2 leading-relaxed">
             The page you are looking for doesn't exist or was relocated.
         </p>
+        <p id="error-translation" lang="ar" dir="rtl" class="text-sm text-gray-500 dark:text-gray-400 mb-8">
+            عذرًا، الصفحة أو الرابط الذي تحاول الوصول إليه غير موجود أو ربما تم نقله.
+        </p>
 
-        <a href="/" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-base transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+        <a href="/" class="home-link inline-flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl bg-teal-700 hover:bg-teal-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600 text-white font-bold text-base transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
             <span class="material-symbols-outlined text-xl">home</span>
-            العودة إلى الملف التعريفي
+            <span id="home-label">Back to portfolio</span>
         </a>
     </div>
-
+    <script>
+        if (document.documentElement.lang === 'ar') {
+            const description = document.getElementById('error-description');
+            const translation = document.getElementById('error-translation');
+            const english = description.textContent.trim();
+            description.textContent = translation.textContent.trim();
+            translation.textContent = english;
+            translation.lang = 'en';
+            translation.dir = 'ltr';
+            document.getElementById('error-title').textContent = 'الصفحة غير موجودة';
+            document.getElementById('home-label').textContent = 'العودة إلى الملف التعريفي';
+            document.querySelector('.home-link').href = '/?lang=ar';
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,269 @@
+/* GLASS73: source-matched Framer chrome materials, native controls and layout. */
+.glass-nav-brand img,.glass-footer-brand img{filter:brightness(0)}
+.glass-nav-brand,.glass-contact-cta,.glass-menu-toggle,.glass-mobile-groups,.glass-mobile-settings{display:none}
+.glass-footer{--glass-rim:linear-gradient(180deg,#fff 0%,#c9c9c9 9%,#a1a1a1 32%,#757575 73%,#fff 100%);--glass-inner:linear-gradient(150deg,#d0d0d0 0%,#e8e8e8 50.17%,#c8c8c8 100%);--glass-shadow:0.29px 4.36px 2.18px rgba(0,0,0,.01),0.48px 7.24px 3.63px rgba(0,0,0,.01),0.78px 11.7px 5.86px rgba(0,0,0,.02),1.28px 19.15px 9.6px rgba(0,0,0,.03),2.2px 32.97px 16.52px rgba(0,0,0,.03),4px 60px 30.07px rgba(0,0,0,.06);width:calc(100% - 48px);max-width:1140px;margin:40px auto;padding:3px;border-radius:40px;background:var(--glass-rim);box-shadow:var(--glass-shadow);color:#0a0a0c}
+.glass-footer-inner{padding:40px 44px 30px;border-radius:37px;background:var(--glass-inner);box-shadow:inset 0 1px 1.5px rgba(0,0,0,.07),inset 0 -1px 1.5px rgba(0,0,0,.07);display:flex;flex-direction:column;gap:28px}
+.glass-footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:48px;min-width:0}
+.glass-footer-brand{flex:0 1 260px;min-width:0;max-width:300px}
+.glass-footer-identity{display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-decoration:none;color:#0a0a0c}
+.glass-footer-identity img{width:170px;height:auto;max-width:100%}
+.glass-footer-identity strong{font-size:18px;line-height:1.25;font-weight:700;overflow-wrap:break-word}
+.glass-footer-brand p{margin:10px 0 0;font-size:13px;line-height:1.5;color:#49494e}
+.glass-footer-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;flex:1;min-width:0}
+.glass-footer-columns nav{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.glass-footer-columns h3{padding:6px 12px;margin:0;font-size:12px;line-height:1.5;font-weight:700;color:#303035}
+.glass-footer-columns a{padding:8px 12px;border-radius:999px;max-width:100%;font-size:13px;line-height:1.4;color:#49494e;text-decoration:none;overflow-wrap:break-word;transition:background-color .35s ease,box-shadow .35s ease,color .35s ease}
+.glass-footer-columns a:hover,.glass-footer-columns a:focus-visible{background:rgba(255,255,255,.4);color:#0a0a0c;box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 8px 20px -6px rgba(148,160,181,.45),-4px -4px 12px rgba(255,255,255,.5)}
+.glass-footer-divider{height:1px;background:rgba(10,10,12,.1);width:100%;flex:none}
+.glass-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;min-width:0}
+.glass-copyright{font-size:12px;line-height:1.5;margin:0;color:#49494e}
+.glass-footer-socials{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.glass-social-link{display:flex;align-items:center;justify-content:center;flex:none;width:40px;height:40px;border-radius:999px;background:rgba(255,255,255,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.35);color:#0a0a0c;text-decoration:none;transition:background-color .35s ease,box-shadow .35s ease}
+.glass-social-link:hover,.glass-social-link:focus-visible{background:rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 8px 20px -6px rgba(148,160,181,.45),-4px -4px 12px rgba(255,255,255,.5)}
+.glass-social-link :is(svg,.material-symbols-outlined,.fab){width:18px;height:18px;font-size:18px;line-height:18px;text-align:center;flex:none}
+.glass-social-link svg{fill:currentColor}
+.glass-footer :where(a):focus-visible{outline:2px solid #003ea0;outline-offset:3px}
+@media(min-width:768px){
+ #portfolio-navigation{top:max(16px,env(safe-area-inset-top));max-width:780px;pointer-events:none;--notch-ink:#0a0a0c;--notch-muted:#49494e;--notch-accent:#003ea0;--notch-active:rgba(255,255,255,.45)}
+ #portfolio-navigation .notch-wing{display:none}
+ #portfolio-navigation .notch-envelope{background:transparent;border-radius:0;overflow:visible;pointer-events:none}
+ #portfolio-navigation .notch-shell{padding:3px;background:linear-gradient(180deg,#fff 0%,#c9c9c9 9%,#a1a1a1 32%,#757575 73%,#fff 100%);box-shadow:0.29px 4.36px 2.18px rgba(0,0,0,.01),0.48px 7.24px 3.63px rgba(0,0,0,.01),0.78px 11.7px 5.86px rgba(0,0,0,.02),1.28px 19.15px 9.6px rgba(0,0,0,.03),2.2px 32.97px 16.52px rgba(0,0,0,.03),4px 60px 30.07px rgba(0,0,0,.06);border-radius:999px;pointer-events:auto}
+ #portfolio-navigation .notch-main{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;min-height:52px;padding:8px 10px 8px 14px;background:linear-gradient(150deg,#d0d0d0 0%,#e8e8e8 50.17%,#c8c8c8 100%);box-shadow:inset 0 1px 1.5px rgba(0,0,0,.07),inset 0 -1px 1.5px rgba(0,0,0,.07);border-radius:999px}
+ #portfolio-navigation .glass-nav-brand{display:flex;align-items:center;gap:8px;flex:none;min-width:0;text-decoration:none;color:#0a0a0c}
+ #portfolio-navigation .glass-nav-brand img{width:96px;height:auto;flex:none}
+ #portfolio-navigation .notch-primary{flex:1;min-width:0;gap:4px}
+ #portfolio-navigation .notch-trigger{min-height:34px;height:34px;padding:10px 15px;border-radius:999px;font-size:14px;font-weight:700;line-height:1;color:#49494e;transition:background-color .35s ease,box-shadow .35s ease,color .35s ease}
+ #portfolio-navigation .notch-trigger:hover{color:#003ea0;background:transparent;box-shadow:none}
+ #portfolio-navigation .notch-trigger.is-active{color:#0a0a0c}
+ #portfolio-navigation .glass-contact-cta{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;flex:none;height:36px;padding:11px 24px;border-radius:999px;overflow:hidden;text-decoration:none;white-space:nowrap;color:#fff;background:linear-gradient(180deg,#26262a 0%,#08080a 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 1px rgba(0,0,0,.5),0 7px 16px -6px rgba(0,0,0,.38);font-size:14px;line-height:1;font-weight:700;transition:box-shadow .35s ease}
+ #portfolio-navigation .glass-contact-cta span{position:relative;z-index:1}
+ #portfolio-navigation .glass-contact-cta::before{content:"";position:absolute;inset-block:-20px;width:70px;left:-80px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);opacity:0;pointer-events:none}
+ #portfolio-navigation .glass-contact-cta:hover,#portfolio-navigation .glass-contact-cta:focus-visible{background:linear-gradient(180deg,rgba(37,37,41,.85),rgba(8,8,10,.85));box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 1px rgba(0,0,0,.5),0 12px 24px -6px rgba(0,0,0,.58)}
+ #portfolio-navigation .glass-contact-cta:hover::before,#portfolio-navigation .glass-contact-cta:focus-visible::before{animation:glass-cta-shine .8s cubic-bezier(.25,.1,.25,1) both}
+ #portfolio-navigation .notch-expansion{width:min(420px,100%);margin:8px auto 0;padding:0;background:#f8f9fb;border:1px solid #d8dde5;box-shadow:0 8px 24px rgba(15,23,42,.12);border-radius:18px;pointer-events:auto}
+ #portfolio-navigation .notch-expansion-inner{border-radius:17px;background:#f8f9fb;box-shadow:none}
+}
+@keyframes glass-cta-shine{from{left:-80px;opacity:0}20%{opacity:1}to{left:calc(100% + 10px);opacity:0}}
+@media(min-width:768px) and (max-width:1099px){#portfolio-navigation{max-width:740px}}
+@media(max-width:999px){.glass-footer-inner{padding:32px 30px 26px;gap:24px}.glass-footer-top{flex-direction:column;gap:36px}.glass-footer-brand{flex:none;max-width:100%}.glass-footer-columns{width:100%;gap:20px}}
+@media(max-width:767px){.glass-footer{width:calc(100% - 32px);margin-block:32px;border-radius:32px}.glass-footer-inner{border-radius:29px;padding:28px 8px 24px;gap:24px}.glass-footer-top{gap:28px}.glass-footer-brand{padding-inline:12px}.glass-footer-columns{grid-template-columns:1fr;gap:20px}.glass-footer-columns nav{width:100%}.glass-footer-columns a{min-height:44px;display:flex;align-items:center}.glass-footer-bottom{align-items:flex-start;flex-direction:column;gap:16px;padding-inline:12px}.glass-social-link{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){#portfolio-navigation .glass-contact-cta::before{animation:none!important;display:none}#portfolio-navigation .notch-trigger,.glass-footer a{transition:none}}
+
+/* Phone: chrome bar with a flat disclosure; original controls move into its settings row. */
+@media(max-width:767px){
+ :root,html.dark{--notch-offset:90px;--education-anchor-offset:90px}
+ #portfolio-navigation{top:max(16px,env(safe-area-inset-top));bottom:auto;left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));max-width:350px;color:#0a0a0c;--notch-ink:#0a0a0c;--notch-muted:#49494e;--notch-accent:#003ea0;--notch-active:rgba(255,255,255,.45)}
+ #portfolio-navigation .notch-wing{display:none}
+ #portfolio-navigation .notch-envelope{display:block;padding:0;background:transparent;border-radius:0;overflow:visible;box-shadow:none}
+ #portfolio-navigation .notch-shell{padding:3px;background:linear-gradient(180deg,#fff 0%,#e4e4e4 4.5%,#969696 50%,#e4e4e4 95.5%,#fff 100%);border-radius:32px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+ #portfolio-navigation .notch-main{min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 10px 4px 14px;border-radius:29px;background:linear-gradient(160deg,#d4d4d6,#ececee 55%,#cacacd);box-shadow:inset 0 1px 1.5px rgba(0,0,0,.1),inset 0 -1px 1.5px rgba(0,0,0,.1)}
+ #portfolio-navigation .glass-nav-brand{display:flex;align-items:center;min-width:0;text-decoration:none;color:#0a0a0c}
+ #portfolio-navigation .glass-nav-brand img{width:138px;max-width:100%;height:auto}
+ #portfolio-navigation .glass-menu-toggle{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;min-height:44px;border:0;border-radius:999px;background:rgba(255,255,255,.4);color:#0a0a0c;box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 8px 20px -6px rgba(148,160,181,.45),-4px -4px 12px rgba(255,255,255,.5);cursor:pointer}
+ #portfolio-navigation .glass-menu-bars{position:relative;width:18px;height:12px}
+ #portfolio-navigation .glass-menu-bars::before,#portfolio-navigation .glass-menu-bars::after{content:"";position:absolute;left:0;width:18px;height:2px;border-radius:2px;background:currentColor;transition:transform .25s ease,top .25s ease}
+ #portfolio-navigation .glass-menu-bars::before{top:2px}#portfolio-navigation .glass-menu-bars::after{top:10px}
+ #portfolio-navigation .glass-menu-toggle[aria-expanded="true"] .glass-menu-bars::before{top:6px;transform:rotate(45deg)}
+ #portfolio-navigation .glass-menu-toggle[aria-expanded="true"] .glass-menu-bars::after{top:6px;transform:rotate(-45deg)}
+ #portfolio-navigation .notch-main>.notch-primary{display:none}
+ #portfolio-navigation .notch-expansion{padding:0;margin:8px 0 0;width:100%;background:#f8f9fb;border:1px solid #d8dde5;border-radius:18px;box-shadow:0 8px 24px rgba(15,23,42,.12)}
+ #portfolio-navigation .notch-expansion-inner{border-radius:17px;background:#f8f9fb;box-shadow:none}
+ #portfolio-navigation .glass-menu-content{max-height:calc(100dvh - var(--notch-offset,90px) - 16px);overflow-y:auto;overscroll-behavior:contain;padding:4px 8px 12px;scrollbar-width:thin;scrollbar-color:#757575 transparent}
+ #portfolio-navigation .glass-mobile-groups{display:block;padding-bottom:8px;border-bottom:1px solid rgba(10,10,12,.1);margin-bottom:8px}
+ #portfolio-navigation .glass-mobile-groups .notch-primary{display:flex;flex-direction:column;align-items:stretch;gap:2px}
+ #portfolio-navigation .notch-trigger{width:100%;min-height:44px;flex:none;justify-content:space-between;padding:12px 14px;font-size:14px;border-radius:999px;color:#49494e}
+ #portfolio-navigation .notch-trigger:hover{color:#003ea0;background:transparent;box-shadow:none}
+ #portfolio-navigation .notch-trigger.is-active{color:#0a0a0c}
+ #portfolio-navigation .glass-mobile-settings{display:block;border-top:1px solid rgba(10,10,12,.1);margin-top:10px}
+ #portfolio-navigation #toggle-wrapper{position:static;top:auto;bottom:auto;left:auto;right:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;gap:16px;width:100%;padding-top:12px}
+ #portfolio-navigation #toggle-wrapper[hidden]{display:none}
+ #portfolio-navigation #toggle-wrapper #elastic-lang-toggle,#portfolio-navigation #toggle-wrapper #theme-toggle-container{--seg-bg:rgba(255,255,255,.25);--seg-pill:rgba(255,255,255,.6);--seg-border:rgba(10,10,12,.1);--seg-pill-border:rgba(10,10,12,.08);--utility-ink:#0a0a0c;--utility-muted:#49494e;--utility-active:#003ea0;--utility-tray-shadow:inset 0 1px 1px rgba(0,0,0,.07);--seg-pill-shadow:inset 0 1px 1px rgba(255,255,255,.85)}
+ #mm-profile-wrapper{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+}
+@media(prefers-reduced-motion:reduce){#portfolio-navigation .glass-menu-bars::before,#portfolio-navigation .glass-menu-bars::after{transition:none}}
+
+/* First non-hero headings clear the measured bar even when anchor scroll clamps at zero. */
+#portfolio-view-work{padding-top:var(--notch-offset,90px)}
+#portfolio-view-collaborate{padding-top:max(0px,calc(var(--notch-offset,90px) - var(--collaborate-leading-space,64px)))}
+@media(max-width:639px){#portfolio-view-collaborate{--collaborate-leading-space:48px}}
+
+/* NAV79: desktop vertical rail; phone chrome/disclosure remains unchanged. */
+#notch-backdrop{backdrop-filter:none;-webkit-backdrop-filter:none}
+.island-group-icon{display:none}
+.glass-nav-mark{display:none}
+@media(min-width:768px){
+ :root,html.dark{--notch-offset:24px;--education-anchor-offset:24px;--portfolio-opening-top:max(56px,env(safe-area-inset-top));--compact-navigation-width:54px}
+ #home{padding-top:var(--portfolio-opening-top)}
+ #mm-profile-wrapper #team-list-container,#mm-profile-wrapper .team-list-row,#mm-profile-wrapper .team-list-row>.flex{min-width:0}
+ #mm-profile-wrapper .team-row-title{flex:1 1 auto;min-width:0;overflow-wrap:anywhere;line-height:1.35}
+ #mm-profile-wrapper .team-row-actions{flex:none}
+ #mm-profile-wrapper .team-row-role{overflow-wrap:anywhere}
+ #mm-profile-wrapper .team-row-role .work-relationship-badge{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+ #toggle-wrapper,html[dir="rtl"] #toggle-wrapper{left:max(16px,env(safe-area-inset-left));right:auto}
+ #portfolio-navigation{top:var(--portfolio-opening-top);left:max(12px,env(safe-area-inset-left));right:auto;width:156px;max-width:156px;margin-inline:0;transition:none;--island-icon-shift:8px;--island-active-shift:0px}
+ html[dir="rtl"] #portfolio-navigation{left:auto;right:max(12px,env(safe-area-inset-right));--island-icon-shift:-8px}
+ #portfolio-navigation .notch-shell{position:relative;isolation:isolate;background:transparent;box-shadow:none;pointer-events:none}
+ #portfolio-navigation .notch-shell::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:156px;z-index:-1;border-radius:var(--nav-radius,14px);background:linear-gradient(180deg,#fff 0%,#c9c9c9 9%,#a1a1a1 32%,#757575 73%,#fff 100%);box-shadow:0 8px 24px rgba(0,0,0,.14);pointer-events:none;transition:width .3s cubic-bezier(.2,.8,.2,1)}
+ #portfolio-navigation .notch-main{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-start;gap:10px;height:222px;min-height:222px;padding:12px 8px;background:transparent;box-shadow:none;border-radius:calc(var(--nav-radius,14px) - 3px);pointer-events:none}
+ #portfolio-navigation .notch-main::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:150px;z-index:-1;border-radius:calc(var(--nav-radius,14px) - 3px);background:linear-gradient(150deg,#d0d0d0 0%,#e8e8e8 50.17%,#c8c8c8 100%);box-shadow:inset 0 1px 1.5px rgba(0,0,0,.07),inset 0 -1px 1.5px rgba(0,0,0,.07);pointer-events:none;transition:width .3s cubic-bezier(.2,.8,.2,1)}
+ #portfolio-navigation .notch-primary{position:relative;left:auto;top:auto;transform:none;flex:none;display:flex;flex-direction:column;align-items:stretch;width:100%;height:144px;gap:6px;isolation:isolate;pointer-events:none}
+ #portfolio-navigation .notch-primary::before{content:none}
+ #portfolio-navigation .island-group-icon{display:block;flex:none;width:16px;height:16px}
+ #portfolio-navigation .notch-trigger{position:relative;flex:0 0 44px;display:grid;grid-template-columns:16px minmax(0,1fr);gap:7px;width:100%;max-width:none;padding-inline:8px;min-height:44px;height:44px;pointer-events:auto;transition:color .2s ease}
+ #portfolio-navigation .notch-trigger:hover{box-shadow:none;transform:none}
+ #portfolio-navigation .notch-trigger>span{display:block;min-width:0;opacity:1;text-align:start;transition:opacity .25s ease}
+ #portfolio-navigation .glass-nav-brand{position:static;display:flex;align-self:center;flex:none;align-items:center;justify-content:center;min-height:44px;width:128px;max-width:128px;opacity:1;transform:none;pointer-events:auto;transition:opacity .25s ease}
+ #portfolio-navigation .glass-nav-brand img{width:128px;max-width:100%}
+ #portfolio-navigation .glass-nav-brand .glass-nav-mark{width:40px;height:40px;object-fit:contain;filter:none}
+ #portfolio-navigation .notch-trigger.is-active{color:#003ea0;background:transparent;box-shadow:none}
+ #portfolio-navigation .notch-shell{border-radius:var(--nav-radius,14px)}
+ #portfolio-navigation .notch-expansion{border-radius:var(--nav-radius,14px)}
+ #portfolio-navigation .notch-expansion-inner{border-radius:calc(var(--nav-radius,14px) - 1px)}
+ #portfolio-navigation[data-compact="true"] .notch-shell::before{width:var(--compact-navigation-width)}
+ #portfolio-navigation[data-compact="true"] .notch-main::before{width:calc(var(--compact-navigation-width) - 6px)}
+ #portfolio-navigation[data-compact="true"]{--island-active-shift:var(--island-icon-shift)}
+ #portfolio-navigation[data-compact="true"] .glass-nav-brand{align-self:flex-start;margin-inline-start:-6px;width:44px;max-width:44px;opacity:1;visibility:visible;pointer-events:auto}
+ #portfolio-navigation[data-compact="true"] .glass-nav-signature{display:none}
+ #portfolio-navigation[data-compact="true"] .glass-nav-mark{display:block}
+ #portfolio-navigation[data-compact="true"] .notch-trigger{align-self:flex-start;width:44px;margin-inline-start:-6px;padding-inline:14px;grid-template-columns:16px;gap:0;transform:none}
+ #portfolio-navigation[data-compact="true"] .notch-trigger>span{position:absolute;inset-inline-start:40px;width:96px;opacity:0;pointer-events:none}
+}
+@media(min-width:768px) and (max-width:1535px){#mm-profile-wrapper #team-showcase-container{flex-direction:column}#mm-profile-wrapper #team-photo-grid{width:100%;justify-content:center}#mm-profile-wrapper #team-photo-grid .client-marquee-col{flex:1 1 0;min-width:0;max-width:185px}#mm-profile-wrapper #team-photo-grid .team-photo-card{width:100%;height:auto;aspect-ratio:185/118}#mm-profile-wrapper #team-list-container{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:768px) and (max-height:559px){#toggle-wrapper{width:176px;flex-direction:row;justify-content:flex-start;gap:10px}#toggle-wrapper #elastic-lang-toggle{flex-direction:row;flex:none}#toggle-wrapper #theme-toggle-container{flex:none}}
+@media(prefers-reduced-motion:reduce){#portfolio-navigation,#portfolio-navigation .notch-shell::before,#portfolio-navigation .notch-main::before,#portfolio-navigation .notch-primary::before,#portfolio-navigation .notch-trigger,#portfolio-navigation .notch-trigger>span,#portfolio-navigation .glass-nav-brand{transition:none}}
+
+
+@media(min-width:768px) and (min-height:560px){#toggle-wrapper #elastic-lang-toggle{width:var(--compact-navigation-width);box-sizing:border-box}}
+/* NAV102: direct tabs; the chrome stays intact while hover changes only ink. */
+#portfolio-navigation .notch-trigger:hover,#portfolio-navigation .notch-trigger.is-active{color:#003ea0;background:transparent;box-shadow:none;transform:none}
+#portfolio-navigation .notch-trigger{transition:color .2s ease}
+@media(max-width:767px){#portfolio-navigation .island-group-icon{display:block;width:16px;height:16px;flex:none}#portfolio-navigation .notch-trigger{justify-content:flex-start;gap:10px}}
+@media(min-width:768px){#portfolio-navigation .notch-expansion{display:none}}
+@media(prefers-reduced-motion:reduce){#portfolio-navigation .notch-trigger{transition:none}}
+/* NAV105: consume the same scoped appearance tokens as the original utility tray. */
+@media(min-width:768px){
+ #portfolio-navigation{color:var(--utility-ink);--notch-ink:var(--utility-ink);--notch-muted:var(--utility-muted);--notch-accent:var(--utility-active)}
+ #portfolio-navigation .notch-shell::before{box-sizing:border-box;background:var(--seg-bg);border:1px solid var(--seg-border);box-shadow:var(--utility-tray-shadow)}
+ #portfolio-navigation .notch-main::before{background:var(--seg-bg);box-shadow:none}
+ #portfolio-navigation .notch-trigger{color:var(--utility-muted)}
+ #portfolio-navigation .notch-trigger:hover,#portfolio-navigation .notch-trigger.is-active{color:var(--utility-active)}
+ html.dark #portfolio-navigation .glass-nav-signature,html.dark #portfolio-navigation .glass-nav-brand .glass-nav-mark{filter:brightness(0) invert(1)}
+}
+.profile-portrait-frame>img{transform:none!important}
+/* NAV117: normalized supplied cool-glass rail; no branding or subsection drawer. */
+@font-face{font-family:PortfolioInter;src:url('./fonts/InterVariable-4.1.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+.rail-expanded-icon,.rail-route-chevron{display:none}
+@media(min-width:768px){
+ #portfolio-navigation{--rail-width:400px;--rail-corner-radius:28px;--rail-shell-inset:2px;--rail-main-inset:10px;--compact-navigation-width:76px;width:var(--rail-width);max-width:var(--rail-width);color:#0b1425}
+ html[dir="rtl"] #portfolio-navigation{left:max(12px,env(safe-area-inset-left));right:auto}
+ #portfolio-navigation,#portfolio-navigation #toggle-wrapper{--seg-bg:#f0f5fb;--seg-pill:#f8fbff;--seg-border:#dce5ef;--seg-pill-border:#e1e9f4;--seg-pill-shadow:inset 1px 1px 3px rgba(29,57,91,.07),inset -1px -1px 3px #fff;--utility-tray-shadow:inset 1px 2px 4px rgba(29,57,91,.1),inset -1px -1px 3px #fff;--utility-ink:#0b1425;--utility-muted:#52627a;--utility-active:#1e6bd4}
+ html[lang="en"] #portfolio-navigation :is(button,.rail-route-copy,.rail-route-copy strong,.rail-route-copy span){font-family:PortfolioInter,Arial,sans-serif!important;font-optical-sizing:auto}
+ html[lang="en"] #portfolio-navigation .rail-route-caption{font-weight:600}
+ #portfolio-navigation *,#portfolio-navigation *::before,#portfolio-navigation *::after{box-sizing:border-box}
+ #portfolio-navigation[data-compact="true"]{--rail-width:76px;--rail-corner-radius:20px;--rail-main-inset:8px}
+ #portfolio-navigation .notch-shell{padding:var(--rail-shell-inset);background:transparent;box-shadow:none;border-radius:var(--rail-corner-radius)}
+ #portfolio-navigation .notch-shell::before{inset-inline-start:auto;left:0;right:auto;width:var(--rail-width);border-radius:var(--rail-corner-radius);background:linear-gradient(145deg,#fff,#dce5f0);border:1px solid #e3eaf3;box-shadow:0 16px 32px rgba(33,55,90,.16);transition:width .3s cubic-bezier(.32,.72,0,1)}
+ #portfolio-navigation .notch-main{width:calc(var(--rail-width) - 2 * var(--rail-shell-inset));min-width:0;height:auto;min-height:0;max-height:calc(100dvh - 86px);padding:var(--rail-main-inset);gap:10px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#b8c9dc transparent;pointer-events:auto;border-radius:calc(var(--rail-corner-radius) - var(--rail-shell-inset));transition:none}
+ #portfolio-navigation .notch-main::before{inset-inline-start:auto;left:0;right:auto;width:100%;border-radius:inherit;background:linear-gradient(145deg,#f8fbff,#eef4fb);box-shadow:inset 0 1px 0 #fff;transition:none}
+ #portfolio-navigation .notch-primary{width:100%;min-width:0;height:auto;padding:0;margin:0;gap:4px;pointer-events:auto}
+ #portfolio-navigation .notch-trigger{width:100%;min-width:0;max-width:100%;height:auto;min-height:100px;flex:0 0 auto;grid-template-columns:52px minmax(0,1fr) 16px;grid-template-rows:auto;align-items:center;gap:16px;padding:12px;border:0;border-radius:max(0px,calc(var(--rail-corner-radius) - var(--rail-shell-inset) - var(--rail-main-inset)));background:transparent;color:#52627a;box-shadow:none;transform:none;transition:background-color .2s ease,color .2s ease}
+ #portfolio-navigation .notch-trigger:hover,#portfolio-navigation .notch-trigger.is-active{background:linear-gradient(110deg,#e8e9eb,#f1f1f2);border:0;color:#1e6bd4;box-shadow:none;transform:none}
+ #portfolio-navigation .island-group-icon,#portfolio-navigation .rail-expanded-icon{display:block;grid-column:1;grid-row:1;align-self:center;width:52px;height:52px;padding:14px;margin:0;background:transparent;border:0;border-radius:50%;box-shadow:none;color:#60718a}
+ #portfolio-navigation .notch-trigger.is-active :is(.island-group-icon,.rail-expanded-icon){background:transparent;color:#1e6bd4}
+ #portfolio-navigation #notch-collaborate>.island-group-icon{display:none}
+ #portfolio-navigation .rail-route-chevron{display:block;grid-column:3;grid-row:1;width:16px;height:20px;color:#71849c}
+ html[dir="rtl"] #portfolio-navigation .rail-route-chevron{transform:scaleX(-1)}
+ #portfolio-navigation .notch-trigger>.rail-phone-label{display:none}
+ #portfolio-navigation .notch-trigger>.rail-route-copy{position:static;grid-column:2;grid-row:1;display:flex;flex-direction:column;gap:4px;width:auto;min-width:0;opacity:1;pointer-events:none;transform:none;white-space:normal;text-align:start;visibility:visible;transition:opacity .18s ease}
+ #portfolio-navigation .rail-route-copy strong{font-size:18px;line-height:1.2;font-weight:800;color:#0b1425}
+ #portfolio-navigation .rail-route-caption{font-size:15px;line-height:1.3;font-weight:700;color:#52627a}
+ #portfolio-navigation .notch-trigger.is-active .rail-route-caption{color:#1e65c8}
+ #portfolio-navigation .rail-route-summary{font-size:13px;line-height:1.35;font-weight:400;color:#52627a;overflow-wrap:break-word}
+ #portfolio-navigation .glass-desktop-settings{display:block;align-self:stretch;min-width:0;padding-top:12px;border-top:1px solid #dce5ef}
+ #portfolio-navigation #toggle-wrapper{position:static;inset:auto;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:0;direction:ltr}
+ #portfolio-navigation #toggle-wrapper #elastic-lang-toggle{flex-direction:row;flex:none;width:auto;padding:4px;gap:4px}
+ #portfolio-navigation #toggle-wrapper #theme-toggle-container{order:0;flex:none;width:54px;height:54px}
+ #portfolio-navigation #toggle-wrapper #theme-toggle{color:#1e6bd4}
+ #portfolio-navigation[data-compact="true"] .notch-main{width:72px;padding:var(--rail-main-inset);gap:12px}
+ #portfolio-navigation[data-compact="true"] .notch-primary{gap:12px}
+ #portfolio-navigation[data-compact="true"] .notch-trigger{display:flex;align-self:center;align-items:center;justify-content:center;width:44px;height:44px;min-height:44px;flex:0 0 44px;margin:0;padding:10px;gap:0;background:transparent;box-shadow:none}
+ #portfolio-navigation[data-compact="true"] .notch-trigger:hover,#portfolio-navigation[data-compact="true"] .notch-trigger.is-active{background:transparent;box-shadow:none}
+ #portfolio-navigation[data-compact="true"] .island-group-icon{display:block!important;width:24px;height:24px;padding:0;background:transparent!important;border-radius:0;color:#60718a}
+ #portfolio-navigation[data-compact="true"] .notch-trigger.is-active .island-group-icon{color:#1e6bd4}
+ #portfolio-navigation[data-compact="true"] .notch-trigger>:is(.rail-route-copy,.rail-expanded-icon,.rail-route-chevron){display:none}
+ #portfolio-navigation[data-compact="true"] .glass-desktop-settings{display:block;padding-top:12px}
+ #portfolio-navigation[data-compact="true"] #toggle-wrapper{flex-direction:column;gap:6px;width:54px}
+ #portfolio-navigation[data-compact="true"] #toggle-wrapper #elastic-lang-toggle{flex-direction:column;width:54px;padding:4px;gap:4px}
+ #portfolio-navigation :focus-visible{outline-color:#174cc2!important}
+ #portfolio-navigation .notch-main:focus-within{scroll-margin-block:8px}
+}
+@media(max-width:767px){#portfolio-navigation .rail-route-copy,#portfolio-navigation .glass-desktop-settings,#portfolio-navigation .rail-expanded-icon,#portfolio-navigation .rail-route-chevron{display:none!important}}
+@media(prefers-reduced-motion:reduce){#portfolio-navigation .notch-main,#portfolio-navigation .notch-trigger,#portfolio-navigation .notch-trigger>.rail-route-copy,#portfolio-navigation .notch-shell::before,#portfolio-navigation .notch-main::before{transition:none!important}}
+
+/* NAV125: sampled hover and current-tab wash, with readable foreground. */
+@media(min-width:768px){
+ #portfolio-navigation .notch-trigger:hover,#portfolio-navigation .notch-trigger.is-active,#portfolio-navigation[data-compact="true"] .notch-trigger:hover,#portfolio-navigation[data-compact="true"] .notch-trigger.is-active{background:#003ea0;color:#fff}
+ #portfolio-navigation[data-compact] .notch-trigger:is(:hover,.is-active) :is(.rail-route-copy strong,.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){color:#fff}
+}
+
+/* THEME158: Day keeps the approved white profile; Night uses its original dark surface/ink/glow. */
+html:not(.dark) #about>.about-editorial-card{background:#fff!important;color:#14151a;--glow-text:#003ea0;--glow-text-dim-end:#566380;--glow-hard:rgba(0,79,230,.63);--glow-soft:rgba(50,213,255,.336)}
+html:not(.dark) #about>.about-editorial-card h2{color:#14151a!important}
+html:not(.dark) #about :is([data-i18n="about_tag"],[data-i18n="about_heading_accent"]){color:#003ea0!important}
+html:not(.dark) #about #philosophy-glowing-container{color:#566380!important}
+
+/* NAV137: theme-aware paint only; the sampled blue active/hover wash stays intact. */
+html.dark #portfolio-navigation,html.dark #portfolio-navigation #toggle-wrapper,html.dark #portfolio-navigation #toggle-wrapper #elastic-lang-toggle,html.dark #portfolio-navigation #toggle-wrapper #theme-toggle-container{--seg-bg:#0a1124;--seg-pill:#101a30;--seg-border:rgba(113,144,196,.25);--seg-pill-border:rgba(113,144,196,.18);--seg-pill-shadow:inset 1px 1px 3px rgba(0,0,0,.4),inset -1px -1px 2px rgba(65,92,141,.12);--utility-tray-shadow:inset 1px 2px 4px rgba(0,0,0,.5),inset -1px -1px 3px rgba(65,92,141,.14);--utility-ink:#f1f6ff;--utility-muted:#9aabc5;--utility-active:#67d9f4;--notch-ink:#f1f6ff;--notch-muted:#9aabc5;--notch-accent:#67d9f4;color:var(--utility-ink)}
+html.dark #portfolio-navigation .notch-trigger{color:#9aabc5}
+html.dark #portfolio-navigation .notch-trigger :is(.rail-route-copy strong,.rail-phone-label){color:#f1f6ff}
+html.dark #portfolio-navigation .notch-trigger :is(.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){color:#9aabc5}
+html.dark #portfolio-navigation :is(.glass-desktop-settings,.glass-mobile-settings,.glass-mobile-groups){border-color:var(--seg-border)}
+html.dark #portfolio-navigation :focus-visible{outline-color:#67d9f4!important}
+@media(min-width:768px){
+ html.dark #portfolio-navigation .notch-shell::before{background:linear-gradient(145deg,#19253b,#0a1124);border-color:#293b57;box-shadow:0 16px 32px rgba(0,0,0,.3)}
+ html.dark #portfolio-navigation .notch-main::before{background:linear-gradient(145deg,#101a30,#0a1124);box-shadow:inset 0 1px 0 rgba(141,166,207,.1)}
+ html.dark #portfolio-navigation .notch-main{scrollbar-color:#526581 transparent}
+ html.dark #portfolio-navigation #toggle-wrapper #theme-toggle{color:var(--utility-active)}
+ html.dark #portfolio-navigation .notch-trigger:is(:hover,.is-active),html.dark #portfolio-navigation[data-compact="true"] .notch-trigger:is(:hover,.is-active){background:#003ea0;color:#fff}
+ html.dark #portfolio-navigation[data-compact] .notch-trigger:is(:hover,.is-active) :is(.rail-route-copy strong,.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){color:#fff}
+}
+@media(max-width:767px){
+ html.dark #portfolio-navigation .notch-shell{background:linear-gradient(180deg,#354967,#101a30 50%,#293b57);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+ html.dark #portfolio-navigation .notch-main{background:linear-gradient(160deg,#18253b,#0a1124);box-shadow:inset 0 1px 1.5px rgba(141,166,207,.1)}
+ html.dark #portfolio-navigation :is(.notch-expansion,.notch-expansion-inner){background:#0a1124;border-color:#293b57}
+ html.dark #portfolio-navigation .glass-menu-toggle{background:#101a30;color:#f1f6ff;box-shadow:inset 0 1px 0 rgba(141,166,207,.12),0 4px 12px rgba(0,0,0,.18)}
+ html.dark #portfolio-navigation .glass-menu-content{scrollbar-color:#526581 transparent}
+ html.dark #portfolio-navigation .notch-trigger:is(:hover,.is-active),html.dark #portfolio-navigation .notch-trigger:is(:hover,.is-active) :is(.rail-phone-label,.island-group-icon){color:#67d9f4}
+}
+
+/* NAV152: inactive hover retains exactly its resting paint; upper-region unfolding is independent. */
+#portfolio-navigation{--nav-idle-ink:#52627a;--nav-idle-title:#0b1425;--nav-idle-icon:#60718a;--nav-idle-chevron:#71849c}
+@media(max-width:767px){#portfolio-navigation{--nav-idle-ink:#49494e;--nav-idle-title:#49494e;--nav-idle-icon:#49494e;--nav-idle-chevron:#49494e}}
+html.dark #portfolio-navigation{--nav-idle-ink:#9aabc5;--nav-idle-title:#f1f6ff;--nav-idle-icon:#9aabc5;--nav-idle-chevron:#9aabc5}
+#portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover,html.dark #portfolio-navigation .notch-trigger:not(.is-active):hover,#portfolio-navigation .notch-trigger:not(.is-active):hover{background:transparent;box-shadow:none;color:var(--nav-idle-ink);transition:none}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-copy strong,.rail-phone-label),#portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-copy strong,.rail-phone-label),html.dark #portfolio-navigation .notch-trigger:not(.is-active):hover :is(.rail-route-copy strong,.rail-phone-label),#portfolio-navigation .notch-trigger:not(.is-active):hover :is(.rail-route-copy strong,.rail-phone-label){color:var(--nav-idle-title)}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-caption,.rail-route-summary),#portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-caption,.rail-route-summary),html.dark #portfolio-navigation .notch-trigger:not(.is-active):hover :is(.rail-route-caption,.rail-route-summary),#portfolio-navigation .notch-trigger:not(.is-active):hover :is(.rail-route-caption,.rail-route-summary){color:var(--nav-idle-ink)}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.island-group-icon,.rail-expanded-icon),#portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.island-group-icon,.rail-expanded-icon),html.dark #portfolio-navigation .notch-trigger:not(.is-active):hover :is(.island-group-icon,.rail-expanded-icon),#portfolio-navigation .notch-trigger:not(.is-active):hover :is(.island-group-icon,.rail-expanded-icon){color:var(--nav-idle-icon)}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover .rail-route-chevron,#portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover .rail-route-chevron,html.dark #portfolio-navigation .notch-trigger:not(.is-active):hover .rail-route-chevron,#portfolio-navigation .notch-trigger:not(.is-active):hover .rail-route-chevron{color:var(--nav-idle-chevron)}
+
+/* NAV145: desktop rail follows the reading direction; phone bar is unchanged. */
+@media(min-width:768px){html[dir="rtl"] #portfolio-navigation{left:auto;right:max(12px,env(safe-area-inset-right))}}
+
+/* NAV147: measured noninteractive chrome morph; layout never interpolates through narrow text widths. */
+@media(min-width:768px){#portfolio-navigation .notch-shell::before{transition:none}#portfolio-navigation[data-rail-morph] .notch-main{overflow:visible}html[dir="rtl"] #portfolio-navigation .notch-shell::before,html[dir="rtl"] #portfolio-navigation .notch-main::before{left:auto;right:0}}
+/* NAV148: bare theme glyph, retaining its original transparent 44px action/focus geometry. */
+#portfolio-navigation #theme-toggle-container,#portfolio-navigation #theme-toggle{background:transparent!important;border:0!important;box-shadow:none!important}
+/* NAV159: the finite rail owner is the sole opening/closing timeline. */
+@media(min-width:768px){#portfolio-navigation[data-rail-morph] :is(.rail-route-copy,.rail-route-chevron,#elastic-lang-toggle){transition:none}}
+
+/* NAV169: quiet desktop hover is distinct from the unchanged brand-selected state. */
+@media(min-width:768px) and (hover:hover) and (pointer:fine){
+ #portfolio-navigation{--nav-hover-wash:#e8edf4;--nav-hover-title:#0b1425;--nav-hover-copy:#3b4d65}
+ html.dark #portfolio-navigation{--nav-hover-wash:var(--night-raised);--nav-hover-title:var(--night-fg);--nav-hover-copy:#d0dceb}
+ html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active),html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active){transition:background-color 140ms ease-out,color 140ms ease-out}
+ html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active) :is(.rail-route-copy strong,.rail-phone-label,.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron),html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active) :is(.rail-route-copy strong,.rail-phone-label,.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){transition:color 140ms ease-out}
+ html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover,html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover{background:var(--nav-hover-wash);color:var(--nav-hover-copy);box-shadow:none;transition:background-color 140ms ease-out,color 140ms ease-out}
+ html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-copy strong,.rail-phone-label),html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-copy strong,.rail-phone-label){color:var(--nav-hover-title)}
+ html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron),html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hover :is(.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){color:var(--nav-hover-copy)}
+}
+@media(min-width:768px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:reduce){html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active),html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active),html #portfolio-navigation[data-compact] .notch-trigger:not(.is-active) :is(.rail-route-copy strong,.rail-phone-label,.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron),html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active) :is(.rail-route-copy strong,.rail-phone-label,.rail-route-caption,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){transition:none!important}}

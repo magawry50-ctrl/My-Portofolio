@@ -1,88 +1,44 @@
-# 🚀 دليل رفع وتشغيل البورتفوليو على Cloudflare مع ربط الدومين الخاص
+# Future Cloudflare release — not deployed
 
-مرحبًا أستاذ محمد،
-تم تجهيز ملفات البورتفوليو بالكامل داخل هذا المجلد (`Portfolio`) بأعلى معايير الجودة والأداء والسيو (SEO)، وهي جاهزة 100% للرفع المباشر على **Cloudflare Pages**.
+The current candidate is **208 runtime files / 97,434,877 bytes**, manifest SHA256 `8e1456a91f969cad5f699b3ffbda41cecec8d82626e6463c63b00b195cdb2452`. The future domain and Cloudflare resources/secrets are not configured. Existing metadata is preserved pending the actual domain; it is not certified as the final address.
 
----
+The repository is public. Its legacy GitHub Pages source is `main:/`; merging there may publish the repository root. This review branch/draft PR is not a Cloudflare deployment, and GitHub Pages cannot execute the private Pages Worker. No deployment workflow is included.
 
-## 📁 محتويات مجلد المشروع
+## Build and inspect locally
 
-| الملف | الوظيفة |
-|---|---|
-| `index.html` | ملف البورتفوليو الأساسي بعد إصلاح الأخطاء البرمجية وإضافة وسوم السيو والمشاركة ومنع وميض الوضع الليلي. |
-| `404.html` | صفحة خطأ احترافية متوافقة مع هوية الموقع والألوان والوضع الليلي في حال فتح رابط غير موجود. |
-| `_headers` | إعدادات ترويسات الأمان والحماية (Security Headers) وسرعة الكاش (Caching) الخاصة بـ Cloudflare. |
-| `_redirects` | ملف إدارة التوجيهات والروابط المختصرة لكلاود فلير. |
-| `favicon.svg` | أيقونة الموقع الفيكتور الحديثة متجاوبة مع كافة الشاشات بألوان علامتك التجارية. |
-| `favicon.ico` | أيقونة كلاسيكية متوافقة مع كافة المتصفحات ومحركات البحث. |
-| `favicon.png` & `apple-touch-icon.png` | أيقونات عالية الدقة لشاشات الهواتف ومتصفحات iOS وSafari. |
-| `og-image.png` | بطاقة المعاينة الجذابة والاحترافية عند مشاركة رابط الموقع على LinkedIn و WhatsApp و X و Facebook. |
-| `robots.txt` | توجيهات عناكب البحث وأرشفة Google. |
-| `sitemap.xml` | خريطة الموقع لمساعدة محركات البحث في أرشفة الموقع سريعًا. |
-| `site.webmanifest` | ملف تعريف الموقع كتطبيق ويب (PWA) قابل للإضافة للشاشة الرئيسية بالهواتف. |
+Use Node 24+ (verified 24.18.0):
 
----
+```sh
+npm ci --ignore-scripts --no-audit --no-fund
+npm run check
+npm run check:private
+npm run check:production
+npm run check:release
+node tools/serve-protected-preview.cjs 4179 dist
+```
 
-## 🛠️ التحسينات التقنية التي تمت على الكود:
-1. **إصلاح الأخطاء البرمجية في CSS و HTML**:
-   - إزالة القوس المغلق الزائد في كود التنسيق الذي كان يعيق قراءة بعض القواعد.
-   - إغلاق وسم `div` غير مغلق في قسم الواجهة (`#home`) مما يضمن توافق DOM بنسبة 100%.
-2. **سيو احترافي ومشاركة اجتماعية متكاملة (Open Graph & Twitter Cards)**:
-   - إضافة وسوم المعاينة الصورية والوصفية باللغتين العربية والإنجليزية.
-3. **منع وميض الوضع المظلم (Anti-FOUC)**:
-   - حقن كود خفيف في الـ `<head>` يفحص تفضيل المستخدم قبل رسم الصفحة لمنع حدوث وميض أبيض عند فتح الوضع الليلي.
-4. **تحديث ذكي للغة (Language & Meta Sync)**:
-   - يدعم الموقع التحديد الذكي للغة بناءً على تفضيل الزائر أو الرابط (`?lang=ar` أو `?lang=en`).
-   - يتحدث وصف الموقع في الـ Meta تلقائيًا عند التبديل بين اللغتين لضمان دقة محركات البحث.
-5. **أمان الروابط الخارجية**:
-   - إضافة `rel="noopener noreferrer"` على جميع الروابط الخارجية لحماية الخصوصية والأمان.
+The portable fingerprint contract is a committed, checksummed build input; no experimental archive or private upload folder is required. `dist` is builder-owned and ignored by Git. Unknown/modified output files cause a refusal, not a broad cleanup. The complete tree must equal its manifest; every asset is below 25MiB and external rendering dependencies are absent. Local HTTP checks do not emulate Cloudflare compression, TLS, headers or redirects.
 
----
+## Choose hosting only after authorization
 
-## 🌐 خطوات الرفع على Cloudflare Pages (خلال دقيقتين)
+For a later Git-integrated Pages project, explicitly select the repository root, a Node 24-compatible build environment, the reviewed check/build command and **dist** as output. Do not point hosting at the source root. Git integration can publish pushes after it is configured; control production/preview branches deliberately. See [build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/).
 
-### 🔹 الطريقة الأولى: الرفع المباشر (Direct Upload - السحب والإفلات) ⚡
+Alternatively, build locally and use Direct Upload. The future command is shown for review only and has not been run:
 
-1. سجّل الدخول إلى حسابك على [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. من القائمة الجانبية، اختر **Workers & Pages**.
-3. اضغط على زر **Create application** (أو **Create**).
-4. اختر تبويب **Pages**، ثم اضغط على **Upload assets**.
-5. اكتب اسم المشروع (مثلاً: `mohamed-almaghawry` أو `portfolio`).
-6. قم بسحب وإسقاط محتويات مجلد `Portfolio` بالكامل، أو اضغط المجلد في ملف `.zip` وارفعه.
-7. اضغط على **Deploy site**.
-8. مبروك! سيصبح موقعك متاحاً فوراً على رابط مجاني مثل: `https://mohamed-almaghawry.pages.dev`.
+```sh
+npx wrangler pages deploy dist --project-name <pages-project> --branch <review-branch>
+```
 
----
+Wrangler and dashboard drag-and-drop both support an output `_worker.js`; dashboard upload does not compile a `functions` directory. Explicitly supply the branch rather than inheriting Git context. The current documented per-file limit is 25MiB. [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/), [limits](https://developers.cloudflare.com/pages/platform/limits/).
 
-### 🔹 الطريقة الثانية: الربط عبر مستودع GitHub (مستحسن للتحديثات التلقائية) 🔄
+## Server boundary
 
-1. قم بإنشاء مستودع جديد على حسابك في GitHub وقم برفع ملفات المجلد إليه.
-2. في لوحة Cloudflare Pages، اختر **Connect to Git**.
-3. اختر مستودعك، ثم اضبط الإعدادات التالية:
-   - **Framework preset**: `None`
-   - **Build command**: اتركه فارغاً.
-   - **Build output directory**: اتركه `/` (أو فارغ).
-4. اضغط **Save and Deploy**. الآن كل تعديل ترفعه على GitHub سيتم نشره على موقعك تلقائياً خلال ثوانٍ.
+The builder emits the module Worker and `_routes.json` for `/api/previews/*`. Advanced mode requires public asset fallback through `env.ASSETS.fetch`, which the Worker implements. [Advanced mode](https://developers.cloudflare.com/pages/functions/advanced-mode/).
 
----
+The three public restricted identities are empty. Unset configuration intentionally returns 503; there is no client-valid credential or authored case payload. Before enabling later private access, provision private R2, D1/schema and fresh expiring project codes/session secret as described in [PRIVATE_PREVIEW_SETUP.md](server/PRIVATE_PREVIEW_SETUP.md). Configure both production and preview bindings deliberately; do not put secret values in Git, commands, logs or evidence. Uploading a Worker does not configure its resources. [Bindings](https://developers.cloudflare.com/pages/functions/bindings/).
 
-## 🔗 ربط الدومين الخاص بك (Custom Domain)
+## Hosted verification and rollback
 
-1. ادخل إلى مشروعك داخل **Workers & Pages** على كلاود فلير.
-2. اذهب إلى تبويب **Custom domains** في الأعلى.
-3. اضغط على **Set up a custom domain**.
-4. أدخل اسم الدومين الخاص بك (مثلاً: `almaghawry.com` أو `www.almaghawry.com`).
-5. **إذا كان الدومين مضافاً بالفعل داخل حسابك في Cloudflare**:
-   - سيتعرف كلاود فلير عليه تلقائيًا ويقوم بإنشاء سجلات الـ DNS (CNAME) تلقائيًا بضغطة زر **Activate domain**.
-6. **إذا كان الدومين مسجلًا لدى شركة أخرى (مثل GoDaddy أو Namecheap)**:
-   - سيطلب منك كلاود فلير إضافة سجل `CNAME` في مزود النطاق يشير إلى اسم مشروعك على pages.dev، أو تغيير الـ Nameservers لكلاود فلير للاستفادة الكاملة من الحماية والسرعة.
-7. سيتم إصدار وتفعيل شهادة الأمان **SSL (HTTPS)** مجانًا وتلقائيًا خلال 1 إلى 5 دقائق.
+Verify the actual domain/HTTPS, public 404, MIME/media seeking, configured auth denial and success, expiry/revocation/rate limits, range authorization, security headers and real cache responses. Private responses must remain no-store. Only hashed generated assets use immutable caching; mutable paths revalidate and the local effective-pattern test rejects overlapping cache rules. Host configuration files are instructions, not proof of applied headers. [Headers](https://developers.cloudflare.com/pages/configuration/headers/).
 
----
-
-## ✏️ خطوة أخيرة اختيارية (تحديث اسم الدومين في الملفات):
-
-قبل أو بعد الرفع، يمكنك استبدال الرابط المؤقت `https://almaghawry.com/` باسم الدومين الفعلي الخاص بك في الملفات التالية:
-- `robots.txt` (سطر Sitemap)
-- `sitemap.xml` (سطر `<loc>`)
-- `index.html` (في وسوم `og:url` و `twitter:url`)
+Keep the last approved output and manifest for rollback. Never roll back to retired credentials or formerly public experimental bodies. Current-source cleanup does not claim old Git history was scrubbed. A release requires independent QA and explicit deployment authorization; neither these instructions nor a source upload authorizes deployment.

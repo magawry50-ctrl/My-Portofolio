@@ -6,20 +6,76 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-XSS-Protection: 1; mode=block
 
-# Static Assets Caching (1 year)
-/favicon.svg
-  Cache-Control: public, max-age=31536000, immutable
-
-/favicon.ico
-  Cache-Control: public, max-age=31536000, immutable
-
-/apple-touch-icon.png
-  Cache-Control: public, max-age=31536000, immutable
+# Mutable same-name assets revalidate; replacing a file must not retain a stale year-long copy.
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.svg
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.ico
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.webp
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.jpg
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.jpeg
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.woff2
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.ttf
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.mp4
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.webm
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Mutable custom CSS is enumerated so it never overlaps hashed Tailwind CSS.
+/assets/capabilities.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/liquid-glass.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/interests.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/business-card.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/project-preview.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/entry-heroes.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/night-theme.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/mobile-reading.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/mobile-navigation.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/fonts/vendor/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+# These generated filenames include their content hash.
+/assets/tailwind-*.css
   Cache-Control: public, max-age=31536000, immutable
 
 /site.webmanifest

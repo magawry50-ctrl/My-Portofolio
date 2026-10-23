@@ -1,0 +1,47 @@
+/* NAV165: one four-item phone bar; desktop NAV159 remains the sole desktop geometry. */
+.phone-nav-indicator,.phone-settings-icon,.phone-settings-label{display:none}
+@media(max-width:767px){
+ #portfolio-navigation{position:fixed;top:auto;bottom:max(12px,env(safe-area-inset-bottom));left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));width:auto;max-width:440px;margin-inline:auto;transform:none;translate:0 0;opacity:1;pointer-events:auto}
+ #portfolio-navigation[data-phone-nav-hidden="true"]{translate:0 calc(100% + 24px);opacity:0;pointer-events:none}
+ #portfolio-navigation *,#portfolio-navigation *::before{box-sizing:border-box}
+ #portfolio-navigation .notch-shell{padding:6px;border-radius:999px;background:#eef3f9;box-shadow:0 8px 24px rgba(15,23,42,.12)}
+ #portfolio-navigation .notch-main{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:flex-start;gap:4px;min-height:52px;height:52px;padding:0;border-radius:999px;background:transparent;box-shadow:none;overflow:visible}
+ #portfolio-navigation .notch-main::before{content:none}
+ #portfolio-navigation .notch-main>.notch-primary{display:contents}
+ #portfolio-navigation .notch-primary::before{display:none}
+ #portfolio-navigation .notch-trigger,#portfolio-navigation .glass-menu-toggle{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:6px;flex:0 0 44px;width:44px;min-width:44px;height:52px;min-height:52px;margin:0;padding:0;border:0;border-radius:999px;background:transparent!important;box-shadow:none!important;color:#52627a;transform:none;white-space:nowrap}
+ #portfolio-navigation .notch-trigger.phone-selected,#portfolio-navigation .glass-menu-toggle.phone-selected{flex:1 1 auto;width:auto;padding-inline:8px;color:#fff}
+ #portfolio-navigation .notch-trigger:not(.phone-selected){color:#52627a!important}
+ #portfolio-navigation .notch-trigger .island-group-icon{display:block!important;width:20px;height:20px;flex:none;padding:0;margin:0;background:transparent;border:0;border-radius:0;color:inherit!important}
+ #portfolio-navigation .notch-trigger>.rail-phone-label,#portfolio-navigation .phone-settings-label{position:absolute;display:block;visibility:hidden;opacity:0;pointer-events:none;width:max-content;max-width:none;font-size:12px;font-weight:700;line-height:1.2;color:inherit!important;transition:opacity 180ms ease,translate 180ms ease;translate:0 4px}
+ #portfolio-navigation .phone-selected>.rail-phone-label,#portfolio-navigation .phone-selected>.phone-settings-label{position:static;visibility:visible;opacity:1;translate:0 0}
+ #portfolio-navigation .phone-settings-icon{display:block;font-size:20px;line-height:20px;flex:none;color:inherit}
+ #portfolio-navigation .glass-menu-bars,#portfolio-navigation [data-glass-menu-label],#portfolio-navigation .glass-mobile-groups{display:none}
+ #portfolio-navigation .phone-nav-indicator{position:absolute;display:block;z-index:0;pointer-events:none;background:#003ea0;border-radius:999px;overflow:hidden}
+ #portfolio-navigation[data-phone-nav-motion="selecting"] .phone-nav-indicator{z-index:2}
+ #portfolio-navigation [data-phone-paint]{max-width:none;pointer-events:none}
+ #portfolio-navigation .notch-expansion{position:absolute;inset-inline:0;bottom:calc(100% + 8px);width:100%;margin:0;border-radius:20px;background:#eef3f9;border:1px solid #dce5ef;box-shadow:0 8px 24px rgba(15,23,42,.12)}
+ #portfolio-navigation .notch-expansion-inner{background:transparent;border-radius:19px}
+ #portfolio-navigation .glass-menu-content{max-height:calc(100dvh - 112px - env(safe-area-inset-bottom));padding:16px;overflow-y:auto}
+ #portfolio-navigation .glass-mobile-settings{display:block;margin:0;border:0;padding:0}
+ #portfolio-navigation #toggle-wrapper{padding:0;justify-content:space-between}
+ #mm-profile-wrapper{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+ #home{padding-top:24px}
+ :root,html.dark{--notch-offset:24px;--education-anchor-offset:24px}
+ html.dark #portfolio-navigation .notch-shell{background:var(--night-card,#141d2b);border-color:var(--night-line,#2d3c50)}
+ html.dark #portfolio-navigation .notch-main{background:transparent}
+ html.dark #portfolio-navigation :is(.notch-expansion,.notch-expansion-inner){background:var(--night-card,#141d2b);border-color:var(--night-line,#2d3c50)}
+ html.dark #portfolio-navigation .phone-nav-indicator{background:#003ea0;box-shadow:inset 0 0 0 1px rgba(130,184,255,.5)}
+ html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.phone-selected) :is(.rail-phone-label,.island-group-icon){color:var(--night-secondary,#b9c7d8)!important}
+ html.dark #portfolio-navigation .notch-trigger:not(.phone-selected){color:var(--night-secondary,#b9c7d8)!important}
+ html.dark #portfolio-navigation[data-compact] .notch-trigger.phone-selected :is(.rail-phone-label,.island-group-icon){color:#fff!important}
+ html.dark #portfolio-navigation .glass-menu-toggle{color:var(--night-secondary,#b9c7d8)}
+ html.dark #portfolio-navigation .glass-menu-toggle.phone-selected{color:#fff}
+ #portfolio-navigation :focus-visible{outline:2px solid #003ea0!important;outline-offset:2px}
+ html.dark #portfolio-navigation :focus-visible{outline-color:var(--night-focus,#39c8ff)!important}
+}
+@media(prefers-reduced-motion:reduce){#portfolio-navigation :is(.rail-phone-label,.phone-settings-label){transition:none!important}}
+@media(max-width:359px){#portfolio-navigation .notch-trigger.phone-selected,#portfolio-navigation .glass-menu-toggle.phone-selected{padding-inline:6px;gap:4px}}
+
+/* LANG174: phone Settings reuses the original two radios in a horizontal tray. */
+@media(max-width:767px){#portfolio-navigation #toggle-wrapper #elastic-lang-toggle{flex-direction:row;flex:0 0 104px;width:104px;height:54px;padding:4px;gap:4px;justify-content:center}#portfolio-navigation #toggle-wrapper #elastic-lang-toggle button{flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0}}

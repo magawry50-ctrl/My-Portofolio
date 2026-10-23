@@ -1,0 +1,131 @@
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+  "files": [
+    {
+      "path": "assets/fonts/vendor/Almarai-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/almarai/OFL.txt",
+      "bytes": 4391,
+      "sha256": "142e053c374dd465a92bd7378116b517e344dbc662361308130fc2566db30c2a"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19-006fba6fe32a.woff2",
+      "source": "https://fonts.gstatic.com/s/almarai/v19/tssoApxBaigK_hnnS-agtnqWo572.woff2",
+      "bytes": 32912,
+      "sha256": "006fba6fe32a900c60f154cc9e2e142bf075078dc97a94715dd9f1f5d4e4421e"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19-530903c9168c.woff2",
+      "source": "https://fonts.gstatic.com/s/almarai/v19/tsstApxBaigK_hnnQ1iFo0C3.woff2",
+      "bytes": 31672,
+      "sha256": "530903c9168cfc13d3ef363b71c042d5c887476c4454a91223309465ae89c87f"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19-53706a39de7c.woff2",
+      "source": "https://fonts.gstatic.com/s/almarai/v19/tssoApxBaigK_hnnS-agtn-Wow.woff2",
+      "bytes": 17392,
+      "sha256": "53706a39de7c9d9b74032b0af6549cf9809e3f98b343ea5b054a25e10b1c2e7a"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19-6f289856f002.woff2",
+      "source": "https://fonts.gstatic.com/s/almarai/v19/tsstApxBaigK_hnnQ12Fow.woff2",
+      "bytes": 17468,
+      "sha256": "6f289856f002502ea9cc6aa85c2fd509f8aa6c3a17b5adf08f2ccc148cfeea4f"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19-7acac6ae3ea4.woff2",
+      "source": "https://fonts.gstatic.com/s/almarai/v19/tssoApxBaigK_hnnS_qjtnqWo572.woff2",
+      "bytes": 33328,
+      "sha256": "7acac6ae3ea4d4eeb7c9b636856c46274f5904e02caff83a545d75ebb9754faf"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19-7f9acc49f37d.woff2",
+      "source": "https://fonts.gstatic.com/s/almarai/v19/tssoApxBaigK_hnnS_qjtn-Wow.woff2",
+      "bytes": 19280,
+      "sha256": "7f9acc49f37d11319a44ecf80edb205f11cffddcb3013a0bbbc6af46dcf12b9c"
+    },
+    {
+      "path": "assets/fonts/vendor/almarai-v19.css",
+      "source": "https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap",
+      "bytes": 3600,
+      "sha256": "a84c66debd1ffa38f0249dabb19d444e0e9650574219aa0d7a60dd9705aeaa6b"
+    },
+    {
+      "path": "assets/fonts/vendor/Font-Awesome-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.5.2/LICENSE.txt",
+      "bytes": 7427,
+      "sha256": "9b914eae88817d63b576eab5aafde7068c7a1abae125d7cdfb034f1da43a9afc"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-6.5.2.css",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css",
+      "bytes": 103049,
+      "sha256": "ded45f883c11c105b0499b827c78a60ebabc4e49620e311fe049cbeba59aad96"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-brands-400.ttf",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.ttf",
+      "bytes": 209128,
+      "sha256": "e28096fa75a96ac77020155ea3a6dd7312983e84115366d4cf49a0c312ec6d51"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-brands-400.woff2",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2",
+      "bytes": 117852,
+      "sha256": "232c6f6a7678304f9efaa26f30b1610debc2ba9f4cd636b5e6751c8d73761b92"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-regular-400.ttf",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.ttf",
+      "bytes": 67860,
+      "sha256": "9174757efc83e072436e873c22be1663d3c103b0a16d7fb73569af4918d4d351"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-regular-400.woff2",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-regular-400.woff2",
+      "bytes": 25392,
+      "sha256": "c27da6f833431da5aa295c44540bfac0fd8270ba6a3c4346427006d8a7b34b76"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-solid-900.ttf",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf",
+      "bytes": 420332,
+      "sha256": "b4990d0d0c5f5d38d62e936eea120674e584c7eea8dcee38a975c0cf9a37539b"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-solid-900.woff2",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2",
+      "bytes": 156400,
+      "sha256": "ae17c16afbea216707b2203ea1cf9bdb45b9bfe47d0f4ae3258ddbc6294dd02f"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-v4compatibility.ttf",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-v4compatibility.ttf",
+      "bytes": 10832,
+      "sha256": "ff8f525fb050c5d24519ccc8f5723d85b2e51edd3f9bc6548af55aebadd4f269"
+    },
+    {
+      "path": "assets/fonts/vendor/fontawesome-fa-v4compatibility.woff2",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-v4compatibility.woff2",
+      "bytes": 4792,
+      "sha256": "c7a869faca299d15be10a01f19d0765a7c4d46d8922d9b9317235c1e4a6f0982"
+    },
+    {
+      "path": "assets/fonts/vendor/Material-Symbols-APACHE.txt",
+      "source": "https://raw.githubusercontent.com/google/material-design-icons/master/LICENSE",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "assets/fonts/vendor/material-symbols-v380-0cc7fa1e4cec.woff2",
+      "source": "https://fonts.gstatic.com/s/materialsymbolsoutlined/v380/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2",
+      "bytes": 323860,
+      "sha256": "0cc7fa1e4cecd746bb538e778c8df755f467691c13ac1f8603a197a73f548ec8"
+    },
+    {
+      "path": "assets/fonts/vendor/material-symbols-v380.css",
+      "source": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0",
+      "bytes": 563,
+      "sha256": "7bb2178eff628347972c8de211960adc33a636a4b9124e42460adf80d874557d"
+    }
+  ]
+}

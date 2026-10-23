@@ -1,0 +1,5 @@
+{
+  "mediaPolicy": "all-three-empty-public-cases-unchanged",
+  "privateBoundaryVerified": true,
+  "releaseStatus": "Local candidate only: empty shells verified; Cloudflare bindings, fresh secrets, domain and deployment remain unconfigured."
+}
