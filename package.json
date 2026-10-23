@@ -8,6 +8,9 @@
   "scripts": {
     "build:styles": "node tools/build-styles.cjs",
     "build": "node tools/build-production.cjs",
+    "build:cloudflare": "node tools/build-cloudflare.cjs",
+    "check:cloudflare": "node tools/cloudflare-mount-regression.cjs",
+    "preview:cloudflare": "node tools/serve-cloudflare-preview.cjs 4180",
     "check:production": "node tools/private-fingerprint-regression.cjs && node tools/private-release-regression.cjs",
     "check:private": "node tools/private-preview-regression.cjs && node tools/otp-lifecycle-regression.cjs",
     "check": "node tools/verify-portfolio.cjs && node tools/nav159-regression.cjs && node tools/mobile-reading-regression.cjs && node tools/mobile-navigation-regression.cjs && node tools/cap170-regression.cjs && node tools/ending-regression.cjs && node tools/dark160-check.cjs",

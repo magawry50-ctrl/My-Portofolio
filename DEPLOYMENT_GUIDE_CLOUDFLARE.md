@@ -1,44 +1,67 @@
-# Future Cloudflare release — not deployed
+# Cloudflare release — scoped portfolio mount
 
-The current candidate is **208 runtime files / 97,434,877 bytes**, manifest SHA256 `8e1456a91f969cad5f699b3ffbda41cecec8d82626e6463c63b00b195cdb2452`. The future domain and Cloudflare resources/secrets are not configured. Existing metadata is preserved pending the actual domain; it is not certified as the final address.
+The authorized target is **https://pinexen.com/mhalmaghawry/**. The bare `/mhalmaghawry`, `/founder` and `/founder/` normalize to that address with the query retained. Hash navigation and language queries continue within the mount. This file describes the prepared package; it is not evidence that deployment or hosted acceptance has completed.
 
-The repository is public. Its legacy GitHub Pages source is `main:/`; merging there may publish the repository root. This review branch/draft PR is not a Cloudflare deployment, and GitHub Pages cannot execute the private Pages Worker. No deployment workflow is included.
-
-## Build and inspect locally
+## Build and review
 
 Use Node 24+ (verified 24.18.0):
 
 ```sh
 npm ci --ignore-scripts --no-audit --no-fund
-npm run check
+npm run build:cloudflare
+npm run check:cloudflare
 npm run check:private
-npm run check:production
 npm run check:release
-node tools/serve-protected-preview.cjs 4179 dist
+npm run preview:cloudflare
 ```
 
-The portable fingerprint contract is a committed, checksummed build input; no experimental archive or private upload folder is required. `dist` is builder-owned and ignored by Git. Unknown/modified output files cause a refusal, not a broad cleanup. The complete tree must equal its manifest; every asset is below 25MiB and external rendering dependencies are absent. Local HTTP checks do not emulate Cloudflare compression, TLS, headers or redirects.
+Review `http://127.0.0.1:4180/mhalmaghawry/`. The adapter executes the actual mounted Worker and private handler. It substitutes a local 404 marker for company-origin passthrough and leaves private bindings unset. It does not prove Cloudflare TLS, compression, caching, DNS or production authorization.
 
-## Choose hosting only after authorization
+`cloudflare/public/` contains 203 allowlisted runtime assets. The generated `worker.mjs`, `mount-worker.mjs`, byte-identical private handler, `wrangler.jsonc` and bundle manifest stay **outside** the asset directory. The public binding excludes `_worker.js`, `_routes.json`, `_headers`, `_redirects`, robots, build manifests, source, tools, docs and private policy. Deploy using the generated config; do not upload the whole repository/bundle as static assets. The builder scans all output for retired confidential fingerprints and verifies the complete owned tree. Unknown/modified output files cause refusal. Every file is below 25 MiB; no external rendering dependency is introduced.
 
-For a later Git-integrated Pages project, explicitly select the repository root, a Node 24-compatible build environment, the reviewed check/build command and **dist** as output. Do not point hosting at the source root. Git integration can publish pushes after it is configured; control production/preview branches deliberately. See [build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/).
+The original `dist/` remains the separate root-mode Pages/local build. Its 208-file reviewed manifest is `b078c71ee44370259b7d16456f228d6d6749583f4d8932e75c3c2237268a177b`. The mounted bundle has its own manifest at `cloudflare/bundle-manifest.json`. Both are deterministic; neither generated folder is committed.
 
-Alternatively, build locally and use Direct Upload. The future command is shown for review only and has not been run:
+## Worker and route configuration
+
+The generated config names `pinexen-portfolio` in the selected account, with an `ASSETS` binding to `./public`, `run_worker_first: true`, `html_handling: none`, and `not_found_handling: none`. `workers.dev` and preview URLs are disabled. The four routes are:
+
+```text
+pinexen.com/mhalmaghawry*
+pinexen.com/founder*
+www.pinexen.com/mhalmaghawry*
+www.pinexen.com/founder*
+```
+
+The terminal wildcard is necessary to match query-bearing aliases. The wrapper validates the allowed host and exact mount/slash boundary; suffix lookalikes pass unchanged to the existing origin. Controlled `www` requests and HTTP requests on either production host redirect to the HTTPS apex canonical, preserving path/query; founder/bare aliases normalize to the canonical portfolio root. This HTTPS rule does not affect loopback previews or company/lookalike paths. It does not capture `/`, other company pages or root `/robots.txt`, and has no SPA fallback. Unknown HTTPS apex mounted paths receive the scoped 404. See [Routes](https://developers.cloudflare.com/workers/configuration/routing/routes/), [Assets binding](https://developers.cloudflare.com/workers/static-assets/binding/) and [HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/).
+
+Routes require the apex and `www` DNS records to be proxied. Preserve their current origin values and unrelated DNS/mail/security settings. Do not create an apex Worker Custom Domain or a catch-all route, which would change company-root ownership. The operator owns account/DNS changes and hosted verification.
+
+After independent QA and authorization, the operator can deploy from the repository using:
 
 ```sh
-npx wrangler pages deploy dist --project-name <pages-project> --branch <review-branch>
+npx wrangler deploy --config cloudflare/wrangler.jsonc
 ```
 
-Wrangler and dashboard drag-and-drop both support an output `_worker.js`; dashboard upload does not compile a `functions` directory. Explicitly supply the branch rather than inheriting Git context. The current documented per-file limit is 25MiB. [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/), [limits](https://developers.cloudflare.com/pages/platform/limits/).
+This command is provided for the authorized operator; the build and checks do not invoke it. Validate the installed Wrangler/config against current official documentation before use. [Wrangler deployment](https://developers.cloudflare.com/workers/wrangler/commands/#deploy), [configuration](https://developers.cloudflare.com/workers/wrangler/configuration/).
 
-## Server boundary
+## Metadata and company separation
 
-The builder emits the module Worker and `_routes.json` for `/api/previews/*`. Advanced mode requires public asset fallback through `env.ASSETS.fetch`, which the Worker implements. [Advanced mode](https://developers.cloudflare.com/pages/functions/advanced-mode/).
+Only mounted output rewrites canonical/OG/Twitter URLs and the approved `@mhalmaghawry` handle. Social images, manifest start/scope/id/icons, sitemap language alternatives and 404 home/font/style links are mount-scoped. Source root-mode previews retain their original routing and design.
 
-The three public restricted identities are empty. Unset configuration intentionally returns 503; there is no client-valid credential or authored case payload. Before enabling later private access, provision private R2, D1/schema and fresh expiring project codes/session secret as described in [PRIVATE_PREVIEW_SETUP.md](server/PRIVATE_PREVIEW_SETUP.md). Configure both production and preview bindings deliberately; do not put secret values in Git, commands, logs or evidence. Uploading a Worker does not configure its resources. [Bindings](https://developers.cloudflare.com/pages/functions/bindings/).
+The portfolio sitemap is `/mhalmaghawry/sitemap.xml`; the future company-root robots policy may reference it. A robots file under the mount would not replace standard root crawler policy, so no robots file is included in this mounted package. Company-root metadata and future hosting remain separate.
 
-## Hosted verification and rollback
+## Private boundary and response policy
 
-Verify the actual domain/HTTPS, public 404, MIME/media seeking, configured auth denial and success, expiry/revocation/rate limits, range authorization, security headers and real cache responses. Private responses must remain no-store. Only hashed generated assets use immutable caching; mutable paths revalidate and the local effective-pattern test rejects overlapping cache rules. Host configuration files are instructions, not proof of applied headers. [Headers](https://developers.cloudflare.com/pages/configuration/headers/).
+The same protected handler owns `/mhalmaghawry/api/previews/*` after internal prefix stripping. The client derives this base from its own loaded script URL; there is no global base tag. Only allowlisted private media fields receive an output prefix. `__Host-preview-*` cookies retain **Path=/**, Secure, HttpOnly and SameSite=Strict; a scoped cookie Path would invalidate the `__Host-` contract.
 
-Keep the last approved output and manifest for rollback. Never roll back to retired credentials or formerly public experimental bodies. Current-source cleanup does not claim old Git history was scrubbed. A release requires independent QA and explicit deployment authorization; neither these instructions nor a source upload authorizes deployment.
+All three public restricted identities are empty. Missing bindings/secrets intentionally return 503; there is no client-valid credential or authored private payload. This release provisions no R2/D1 resources, codes or secrets. Later configuration requires separate review of [PRIVATE_PREVIEW_SETUP.md](server/PRIVATE_PREVIEW_SETUP.md), including fresh expiring project codes, schema, private storage and sessions. Never put values in Git, commands, logs or evidence. Unset503 is not a claim of successful configured production authentication.
+
+The wrapper applies public security headers and revalidation caching. Only generated content-hashed Tailwind CSS is immutable; mutable URLs revalidate. Private API responses retain their handler's no-store policy. Source `_headers` is not silently treated as a Workers configuration file; actual hosted headers must be checked after deployment.
+
+## Acceptance and rollback
+
+Before declaring production complete, verify canonical/alias/query behavior, native hash and language routing, desktop/phone Day/Night layout, loader/media/font loading and media seeking, scoped 404, source/control denials, private503 with focus restoration, root-origin continuity, actual headers and actual cache responses. Local fixtures cannot establish field Core Web Vitals or Cloudflare behavior.
+
+Keep the preceding approved Worker version and both manifests. Roll back by selecting the previous approved Worker deployment or removing **only the four portfolio routes** to restore origin handling. Do not restore retired credentials, experimental bodies or a root catch-all. Preserve the company DNS origin; a proxy-mode reversal is an operator decision after checking other dependencies.
+
+The public Git repository has legacy GitHub Pages publication from `main:/`; that remains independent and cannot execute this Workers setup. No automatic deployment workflow is added. Current-source cleanup does not claim old Git history was scrubbed.

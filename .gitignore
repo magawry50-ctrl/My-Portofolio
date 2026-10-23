@@ -29,11 +29,15 @@
 !/server/private-preview-policy.json
 !/server/private-preview-schema.sql
 !/server/private-preview-worker.mjs
+!/server/portfolio-mount-worker.mjs
 !/tools/
 /tools/*
 !/tools/fixtures/
 /tools/fixtures/*
 !/tools/build-production.cjs
+!/tools/build-cloudflare.cjs
+!/tools/cloudflare-mount-regression.cjs
+!/tools/serve-cloudflare-preview.cjs
 !/tools/build-styles.cjs
 !/tools/cap170-regression.cjs
 !/tools/check-private-release.cjs
@@ -68,6 +72,7 @@
 # Never publish local secrets, dependency/build directories or archives.
 node_modules/
 dist/
+cloudflare/
 .dev.vars
 .dev.vars.*
 .env

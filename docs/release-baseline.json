@@ -573,8 +573,8 @@
     },
     {
       "path": "assets/private-previews.js",
-      "bytes": 2846,
-      "sha256": "fad9caed6c0e54ac63e0608cfe859322bd6d9c882d2c55c3ad278ea7852b48cd"
+      "bytes": 3001,
+      "sha256": "dc30af04135cab2f43b1fa5a76e871ac95d13e01911ac991b30c3215370bc691"
     },
     {
       "path": "assets/project-preview.css",

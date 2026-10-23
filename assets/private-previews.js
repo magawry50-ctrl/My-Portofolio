@@ -1,6 +1,8 @@
 /* Confidential data is fetched only from the server. No code, payload, or validation fallback lives here. */
 (() => {
  const IDS=new Set(['classified-vault','vsccd','lb-127']);
+ const source=typeof document!=='undefined'?document.currentScript?.src:null;
+ const apiBase=source?new URL('../api/previews',source).pathname:'/api/previews';
  window.createPortfolioPrivatePreviews=({fetcher=window.fetch.bind(window),now=Date.now}={})=>{
   const entries=new Map(),requests=new Set();let generation=0;
   const allowed=id=>{if(!IDS.has(id))throw Error('unknown_project');};
@@ -9,7 +11,7 @@
    allowed(id);const epoch=generation,controller=new AbortController();requests.add(controller);
    const abort=()=>controller.abort();if(signal?.aborted)controller.abort();else signal?.addEventListener('abort',abort,{once:true});
    try{
-    const response=await fetcher('/api/previews/'+encodeURIComponent(id)+'/'+action+(action==='content'?'?lang='+lang:''),{method:action==='content'?'GET':'POST',credentials:'same-origin',cache:'no-store',headers:action==='content'?{}:{'Content-Type':'application/json'},body:action==='unlock'?JSON.stringify({code,lang}):action==='logout'?'{}':undefined,signal:controller.signal});
+    const response=await fetcher(apiBase+'/'+encodeURIComponent(id)+'/'+action+(action==='content'?'?lang='+lang:''),{method:action==='content'?'GET':'POST',credentials:'same-origin',cache:'no-store',headers:action==='content'?{}:{'Content-Type':'application/json'},body:action==='unlock'?JSON.stringify({code,lang}):action==='logout'?'{}':undefined,signal:controller.signal});
     const result=await response.json();if(epoch!==generation||controller.signal.aborted)throw Error('cancelled');
     if(!response.ok){const error=Error(response.status===429?'rate_limited':response.status===401?'unauthorized':'unavailable');error.status=response.status;throw error;}
     return result;

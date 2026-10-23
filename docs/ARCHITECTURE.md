@@ -8,6 +8,10 @@
 
 The production Worker is copied from `server/private-preview-worker.mjs`; `_routes.json` routes only `/api/previews/*` through it. Public assets are otherwise served normally. No private content is embedded in the Worker.
 
+`tools/build-cloudflare.cjs` derives a separate mounted release from that verified root build. Only public runtime assets enter `cloudflare/public`; Pages controls, robots, server source and build manifests do not. The generated `worker.mjs` imports `server/portfolio-mount-worker.mjs`'s exact-boundary owner and the byte-identical private handler. Worker-first routing validates paths before the Assets binding; automatic HTML handling and SPA fallback are disabled. Outside `/mhalmaghawry/` and the exact normalization/alias paths, requests pass unchanged to the existing company origin. The narrowly registered route wildcards deliberately do not make suffix lookalikes portfolio pages.
+
+The mount owner strips the prefix for internal asset/private-handler lookup. Private media fields receive the prefix on output; `__Host-preview-*` cookies retain their required `Path=/`, Secure, HttpOnly and SameSite=Strict attributes. The client captures its own script URL at evaluation, supporting both root and mount API paths without a global base tag. Hash/history/language routing is unchanged. Canonical/social metadata, sitemap, manifest and 404 links are rewritten only in mounted output. Company-root robots policy remains outside this package's ownership.
+
 ## UI ownership
 
 - `initSideNavigation` owns view/history/hash routing, desktop rail geometry and the finite 420ms morph. The phone helper owns the four-item bottom indicator and Settings presentation, while reusing the original language/theme nodes.
