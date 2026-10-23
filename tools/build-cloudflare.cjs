@@ -48,7 +48,8 @@ async function buildCloudflare(){
   const bytes=fs.readFileSync(path.join(root,'dist',record.path));if(hash(bytes)!==record.sha256)throw Error('Root build bytes changed');
   files.set('public/'+record.path,['index.html','404.html','site.webmanifest','sitemap.xml'].includes(record.path)?transform(record.path,bytes):bytes);assets.push(record.path);
  }
- const entry="import {createMountedPortfolio} from './mount-worker.mjs';\nexport const assetPaths="+JSON.stringify(assets.sort())+";\nexport default createMountedPortfolio({assetPaths});\n";
+ const sizes=Object.fromEntries(assets.map(file=>[file,files.get('public/'+file).length]));
+ const entry="import {createMountedPortfolio} from './mount-worker.mjs';\nexport const assetPaths="+JSON.stringify(assets.sort())+";\nexport const assetSizes="+JSON.stringify(sizes)+";\nexport default createMountedPortfolio({assetPaths,assetSizes});\n";
  files.set('worker.mjs',Buffer.from(entry));
  files.set('mount-worker.mjs',fs.readFileSync(path.join(root,'server/portfolio-mount-worker.mjs')));
  files.set('private-preview-worker.mjs',fs.readFileSync(path.join(root,'server/private-preview-worker.mjs')));

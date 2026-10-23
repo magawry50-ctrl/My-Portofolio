@@ -15,6 +15,26 @@ async function main(){
  assert.equal((await edge.fetch(new Request('https://pinexen.com/mhalmaghawry/'),edgeEnv)).status,200,'Canonical HTTPS apex serves rather than redirect-looping');
  for(const host of ['pinexen.com','www.pinexen.com'])for(const pathname of ['/','/company','/founder-other','/mhalmaghawry-other'])assert.equal((await edge.fetch(new Request('http://'+host+pathname),edgeEnv)).status,202,'HTTP company/lookalike paths remain origin-owned');
  assert.equal((await edge.fetch(new Request('https://www.pinexen.com/mhalmaghawry/?lang=ar'),edgeEnv)).headers.get('Location'),'https://pinexen.com/mhalmaghawry/?lang=ar');
+ const virtualSize=20*1024*1024,mediaFile='assets/videos/virtual-detail.mp4',modified='Wed, 21 Oct 2015 07:28:00 GMT';
+ const mediaOwner=createMountedPortfolio({assetPaths:[mediaFile],assetSizes:{[mediaFile]:virtualSize}});
+ const nativeFixed=globalThis.FixedLengthStream,fixedLengths=[];
+ globalThis.FixedLengthStream=class{constructor(length){fixedLengths.push(length);let bytes=0;const stream=new TransformStream({transform(chunk,controller){bytes+=chunk.byteLength;assert(bytes<=length);controller.enqueue(chunk);},flush(){assert.equal(bytes,length);}});this.readable=stream.readable;this.writable=stream.writable;}};
+ try{
+  async function ignoringRange(range,ifRange,method='GET'){
+   let produced=0,cancelled=false,calls=0;
+   const binding={fetch:async()=>{calls++;let offset=0;return new Response(new ReadableStream({pull(controller){if(offset>=virtualSize){controller.close();return;}const bytes=Math.min(65536,virtualSize-offset),chunk=new Uint8Array(bytes);for(let n=0;n<bytes;n++)chunk[n]=(offset+n)%256;offset+=bytes;produced+=bytes;controller.enqueue(chunk);},cancel(){cancelled=true;}}),{headers:{'Content-Type':'video/mp4',ETag:'"synthetic-media"','Last-Modified':modified}});}};
+   const headers={};if(range)headers.Range=range;if(ifRange)headers['If-Range']=ifRange;
+   const response=await mediaOwner.fetch(new Request('https://pinexen.com/mhalmaghawry/'+mediaFile,{method,headers}),{ASSETS:binding});
+   return {response,stats:()=>({produced,cancelled,calls})};
+  }
+  let sample=await ignoringRange('bytes=1-9');assert.equal(sample.response.status,206);assert.equal(sample.response.headers.get('Content-Range'),'bytes 1-9/'+virtualSize);assert.equal(sample.response.headers.get('Content-Length'),'9');assert.equal(sample.response.headers.get('ETag'),'"synthetic-media"');assert.match(sample.response.headers.get('Cache-Control'),/max-age=0/);assert.deepEqual([...new Uint8Array(await sample.response.arrayBuffer())],[1,2,3,4,5,6,7,8,9]);assert(sample.stats().cancelled);assert(sample.stats().produced<=131072,'Small early range never drains/buffers the20MiB source');
+  for(const range of ['bytes=999999999-','bytes=-0','bytes=9-1']){sample=await ignoringRange(range);assert.equal(sample.response.status,416);assert.equal(sample.response.headers.get('Content-Range'),'bytes */'+virtualSize);assert.equal((await sample.response.arrayBuffer()).byteLength,0);assert(sample.stats().cancelled);assert(sample.stats().produced<=65536);}
+  sample=await ignoringRange('bytes=-4');assert.equal(sample.response.status,206);assert.deepEqual([...new Uint8Array(await sample.response.arrayBuffer())],[252,253,254,255]);
+  for(const validator of ['"synthetic-media"',modified]){sample=await ignoringRange('bytes=20-22',validator);assert.equal(sample.response.status,206);assert.deepEqual([...new Uint8Array(await sample.response.arrayBuffer())],[20,21,22]);}
+  for(const validator of ['"other"','W/"synthetic-media"','Thu, 22 Oct 2015 07:28:00 GMT']){sample=await ignoringRange('bytes=1-9',validator);assert.equal(sample.response.status,200);assert.equal(sample.response.headers.get('Content-Range'),null);assert.equal(sample.response.headers.get('Content-Length'),String(virtualSize));await sample.response.body.cancel();}
+  sample=await ignoringRange('bytes=1-9',null,'HEAD');assert.equal(sample.response.status,200);assert.equal(sample.response.body,null);assert.equal(sample.response.headers.get('Content-Length'),String(virtualSize));assert.equal(sample.response.headers.get('Accept-Ranges'),'bytes');assert(sample.stats().cancelled);
+  assert(fixedLengths.includes(9)&&fixedLengths.includes(virtualSize),'Actual fallback exercises native FixedLengthStream-compatible length path');
+ }finally{if(nativeFixed===undefined)delete globalThis.FixedLengthStream;else globalThis.FixedLengthStream=nativeFixed;}
  const preview=await createCloudflarePreview({port:0});
  try{
   const get=(route,options)=>fetch(preview.url+route,options);

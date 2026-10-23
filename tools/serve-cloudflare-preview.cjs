@@ -5,11 +5,11 @@ async function createCloudflarePreview({port=4180,env={}}={}){
  const directory=path.resolve(__dirname,'../cloudflare'),manifest=JSON.parse(fs.readFileSync(path.join(directory,'bundle-manifest.json')));
  if(manifest.owner!=='portfolio-cloudflare-mount-v1')throw Error('Unverified mounted output');
  for(const record of manifest.files)if(crypto.createHash('sha256').update(fs.readFileSync(path.join(directory,record.path))).digest('hex')!==record.sha256)throw Error('Mounted output hash mismatch');
- const {assetPaths}=await import(pathToFileURL(path.join(directory,'worker.mjs')).href);
+ const {assetPaths,assetSizes}=await import(pathToFileURL(path.join(directory,'worker.mjs')).href);
  const {createMountedPortfolio}=await import(pathToFileURL(path.join(directory,'mount-worker.mjs')).href);
  const assetServer=createPortfolioServer({root:path.join(directory,'public')});await new Promise(resolve=>assetServer.listen(0,'127.0.0.1',resolve));
  const assetPort=assetServer.address().port;
- const worker=createMountedPortfolio({assetPaths,allowedHosts:['pinexen.com','www.pinexen.com','127.0.0.1'],fetchOrigin:()=>new Response('Company origin passthrough (local preview)',{status:404,headers:{'X-Local-Origin-Passthrough':'true'}})});
+ const worker=createMountedPortfolio({assetPaths,assetSizes,allowedHosts:['pinexen.com','www.pinexen.com','127.0.0.1'],fetchOrigin:()=>new Response('Company origin passthrough (local preview)',{status:404,headers:{'X-Local-Origin-Passthrough':'true'}})});
  const binding={fetch:request=>{const target=new URL(request.url);target.host='127.0.0.1:'+assetPort;target.protocol='http:';const headers=new Headers(request.headers);headers.set('Accept-Encoding','identity');return fetch(new Request(target,{method:request.method,headers}));}};
  const server=http.createServer(async(req,res)=>{try{
   const request=new Request('http://'+req.headers.host+req.url,{method:req.method,headers:req.headers,body:['GET','HEAD'].includes(req.method)?undefined:req,duplex:'half'});

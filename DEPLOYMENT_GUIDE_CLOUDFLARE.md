@@ -1,6 +1,16 @@
 # Cloudflare release — scoped portfolio mount
 
-The authorized target is **https://pinexen.com/mhalmaghawry/**. The bare `/mhalmaghawry`, `/founder` and `/founder/` normalize to that address with the query retained. Hash navigation and language queries continue within the mount. This file describes the prepared package; it is not evidence that deployment or hosted acceptance has completed.
+The authorized target is **https://pinexen.com/mhalmaghawry/**. The bare `/mhalmaghawry`, `/founder` and `/founder/` normalize to that address with the query retained. Hash navigation and language queries continue within the mount.
+
+## Hosting handover — bounded hosted acceptance approved
+
+The operator deployed Worker **`pinexen-portfolio`**, version **`99f74d2a-7d5d-4c2d-ba8b-01c91d4e8a15`**. The deployed bundle is the reviewed mounted manifest `4bf5733024db3ea31340ca46a53798397a0f160f173133265f65c25a7971a9b0`.
+
+The apex portfolio path has returned200 and its founder alias308 after deployment. Natural propagation completed for `www.pinexen.com`; the operator observed its canonical308 and the exact user URL loading the portfolio in a native browser. After the streaming correction was deployed, `brom-detail.mp4` Range`bytes=1-9` returned206,9bytes and `Content-Range: bytes 1-9/18538626`; an out-of-bounds range returned416,0bytes and `Content-Range: bytes */18538626`.
+
+Independent hosted QA approved this exact version/bundle: **203/203 public asset HEADs,7 actual edge Range cases,16 aliases across both hosts,2 company-origin baselines,9 source/control404s,6 private503/no-store responses, and exact hosted HTML hash** passed. Native review also observed the portfolio through the requested `www` URL. This is bounded release acceptance, not a field Core Web Vitals, universal performance, uptime or configured-private-authentication claim.
+
+The local checks below independently passed against the exact staged/exported bundle. They establish reproducibility and owner behavior, not edge propagation, hosted rendering, TLS/cache policy or complete production acceptance. Private resources and access values remain unconfigured; private API503 remains intentional.
 
 ## Build and review
 
@@ -36,13 +46,13 @@ The terminal wildcard is necessary to match query-bearing aliases. The wrapper v
 
 Routes require the apex and `www` DNS records to be proxied. Preserve their current origin values and unrelated DNS/mail/security settings. Do not create an apex Worker Custom Domain or a catch-all route, which would change company-root ownership. The operator owns account/DNS changes and hosted verification.
 
-After independent QA and authorization, the operator can deploy from the repository using:
+For a later approved release, the operator can deploy from the repository using:
 
 ```sh
 npx wrangler deploy --config cloudflare/wrangler.jsonc
 ```
 
-This command is provided for the authorized operator; the build and checks do not invoke it. Validate the installed Wrangler/config against current official documentation before use. [Wrangler deployment](https://developers.cloudflare.com/workers/wrangler/commands/#deploy), [configuration](https://developers.cloudflare.com/workers/wrangler/configuration/).
+This command is provided for the authorized operator; builds and checks never invoke it. The version recorded above was deployed separately by the operator. Validate the installed Wrangler/config against current official documentation before future use. [Wrangler deployment](https://developers.cloudflare.com/workers/wrangler/commands/#deploy), [configuration](https://developers.cloudflare.com/workers/wrangler/configuration/).
 
 ## Metadata and company separation
 
@@ -58,10 +68,12 @@ All three public restricted identities are empty. Missing bindings/secrets inten
 
 The wrapper applies public security headers and revalidation caching. Only generated content-hashed Tailwind CSS is immutable; mutable URLs revalidate. Private API responses retain their handler's no-store policy. Source `_headers` is not silently treated as a Workers configuration file; actual hosted headers must be checked after deployment.
 
+The public asset wrapper has a streaming single-byte-range fallback when the Assets binding returns a full200 response. Trusted generated file sizes cover missing upstream length metadata. It preserves validators/cache policy, handles valid206 and unsatisfiable416, matches strong/date `If-Range` exactly, cancels unused streams and uses `FixedLengthStream` for known response lengths. It never buffers a complete video. Late ranges must stream/discard preceding chunks if the binding cannot seek; memory stays bounded, but this is not a claim of origin-level random access. Unsupported multipart ranges retain full200 behavior; encoded representations are not sliced using uncompressed sizes. See [Workers streaming](https://developers.cloudflare.com/workers/runtime-apis/streams/), [known response lengths](https://developers.cloudflare.com/workers/runtime-apis/response/#set-the-content-length-header) and [HTTP If-Range semantics](https://www.rfc-editor.org/rfc/rfc9110.html#section-13.1.5). The measured hosted result above is distinct from the full independent acceptance checklist.
+
 ## Acceptance and rollback
 
 Before declaring production complete, verify canonical/alias/query behavior, native hash and language routing, desktop/phone Day/Night layout, loader/media/font loading and media seeking, scoped 404, source/control denials, private503 with focus restoration, root-origin continuity, actual headers and actual cache responses. Local fixtures cannot establish field Core Web Vitals or Cloudflare behavior.
 
-Keep the preceding approved Worker version and both manifests. Roll back by selecting the previous approved Worker deployment or removing **only the four portfolio routes** to restore origin handling. Do not restore retired credentials, experimental bodies or a root catch-all. Preserve the company DNS origin; a proxy-mode reversal is an operator decision after checking other dependencies.
+Keep the deployed version above and both reviewed manifests as the release reference. For a future regression, the operator can select a previously approved Worker deployment; for this initial publication, removing **only the four portfolio routes** restores origin handling. Do not create a root catch-all or substitute the source repository as an asset directory. A failed future release should roll back to a known approved version, never to retired credentials or experimental bodies. Preserve company-origin ownership; a proxy-mode reversal is an operator decision after checking other dependencies.
 
 The public Git repository has legacy GitHub Pages publication from `main:/`; that remains independent and cannot execute this Workers setup. No automatic deployment workflow is added. Current-source cleanup does not claim old Git history was scrubbed.

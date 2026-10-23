@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "mount-worker.mjs",
-      "bytes": 3640,
-      "sha256": "b6992574f874f5de379d923b15ec3e005c8955c3a21e6ecfc94f6d46ed834cfe"
+      "bytes": 7158,
+      "sha256": "a6600bd22f739ec48af0177441989377dfc3c459464988263d22b2adbf585285"
     },
     {
       "path": "private-preview-worker.mjs",
@@ -1029,8 +1029,8 @@
     },
     {
       "path": "worker.mjs",
-      "bytes": 7499,
-      "sha256": "bacf9c18e92e46948890e103b129a9be6972f489b2adc3e103c8b02be6d4c5bb"
+      "bytes": 16151,
+      "sha256": "083bea4d6e3f65f41defc0920a4b1aa08ef0ce4c5bbc6e2b0a484114bacf9d03"
     },
     {
       "path": "wrangler.jsonc",
