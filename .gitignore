@@ -39,7 +39,9 @@
 !/tools/cloudflare-mount-regression.cjs
 !/tools/serve-cloudflare-preview.cjs
 !/tools/build-styles.cjs
+!/tools/ar179-regression.cjs
 !/tools/cap170-regression.cjs
+!/tools/cap181-regression.cjs
 !/tools/check-private-release.cjs
 !/tools/check-release-baseline.cjs
 !/tools/check-repository.cjs

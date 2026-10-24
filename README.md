@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **208 runtime files**, manifest SHA256 `b078c71ee44370259b7d16456f228d6d6749583f4d8932e75c3c2237268a177b`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **208 runtime files**, manifest SHA256 `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -26,6 +26,8 @@ npm run preview:cloudflare
 ```
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 203 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
+
+The current reviewed UI candidate has mounted manifest `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`. It includes the approved Arabic review, phone readability/hit-target repairs, activation-scoped capability replay, sampled Identity-card materials and matching collaboration-card headers. This source/build candidate is separate from the earlier hosted version recorded below; only the operator publishes after staging and final QA.
 
 The builders also refresh hashed utility CSS, its license notice, index/404 stylesheet links, `tools/styles-manifest.json` and local reports. Owned-output cleanup/refusal is restricted to their verified `dist/` and `cloudflare/` paths. Repeated builds must be deterministic. Generated outputs, dependencies, local secrets, experimental archives and historical UI evidence are not repository inputs. `.gitattributes` preserves exact bytes across Git checkouts, including existing line endings.
 

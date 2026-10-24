@@ -14,8 +14,8 @@
     },
     {
       "path": "public/404.html",
-      "bytes": 4518,
-      "sha256": "523eadc56d0b444e9429faa34c73c8a1fb8ff761f22c36c568a21ff627ae3275"
+      "bytes": 4511,
+      "sha256": "e4f4e25d9ceb0d94ec2488869cda08f20613fa86e7346725f4f4795fec4f9f70"
     },
     {
       "path": "public/apple-touch-icon.png",
@@ -49,8 +49,8 @@
     },
     {
       "path": "public/assets/capabilities.css",
-      "bytes": 23815,
-      "sha256": "c282937127404cb6ed7c7270b21cafc21c36dbe97d7876ac707d3bee201d68d8"
+      "bytes": 25493,
+      "sha256": "23e9c78e5026d529bfdbb97bcb2a7ef32da3969392ecfe8920b5a4f40698dbfc"
     },
     {
       "path": "public/assets/clients/aldani-books.webp",
@@ -419,8 +419,8 @@
     },
     {
       "path": "public/assets/mobile-reading.css",
-      "bytes": 2611,
-      "sha256": "f2fc1884f5c7bd0b27aa65859a560694d96b1baa1142fc56b69c6d41187a9def"
+      "bytes": 4018,
+      "sha256": "c2b41357c1bd1c9c5839a7e01d2eee02e59f488bd474179da3ef084ef460cdbe"
     },
     {
       "path": "public/assets/mobile-reading.js",
@@ -429,8 +429,8 @@
     },
     {
       "path": "public/assets/night-theme.css",
-      "bytes": 16137,
-      "sha256": "c95655021d9abce1f9364b10b817a3c427006738ed9828e881d61eb116f598cf"
+      "bytes": 17094,
+      "sha256": "4ca795a5319d67032af53d0dc97170d245e5ccb1a91686df6575d04bd96f6e2a"
     },
     {
       "path": "public/assets/patents/patent-beverage-cap.webp",
@@ -593,9 +593,9 @@
       "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
     },
     {
-      "path": "public/assets/tailwind-main.848e6c6334cf.css",
-      "bytes": 70892,
-      "sha256": "848e6c6334cf9a13d36fce092e7094cb0ea17f1d08e5d4b405621ab5cc9704e5"
+      "path": "public/assets/tailwind-main.2386befbb87b.css",
+      "bytes": 69498,
+      "sha256": "2386befbb87b95dfed74fe8db69de0d9fbf23aa4ff7adf6c583fbb6d966ba776"
     },
     {
       "path": "public/assets/team/fp-team-01.webp",
@@ -1009,8 +1009,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 958394,
-      "sha256": "514a41c6bd81b95ac0dcf3627ee2170b5546dc0699b6a1966c0841f78a353ac0"
+      "bytes": 965370,
+      "sha256": "4c7e8bcb46da9197d5c4e2a2a65ff5fc2ad949c9e78bd881747dc3390ea24c49"
     },
     {
       "path": "public/og-image.png",
@@ -1030,7 +1030,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16151,
-      "sha256": "083bea4d6e3f65f41defc0920a4b1aa08ef0ce4c5bbc6e2b0a484114bacf9d03"
+      "sha256": "fd7c08c423a55266e28642f2cd29bec4b38f725bcf08bccb8a9d34bdd4073e81"
     },
     {
       "path": "wrangler.jsonc",

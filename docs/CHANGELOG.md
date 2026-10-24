@@ -2,6 +2,22 @@
 
 This consolidated source revision preserves the accepted bilingual portfolio and its public media while bringing the runtime and maintenance inputs into one reproducible review candidate. This opening section describes the source revision; the hosted checkpoint is recorded below.
 
+## Reviewed UI candidate — Arabic, phone reading and capability replay
+
+This candidate is not yet the hosted version recorded below. It is limited to five scopes:
+
+- **AR179:** 86 reviewed Arabic records and 7 runtime attribute/count groups; 625 English dictionary values remain unchanged. Canonical To-Get.me ticker titles/alts are corrected without changing links or artwork.
+- **MOB180:** native outside award markers fix detached mobile bullets; bounded value headings wrap; Selected Projects external actions have 44×44px phone hit areas. Desktop preview behavior is retained.
+- **CAP181:** completed 4/9/20 capability cards replay on real desktop activations/revisits, including same-tab activation. Passive distance selection paints immediately; manual tab alignment stays instant. Larger measured reading intervals preserve a complete final stage; selected 20px inward offset and readable inactive inks are scoped to fitted desktop intros.
+- **SURF182:** Profile, Mindset, Skills, Tools, Education and Interests use the unchanged moving-logo card's actual per-theme fill/border/28px radius/shadow; inner content and motion retain their owners.
+- **COL183:** both collaboration cards use their own metadata beneath the title and bare original 32px/24px glyphs; the second obsolete corner arrow is removed, while footer actions remain.
+
+Current-owner checks cover completed second visits, rapid/stale cancellation, native intervals/reverse/final dwell, phone/refit/focus/reduced/disposal, localized attributes and count grammar. Bounded native review covers desktop replay, computed materials and 320px/390px EN/AR headers/hit geometry; final staging/reproducibility and independent QA remain the release gate. Older uncurated snapshot-chain fixtures retain superseded boundaries and are not claimed as passing; no broad normalizer was weakened.
+
+The reviewed manifests are root `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0` (208 files) and mounted `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084` (203 public assets/207 bundle files). Public media, navigation/Stack66/Expertise owners, protected Worker and original company-origin routing are unchanged.
+
+## Earlier consolidated source revision
+
 - Local pinned Tailwind 3 compilation, local font/icon dependencies, complete public-media variants and an owned 208-file output manifest replace rendering-time build dependencies.
 - Native reading/cover transitions, Concepts/Interests horizontal reading, corrected particle artwork and finite reveal/navigation/contact motion remain part of the accepted design.
 - Night semantic colors, readable inactive introductions, neutral desktop hover, ivory moon and requested half-alpha active/language strokes are included.

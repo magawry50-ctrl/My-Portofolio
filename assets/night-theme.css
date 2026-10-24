@@ -151,3 +151,10 @@ html.dark #portfolio-navigation #toggle-wrapper #theme-toggle .theme-icon-moon{c
 
 /* NAV173: halve only the Night language tray and selected-language strokes. */
 html.dark #portfolio-navigation #toggle-wrapper #elastic-lang-toggle{--seg-border:rgba(45,60,80,.5);--seg-pill-border:rgba(107,129,158,.5)}
+
+/* SURF182: Night material is the rendered ticker card, not its overridden source rule. */
+html.dark{--identity-card-fill:#0c1836;--identity-card-line:rgba(255,255,255,.1);--identity-card-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+html.dark #about>.about-editorial-card,html.dark #skills :is(.cap-mindset-card,.cap-skill-chip),html.dark #skills .cap-tools-list>li,html.dark #skills .cap-tools-list>li:last-child,html.dark #academic,html.dark #interests .interest-row{background:var(--identity-card-fill)!important;border-color:var(--identity-card-line)!important;box-shadow:var(--identity-card-shadow)!important}
+
+/* CAP181: inactive desktop intro ink remains AA-readable; active ink is unchanged. */
+@media(min-width:768px){html.dark #skills .cap-layout[data-capability-mode="fit"] .cap-selector[aria-selected="false"]:not([aria-current="true"]) :is(.cap-kicker,.cap-row-heading h3,.cap-row-description){color:#748397}}

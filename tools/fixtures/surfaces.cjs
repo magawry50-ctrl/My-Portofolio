@@ -20,8 +20,8 @@ function node() {
     contains() { return this.focused; }
   };
 }
-function environment({ loading = false, reduce = false, observerAvailable = true, expertise = false, requested = false, mindset = false, interests = false, business = false, mixed = false, capability = false, width = 1288 } = {}) {
-  const nodes = Array.from({ length: capability ? 20 : business ? 1 : interests ? 5 : mindset && !mixed ? 4 : expertise ? 3 : 6 }, node), gallery = node(), observers = [], docEvents = new Map(), frames = new Map(), timers = new Map();
+function environment({ loading = false, reduce = false, observerAvailable = true, expertise = false, requested = false, mindset = false, interests = false, business = false, mixed = false, capability = false, capabilityCounts = null, width = 1288 } = {}) {
+  const nodes = Array.from({ length: capabilityCounts ? capabilityCounts.reduce((a,b)=>a+b,0) : capability ? 20 : business ? 1 : interests ? 5 : mindset && !mixed ? 4 : expertise ? 3 : 6 }, node), gallery = node(), observers = [], docEvents = new Map(), frames = new Map(), timers = new Map();
   gallery.id='pillars-gallery';
   nodes.forEach((node,index)=>{node.matches=selector=>selector==='#skills .cap-mindset-card, #skills .cap-skill-chip, #skills .cap-tools-list > li'?(capability||mindset&&(!mixed||index<4)):selector==='#strengths .cap-mindset-card'?(mindset&&(!mixed||index<4)):selector==='#interests .interest-row'?interests:requested;if(business)node.id='business-card';if(requested)node.id=['academic','project-a','contact-a','expertise-a','phone-b','phone-c'][index];});
   const media = { matches: reduce, addEventListener: (name, callback) => { media.onChange = callback; }, removeEventListener: () => { media.onChange = null; } };
