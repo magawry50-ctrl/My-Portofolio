@@ -1,4 +1,10 @@
-# Current release
+# Current review candidate — phone Interests header
+
+MOB184 fixes the single confirmed mobile-audit defect: at 320px the nowrap title/icon/controls row needed 289.48px inside 273px, clipping the final arrow by 16.48px. The original header now wraps naturally at ≤767px with 12px row gap and 6px control padding for focus paint. Title size, 44px controls, section width, desktop layout and carousel behavior/fade are unchanged. No test implementation was mirrored; existing owner/static checks pass, and root owns physical geometry confirmation.
+
+Candidate manifests: root `a3bc6aa5571111b8c498369071547fb06de189e07b1bd78e3089342535e50cb3` (208 files), mounted `da142fcbe65997addc02f1993314a98b3d45b04a411607e222e06fba53a6b8d9` (203 public assets/207 bundle files). Only index markup and Interests CSS change in runtime. This candidate is not yet published; the last hosted version and its bounded approval are recorded below.
+
+## Previous published release
 
 This consolidated source revision preserves the accepted bilingual portfolio and its public media while bringing the runtime and maintenance inputs into one reproducible release. This opening section describes the source revision; the hosted checkpoint is recorded below.
 

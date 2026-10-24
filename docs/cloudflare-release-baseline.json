@@ -254,8 +254,8 @@
     },
     {
       "path": "public/assets/interests.css",
-      "bytes": 8148,
-      "sha256": "b3c050dc83a2f219c4b5204c1cdf5853b6b7072362ef2b452dbabc1d5410d4b6"
+      "bytes": 8404,
+      "sha256": "9907b104dc93e7c7208ad898e223503d6909a1af584a9035d7e8ad631ffb279d"
     },
     {
       "path": "public/assets/liquid-glass.css",
@@ -1009,8 +1009,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 965370,
-      "sha256": "4c7e8bcb46da9197d5c4e2a2a65ff5fc2ad949c9e78bd881747dc3390ea24c49"
+      "bytes": 965387,
+      "sha256": "a61f3822b6004824ea42a465f1e1940098d45ac01b0396ca4d8d9fb10b43f2b3"
     },
     {
       "path": "public/og-image.png",
@@ -1030,7 +1030,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16151,
-      "sha256": "fd7c08c423a55266e28642f2cd29bec4b38f725bcf08bccb8a9d34bdd4073e81"
+      "sha256": "e9d74fd73161154639a27900f866598143dff86c63a6b31613beb8ba179ced9a"
     },
     {
       "path": "wrangler.jsonc",

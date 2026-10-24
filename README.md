@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **208 runtime files**, manifest SHA256 `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **208 runtime files**, manifest SHA256 `a3bc6aa5571111b8c498369071547fb06de189e07b1bd78e3089342535e50cb3`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -26,6 +26,8 @@ npm run preview:cloudflare
 ```
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 203 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
+
+The next reviewed candidate, MOB184, fixes only phone Interests-header wrapping/focus-paint space; its mounted manifest is `da142fcbe65997addc02f1993314a98b3d45b04a411607e222e06fba53a6b8d9`. Native confirmation and operator publication are pending. The published version below remains the prior release.
 
 The published UI release from source commit `114c815` has mounted manifest `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`. It includes the approved Arabic review, phone readability/hit-target repairs, activation-scoped capability replay, sampled Identity-card materials and matching collaboration-card headers. The operator published it as Worker version `9c1452be-e25f-4e83-a734-b1a16edf1d6f`. Independent bounded hosted QA approved this version: all six changed public files exactly match the reviewed export; the 197 unchanged public assets were checked by manifest comparison and were not fetched individually again. Alias, media Range/HEAD, source-denial, private503 and company-origin checks passed. Operator native review passed the requested www route, Arabic RTL, Day/Night switching and collaboration-card layout without horizontal overflow or console warnings/errors.
 

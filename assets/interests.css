@@ -72,3 +72,9 @@ html.dark #interests .interest-row{background:#0c1836}
 
 /* INTEREST153: static physical-edge fades confined to the enhanced carousel viewport. */
 #interests[data-interest-carousel="true"] #interests-pill-cloud.interest-rows{-webkit-mask-image:linear-gradient(to right,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(to right,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
+
+/* MOB184: allow the original phone header to wrap; reserve its computed6px focus outline. */
+@media(max-width:767px){
+#interests .interests-header{flex-wrap:wrap;row-gap:12px}
+#interests .interests-header .interest-carousel-controls{padding:6px}
+}

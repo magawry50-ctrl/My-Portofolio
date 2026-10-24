@@ -263,8 +263,8 @@
     },
     {
       "path": "assets/interests.css",
-      "bytes": 8148,
-      "sha256": "b3c050dc83a2f219c4b5204c1cdf5853b6b7072362ef2b452dbabc1d5410d4b6"
+      "bytes": 8404,
+      "sha256": "9907b104dc93e7c7208ad898e223503d6909a1af584a9035d7e8ad631ffb279d"
     },
     {
       "path": "assets/liquid-glass.css",
@@ -1018,8 +1018,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 965218,
-      "sha256": "e79fcd323d0cd8f0f91404098f73d5227e660480e31502d1fe80f50ff330293c"
+      "bytes": 965235,
+      "sha256": "c56e4c13e69ebaa5da0cc84f5d8a4953d347f87997974d10af0f7a9b20265d64"
     },
     {
       "path": "og-image.png",
