@@ -130,7 +130,7 @@
         body, button, input, textarea, select {
             /* خطوط النظام والإيموجي كبدائل فقط */
             font-family: 'Almarai', system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif !important;
-            transition: font-family 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Added background/color transition */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Added background/color transition */
             background-color: #f7faff; /* Media Harbour light mode background */
             color: #14151a; /* Media Harbour primary text */
         }
@@ -2923,7 +2923,8 @@
     <script defer src="./assets/security-preview.js"></script>
     <script defer src="./assets/private-previews.js"></script>
     <script async data-cast-loader src="./assets/loader-cast-ii.js"></script>
-    <link id="portfolio-tailwind" rel="stylesheet" href="./assets/tailwind-main.8221ee6cf0aa.css">
+    <link rel="stylesheet" href="./assets/typography.css">
+<link id="portfolio-tailwind" rel="stylesheet" href="./assets/tailwind-main.8221ee6cf0aa.css">
 </head>
 
 <body class="text-gray-900 antialiased dark:bg-[#070d1e] dark:text-gray-300 loader-active">
@@ -4587,7 +4588,7 @@
                                     <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 dark:text-slate-400" data-i18n="value_partnership_tags">STRATEGY  /  SYSTEMS  /  INNOVATION</span>
                                     </div>
                                 </div>
-                                <div class="max-w-md lg:max-w-[58%]">
+                                <div class="value-card-body max-w-md lg:max-w-[58%]">
 
                                 <!-- Description Paragraph (Justified) -->
                                 <p class="text-xs sm:text-[13.5px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-6 text-justify [text-justify:inter-word]" style="text-align: justify; text-justify: inter-word;" data-i18n="value_partnership_desc">For teams developing a product or service, we can work together on <strong class="font-bold text-[#0c1836] dark:text-white">product strategy</strong>, <strong class="font-bold text-[#0c1836] dark:text-white">business model development</strong>, or the operating plan for delivery.</p>
@@ -4647,7 +4648,7 @@
                                         <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 dark:text-slate-400" data-i18n="value_fulltime_tags">LEADERSHIP  /  EXECUTION  /  GROWTH</span>
                                     </div>
                                 </div>
-                                <div class="max-w-md lg:max-w-[58%]">
+                                <div class="value-card-body max-w-md lg:max-w-[58%]">
 
                                 <!-- Sub-Header: Suitable Roles Include: -->
                                 <p class="text-xs sm:text-[13.5px] font-bold text-[#0c1836] dark:text-white mb-4" data-i18n="value_suitable_roles_key">
@@ -10416,6 +10417,12 @@
         const children = options.children || [...section.childNodes]; section.insertBefore(stage, children[0]); children.forEach(node => stage.appendChild(node));
         const priorHeight = section.style.height;
         let disposed = false, frame = 0, needsMeasure = true, fit = false, start = 0, distance = 0, writing = false, lastWritten = null, measuredHeight = '';
+        let selection = null, selectionFrame = 0, selectionGeneration = 0;
+        const cancelSelection = () => {
+            selectionGeneration++; selection = null;
+            if (selectionFrame) cancelAnimationFrame(selectionFrame);
+            selectionFrame = 0; delete section.dataset[key('Motion')]; delete section.dataset[key('ScrollTarget')];
+        };
         const listen = (node, event, fn, options) => { node.addEventListener(event, fn, options); cleanups.push(() => node.removeEventListener(event, fn, options)); };
         const rtl = () => document.documentElement.dir === 'rtl';
         const allowed = () => !disposed && !document.hidden && isPortfolioElementActive(section);
@@ -10424,6 +10431,7 @@
         function writeOffset(offset) { lastWritten = offset; writing = true; container.scrollLeft = offset * (rtl() ? -1 : 1); writing = false; }
         function measure() {
             needsMeasure = false;
+            const priorGeometry = { fit, start, distance };
             section.dataset[key('Scroll')] = 'flow';
             options.beforeMeasure?.(groups);
             const naturalHeight = stage.getBoundingClientRect().height, box = (section.closest?.('.section-stack-slot') || section).getBoundingClientRect();
@@ -10438,6 +10446,7 @@
                 stage.style.setProperty('--interest-stage-height', (window.innerHeight - inset) + 'px');
                 section.style.height = (window.innerHeight - inset + distance + 144 + (style.boxSizing === 'border-box' ? before + after : 0)) + 'px';
             } else { section.style.height = priorHeight; stage.style.removeProperty('--interest-reading-top'); stage.style.removeProperty('--interest-stage-height'); }
+            if (selection && (priorGeometry.fit !== fit || Math.abs(priorGeometry.start - start) > .5 || Math.abs(priorGeometry.distance - distance) > .5)) cancelSelection();
             section.dataset[key('Scroll')] = fit ? 'fit' : 'flow';
             section.dataset[key('ScrollStart')] = String(start); section.dataset[key('ScrollDistance')] = String(distance);
             section.dataset[key('ScrollHold')] = fit ? '144' : '0';
@@ -10458,23 +10467,44 @@
         }
         function schedule() { if (allowed() && !frame) frame = requestAnimationFrame(() => { frame = 0; update(); }); }
         function refresh() { needsMeasure = true; schedule(); }
-        function alignPage(offset, behavior) {
+        function writePage(top, behavior) {
             const style = document.documentElement.style, prior = style.scrollBehavior;
             if (behavior === 'auto') style.scrollBehavior = 'auto';
-            window.scrollTo({ top: start + clamp(offset), behavior });
+            window.scrollTo({ top, behavior });
             if (behavior === 'auto') style.scrollBehavior = prior;
         }
+        function alignPage(offset, behavior) { writePage(start + clamp(offset), behavior); }
         function selectOffset(offset) {
             if (needsMeasure) measure();
             const behavior = motion.matches ? 'auto' : 'smooth';
-            if (fit) { writeOffset(clamp(offset)); alignPage(offset, 'auto'); }
+            const fromPage = window.scrollY, target = clamp(offset), targetPage = start + target;
+            cancelSelection();
+            if (fit && !motion.matches && Math.abs(targetPage - fromPage) > 1) {
+                const record = { generation: selectionGeneration, fromPage, targetPage, target, writtenPage: fromPage, started: null, duration: Math.min(420, 320 + Math.abs(targetPage - fromPage) * .2) };
+                selection = record; section.dataset[key('Motion')] = 'moving'; section.dataset[key('ScrollTarget')] = String(target);
+                const advance = now => {
+                    if (selection !== record || record.generation !== selectionGeneration || disposed) return;
+                    selectionFrame = 0;
+                    if (!allowed() || !fit) { cancelSelection(); return; }
+                    record.started ??= now;
+                    const progress = Math.max(0, Math.min(1, (now - record.started) / record.duration));
+                    const page = record.fromPage + (record.targetPage - record.fromPage) * (1 - Math.pow(1 - progress, 3));
+                    const offset = clamp(page - start);
+                    record.writtenPage = page;
+                    // One position authority writes both axes; delayed native scroll events sample this latest pair.
+                    writeOffset(offset); writePage(page, 'auto'); schedule();
+                    if (progress < 1) selectionFrame = requestAnimationFrame(advance);
+                    else cancelSelection();
+                };
+                selectionFrame = requestAnimationFrame(advance);
+            } else if (fit) { writeOffset(target); alignPage(target, 'auto'); }
             else container.scrollTo({ left: offset * (rtl() ? -1 : 1), behavior });
             schedule();
         }
         function move(direction) {
             if (!allowed()) return;
             const step = groups[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(container).columnGap) || 0);
-            selectOffset(logicalOffset() + direction * step);
+            selectOffset((selection?.target ?? logicalOffset()) + direction * step);
         }
         function labels() {
             previous.setAttribute('aria-label', I18N[currentLang]?.[options.previousKey || 'interests_previous'] || I18N.en[options.previousKey || 'interests_previous']);
@@ -10493,18 +10523,32 @@
         listen(container, 'scroll', () => {
             if (!allowed() || writing) return;
             if (fit && lastWritten !== null && Math.abs(logicalOffset() - lastWritten) < 1) { schedule(); return; }
-            if (fit && Math.abs(logicalOffset() - clamp(window.scrollY - start)) > 1) alignPage(logicalOffset(), 'auto');
+            if (fit && Math.abs(logicalOffset() - clamp(window.scrollY - start)) > 1) { cancelSelection(); alignPage(logicalOffset(), 'auto'); }
             schedule();
         }, { passive: true }); listen(container, 'animationend', refresh);
-        const state = () => { if (!allowed()) { cancelAnimationFrame(frame); frame = 0; needsMeasure = true; } else refresh(); };
+        const state = () => { cancelSelection(); if (!allowed()) { cancelAnimationFrame(frame); frame = 0; needsMeasure = true; } else refresh(); };
         ['portfolio:viewchange', 'visibilitychange'].forEach(event => listen(document, event, state));
         listen(document, 'portfolio:stackchange', schedule);
-        listen(window, 'scroll', schedule, { passive: true }); listen(window, 'resize', refresh); listen(motion, 'change', refresh); document.fonts?.ready.then(() => { if (!disposed) refresh(); });
+        listen(window, 'scroll', () => {
+            if (selection && Math.abs(window.scrollY - selection.writtenPage) > 1) cancelSelection();
+            schedule();
+        }, { passive: true });
+        const interrupted = () => cancelSelection();
+        const arrowTarget = target => [previous, next].some(button => button === target || button.contains?.(target));
+        const interruptOutsideArrow = event => { if (!arrowTarget(event.target)) cancelSelection(); };
+        listen(window, 'wheel', interrupted, { passive: true }); listen(window, 'touchmove', interrupted, { passive: true });
+        listen(window, 'touchstart', interruptOutsideArrow, { passive: true });
+        listen(window, 'pointerdown', interruptOutsideArrow, { passive: true });
+        listen(window, 'keydown', event => {
+            const selectionKey = (event.target === container && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) || (event.key === ' ' && arrowTarget(event.target));
+            if (!selectionKey && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) cancelSelection();
+        }, { capture: true });
+        listen(window, 'resize', () => { cancelSelection(); refresh(); }); listen(motion, 'change', () => { cancelSelection(); refresh(); }); document.fonts?.ready.then(() => { if (!disposed) refresh(); });
         const resize = 'ResizeObserver' in window ? new ResizeObserver(refresh) : null; resize?.observe(container); resize?.observe(stage);
-        const locale = new MutationObserver(() => { labels(); refresh(); });
+        const locale = new MutationObserver(() => { cancelSelection(); labels(); refresh(); });
         locale.observe(document.documentElement, { attributes: true, attributeFilter: ['dir', 'lang'] }); labels(); schedule();
         return { refresh(nextGroups) { if (nextGroups?.length) groups = nextGroups; labels(); refresh(); }, destroy() {
-            disposed = true; cancelAnimationFrame(frame); resize?.disconnect(); locale.disconnect(); cleanups.forEach(stop => stop()); controls.hidden = priorHidden; options.afterDestroy?.(groups);
+            disposed = true; cancelSelection(); cancelAnimationFrame(frame); resize?.disconnect(); locale.disconnect(); cleanups.forEach(stop => stop()); controls.hidden = priorHidden; options.afterDestroy?.(groups);
             section.style.height = priorHeight; children.forEach(node => section.insertBefore(node, stage)); stage.remove();
             sectionStackManager?.refresh();
             ['Scroll','ScrollStart','ScrollDistance','ScrollProgress','ScrollHold'].forEach(suffix => delete section.dataset[key(suffix)]);

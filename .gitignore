@@ -42,6 +42,7 @@
 !/tools/ar179-regression.cjs
 !/tools/cap170-regression.cjs
 !/tools/cap181-regression.cjs
+!/tools/carousel-motion-regression.cjs
 !/tools/check-private-release.cjs
 !/tools/check-release-baseline.cjs
 !/tools/check-repository.cjs

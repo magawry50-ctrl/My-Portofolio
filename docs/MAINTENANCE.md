@@ -12,10 +12,10 @@ The Night palette is recorded in `night-palette.json`; active/focus/hover roles 
 
 | Command | Evidence |
 |---|---|
-| `npm run check` | Current markup/locales; actual desktop/phone navigation, responsive original-node reading, capability replay/stagger/native distance, approved Arabic mapping/attribute refresh, ending/route owners; scoped Night paint |
+| `npm run check` | Current markup/locales; actual desktop/phone navigation, responsive original-node reading, capability replay/stagger/native distance, approved Arabic mapping/attribute refresh, ending/route owners; scoped Night paint; finite carousel controls with native scroll/input/stale-callback lifecycle |
 | `npm run check:private` | Real Worker HTTP/SQLite authorization, expiry/revocation/rate limits/Range/empty cases and actual async gate lifecycle |
 | `npm run check:production` | Portable fingerprint negative fixtures, decoded leak checks, allowlisted dependency closure, cache-rule disjointness, owned-output guards and repeated deterministic builds |
-| `npm run check:release` | Byte equality with the reviewed 208-file manifest |
+| `npm run check:release` | Byte equality with the reviewed 209-file manifest |
 | `npm run build:cloudflare` / `npm run check:cloudflare` | Isolated mounted bundle; real HTTP aliases, all public asset HEADs, body preservation, source denials, Range/HEAD, root passthrough, unset503, dummy SQLite sessions and media |
 
 The curated checks include the self-contained approved Arabic after-values and execute the actual capability surface/panel/native-reading owners together. They require no workspace-only copy map, old before snapshots or private archives. Historical uncurated snapshot-chain scripts are not part of `npm run check`: several retain superseded HERO140/TOOLS58 boundaries or an older duplicated surface fixture, so their failures are not represented as current passing evidence. Those exact historical assertions were not weakened to force a pass.
@@ -26,7 +26,7 @@ The CSS compiler has build-only dependencies. Use the lockfile; do not force an 
 
 ## Repository and release inputs
 
-`tools/repository-allowlist.json` is the explicit review/staging inventory. It retains the 135 pre-existing tracked files, adds the runtime source closure and curated build/tests/docs (381 inputs in this revision, including both current-owner checks and the newly compiled stylesheet; prior tracked inputs are retained), and omits private/local evidence. New legitimate inputs require a reviewed inventory update. Never stage the workspace with an unrestricted add operation. `.gitignore` is convenience; the inventory is authoritative.
+`tools/repository-allowlist.json` is the explicit review/staging inventory. It retains the 135 pre-existing tracked files, adds the runtime source closure and curated build/tests/docs (383 inputs in this revision, adding the typography stylesheet and actual carousel-motion check while retaining every prior tracked input), and omits private/local evidence. New legitimate inputs require a reviewed inventory update. Never stage the workspace with an unrestricted add operation. `.gitignore` is convenience; the inventory is authoritative.
 
 The fingerprint contract is `tools/private-text-fingerprints.json`, cross-checked against the existing denylist. It preserves 15 known blocked phrases without their plaintext. A policy update needs reviewed schema/count/checksum, negative tests and private-source equivalence verification performed outside public artifacts. Never regenerate it from an empty private upload folder and thereby erase retired protections.
 

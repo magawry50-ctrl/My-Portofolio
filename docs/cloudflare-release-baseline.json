@@ -778,6 +778,11 @@
       "sha256": "800a7f4eba55ce3c2eeb8259ff532b43b0492466d3bde252d2e08903f23eb3db"
     },
     {
+      "path": "public/assets/typography.css",
+      "bytes": 3354,
+      "sha256": "114c7d1084b636ece187fa416c2856b2f62582748ef75da0e3c74e2192bab2a1"
+    },
+    {
       "path": "public/assets/videos/brom-detail.mp4",
       "bytes": 18538626,
       "sha256": "739f2a0352f1adee7141fda43a2d8b9d11388656fbd5f713f5ab191a27ab4167"
@@ -1009,8 +1014,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 965536,
-      "sha256": "08b721994a364a5798474cf8161becdc9982d8c810a62d10cbf5dd55a421f5c9"
+      "bytes": 969166,
+      "sha256": "987d1818271af4f1f5fbc2aba50b8381bc18a411595dd136e4019f29f9dbac9b"
     },
     {
       "path": "public/og-image.png",
@@ -1029,8 +1034,8 @@
     },
     {
       "path": "worker.mjs",
-      "bytes": 16151,
-      "sha256": "41b1527ef3bcd9c1e81c4797946188fdefb42b0214025fe1133d2e6dbf9fdc93"
+      "bytes": 16204,
+      "sha256": "c2797de7f4ce02e101cbd9d7f8265a1a360a72779fabcf2a68aa5e09ddcf0c25"
     },
     {
       "path": "wrangler.jsonc",

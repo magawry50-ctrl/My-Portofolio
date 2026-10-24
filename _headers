@@ -71,6 +71,9 @@
 /assets/mobile-navigation.css
   Cache-Control: public, max-age=0, must-revalidate
 
+/assets/typography.css
+  Cache-Control: public, max-age=0, must-revalidate
+
 /assets/fonts/vendor/*.css
   Cache-Control: public, max-age=0, must-revalidate
 
