@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `af9de41ae1f164c17356b524491bcd3ab03436c3583aea03da46d8112da721a8`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `75128ce23e55329ab3d4fc877634b549ab0b0408436175b828fcf68b0c433bf8`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -26,6 +26,10 @@ npm run preview:cloudflare
 ```
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 204 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
+
+## Current local candidate — EXP190
+
+EXP190 is a local candidate, not yet published. Five Experience Role Details groups are plain readable groups: redundant inset backgrounds, borders, divider and padding are removed while every label, role/company/metadata value, screen-reader node and sibling Overview/Skills card remains. Kreston’s extra inset/ring is also removed. The sixth disclosure has no Role Details group; its three distinct job cards remain unchanged. One Night predecessor selector preserves the following Overview border after the class cleanup. The generated utility stylesheet drops only 11 unused selectors, with every surviving selector declaration unchanged. No copy, controller, disclosure behavior, artwork, typography or font changes. All 383 previous source inputs remain; the new hashed stylesheet makes 384. Current local manifests: root `75128ce23e55329ab3d4fc877634b549ab0b0408436175b828fcf68b0c433bf8` (209 files), mounted `e1e149732814bbeec510188026a0ca37e4459f889268aeabca836587b135d7cb` (204 public assets/208 bundle files). Existing checks and the reviewed local release are recorded separately from pending independent source/native/clean-export approval; no hosted or publication result is claimed. Previous published checkpoints retain their own evidence.
 
 ## Published NAV188/VIEW189 — bounded acceptance approved
 

@@ -429,8 +429,8 @@
     },
     {
       "path": "public/assets/night-theme.css",
-      "bytes": 17094,
-      "sha256": "4ca795a5319d67032af53d0dc97170d245e5ccb1a91686df6575d04bd96f6e2a"
+      "bytes": 17124,
+      "sha256": "2103f24757a089d7d5cde05ace55568af4c88c1dab82c9d907cf60bc95f1701f"
     },
     {
       "path": "public/assets/patents/patent-beverage-cap.webp",
@@ -593,9 +593,9 @@
       "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
     },
     {
-      "path": "public/assets/tailwind-main.8221ee6cf0aa.css",
-      "bytes": 69456,
-      "sha256": "8221ee6cf0aa1ffe5238b7b645c299e7be147cd9690ffebe30b8abeb95568573"
+      "path": "public/assets/tailwind-main.3fb34b101f92.css",
+      "bytes": 68633,
+      "sha256": "3fb34b101f924b4295ffa8229854426d0f7a9b902cc5b078f75a48074d7e8ca7"
     },
     {
       "path": "public/assets/team/fp-team-01.webp",
@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 969691,
-      "sha256": "8ec2b2a3bae6c88418e160e51725ddf44ede1f244ee608198924ae553d968a12"
+      "bytes": 968534,
+      "sha256": "66a52571912cfe6d0b75be3924f4d3f1acc3f9f647f89848aa813ec040a2f214"
     },
     {
       "path": "public/og-image.png",
@@ -1035,7 +1035,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16204,
-      "sha256": "2344039b028798dc3018f3282c0161ca5a32f66c59fd03141bb2846af742051b"
+      "sha256": "5ce004de03e0c1c6a5559034d136506085579db347522cf1313bed4034bc8c56"
     },
     {
       "path": "wrangler.jsonc",

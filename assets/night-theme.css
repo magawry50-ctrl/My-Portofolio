@@ -49,7 +49,7 @@ html.dark #experience .featured-exp-card :is(p,li){color:var(--night-secondary)}
 html.dark #experience .featured-exp-card :is(.accordion-toggle,.featured-exp-toggle) :is(p,.material-symbols-outlined){color:var(--night-secondary)!important}
 html.dark #experience .accordion-content{background:var(--night-card);border-color:var(--night-line)}
 html.dark #experience .accordion-content [class~="dark:bg-gray-800/90"]{background-color:var(--night-raised)!important;border-color:var(--night-line)!important}
-html.dark #mm-profile-wrapper #experience .accordion-content>div>.rounded-2xl+.rounded-2xl{border-color:var(--night-line)!important}
+html.dark #mm-profile-wrapper #experience .accordion-content>div>:is(.rounded-2xl,.experience-role-details)+.rounded-2xl{border-color:var(--night-line)!important}
 html.dark #value-offer .value-card-glassmorphism{background:linear-gradient(to right,rgba(20,29,43,.98),rgba(20,29,43,.95) 50%,rgba(20,29,43,.65) 68%,rgba(20,29,43,.3) 82%,rgba(20,29,43,.1))}
 html.dark[dir="rtl"] #value-offer .value-card-glassmorphism{background:linear-gradient(to left,rgba(20,29,43,.98),rgba(20,29,43,.95) 50%,rgba(20,29,43,.65) 68%,rgba(20,29,43,.3) 82%,rgba(20,29,43,.1))}
 @media(max-width:640px){html.dark #value-offer .value-card-glassmorphism,html.dark[dir="rtl"] #value-offer .value-card-glassmorphism{background:linear-gradient(to bottom,rgba(20,29,43,.98),rgba(20,29,43,.95) 50%,rgba(20,29,43,.65) 68%,rgba(20,29,43,.3) 82%,rgba(20,29,43,.1))}}
