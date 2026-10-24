@@ -20,6 +20,8 @@ The Night palette is recorded in `night-palette.json`; active/focus/hover roles 
 
 The curated checks include the self-contained approved Arabic after-values and execute the actual capability surface/panel/native-reading owners together. They require no workspace-only copy map, old before snapshots or private archives. Historical uncurated snapshot-chain scripts are not part of `npm run check`: several retain superseded HERO140/TOOLS58 boundaries or an older duplicated surface fixture, so their failures are not represented as current passing evidence. Those exact historical assertions were not weakened to force a pass.
 
+Passive desktop scrolling must not acquire rail-opening authority. The 768–1439px logical reading inset is local to affected text regions; preserve phone, larger-desktop and card/art geometry. Review rail/text bounding-box intersections in both directions, since zero document overflow alone does not establish clearance.
+
 The small DOM fixtures verify shipped owners, not browser rendering. Native browser review remains necessary for layout, motion intermediates, hit testing, actual clipboard behavior and assistive interaction. No local fixture establishes field Core Web Vitals, FPS, CDN behavior or production security configuration.
 
 The CSS compiler has build-only dependencies. Use the lockfile; do not force an audit fix that upgrades Tailwind to v4 or changes generated rules. Review current advisories against the trusted-source build threat model before future releases. Do not claim the build dependency graph is vulnerability-free.

@@ -1717,6 +1717,14 @@
             .portfolio-content-stack > * + * { margin-block-start: 112px; }
         }
 
+        /* VIEW189: keep compact desktop navigation clear of reading text; card/art widths stay native. */
+        @media (min-width: 768px) and (max-width: 1439px) {
+            #mm-profile-wrapper { --desktop-reading-clearance: clamp(0px, calc(720px - 50vw), 76px); }
+            #pillars .desktop-reading-header, #skills .cap-header, #skills .cap-selector-list,
+            #work .project-section-header, #client-works > .project-section-header,
+            #interests .interests-header, #interests .interests-intro { padding-inline-start: var(--desktop-reading-clearance); }
+        }
+
         /* ================= START: PATENT SHOWCASE STYLES ================= */
         #patents-preview-card {
             transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3221,7 +3229,7 @@
 
 <section id="pillars" class="relative py-8 sm:py-12 px-3 sm:px-6 max-w-7xl 2xl:max-w-[1560px] mx-auto w-full">
                 <!-- Section Header -->
-                <div class="mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80 dark:border-white/10">
+                <div class="desktop-reading-header mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/80 dark:border-white/10">
                     <div class="max-w-3xl">
                         <div class="flex items-center gap-3 mb-3">
                             <span class="w-7 h-[2px] bg-[#004fe6] dark:bg-[#32d5ff]"></span>
@@ -10711,7 +10719,7 @@
         )).filter(entry => entry.element);
         let metrics = [], openGroup = null, activeGroup = null, currentId = null, navOffset = 88, pendingFrame = null, refreshPending = true;
         let suspended = false, completionTimer = null;
-        let lastScrollY = window.scrollY, downTravel = 0, upTravel = 0, wantsCompact = window.innerWidth >= 768;
+        let lastScrollY = window.scrollY, downTravel = 0, wantsCompact = window.innerWidth >= 768;
         let hoverUnfolded = false, railPinned = false, forceCompact = false;
         let compactIntent = null;
         let railAnimations = [], railGeneration = 0, railPaintLayer = null;
@@ -10845,9 +10853,9 @@
         function updateIslandScroll() {
             const y = Math.max(0, window.scrollY), dy = y - lastScrollY;
             lastScrollY = y;
-            if (y <= 120) { downTravel = upTravel = 0; wantsCompact = window.innerWidth >= 768; }
-            else if (dy > 0) { downTravel += dy; upTravel = 0; if (downTravel > 10) wantsCompact = true; }
-            else if (dy < 0) { upTravel -= dy; downTravel = 0; if (upTravel > 10) wantsCompact = false; }
+            if (y <= 120) { downTravel = 0; wantsCompact = window.innerWidth >= 768; }
+            else if (dy > 0) { downTravel += dy; if (downTravel > 10) wantsCompact = true; }
+            else if (dy < 0) { downTravel = 0; }
             setCompact(wantsCompact);
         }
         const label = key => I18N[currentLang]?.[key] || I18N.en[key] || key;

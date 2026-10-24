@@ -1,5 +1,10 @@
 # Cloudflare release — scoped portfolio mount
 
+## Current local candidate — not published
+
+NAV188/VIEW189 is a local release candidate, not yet published. Passive desktop scrolling no longer opens the side rail; intentional primary hover/focus/toggle and phone behavior remain. At 768–1439px, a mirrored reading inset clears the compact rail from the affected Expertise, Capabilities, Concepts/Selected and Interests text without reducing card/art/offer widths or type. The existing actual navigation-owner regression covers the scroll change. All ten current suites pass; final native intersection checks, independent QA and the operator’s clean-index export/publication gate remain pending. Current candidate manifests: root `af9de41ae1f164c17356b524491bcd3ab03436c3583aea03da46d8112da721a8` (209 files), mounted `cf610427b351f14575679a5cf1f48f638bc2451bb876e40a070ef205ff1929e5` (204 public assets/208 bundle files). Only HTML changes in public runtime; generated Worker asset metadata follows its byte length/hash. All 383 reviewed inputs are retained, with no new asset, font, dependency, private handler, copy or route change. Previous published checkpoints below retain their version-specific evidence.
+
+
 The authorized target is **https://pinexen.com/mhalmaghawry/**. The bare `/mhalmaghawry`, `/founder` and `/founder/` normalize to that address with the query retained. Hash navigation and language queries continue within the mount.
 
 ## Current hosting handover — MOT186/TYPE187 bounded acceptance approved
