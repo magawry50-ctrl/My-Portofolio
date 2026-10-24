@@ -2,7 +2,21 @@
 
 The authorized target is **https://pinexen.com/mhalmaghawry/**. The bare `/mhalmaghawry`, `/founder` and `/founder/` normalize to that address with the query retained. Hash navigation and language queries continue within the mount.
 
-## Hosting handover — bounded hosted acceptance approved
+## Current hosting handover — bounded hosted acceptance approved
+
+The operator published source commit **`114c815`** as Worker **`pinexen-portfolio`**, version **`9c1452be-e25f-4e83-a734-b1a16edf1d6f`**. The mounted manifest is `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`; the root-mode manifest is `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0`. The 380-input source closure and public/private boundary are unchanged by this documentation update. Independent hosted QA and the bounded operator native review approved this version. Publication does not establish field Core Web Vitals, uptime or configured private-authentication success.
+
+Independent hosted verification passed:
+
+- **Six changed public files** return 200 and match the reviewed clean export exactly: index, 404, capabilities CSS, mobile-reading CSS, Night CSS and hashed main utility CSS. The **197 unchanged public assets** match the manifest and were not individually fetched again.
+- **Sixteen aliases across HTTP/HTTPS and apex/www**, plus the explicit trailing www mount, canonicalize with query values retained.
+- **Three media cases** pass: exact bytes 1–9 with 206/Content-Range, unsatisfiable 416 with total length, and bodyless HEAD 200 with full length/Accept-Ranges.
+- **Six private API checks** intentionally return 503/no-store across three identities and GET/HEAD; **three source/control paths** remain 404.
+- **Two company-origin baselines** retain apex 301→www and the unchanged www 200 body.
+
+Operator native review loaded the exact requested www URL through canonicalization and verified both bare 32px collaboration header icons, no header arrows, own metadata/footer actions, Arabic RTL and Day/Night switching. No horizontal overflow or console warnings/errors was observed in that bounded pass. This is not a universal rendering, field performance or uptime claim. Private bindings remain unset; no configured-authentication success is claimed.
+
+## Previous hosting handover — bounded hosted acceptance approved
 
 The operator deployed Worker **`pinexen-portfolio`**, version **`99f74d2a-7d5d-4c2d-ba8b-01c91d4e8a15`**. The deployed bundle is the reviewed mounted manifest `4bf5733024db3ea31340ca46a53798397a0f160f173133265f65c25a7971a9b0`.
 
@@ -29,7 +43,7 @@ Review `http://127.0.0.1:4180/mhalmaghawry/`. The adapter executes the actual mo
 
 `cloudflare/public/` contains 203 allowlisted runtime assets. The generated `worker.mjs`, `mount-worker.mjs`, byte-identical private handler, `wrangler.jsonc` and bundle manifest stay **outside** the asset directory. The public binding excludes `_worker.js`, `_routes.json`, `_headers`, `_redirects`, robots, build manifests, source, tools, docs and private policy. Deploy using the generated config; do not upload the whole repository/bundle as static assets. The builder scans all output for retired confidential fingerprints and verifies the complete owned tree. Unknown/modified output files cause refusal. Every file is below 25 MiB; no external rendering dependency is introduced.
 
-The original `dist/` remains the separate root-mode Pages/local build. Its 208-file reviewed manifest is `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0`. The current reviewed UI candidate mounted manifest is `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`, at `cloudflare/bundle-manifest.json`; it is not the earlier hosted version identified above. Both are deterministic; neither generated folder is committed.
+The original `dist/` remains the separate root-mode Pages/local build. Its 208-file reviewed manifest is `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0`. The current published UI release mounted manifest is `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`, at `cloudflare/bundle-manifest.json`; it identifies the current publication checkpoint above. Both are deterministic; neither generated folder is committed.
 
 ## Worker and route configuration
 
@@ -74,6 +88,6 @@ The public asset wrapper has a streaming single-byte-range fallback when the Ass
 
 Before declaring production complete, verify canonical/alias/query behavior, native hash and language routing, desktop/phone Day/Night layout, loader/media/font loading and media seeking, scoped 404, source/control denials, private503 with focus restoration, root-origin continuity, actual headers and actual cache responses. Local fixtures cannot establish field Core Web Vitals or Cloudflare behavior.
 
-Keep the deployed version above and its approved manifests as the rollback reference; the newer reviewed UI candidate manifests identify the next operator-controlled release. For a future regression, the operator can select a previously approved Worker deployment; for this initial publication, removing **only the four portfolio routes** restores origin handling. Do not create a root catch-all or substitute the source repository as an asset directory. A failed future release should roll back to a known approved version, never to retired credentials or experimental bodies. Preserve company-origin ownership; a proxy-mode reversal is an operator decision after checking other dependencies.
+Keep the current approved version and manifests as the release reference, and retain the previous approved version for rollback. For a future regression, the operator can select a previously approved Worker deployment; for this initial publication, removing **only the four portfolio routes** restores origin handling. Do not create a root catch-all or substitute the source repository as an asset directory. A failed future release should roll back to a known approved version, never to retired credentials or experimental bodies. Preserve company-origin ownership; a proxy-mode reversal is an operator decision after checking other dependencies.
 
 The public Git repository has legacy GitHub Pages publication from `main:/`; that remains independent and cannot execute this Workers setup. No automatic deployment workflow is added. Current-source cleanup does not claim old Git history was scrubbed.

@@ -1,10 +1,10 @@
-# Current release candidate
+# Current release
 
-This consolidated source revision preserves the accepted bilingual portfolio and its public media while bringing the runtime and maintenance inputs into one reproducible review candidate. This opening section describes the source revision; the hosted checkpoint is recorded below.
+This consolidated source revision preserves the accepted bilingual portfolio and its public media while bringing the runtime and maintenance inputs into one reproducible release. This opening section describes the source revision; the hosted checkpoint is recorded below.
 
-## Reviewed UI candidate — Arabic, phone reading and capability replay
+## Reviewed UI release — Arabic, phone reading and capability replay
 
-This candidate is not yet the hosted version recorded below. It is limited to five scopes:
+Source commit `114c815` was published as Worker version `9c1452be-e25f-4e83-a734-b1a16edf1d6f`. Independent hosted QA and the bounded operator native review approved that version. The release is limited to five scopes:
 
 - **AR179:** 86 reviewed Arabic records and 7 runtime attribute/count groups; 625 English dictionary values remain unchanged. Canonical To-Get.me ticker titles/alts are corrected without changing links or artwork.
 - **MOB180:** native outside award markers fix detached mobile bullets; bounded value headings wrap; Selected Projects external actions have 44×44px phone hit areas. Desktop preview behavior is retained.
@@ -12,7 +12,7 @@ This candidate is not yet the hosted version recorded below. It is limited to fi
 - **SURF182:** Profile, Mindset, Skills, Tools, Education and Interests use the unchanged moving-logo card's actual per-theme fill/border/28px radius/shadow; inner content and motion retain their owners.
 - **COL183:** both collaboration cards use their own metadata beneath the title and bare original 32px/24px glyphs; the second obsolete corner arrow is removed, while footer actions remain.
 
-Current-owner checks cover completed second visits, rapid/stale cancellation, native intervals/reverse/final dwell, phone/refit/focus/reduced/disposal, localized attributes and count grammar. Bounded native review covers desktop replay, computed materials and 320px/390px EN/AR headers/hit geometry; final staging/reproducibility and independent QA remain the release gate. Older uncurated snapshot-chain fixtures retain superseded boundaries and are not claimed as passing; no broad normalizer was weakened.
+Current-owner checks cover completed second visits, rapid/stale cancellation, native intervals/reverse/final dwell, phone/refit/focus/reduced/disposal, localized attributes and count grammar. Bounded native review covers desktop replay, computed materials and 320px/390px EN/AR headers/hit geometry; the published release also passed the bounded hosted checks recorded below. Older uncurated snapshot-chain fixtures retain superseded boundaries and are not claimed as passing; no broad normalizer was weakened.
 
 The reviewed manifests are root `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0` (208 files) and mounted `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084` (203 public assets/207 bundle files). Public media, navigation/Stack66/Expertise owners, protected Worker and original company-origin routing are unchanged.
 
@@ -37,6 +37,10 @@ GIT176 historical baseline: 208 files / 97,434,877 bytes, manifest SHA256 `8e145
 - Mounted output alone receives canonical/social metadata, scoped manifest/sitemap/404 URLs and the canonical social handle. UI body, artwork, media, themes and motion are unchanged.
 - The reviewed root runtime manifest is now `b078c71ee44370259b7d16456f228d6d6749583f4d8932e75c3c2237268a177b`; its sole runtime-file change from GIT176 is the private client's mount-aware URL derivation. Actual Cloudflare deployment/acceptance is recorded separately by the operator; private resources/secrets are not provisioned by this change.
 
-## Hosted handover checkpoint
+## Current publication checkpoint
+
+The operator published source commit `114c815` as Worker `pinexen-portfolio` version `9c1452be-e25f-4e83-a734-b1a16edf1d6f`. The root manifest remains `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0` and the mounted manifest remains `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`. No private resources or credentials were configured. Independent hosted QA approved six changed files by exact served-byte identity, 16 both-host aliases plus the trailing www mount, three media Range/416/HEAD cases, six intentional private 503/no-store responses, three source 404s and two company-origin baselines. The other 197 public assets are unchanged by manifest comparison and were not fetched individually again. Operator native review verified the exact www URL canonicalizing to the portfolio, both bare 32px collaboration icons with no header arrows, correct metadata/footer actions, Arabic RTL, Day/Night switching, no horizontal overflow and no console warnings/errors. These bounded checks do not establish field Core Web Vitals, universal rendering, uptime or configured private authentication. The earlier results below apply only to their named version.
+
+## Previous hosted handover checkpoint
 
 The initial operator deployment was `pinexen-portfolio` version `0e9228b9-3e45-44c3-a3aa-1972c61351bf` with mounted manifest `d95fb61e66c40b45f46d0a0b7db3f5111ed560aaed34939a8c7f559671fc674b`. Apex portfolio200/founder308 and subsequent natural `www` propagation/canonical308/native loading were observed. Hosted media Range requests exposed full200 responses; streaming fallback and generated-size metadata corrected that in bundle `4bf5733024db3ea31340ca46a53798397a0f160f173133265f65c25a7971a9b0`, deployed as version `99f74d2a-7d5d-4c2d-ba8b-01c91d4e8a15`. All203 public assets and the private handler remain byte-identical. Independent hosted QA approved203 asset HEADs,7 actual edge Range cases,16 both-host aliases,2 company baselines,9 source404s,6 private503/no-store cases and exact HTML hash. This bounded acceptance does not establish field Core Web Vitals, uptime or configured private-authentication success.
