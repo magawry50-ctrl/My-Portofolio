@@ -1,4 +1,10 @@
-# Published MOB184 — phone Interests header
+# Current review candidate — collaboration header width
+
+COL185 separates both original headers from the body-only max-width constraint. Header title/metadata can use the full inner-card width; body paragraphs/lists retain max-w-md/lg58%, original type, artwork and footer actions. The first obsolete desktop-nowrap utility is removed so narrower layouts wrap naturally without shrinking or clipping. Every inline controller/dictionary and all copy/art/footer markup remain byte-exact. Compiler output differs only by removal of the now-unused sm:whitespace-nowrap selector.
+
+Candidate manifests: root `a17c93917de276a2c7f2cb9bd8da123d76bd1f6f4232dacb30b1644af4ff5b30` (208 files), mounted `73005de304c96530ba5c78a68ba76cc5b1cd2c1b099f55d0f63ed513e2b0a6d1` (203 public assets/207 bundle files). Source curation retains all prior inputs and adds only the new hashed utility stylesheet, for 381 inputs. Native 1280/1440/1024 and 320/390 EN/AR confirmation is pending; this candidate is not yet published. Existing current-owner checks are the release gate; no implementation-mirroring test was added.
+
+## Published MOB184 — phone Interests header
 
 MOB184 fixes the single confirmed mobile-audit defect: at 320px the nowrap title/icon/controls row needed 289.48px inside 273px, clipping the final arrow by 16.48px. The original header now wraps naturally at ≤767px with 12px row gap and 6px control padding for focus paint. Title size, 44px controls, section width, desktop layout and carousel behavior/fade are unchanged. No test implementation was mirrored; existing current-owner checks and the 380-input staged/exported reproducibility gate passed. The baseline audit recorded 96 anchor checkpoints and one finding; all eight 320/390px EN/AR Day/Night final combinations passed arrow bounds/wrapping and the 6px focus reserve, while desktop remained unchanged.
 

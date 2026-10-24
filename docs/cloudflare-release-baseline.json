@@ -593,9 +593,9 @@
       "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
     },
     {
-      "path": "public/assets/tailwind-main.2386befbb87b.css",
-      "bytes": 69498,
-      "sha256": "2386befbb87b95dfed74fe8db69de0d9fbf23aa4ff7adf6c583fbb6d966ba776"
+      "path": "public/assets/tailwind-main.8221ee6cf0aa.css",
+      "bytes": 69456,
+      "sha256": "8221ee6cf0aa1ffe5238b7b645c299e7be147cd9690ffebe30b8abeb95568573"
     },
     {
       "path": "public/assets/team/fp-team-01.webp",
@@ -1009,8 +1009,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 965387,
-      "sha256": "a61f3822b6004824ea42a465f1e1940098d45ac01b0396ca4d8d9fb10b43f2b3"
+      "bytes": 965536,
+      "sha256": "08b721994a364a5798474cf8161becdc9982d8c810a62d10cbf5dd55a421f5c9"
     },
     {
       "path": "public/og-image.png",
@@ -1030,7 +1030,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16151,
-      "sha256": "e9d74fd73161154639a27900f866598143dff86c63a6b31613beb8ba179ced9a"
+      "sha256": "41b1527ef3bcd9c1e81c4797946188fdefb42b0214025fe1133d2e6dbf9fdc93"
     },
     {
       "path": "wrangler.jsonc",

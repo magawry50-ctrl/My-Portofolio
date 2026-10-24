@@ -26,7 +26,7 @@ The CSS compiler has build-only dependencies. Use the lockfile; do not force an 
 
 ## Repository and release inputs
 
-`tools/repository-allowlist.json` is the explicit review/staging inventory. It retains the 135 pre-existing tracked files, adds the runtime source closure and curated build/tests/docs (380 inputs in this revision, including both current-owner checks and the newly compiled stylesheet; prior tracked inputs are retained), and omits private/local evidence. New legitimate inputs require a reviewed inventory update. Never stage the workspace with an unrestricted add operation. `.gitignore` is convenience; the inventory is authoritative.
+`tools/repository-allowlist.json` is the explicit review/staging inventory. It retains the 135 pre-existing tracked files, adds the runtime source closure and curated build/tests/docs (381 inputs in this revision, including both current-owner checks and the newly compiled stylesheet; prior tracked inputs are retained), and omits private/local evidence. New legitimate inputs require a reviewed inventory update. Never stage the workspace with an unrestricted add operation. `.gitignore` is convenience; the inventory is authoritative.
 
 The fingerprint contract is `tools/private-text-fingerprints.json`, cross-checked against the existing denylist. It preserves 15 known blocked phrases without their plaintext. A policy update needs reviewed schema/count/checksum, negative tests and private-source equivalence verification performed outside public artifacts. Never regenerate it from an empty private upload folder and thereby erase retired protections.
 

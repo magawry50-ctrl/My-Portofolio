@@ -602,9 +602,9 @@
       "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
     },
     {
-      "path": "assets/tailwind-main.2386befbb87b.css",
-      "bytes": 69498,
-      "sha256": "2386befbb87b95dfed74fe8db69de0d9fbf23aa4ff7adf6c583fbb6d966ba776"
+      "path": "assets/tailwind-main.8221ee6cf0aa.css",
+      "bytes": 69456,
+      "sha256": "8221ee6cf0aa1ffe5238b7b645c299e7be147cd9690ffebe30b8abeb95568573"
     },
     {
       "path": "assets/team/fp-team-01.webp",
@@ -1018,8 +1018,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 965235,
-      "sha256": "c56e4c13e69ebaa5da0cc84f5d8a4953d347f87997974d10af0f7a9b20265d64"
+      "bytes": 965384,
+      "sha256": "e1519ea225a9fc4d5c068eca131c7aa067952b8313fca267006f59d695fbb73a"
     },
     {
       "path": "og-image.png",
