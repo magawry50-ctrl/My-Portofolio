@@ -14,13 +14,13 @@
     },
     {
       "path": "public/404.html",
-      "bytes": 4511,
-      "sha256": "e4f4e25d9ceb0d94ec2488869cda08f20613fa86e7346725f4f4795fec4f9f70"
+      "bytes": 4568,
+      "sha256": "416e3f72000c3c3fa97d54f02f7494c7805d5ad9ad8bc4fcfd4c97e15b38eb9e"
     },
     {
       "path": "public/apple-touch-icon.png",
-      "bytes": 5032,
-      "sha256": "b891415c26f2860a06da28de0198bcb68d6940627b72c2127a8750b701f2904a"
+      "bytes": 7153,
+      "sha256": "6f516938a26b7d190bf14dfac8a9436027d1d71a33e9b50deda256d97d59c6a2"
     },
     {
       "path": "public/assets/awards/award-cairo-exhibition.webp",
@@ -984,18 +984,18 @@
     },
     {
       "path": "public/favicon.ico",
-      "bytes": 766,
-      "sha256": "7886ee1171cb41d2b906838e91b3b0edd9b7f25ee623e0db4cf5e27be9883b02"
+      "bytes": 5312,
+      "sha256": "b556436a169fc42564e3c33d354e0208df1ce333b5290dbf07c65a3d1a274926"
     },
     {
       "path": "public/favicon.png",
-      "bytes": 615,
-      "sha256": "157e827103152c92e87d81f3ccd94aae0324015648a66ca6ada47c4e1f30f196"
+      "bytes": 1012,
+      "sha256": "b59867fa6e9d314be67d2fec8c6fa338f57036362cb75d146d8bbce5db245b9d"
     },
     {
       "path": "public/favicon.svg",
-      "bytes": 1312,
-      "sha256": "42ad8045249f5d3346635fd3a50fea21a8e2eb1ba3ee88d35aaea7a25195e4cb"
+      "bytes": 36692,
+      "sha256": "b06373975da9e450b27bb6ac892bc3bc9f02daf943a80ce21d7d8643b8947d1e"
     },
     {
       "path": "public/images/academic-architecture.webp",
@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 968534,
-      "sha256": "66a52571912cfe6d0b75be3924f4d3f1acc3f9f647f89848aa813ec040a2f214"
+      "bytes": 968629,
+      "sha256": "fccefc91b2f6a0baf836af1e18195bd7e991354543fe739b9e3c02ba86861c50"
     },
     {
       "path": "public/og-image.png",
@@ -1024,8 +1024,8 @@
     },
     {
       "path": "public/site.webmanifest",
-      "bytes": 792,
-      "sha256": "192ff289f0aab74754332b71d6eab24fe1d0ee65d8073f6af52caf868f6f8ce9"
+      "bytes": 840,
+      "sha256": "7aa4069f0aede62ca21f3bbe780dbd27f637f5cae4129f741674dbd2fb2871bf"
     },
     {
       "path": "public/sitemap.xml",
@@ -1034,8 +1034,8 @@
     },
     {
       "path": "worker.mjs",
-      "bytes": 16204,
-      "sha256": "5ce004de03e0c1c6a5559034d136506085579db347522cf1313bed4034bc8c56"
+      "bytes": 16207,
+      "sha256": "03460435f81564cf24aa1c2bd13a7ce88e0845e0e8ba405566d0eb4898eb8774"
     },
     {
       "path": "wrangler.jsonc",

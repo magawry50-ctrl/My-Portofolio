@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `75128ce23e55329ab3d4fc877634b549ab0b0408436175b828fcf68b0c433bf8`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `c4594898e4f8fc63e2f4cfd0ceb92b3227aaf0ffb587322dca84f7589105b65b`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -26,6 +26,10 @@ npm run preview:cloudflare
 ```
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 204 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
+
+## Current local candidate — FAV193
+
+FAV193 is a local candidate, not yet published. The favicon set uses the original supplied lion/Arabic-M/gold artwork on a white square. Both original SVG paths and square viewBox remain unchanged; source navy/gold ink stays legible in both browser themes. Existing root filenames supply SVG, 32px PNG, 180px Apple icon and a multi-size ICO. Content-version queries update the index/404 links and manifest references; mounted paths retain the query with one portfolio prefix. Manifest purpose is any, without a maskable-safe claim. Page content, 625+625 locale values, styles, scripts, animation, private handlers and routing are unchanged. All 384 curated source inputs remain; no new path, dependency or unrelated image is added. Current local manifests: root `c4594898e4f8fc63e2f4cfd0ceb92b3227aaf0ffb587322dca84f7589105b65b` (209 files), mounted `9de89e40a0191310a0ec99d92d19a5061dbf6c4b0e04216606c8ba4c0db51a27` (204 public assets/208 bundle files). Original artwork/format/scope checks and existing local release checks are distinct from pending independent source/native/clean-export approval; no hosted or browser-cache result is claimed. Prior published releases retain their own evidence.
 
 ## Published EXP190 — bounded acceptance approved
 

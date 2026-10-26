@@ -23,13 +23,13 @@
     },
     {
       "path": "404.html",
-      "bytes": 4423,
-      "sha256": "718d2bf188bef58d311aaee41a52135658f9294d2e48e35174e6f36bf44e9058"
+      "bytes": 4480,
+      "sha256": "4436cbe55d7a52155150d628c2675417c6acb3f756e5ddf5ca7932005b0b404d"
     },
     {
       "path": "apple-touch-icon.png",
-      "bytes": 5032,
-      "sha256": "b891415c26f2860a06da28de0198bcb68d6940627b72c2127a8750b701f2904a"
+      "bytes": 7153,
+      "sha256": "6f516938a26b7d190bf14dfac8a9436027d1d71a33e9b50deda256d97d59c6a2"
     },
     {
       "path": "assets/awards/award-cairo-exhibition.webp",
@@ -993,18 +993,18 @@
     },
     {
       "path": "favicon.ico",
-      "bytes": 766,
-      "sha256": "7886ee1171cb41d2b906838e91b3b0edd9b7f25ee623e0db4cf5e27be9883b02"
+      "bytes": 5312,
+      "sha256": "b556436a169fc42564e3c33d354e0208df1ce333b5290dbf07c65a3d1a274926"
     },
     {
       "path": "favicon.png",
-      "bytes": 615,
-      "sha256": "157e827103152c92e87d81f3ccd94aae0324015648a66ca6ada47c4e1f30f196"
+      "bytes": 1012,
+      "sha256": "b59867fa6e9d314be67d2fec8c6fa338f57036362cb75d146d8bbce5db245b9d"
     },
     {
       "path": "favicon.svg",
-      "bytes": 1312,
-      "sha256": "42ad8045249f5d3346635fd3a50fea21a8e2eb1ba3ee88d35aaea7a25195e4cb"
+      "bytes": 36692,
+      "sha256": "b06373975da9e450b27bb6ac892bc3bc9f02daf943a80ce21d7d8643b8947d1e"
     },
     {
       "path": "images/academic-architecture.webp",
@@ -1023,8 +1023,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 968382,
-      "sha256": "9cb9eb043341146626f83e6fb3c3aa5aa23639d096fe376ca5e8834514efaec4"
+      "bytes": 968477,
+      "sha256": "55e5a2b7f0a37d849a2e47ffbc3285e94a16ffebf86c96ae0d1f29479ac9a354"
     },
     {
       "path": "og-image.png",
@@ -1038,8 +1038,8 @@
     },
     {
       "path": "site.webmanifest",
-      "bytes": 713,
-      "sha256": "fb9978eac2bb981639a2926879c482887a383aae6f3e27c29dff5091587546ac"
+      "bytes": 761,
+      "sha256": "c130e5cac8fff93cdc1f1b5ab16295f4c00b1a8da553a7c401810847d8ebfa58"
     },
     {
       "path": "sitemap.xml",
