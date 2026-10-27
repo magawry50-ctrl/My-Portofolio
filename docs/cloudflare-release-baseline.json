@@ -1,0 +1,1046 @@
+{
+  "owner": "portfolio-cloudflare-mount-v1",
+  "canonical": "https://pinexen.com/mhalmaghawry/",
+  "files": [
+    {
+      "path": "mount-worker.mjs",
+      "bytes": 7158,
+      "sha256": "a6600bd22f739ec48af0177441989377dfc3c459464988263d22b2adbf585285"
+    },
+    {
+      "path": "private-preview-worker.mjs",
+      "bytes": 10995,
+      "sha256": "57c630038e7283f590077db135a6c730998a67da7051f7ea91572aa8bdd2ca4b"
+    },
+    {
+      "path": "public/404.html",
+      "bytes": 4568,
+      "sha256": "416e3f72000c3c3fa97d54f02f7494c7805d5ad9ad8bc4fcfd4c97e15b38eb9e"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "bytes": 7153,
+      "sha256": "6f516938a26b7d190bf14dfac8a9436027d1d71a33e9b50deda256d97d59c6a2"
+    },
+    {
+      "path": "public/assets/awards/award-cairo-exhibition.webp",
+      "bytes": 104150,
+      "sha256": "ad3df499cb77221d9b1d11388923b268159960299b8edf708753a7b06035897f"
+    },
+    {
+      "path": "public/assets/awards/award-commerce-startup.webp",
+      "bytes": 85896,
+      "sha256": "d927c194cfe4781fcb89f9293f18303ff5e6d0e535d93ba6399257d77f6633ff"
+    },
+    {
+      "path": "public/assets/awards/award-gico-graduation.webp",
+      "bytes": 29404,
+      "sha256": "46917f8221d37db26fa7f8419ceca33c52e3eb76af96bd62c9adde5b1e3ed7c3"
+    },
+    {
+      "path": "public/assets/awards/award-mu-innovation.webp",
+      "bytes": 39180,
+      "sha256": "cc2a048fa7f395e9e36a8c8395835eaa058bc66c9150ab397e3697465282d349"
+    },
+    {
+      "path": "public/assets/business-card.css",
+      "bytes": 16544,
+      "sha256": "4b3387d759cd943a3bb884b42fda3f9f7cb271d206c9b8171c1f5634f8b92fce"
+    },
+    {
+      "path": "public/assets/capabilities.css",
+      "bytes": 25493,
+      "sha256": "23e9c78e5026d529bfdbb97bcb2a7ef32da3969392ecfe8920b5a4f40698dbfc"
+    },
+    {
+      "path": "public/assets/clients/aldani-books.webp",
+      "bytes": 36876,
+      "sha256": "21b49b3d1c89e1e7efa77d1ec503178259f169e1788d2f8ca7a0b9e9cfaad0c8"
+    },
+    {
+      "path": "public/assets/clients/aldani-login.webp",
+      "bytes": 10978,
+      "sha256": "783ef4fdc233b6d34229923bdbe20d6e487976280d1b6e374a25db57d71f6982"
+    },
+    {
+      "path": "public/assets/clients/aldani-scheduler.webp",
+      "bytes": 25124,
+      "sha256": "1b77f281b8c0f659d91ccbc3e3bd7e0d8a667429af36a3affeb8146bc85a4a03"
+    },
+    {
+      "path": "public/assets/clients/clinix-app.webp",
+      "bytes": 26234,
+      "sha256": "3505611d759224841021d8b774835886511cc34b5eeedaafe3a350c3338a08ec"
+    },
+    {
+      "path": "public/assets/clients/clinix-hero.webp",
+      "bytes": 46264,
+      "sha256": "0653f79729bc20f790925bc65e6132eab3c92e54a1146e473aeb6caa1eea34f4"
+    },
+    {
+      "path": "public/assets/clients/megancy-growth.webp",
+      "bytes": 23214,
+      "sha256": "ab12a8c5133a82b7036f277b21fd67474bcf3062a10da88d77858401c216fb73"
+    },
+    {
+      "path": "public/assets/clients/megancy-hero.webp",
+      "bytes": 39448,
+      "sha256": "a500df0a327a86c6eccaa26f2d98ad3542cd226ed2199c23c7f803ae6e34d6ef"
+    },
+    {
+      "path": "public/assets/clients/mg11-showcase.webp",
+      "bytes": 34410,
+      "sha256": "b4351b27aad318663c74e175ef5fb08e18f2caddb5bb34b20227f9cdde304354"
+    },
+    {
+      "path": "public/assets/clients/racquetgym-hero.webp",
+      "bytes": 41658,
+      "sha256": "95b1ba1a5e9fabbb6a0245633c789f06a6f294593fdc5e3feb7a204e1a8c1d63"
+    },
+    {
+      "path": "public/assets/clients/racquetgym-product.webp",
+      "bytes": 31744,
+      "sha256": "e1e3dd5e2f69a86d36c6c567eeac692489774959e67a19df856349adb8fa1b51"
+    },
+    {
+      "path": "public/assets/clients/roomistan-hero.webp",
+      "bytes": 55382,
+      "sha256": "000af68840278b3525dcd210019093a80fd7413897b533fb05749643346ed91f"
+    },
+    {
+      "path": "public/assets/clients/roomistan-listings.webp",
+      "bytes": 79680,
+      "sha256": "eced577ad078f453d4d05b3fd717c28e66a0799a293d1a16d8421a41284258aa"
+    },
+    {
+      "path": "public/assets/clients/sarhan-charts.webp",
+      "bytes": 18790,
+      "sha256": "18735598a789b819b3da77f08fc2db0ecb620187ac0b4cc973f3379760f25ca0"
+    },
+    {
+      "path": "public/assets/clients/tshawer-advisory.webp",
+      "bytes": 32832,
+      "sha256": "eff6e1808d53c8590065d4ee9c3ae22a9a4821840775d0ab5deade7dc4aa1506"
+    },
+    {
+      "path": "public/assets/clients/tshawer-hero.webp",
+      "bytes": 55712,
+      "sha256": "09f28e36532a69a997263f2bf9a27a1719c78fce6d85fb4f89a953ed39ed1941"
+    },
+    {
+      "path": "public/assets/entry-heroes.css",
+      "bytes": 4081,
+      "sha256": "984ad18c955d4c0ef96601984c6261133823f2d96414748d94130f0b66f2c321"
+    },
+    {
+      "path": "public/assets/entry-heroes.js",
+      "bytes": 12124,
+      "sha256": "3ba883356d9f08fcfacbea8791e255e540fb4390ca111c5ed1dec85caa83f8a3"
+    },
+    {
+      "path": "public/assets/fonts/Inter-LICENSE.txt",
+      "bytes": 4380,
+      "sha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a"
+    },
+    {
+      "path": "public/assets/fonts/InterVariable-4.1.woff2",
+      "bytes": 352240,
+      "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3"
+    },
+    {
+      "path": "public/assets/fonts/vendor/Almarai-OFL.txt",
+      "bytes": 4391,
+      "sha256": "142e053c374dd465a92bd7378116b517e344dbc662361308130fc2566db30c2a"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19-006fba6fe32a.woff2",
+      "bytes": 32912,
+      "sha256": "006fba6fe32a900c60f154cc9e2e142bf075078dc97a94715dd9f1f5d4e4421e"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19-530903c9168c.woff2",
+      "bytes": 31672,
+      "sha256": "530903c9168cfc13d3ef363b71c042d5c887476c4454a91223309465ae89c87f"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19-53706a39de7c.woff2",
+      "bytes": 17392,
+      "sha256": "53706a39de7c9d9b74032b0af6549cf9809e3f98b343ea5b054a25e10b1c2e7a"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19-6f289856f002.woff2",
+      "bytes": 17468,
+      "sha256": "6f289856f002502ea9cc6aa85c2fd509f8aa6c3a17b5adf08f2ccc148cfeea4f"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19-7acac6ae3ea4.woff2",
+      "bytes": 33328,
+      "sha256": "7acac6ae3ea4d4eeb7c9b636856c46274f5904e02caff83a545d75ebb9754faf"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19-7f9acc49f37d.woff2",
+      "bytes": 19280,
+      "sha256": "7f9acc49f37d11319a44ecf80edb205f11cffddcb3013a0bbbc6af46dcf12b9c"
+    },
+    {
+      "path": "public/assets/fonts/vendor/almarai-v19.css",
+      "bytes": 3600,
+      "sha256": "a84c66debd1ffa38f0249dabb19d444e0e9650574219aa0d7a60dd9705aeaa6b"
+    },
+    {
+      "path": "public/assets/fonts/vendor/Font-Awesome-LICENSE.txt",
+      "bytes": 7427,
+      "sha256": "9b914eae88817d63b576eab5aafde7068c7a1abae125d7cdfb034f1da43a9afc"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-6.5.2.css",
+      "bytes": 103049,
+      "sha256": "ded45f883c11c105b0499b827c78a60ebabc4e49620e311fe049cbeba59aad96"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-brands-400.ttf",
+      "bytes": 209128,
+      "sha256": "e28096fa75a96ac77020155ea3a6dd7312983e84115366d4cf49a0c312ec6d51"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-brands-400.woff2",
+      "bytes": 117852,
+      "sha256": "232c6f6a7678304f9efaa26f30b1610debc2ba9f4cd636b5e6751c8d73761b92"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-regular-400.ttf",
+      "bytes": 67860,
+      "sha256": "9174757efc83e072436e873c22be1663d3c103b0a16d7fb73569af4918d4d351"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-regular-400.woff2",
+      "bytes": 25392,
+      "sha256": "c27da6f833431da5aa295c44540bfac0fd8270ba6a3c4346427006d8a7b34b76"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-solid-900.ttf",
+      "bytes": 420332,
+      "sha256": "b4990d0d0c5f5d38d62e936eea120674e584c7eea8dcee38a975c0cf9a37539b"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-solid-900.woff2",
+      "bytes": 156400,
+      "sha256": "ae17c16afbea216707b2203ea1cf9bdb45b9bfe47d0f4ae3258ddbc6294dd02f"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-v4compatibility.ttf",
+      "bytes": 10832,
+      "sha256": "ff8f525fb050c5d24519ccc8f5723d85b2e51edd3f9bc6548af55aebadd4f269"
+    },
+    {
+      "path": "public/assets/fonts/vendor/fontawesome-fa-v4compatibility.woff2",
+      "bytes": 4792,
+      "sha256": "c7a869faca299d15be10a01f19d0765a7c4d46d8922d9b9317235c1e4a6f0982"
+    },
+    {
+      "path": "public/assets/fonts/vendor/Material-Symbols-APACHE.txt",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+    },
+    {
+      "path": "public/assets/fonts/vendor/material-symbols-v380-0cc7fa1e4cec.woff2",
+      "bytes": 323860,
+      "sha256": "0cc7fa1e4cecd746bb538e778c8df755f467691c13ac1f8603a197a73f548ec8"
+    },
+    {
+      "path": "public/assets/fonts/vendor/material-symbols-v380.css",
+      "bytes": 563,
+      "sha256": "7bb2178eff628347972c8de211960adc33a636a4b9124e42460adf80d874557d"
+    },
+    {
+      "path": "public/assets/interests.css",
+      "bytes": 8404,
+      "sha256": "9907b104dc93e7c7208ad898e223503d6909a1af584a9035d7e8ad631ffb279d"
+    },
+    {
+      "path": "public/assets/liquid-glass.css",
+      "bytes": 39275,
+      "sha256": "a2ea4df3ef93ca653d1f7625249ab5cc26b7ce15bcd1dfb7b44c74e89234a605"
+    },
+    {
+      "path": "public/assets/loader-cast-ii.js",
+      "bytes": 114495,
+      "sha256": "52a2e4d4ba4c952d77ba229aedd506b81462c2940644434b4ac42a3fc93f8bc7"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/aux2.png",
+      "bytes": 15659,
+      "sha256": "e69d1f63bba11e8ca2326c6101e0038b15d65afe5114cc28d02c8595ec906be4"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/base.jpg",
+      "bytes": 304368,
+      "sha256": "c92c8e1bcb8036854b8e4875425c2d5a96b14720a1111e36281c0a89d202a13c"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/base2.jpg",
+      "bytes": 277492,
+      "sha256": "e3764bbdf732e57947ade957d56f38dea2496027f8fac15f958aebce3dc05e48"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/cloud.jpg",
+      "bytes": 135674,
+      "sha256": "c26ae9d47c8c9b612eb75cdb7b758cd5cbacd682236434138491adcbf8a4bd87"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/mask.jpg",
+      "bytes": 176329,
+      "sha256": "f4a88d4e0923ae7e4340983e7dd2bd26a9bba72422b20fc68ce7df257aa58443"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/material-aux.png",
+      "bytes": 129039,
+      "sha256": "fcede5e22ad6117e6cee877475e3f10d46c4213ee5e6852e5c7c2f78fc078cec"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/normal.jpg",
+      "bytes": 204916,
+      "sha256": "4b750a139677bdc6cdccb14a2636d00328732b5612f8a4f56485671a9cd1b00a"
+    },
+    {
+      "path": "public/assets/loader-cast-ii/normal2.jpg",
+      "bytes": 151182,
+      "sha256": "459260840eeddc02c06987db184a57b19ff507a76f9d2764db304b0964cb6fdf"
+    },
+    {
+      "path": "public/assets/logos/apex-sports-logo.webp",
+      "bytes": 28432,
+      "sha256": "a94cb2828be6253baf0ce1ad8d5133288bc8ba3b057d0c5a7696400e48a63b4b"
+    },
+    {
+      "path": "public/assets/logos/https.awamerbs.com.webp",
+      "bytes": 4356,
+      "sha256": "e18836cb8b5aef5e096b3d6e486f6b019ecbc8663f8865676ad6882ecbaac56e"
+    },
+    {
+      "path": "public/assets/logos/https.clinixsummary.ai.webp",
+      "bytes": 22992,
+      "sha256": "157472df14f852db7a2f527c524b5b1be274649e6a18033f171abf5a846bb674"
+    },
+    {
+      "path": "public/assets/logos/https.cloudyeg.com.webp",
+      "bytes": 7188,
+      "sha256": "d73b6de80b171431072794eec17ed2a91939687b5ad6fc6b96bc298854215eda"
+    },
+    {
+      "path": "public/assets/logos/https.descitech.org.webp",
+      "bytes": 25886,
+      "sha256": "1affd6f37e0904099c2ae06ac1df94c512b84631fc3e7c8e357637d5d06f102a"
+    },
+    {
+      "path": "public/assets/logos/https.gacrux.ai.webp",
+      "bytes": 14004,
+      "sha256": "e953606a16ac0b4dc9d892f2c8d107c2ed0e096db19cb131024c8ed8955283d7"
+    },
+    {
+      "path": "public/assets/logos/https.hw.energy.webp",
+      "bytes": 43768,
+      "sha256": "99d9e739aaf39fe9d12d5b2fd430da8d6c5a208bc022e6fb78e872a3f300ab5c"
+    },
+    {
+      "path": "public/assets/logos/https.itvillage.net.webp",
+      "bytes": 13314,
+      "sha256": "509a9557c594359fb98b20c55a3f1720f6211522c180f74909c97ba4e10ce8e0"
+    },
+    {
+      "path": "public/assets/logos/https.kreston.com.webp",
+      "bytes": 43892,
+      "sha256": "46a363618f5c782f3ae48e0e4a09387a34cdf45868e62d89943e68b55306405d"
+    },
+    {
+      "path": "public/assets/logos/https.mawthouq.net.webp",
+      "bytes": 14770,
+      "sha256": "638eaba9b80679464dcc539caf68443334df34454762ce34e03ba60540e589af"
+    },
+    {
+      "path": "public/assets/logos/https.megancyagency.com.webp",
+      "bytes": 14898,
+      "sha256": "7d91a2e38988b72e6ceac93a714a31673bf478dd05d8c1af794818402795f53d"
+    },
+    {
+      "path": "public/assets/logos/https.mg11.uk.webp",
+      "bytes": 23004,
+      "sha256": "cf5d420f77cc678a2dc24b3d2226039b10cd524da7bf98b4b54c9438ad91f9a5"
+    },
+    {
+      "path": "public/assets/logos/https.qawaemunit.com.webp",
+      "bytes": 11090,
+      "sha256": "eea2cf5556d1493e704699ec05d0a3bb010d31411cf702bfdf22a54194c673db"
+    },
+    {
+      "path": "public/assets/logos/https.racquetgym.com.webp",
+      "bytes": 22590,
+      "sha256": "4fcaa496e73fbce90921e1026450b1b6f3c471d022c4fa7cd9a4714cc762e397"
+    },
+    {
+      "path": "public/assets/logos/https.to-get.me.webp",
+      "bytes": 40366,
+      "sha256": "4868b0ca4a4245464bdc0484c86540e7fec48b1fbac41111b4e02e228fe6fce9"
+    },
+    {
+      "path": "public/assets/logos/https.x.com.financialprf.webp",
+      "bytes": 61722,
+      "sha256": "72f9f3543ba1569f9a2211d4fb5378465761d90e38357833271fc0b3acd323ea"
+    },
+    {
+      "path": "public/assets/logos/sarhan-charts-logo.webp",
+      "bytes": 26498,
+      "sha256": "a24f3677732eab60a158e08e5a69783c462485aae98976ae67681cc3c51ef6e2"
+    },
+    {
+      "path": "public/assets/logos/swiss-nest-logo.webp",
+      "bytes": 15696,
+      "sha256": "226196b4d90eb8fcbee1c491f5a6396094722123233d6264e82d88e9adb7fda4"
+    },
+    {
+      "path": "public/assets/logos/tshawer-new.webp",
+      "bytes": 36506,
+      "sha256": "b349f49b1b729f81c187e67a1ef2b2852b5a5926c3bb8f7823cec58e646f8850"
+    },
+    {
+      "path": "public/assets/lucide-LICENSE.txt",
+      "bytes": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "path": "public/assets/mobile-navigation.css",
+      "bytes": 5961,
+      "sha256": "9748e876722c4ccfcd5b64b4a6137a27c0fbd28be44d8920cdd744b9e6c057e7"
+    },
+    {
+      "path": "public/assets/mobile-navigation.js",
+      "bytes": 10285,
+      "sha256": "344ce03e4479cb81d9e82fcdd1260c395c77f341708e0f2b8843d3d38fdd9e10"
+    },
+    {
+      "path": "public/assets/mobile-reading.css",
+      "bytes": 4018,
+      "sha256": "c2b41357c1bd1c9c5839a7e01d2eee02e59f488bd474179da3ef084ef460cdbe"
+    },
+    {
+      "path": "public/assets/mobile-reading.js",
+      "bytes": 10632,
+      "sha256": "a5728dcf68af0ff7e28c14cfc3b0e0d30e9c4ef7bd0877bf5ebc182948fd9440"
+    },
+    {
+      "path": "public/assets/night-theme.css",
+      "bytes": 17124,
+      "sha256": "2103f24757a089d7d5cde05ace55568af4c88c1dab82c9d907cf60bc95f1701f"
+    },
+    {
+      "path": "public/assets/patents/patent-beverage-cap.webp",
+      "bytes": 30590,
+      "sha256": "0b47cdc8c45529f5ab9b0b70f47f9dc9f10acfd3a5f275d6d05e5124986da1b8"
+    },
+    {
+      "path": "public/assets/patents/patent-cartless-shopping.webp",
+      "bytes": 31470,
+      "sha256": "61a32b14b93ef132b23c4058cdb4bb2d43c46d402ad0c87f9a5074a238214d64"
+    },
+    {
+      "path": "public/assets/patents/patent-interactive-display.webp",
+      "bytes": 10190,
+      "sha256": "4aa5e3739414a010724a5c712c6c28a7020c5941940e2db1350498f7c9034361"
+    },
+    {
+      "path": "public/assets/photos/kreston-consultant-office.webp",
+      "bytes": 27150,
+      "sha256": "20cf4346ef35a491508f9bac44933e21c1ba6b6c1ab836b330ef629697581794"
+    },
+    {
+      "path": "public/assets/photos/kreston-consultant-remote.webp",
+      "bytes": 44256,
+      "sha256": "e4f14f9f7c7e9b5f850dd246afb6ea52c561fa84c4e06e9bf375387cffd86f6b"
+    },
+    {
+      "path": "public/assets/photos/kreston-photo-01.webp",
+      "bytes": 42436,
+      "sha256": "1e261d8cb62ca2c2216c5557fb57f68a25d7ba1d863a6e66ef654275b9058a95"
+    },
+    {
+      "path": "public/assets/photos/kreston-photo-02.webp",
+      "bytes": 23362,
+      "sha256": "4166eaf8fe82edd0a2738d902518a74992be0c82a1cbe307623d5f801e10fc89"
+    },
+    {
+      "path": "public/assets/photos/kreston-photo-03.webp",
+      "bytes": 20094,
+      "sha256": "09e217f5175126eedf7f795141c134e13189b0504ee9969fb76c313f56fc1a72"
+    },
+    {
+      "path": "public/assets/photos/kreston-photo-04.webp",
+      "bytes": 77342,
+      "sha256": "bdbc291416e73097f1b27ab47f171bd1f28731f2194ddedd62821ae49db221ed"
+    },
+    {
+      "path": "public/assets/photos/kreston-photo-05.webp",
+      "bytes": 72340,
+      "sha256": "72dad20dbfcae5d69c19e1a44f626751e4182b5e0b06323e528c929e5e665d4c"
+    },
+    {
+      "path": "public/assets/photos/mohamed-al-maghawry-signature.svg",
+      "bytes": 264400,
+      "sha256": "fe89f8a85f60231ccf4f3d7a288f875a5b6871ef3e7eb91e8106e56c07f89bf0"
+    },
+    {
+      "path": "public/assets/photos/mohamed-almaghawry-arabic.svg",
+      "bytes": 99072,
+      "sha256": "d0eaba3341695fcf920250dc2c1a6a8601160ef2b99721ee716df0c2b9306635"
+    },
+    {
+      "path": "public/assets/photos/mohamed-executive-320.webp",
+      "bytes": 13382,
+      "sha256": "38fb2e9edf4c22eb1fe0cffd7cf7a8f56347b4fd8278e8065078aedd44b5f68b"
+    },
+    {
+      "path": "public/assets/photos/mohamed-executive-640.webp",
+      "bytes": 42234,
+      "sha256": "24ee5b7108cb0734fbebdfe3ef965cea9930df4bdd7d15f1b8c9dc7417d0fe32"
+    },
+    {
+      "path": "public/assets/photos/mohamed-executive-960.webp",
+      "bytes": 75392,
+      "sha256": "89ad83ca96612c924c6ce906b8787d5c137e3317d16d6dd3adde99cde2f96d0a"
+    },
+    {
+      "path": "public/assets/photos/mohamed-executive.webp",
+      "bytes": 75392,
+      "sha256": "89ad83ca96612c924c6ce906b8787d5c137e3317d16d6dd3adde99cde2f96d0a"
+    },
+    {
+      "path": "public/assets/photos/mohamed-hero-suit-320.webp",
+      "bytes": 12480,
+      "sha256": "ca85b6ca4d85419f452976b854576196e73fd715bab3bdffca7ae1813f901f64"
+    },
+    {
+      "path": "public/assets/photos/mohamed-hero-suit-640.webp",
+      "bytes": 34410,
+      "sha256": "cb4a6ff4000217aa5330dc8c0bd21900190766be2d662d8906c0b2b6e9613d3b"
+    },
+    {
+      "path": "public/assets/photos/mohamed-hero-suit-960.webp",
+      "bytes": 61606,
+      "sha256": "b2c970b8d9f06e984f079a1e6ef667b875a67e662c2ab9fec38a322842c9e431"
+    },
+    {
+      "path": "public/assets/photos/mohamed-hero-suit.webp",
+      "bytes": 61606,
+      "sha256": "b2c970b8d9f06e984f079a1e6ef667b875a67e662c2ab9fec38a322842c9e431"
+    },
+    {
+      "path": "public/assets/photos/mohamed-warm-office-320.webp",
+      "bytes": 15978,
+      "sha256": "75109153ea8ab5a9479552653329351480a79fcc238c67c997ccdb311b05e34a"
+    },
+    {
+      "path": "public/assets/photos/mohamed-warm-office-640.webp",
+      "bytes": 42684,
+      "sha256": "2519f18155a9416fe135c696668237e0e095390808f2ee1134622917ca06eb57"
+    },
+    {
+      "path": "public/assets/photos/mohamed-warm-office-778.webp",
+      "bytes": 56720,
+      "sha256": "91ddd3fdfbdf90725a5f866be8e348a0e05a2055de3dc9898b997e9bf5d51712"
+    },
+    {
+      "path": "public/assets/photos/sculpture-product-3d.webp",
+      "bytes": 147770,
+      "sha256": "4aad602275c67ba23bfa5ac28731256413e54276e839f779af17dd9a44116b42"
+    },
+    {
+      "path": "public/assets/photos/sculpture-strategy-3d.webp",
+      "bytes": 103688,
+      "sha256": "c84b7c273667e1c5dab72eff2f61107378afcf8007453e5e7e5c20f4b3009817"
+    },
+    {
+      "path": "public/assets/photos/sculpture-systems-3d.webp",
+      "bytes": 94258,
+      "sha256": "6d6712fba5bd2bf13c0a0a0b85e15a67ce11c820307fc453395bc29e2081e927"
+    },
+    {
+      "path": "public/assets/private-previews.js",
+      "bytes": 3001,
+      "sha256": "dc30af04135cab2f43b1fa5a76e871ac95d13e01911ac991b30c3215370bc691"
+    },
+    {
+      "path": "public/assets/project-preview.css",
+      "bytes": 11489,
+      "sha256": "a056389050c7259da704acaf7569237e003e11920bf74993de63e7a4ed9ce579"
+    },
+    {
+      "path": "public/assets/remote/photo-1578844251758-2f71da64c96f.webp",
+      "bytes": 27876,
+      "sha256": "6b2cd9af84b305c49b3cd26cb9f56b8ec811439223c43a29eae5c0fc34402d56"
+    },
+    {
+      "path": "public/assets/security-preview.js",
+      "bytes": 16192,
+      "sha256": "25e9e591e897413ad77a577802c91f1aa7f94b21a4b2d636b8ba78042f9d5e2a"
+    },
+    {
+      "path": "public/assets/tailwind-404.a4fa366c5c1f.css",
+      "bytes": 10150,
+      "sha256": "a4fa366c5c1fa7b117ec9b20ef0a6540c816847277523d621ea04782af77e799"
+    },
+    {
+      "path": "public/assets/tailwind-LICENSE.txt",
+      "bytes": 1071,
+      "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
+    },
+    {
+      "path": "public/assets/tailwind-main.3fb34b101f92.css",
+      "bytes": 68633,
+      "sha256": "3fb34b101f924b4295ffa8229854426d0f7a9b902cc5b078f75a48074d7e8ca7"
+    },
+    {
+      "path": "public/assets/team/fp-team-01.webp",
+      "bytes": 76044,
+      "sha256": "9ac25978c1db24123e9b044ff2c95478e3510b45c22fb6595ded73e0d8c1fa0e"
+    },
+    {
+      "path": "public/assets/team/fp-team-02.webp",
+      "bytes": 74936,
+      "sha256": "0d066c1ea27010c7e453633ba94334b8861461c55e59ebcf8ef1e519512a0820"
+    },
+    {
+      "path": "public/assets/team/fp-team-03.webp",
+      "bytes": 52644,
+      "sha256": "64ae7a1a6979084b07d171c3ee8fa653787df52953533c0d9f48ed6603464e7c"
+    },
+    {
+      "path": "public/assets/team/fp-team-04.webp",
+      "bytes": 91262,
+      "sha256": "e6b36b2c1213cd63f8e705bc297d44f4fbfa53b01506b6012acac13c5a98d439"
+    },
+    {
+      "path": "public/assets/team/fp-team-05.webp",
+      "bytes": 105724,
+      "sha256": "a759500b102c4b517c65b80c1045485d57faa757baa93df48e62850a5e173719"
+    },
+    {
+      "path": "public/assets/team/fp-team-06.webp",
+      "bytes": 53246,
+      "sha256": "d9859414f7d2a034b9f3e9e52ad20eb8779b293f42f25806adab0bec4208298e"
+    },
+    {
+      "path": "public/assets/team/fp-team-07.webp",
+      "bytes": 51824,
+      "sha256": "b7eb99ab9cdf2a86d75be5b894ef98651f0449d95dd54a1af3972debeca8026d"
+    },
+    {
+      "path": "public/assets/team/fp-team-08.webp",
+      "bytes": 67730,
+      "sha256": "75667b8d522d2ecef8dc0bfcbd02ea5aaa46c715490e1fee406946a516b6e83f"
+    },
+    {
+      "path": "public/assets/team/fp-team-09.webp",
+      "bytes": 98578,
+      "sha256": "0779dd88eaf4c5264fb36663899cbc05faac5c3a17a3b33c31263ccf4215b039"
+    },
+    {
+      "path": "public/assets/team/fp-team-10.webp",
+      "bytes": 60806,
+      "sha256": "e3f5cf72768a5971560b0c9a0e4fc31fdabe41f7e6355afe9ee3c2ac3bff486e"
+    },
+    {
+      "path": "public/assets/team/fp-team-11.webp",
+      "bytes": 39798,
+      "sha256": "eedb3ed66e097725cb83faecb2421a64fe9a06e016fdc90fa6ae931b9b73451e"
+    },
+    {
+      "path": "public/assets/team/fp-team-12.webp",
+      "bytes": 61512,
+      "sha256": "fde72188bd167eb73c0fa4c8a83010af9275d7d53fdaabbb42f7ce33b16c87f3"
+    },
+    {
+      "path": "public/assets/team/fp-team-13.webp",
+      "bytes": 57330,
+      "sha256": "0e5d29947516f841225c7e95777edb44c9f4ca7ef6158179956969e45c2d309c"
+    },
+    {
+      "path": "public/assets/team/fp-team-14.webp",
+      "bytes": 67448,
+      "sha256": "c5625f78e4fb69c6319238d3db6570eec77f4bb4c45d1b009a0d4438c88349f8"
+    },
+    {
+      "path": "public/assets/tools/antigravity.png",
+      "bytes": 71914,
+      "sha256": "e0cd08ccd10cd8d08ccf0ba449823ee88495825c0841619618100d3ab089f51e"
+    },
+    {
+      "path": "public/assets/tools/claude.png",
+      "bytes": 39563,
+      "sha256": "c7d8415b1edba67e5337d3684b480b563826f07be9e28e10ccc14bf92037ef6d"
+    },
+    {
+      "path": "public/assets/tools/clickup.png",
+      "bytes": 8660,
+      "sha256": "fb45023441f0794d1ece6ef59542d360c8bf4f4c3bde2c84c4d546ae8019ed72"
+    },
+    {
+      "path": "public/assets/tools/codex-product.png",
+      "bytes": 9974,
+      "sha256": "8e82b26c98a10e45798ce48124515720657f7735fb8d0853b3f087eaa8a6b74e"
+    },
+    {
+      "path": "public/assets/tools/discord.png",
+      "bytes": 13796,
+      "sha256": "f6c1a66250d366d213789faefab59a9ec6ac6334e6c4be0af254680c148810dc"
+    },
+    {
+      "path": "public/assets/tools/elementor.png",
+      "bytes": 8204,
+      "sha256": "ab632b8c6432cfa2f56d3716edce4b515835c3fb6883e4fa4e6efa65f4c21c29"
+    },
+    {
+      "path": "public/assets/tools/excel.png",
+      "bytes": 27789,
+      "sha256": "5b803f7b5ce89e610c317ac6e9396cebd6aac51c856d4c06cac7de97d7d75128"
+    },
+    {
+      "path": "public/assets/tools/filmora.png",
+      "bytes": 2090,
+      "sha256": "d2ed3658c3037799cd4a7f07427c8c353f84bdac12f1ecd2075e600b1e3d2947"
+    },
+    {
+      "path": "public/assets/tools/flow-dark.png",
+      "bytes": 41183,
+      "sha256": "32f26ff04305eb0120689c1f9ba23602cabdb9151950fdc1e26d9ae15703a7b0"
+    },
+    {
+      "path": "public/assets/tools/flow.png",
+      "bytes": 41231,
+      "sha256": "b9f5018da737fb64fb89e052120cd5b7d321ca98be8bcf43af2702958038b1df"
+    },
+    {
+      "path": "public/assets/tools/github-dark.png",
+      "bytes": 6223,
+      "sha256": "0d4c235fef9efec54174a7c005fc0fe0ce2d63d35c21898ab5148587111397a9"
+    },
+    {
+      "path": "public/assets/tools/github.png",
+      "bytes": 5437,
+      "sha256": "2a2f5cbcc74c7fa83c40127dd8b0e42c23f1157131aebe28492aa1ac27bbdc6d"
+    },
+    {
+      "path": "public/assets/tools/illustrator.png",
+      "bytes": 5434,
+      "sha256": "07baa64fdb2b4ffb912680f86e8b4361520a9be1ad065cfee8da09fffd817fd2"
+    },
+    {
+      "path": "public/assets/tools/looker-studio.png",
+      "bytes": 1354,
+      "sha256": "320bb5fa103b4ac2adfb29449227e18a68bfb4c3716ef5ed7f8bdd41386df1d5"
+    },
+    {
+      "path": "public/assets/tools/make.png",
+      "bytes": 38604,
+      "sha256": "df7216300408119fd3b6fe2c76b623b33cf92a8450ef188f146bbdec280c92f3"
+    },
+    {
+      "path": "public/assets/tools/notion.png",
+      "bytes": 8078,
+      "sha256": "483846a85e43e22879445047b83b22033e70fcc25ab34809ebadb7f856507ee0"
+    },
+    {
+      "path": "public/assets/tools/photoshop.png",
+      "bytes": 3666,
+      "sha256": "ae3d12979acf7ce726cb60d23c47483333eeabb710cd6ab7d49f243e6ecc5328"
+    },
+    {
+      "path": "public/assets/tools/power-bi.png",
+      "bytes": 797110,
+      "sha256": "d4681b3bd897018728d12d79053250daea156e88499c3a4a218d1e73c2850ec5"
+    },
+    {
+      "path": "public/assets/tools/powerpoint.png",
+      "bytes": 51197,
+      "sha256": "9da4cb13b119acdda28e581d9991c5758fc57d825fc4c89569c8820cfe1369da"
+    },
+    {
+      "path": "public/assets/tools/sheets.png",
+      "bytes": 17913,
+      "sha256": "3a1c85c7ffaf1d2fcaa738a4024069efd5f11c033c33beb4574fdd833c4a4cc9"
+    },
+    {
+      "path": "public/assets/tools/word.png",
+      "bytes": 28824,
+      "sha256": "239f15bc5e7147ab418866c2c1f6b091e90e460d8a599929df29ddc5c7281781"
+    },
+    {
+      "path": "public/assets/tools/zapier.png",
+      "bytes": 3516,
+      "sha256": "800a7f4eba55ce3c2eeb8259ff532b43b0492466d3bde252d2e08903f23eb3db"
+    },
+    {
+      "path": "public/assets/typography.css",
+      "bytes": 3354,
+      "sha256": "114c7d1084b636ece187fa416c2856b2f62582748ef75da0e3c74e2192bab2a1"
+    },
+    {
+      "path": "public/assets/videos/brom-detail.mp4",
+      "bytes": 18538626,
+      "sha256": "739f2a0352f1adee7141fda43a2d8b9d11388656fbd5f713f5ab191a27ab4167"
+    },
+    {
+      "path": "public/assets/videos/brom-detail.webm",
+      "bytes": 21827746,
+      "sha256": "b0142dede5b7f584e35b8ee90322a63d32acd3992defe756ae8c013c28cd3918"
+    },
+    {
+      "path": "public/assets/videos/brom-poster.webp",
+      "bytes": 56080,
+      "sha256": "ecc3190c1abf6a3cbd62ac42604318ebf57c22b7549ccf4885b59598d6f3afd7"
+    },
+    {
+      "path": "public/assets/videos/brom-preview.mp4",
+      "bytes": 479401,
+      "sha256": "33bac03b21ce68d46b76c4dbdd1ede3fe5414748b8b003b98e09a2b61f637f6e"
+    },
+    {
+      "path": "public/assets/videos/brom-preview.webm",
+      "bytes": 542860,
+      "sha256": "fe7b5b1b264df7f0e8f4b58449398a64bf759123106e4accf0788c999fd63392"
+    },
+    {
+      "path": "public/assets/videos/foamverse-detail.mp4",
+      "bytes": 1361050,
+      "sha256": "5070e09813ce1c6cd0bf880a362b20b8d8b017b2c3bc3131e3ff00f6a3d15023"
+    },
+    {
+      "path": "public/assets/videos/foamverse-detail.webm",
+      "bytes": 1127959,
+      "sha256": "8008aebbd33004eadb707b4f6bbad11b3b2c6177909266dc49b63f86accf5692"
+    },
+    {
+      "path": "public/assets/videos/foamverse-poster.webp",
+      "bytes": 36786,
+      "sha256": "2a7ebcd96499a3cf122a0db831518ef5dea7d6dd23199a48e2d2b00f3c5992a3"
+    },
+    {
+      "path": "public/assets/videos/foamverse-preview.mp4",
+      "bytes": 308650,
+      "sha256": "3191d95598d6cf9061f7b961f97154221f408a7d5b04f5fe4453d727ae663049"
+    },
+    {
+      "path": "public/assets/videos/foamverse-preview.webm",
+      "bytes": 304815,
+      "sha256": "57ad1f5cd67d622ff5b73d35b7ee801425cdcf9fcc238e5a2f92b2f4d61ffaf4"
+    },
+    {
+      "path": "public/assets/videos/mawthouq-detail.mp4",
+      "bytes": 1284201,
+      "sha256": "f1a8477e9ff569e61c26b15a521973f14b45dd40d3910e3b1577e081d4bf1d2e"
+    },
+    {
+      "path": "public/assets/videos/mawthouq-detail.webm",
+      "bytes": 1169981,
+      "sha256": "98319e1886ff6ec789876893a45c20e3436362766251d84aacc5133b8b15d51e"
+    },
+    {
+      "path": "public/assets/videos/mawthouq-poster.webp",
+      "bytes": 18828,
+      "sha256": "a68a1cc363a42a9d7091d86281369d17dd3c21925967eef58a6a3ed49f1f9c6f"
+    },
+    {
+      "path": "public/assets/videos/mawthouq-preview.mp4",
+      "bytes": 296670,
+      "sha256": "7506d9fc9cb4d4e18040d5d2d419ae63bcca36a08f8e9a37410a86b4fe6322b7"
+    },
+    {
+      "path": "public/assets/videos/mawthouq-preview.webm",
+      "bytes": 282823,
+      "sha256": "8a304389a9f313b0ef6885fc0fecd27001693847dd23f9167dd9f589cf1519a1"
+    },
+    {
+      "path": "public/assets/videos/oceanlabs-detail.mp4",
+      "bytes": 8315967,
+      "sha256": "f78e5a58b829549a6a808f88ad9ec38f22c570a9ac51433ba54d51daf3a143bd"
+    },
+    {
+      "path": "public/assets/videos/oceanlabs-detail.webm",
+      "bytes": 9496276,
+      "sha256": "22ed803a85d22707ae3543c64cac4248dd33bbff74449ef23d5150d6b6a56fac"
+    },
+    {
+      "path": "public/assets/videos/oceanlabs-poster.webp",
+      "bytes": 37260,
+      "sha256": "c1f736017623fbb35591d2efdd7339b68cccc6fe74f916b46ccce56eada05608"
+    },
+    {
+      "path": "public/assets/videos/oceanlabs-preview.mp4",
+      "bytes": 2142026,
+      "sha256": "a94f068100e3ac2b7fbd36ac3c699b99c0df93eb788e7f8dec7189f29e3a1346"
+    },
+    {
+      "path": "public/assets/videos/oceanlabs-preview.webm",
+      "bytes": 2671296,
+      "sha256": "531b1863f95f4d827747d1c8acf1ae947a0fa4717b062f24123054b3b4e82d4c"
+    },
+    {
+      "path": "public/assets/videos/ocr-detail.mp4",
+      "bytes": 3742052,
+      "sha256": "a72ff8bec9f56a9dbe75efe020f7e5d0c3d84e3aec6fb5e752ea8bc7e0eeb566"
+    },
+    {
+      "path": "public/assets/videos/ocr-detail.webm",
+      "bytes": 3687690,
+      "sha256": "0b672aeb7f3c1328e2fb30622fcc89c83ac3bc5208319dda16cd3d173217a5a3"
+    },
+    {
+      "path": "public/assets/videos/ocr-poster.webp",
+      "bytes": 34068,
+      "sha256": "299fb8f912e1557e95a5bc93a0a8f46a0106a4a96edbdad2f2a8c82cdcb9f018"
+    },
+    {
+      "path": "public/assets/videos/ocr-preview.mp4",
+      "bytes": 1013512,
+      "sha256": "02638a7cad23a3f4d8007bafa8d90b5edf844356a16d9094428d7b8fb9265f59"
+    },
+    {
+      "path": "public/assets/videos/ocr-preview.webm",
+      "bytes": 1140911,
+      "sha256": "6228168396a5d5fc4f3f84370d062476232c14d6c0c02c2727e23f9969b39919"
+    },
+    {
+      "path": "public/assets/videos/smart-mattress-detail.mp4",
+      "bytes": 840012,
+      "sha256": "d70c59b5a798768462a5d0202fcf44cfe062c895d904ee04df5ebb590ce6cbfc"
+    },
+    {
+      "path": "public/assets/videos/smart-mattress-detail.webm",
+      "bytes": 627696,
+      "sha256": "7f82c7cd1a6a694f4df6ded1ddb2b8f6d8809e5789ced824f51d97a74b28c029"
+    },
+    {
+      "path": "public/assets/videos/smart-mattress-poster.webp",
+      "bytes": 17166,
+      "sha256": "72261e2411ad5a6279da5fe27ae2f178e8409bba353b6bed66cf945025fd1212"
+    },
+    {
+      "path": "public/assets/videos/smart-mattress-preview.mp4",
+      "bytes": 178780,
+      "sha256": "09b8853443af3dd49d47cdca43dd56460c11a63f56be007b25005c80286f6f88"
+    },
+    {
+      "path": "public/assets/videos/smart-mattress-preview.webm",
+      "bytes": 161215,
+      "sha256": "1924942083acd70cd65c8b408299c51647b612459e8de7cefcbc806986cb576a"
+    },
+    {
+      "path": "public/assets/videos/swissnest-detail.mp4",
+      "bytes": 1259480,
+      "sha256": "45654ef27b070f78d21fb29bb1129d4f1d6ed9a6c54aaa0a9652665b7ef9ba8c"
+    },
+    {
+      "path": "public/assets/videos/swissnest-detail.webm",
+      "bytes": 970590,
+      "sha256": "d265a8b6a240066aaddd726ce49e821fa67f6c8d584520f1cb94c94edcf6eed7"
+    },
+    {
+      "path": "public/assets/videos/swissnest-poster.webp",
+      "bytes": 26368,
+      "sha256": "c88ab969e3c61b202663bfc52279ae11496908f50efb5bd812d667bf7401fa87"
+    },
+    {
+      "path": "public/assets/videos/swissnest-preview.mp4",
+      "bytes": 304023,
+      "sha256": "0d045edc027372cd7437fac1415e45be7eec7102b1f3eeb3000ce095d329ac2a"
+    },
+    {
+      "path": "public/assets/videos/swissnest-preview.webm",
+      "bytes": 243301,
+      "sha256": "4f9771b501629342e0941c88072b9d5de90cbc1e37878a01b24bde753f43e203"
+    },
+    {
+      "path": "public/assets/videos/to-get-me-detail.mp4",
+      "bytes": 1048508,
+      "sha256": "a3e9017112f10ceb43d0e4e4741da34c4bde3c87e2ea18346a1a26512f9fb8a7"
+    },
+    {
+      "path": "public/assets/videos/to-get-me-detail.webm",
+      "bytes": 977336,
+      "sha256": "4627811e9c37c1882986b3c1cc7b96c40b25736d73cebcf214186b192d5d9948"
+    },
+    {
+      "path": "public/assets/videos/to-get-me-poster.webp",
+      "bytes": 22978,
+      "sha256": "506e7bf96e1ee595351148d8f11218c62dc025e22e560f36d48ba0170235642d"
+    },
+    {
+      "path": "public/assets/videos/to-get-me-preview.mp4",
+      "bytes": 255610,
+      "sha256": "97c069a8160782682cd7e06e87f271dfd2c28ce59237ae2c3f586ec29c8b33c9"
+    },
+    {
+      "path": "public/assets/videos/to-get-me-preview.webm",
+      "bytes": 268584,
+      "sha256": "3c4d2c89ba12fe4ae125ecb57964c15415cd086631863e213c52107d2805be29"
+    },
+    {
+      "path": "public/favicon.ico",
+      "bytes": 5312,
+      "sha256": "b556436a169fc42564e3c33d354e0208df1ce333b5290dbf07c65a3d1a274926"
+    },
+    {
+      "path": "public/favicon.png",
+      "bytes": 1012,
+      "sha256": "b59867fa6e9d314be67d2fec8c6fa338f57036362cb75d146d8bbce5db245b9d"
+    },
+    {
+      "path": "public/favicon.svg",
+      "bytes": 36692,
+      "sha256": "b06373975da9e450b27bb6ac892bc3bc9f02daf943a80ce21d7d8643b8947d1e"
+    },
+    {
+      "path": "public/images/academic-architecture.webp",
+      "bytes": 18762,
+      "sha256": "16ad003340ef1828bebb05f8ee62613d0c7fb4106e61ac4cc3c4c7fa0ee263f4"
+    },
+    {
+      "path": "public/images/value-card-01-wave.webp",
+      "bytes": 216878,
+      "sha256": "78cd7fc44d9705acc10e9e84a970bee28965bfe7c7b3f8b455558663f3fa997e"
+    },
+    {
+      "path": "public/images/value-card-02-wave.webp",
+      "bytes": 225818,
+      "sha256": "7a6347d27269dd81e65a7eb858bebb9ad51c8d59072f2f924ed4801873e03216"
+    },
+    {
+      "path": "public/index.html",
+      "bytes": 968775,
+      "sha256": "7f24ee09dc1832a9b3f9cd63f178a850eac19c6ffe91990220e3ad7866b01a07"
+    },
+    {
+      "path": "public/og-image.png",
+      "bytes": 263836,
+      "sha256": "fc79493350f9d43e8204677878d7302e87cc19b65a25b4c998350a872bd63bd5"
+    },
+    {
+      "path": "public/site.webmanifest",
+      "bytes": 840,
+      "sha256": "7aa4069f0aede62ca21f3bbe780dbd27f637f5cae4129f741674dbd2fb2871bf"
+    },
+    {
+      "path": "public/sitemap.xml",
+      "bytes": 535,
+      "sha256": "c9d890bb039fc89a3fe12c6c1504629cbbdb852f22f938dcb241c88b0acb591c"
+    },
+    {
+      "path": "worker.mjs",
+      "bytes": 16208,
+      "sha256": "210d445d124ab7c1c279dde86a08991b87156e934380634b98d213b44b5340d9"
+    },
+    {
+      "path": "wrangler.jsonc",
+      "bytes": 822,
+      "sha256": "d1aeec10fbbaac2eb7eb523d6a66a164d9583dfb4294f78855cf000a0f741885"
+    }
+  ]
+}

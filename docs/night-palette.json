@@ -1,0 +1,26 @@
+{
+  "palette": {
+    "canvas": "#0b1018",
+    "card": "#141d2b",
+    "raised": "#1c2838",
+    "overlay": "#223045",
+    "foreground": "#edf3fb",
+    "secondary": "#b9c7d8",
+    "muted": "#9aaac0",
+    "link": "#82b8ff",
+    "icon": "#8fc7ff",
+    "strokeSubtle": "#2d3c50",
+    "strokeTag": "#41536d",
+    "strokeControl": "#6b819e",
+    "focus": "#39c8ff",
+    "success": "#7ddbb5",
+    "error": "#ffb4b4",
+    "warning": "#e8c478",
+    "onBrand": "#ffffff"
+  },
+  "selectedStroke": "rgba(130,184,255,.5)",
+  "languageTrayStroke": "rgba(45,60,80,.5)",
+  "languagePillStroke": "rgba(107,129,158,.5)",
+  "moon": "#e8dcc6",
+  "inactiveCapability": "#8292a7"
+}

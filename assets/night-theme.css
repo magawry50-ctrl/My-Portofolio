@@ -1,0 +1,160 @@
+/* DARK160: semantic Night paint only. Day, artwork and geometry remain owned by their components. */
+html.dark{
+ --night-canvas:#0b1018;--night-card:#141d2b;--night-raised:#1c2838;--night-overlay:#223045;
+ --night-fg:#edf3fb;--night-secondary:#b9c7d8;--night-muted:#9aaac0;--night-link:#82b8ff;--night-icon:#8fc7ff;
+ --night-line:#2d3c50;--night-tag-line:#41536d;--night-control-line:#6b819e;--night-focus:#39c8ff;
+ --night-success:#7ddbb5;--night-error:#ffb4b4;--night-warning:#e8c478;
+ --night-rim:linear-gradient(145deg,#53637a,#29384b 55%,#53637a);
+ --night-metal:linear-gradient(145deg,#172130,#26354a 48%,#1b2738);
+ --night-primary:linear-gradient(180deg,#0757e6,#0965d8)
+}
+html.dark body{background-color:var(--night-canvas)!important;color:var(--night-fg)!important}
+html.dark .section-stack-sheet[data-stack-mode="stack"]::before,
+html.dark #work>.project-section-header,
+html.dark #work[data-concept-scroll]>.concept-scroll-frame,
+html.dark #work[data-concept-carousel="true"]>.concept-scroll-frame>.project-section-header{background:var(--night-canvas)!important}
+
+/* Profile: running and settled narrative use the same readable semantic ink. */
+html.dark #about>.about-editorial-card{background:var(--night-card)!important;border-color:var(--night-line)!important;color:var(--night-fg);--glow-text:var(--night-fg);--glow-text-dim-end:var(--night-secondary);--glow-hard:rgba(255,255,255,.63);--glow-soft:rgba(255,255,255,.336)}
+html.dark #about>.about-editorial-card h2{color:var(--night-fg)!important}
+html.dark #about>.about-editorial-card :is([data-i18n="about_tag"],[data-i18n="about_heading_accent"]){color:var(--night-link)!important}
+html.dark #about>.about-editorial-card #philosophy-glowing-container{color:var(--night-secondary)!important}
+
+/* Capability cards keep colored publisher images and particle artwork unchanged. */
+html.dark #skills.capabilities-section,html.dark #strengths{--cap-bg:var(--night-canvas);--cap-ink:var(--night-fg);--cap-copy:var(--night-secondary);--cap-meta:var(--night-muted);--cap-line:var(--night-line);--cap-blue:var(--night-link)}
+html.dark #skills.capabilities-section{background:var(--night-canvas)}
+html.dark #skills :is(.cap-mindset-card,.cap-skill-chip,.cap-tools-list>li),html.dark #strengths .cap-mindset-card{background:var(--night-card);border-color:var(--night-line)}
+html.dark #strengths .cap-card-tags{color:var(--night-muted)}
+html.dark #interests .interest-row{background:var(--night-card);border-color:var(--night-line)}
+html.dark #interests .interest-category-copy h3{color:var(--night-fg)}
+html.dark #interests :is(.interest-category-copy p,.interests-intro){color:var(--night-secondary)}
+html.dark #interests :is(.interest-section-icon,.interest-category-icon){color:var(--night-icon)}
+html.dark #interests .interest-category-copy,html.dark #interests[data-interest-carousel="true"] .interest-row ul{border-color:var(--night-line)}
+html.dark #interests .interest-row .interest-pill{background:transparent;color:var(--night-muted);border-color:var(--night-tag-line)}
+html.dark #interests .interest-carousel-controls button{color:var(--night-icon);border-color:var(--night-control-line)}
+html.dark #interests .interest-carousel-controls button:focus-visible,html.dark #interests .interest-rows:focus-visible{outline-color:var(--night-focus)}
+
+/* Ordinary reading surfaces; images, art and differentiated Expertise panels are excluded. */
+html.dark #academic,html.dark #experience .featured-exp-card,html.dark #value-offer .relative.rounded-\[30px\]{background-color:var(--night-card)!important;border-color:var(--night-line)!important;color:var(--night-fg)}
+html.dark #academic :is(h2,h3,h4,[data-i18n="academic_perf_num"]),html.dark #value-offer h3{color:var(--night-fg)!important}
+html.dark #academic :is(p,[data-i18n="academic_subtitle"]),html.dark #value-offer :is(p,.value-card-description){color:var(--night-secondary)}
+html.dark #academic :is([data-i18n="academic_degree_label"],[data-i18n="academic_perf_label"],[data-i18n="academic_rank_total"]){color:var(--night-muted)}
+html.dark #academic :is([data-i18n="academic_rank_label"],[data-i18n="academic_rank_num"]){color:var(--night-link)}
+html.dark #academic :is(.h-px,#awards){border-color:var(--night-line);background-color:var(--night-line)}
+html.dark #academic #awards{background-color:transparent}
+html.dark #academic .divide-y>:not([hidden])~:not([hidden]),html.dark #academic .md\:divide-x>:not([hidden])~:not([hidden]){border-color:var(--night-line)}
+html.dark #experience .featured-exp-card :is(.accordion-toggle,.featured-exp-toggle){background-color:var(--night-raised)!important;border-color:var(--night-line)!important}
+html.dark #experience .featured-exp-card :is(h3,h4,h5){color:var(--night-fg)!important}
+html.dark #experience .featured-exp-card :is(p,li){color:var(--night-secondary)}
+html.dark #experience .featured-exp-card :is(.accordion-toggle,.featured-exp-toggle) :is(p,.material-symbols-outlined){color:var(--night-secondary)!important}
+html.dark #experience .accordion-content{background:var(--night-card);border-color:var(--night-line)}
+html.dark #experience .accordion-content [class~="dark:bg-gray-800/90"]{background-color:var(--night-raised)!important;border-color:var(--night-line)!important}
+html.dark #mm-profile-wrapper #experience .accordion-content>div>:is(.rounded-2xl,.experience-role-details)+.rounded-2xl{border-color:var(--night-line)!important}
+html.dark #value-offer .value-card-glassmorphism{background:linear-gradient(to right,rgba(20,29,43,.98),rgba(20,29,43,.95) 50%,rgba(20,29,43,.65) 68%,rgba(20,29,43,.3) 82%,rgba(20,29,43,.1))}
+html.dark[dir="rtl"] #value-offer .value-card-glassmorphism{background:linear-gradient(to left,rgba(20,29,43,.98),rgba(20,29,43,.95) 50%,rgba(20,29,43,.65) 68%,rgba(20,29,43,.3) 82%,rgba(20,29,43,.1))}
+@media(max-width:640px){html.dark #value-offer .value-card-glassmorphism,html.dark[dir="rtl"] #value-offer .value-card-glassmorphism{background:linear-gradient(to bottom,rgba(20,29,43,.98),rgba(20,29,43,.95) 50%,rgba(20,29,43,.65) 68%,rgba(20,29,43,.3) 82%,rgba(20,29,43,.1))}}
+html.dark #value-offer a[href="#contact"]{color:var(--night-link);border-color:var(--night-control-line)}
+html.dark #client-works .team-row-title,html.dark #patents :is(h2,h3){color:var(--night-fg)}
+html.dark #experience>div>h2,html.dark #client-works .project-section-title,html.dark #interests h2{color:var(--night-fg)}
+html.dark #client-works :is(.team-row-role,.team-row-description),html.dark #patents p{color:var(--night-secondary)}
+html.dark #client-works .team-list-row,html.dark #patents .border-b{border-color:var(--night-line)}
+html.dark #client-works .team-row-badge{background:var(--night-raised);color:var(--night-secondary);border-color:var(--night-line)}
+
+/* Generated showcase templates: explicit structural/class roles, never media plates. */
+html.dark #showcase-modal-container,html.dark #showcase-modal-body{background-color:var(--night-overlay)!important;border-color:var(--night-line)!important;color:var(--night-fg)}
+html.dark #showcase-modal-body>:first-child{border-color:var(--night-line)}
+html.dark #showcase-modal-body :is(h2,h3,h4){color:var(--night-fg)!important}
+html.dark #showcase-modal-body p{color:var(--night-secondary)}
+html.dark #showcase-modal-body :is([class~="dark:bg-zinc-800/35"],[class~="dark:bg-zinc-900/70"]){background-color:var(--night-raised)!important;border-color:var(--night-line)!important}
+html.dark #showcase-modal-body [class~="dark:bg-zinc-800"]{background-color:var(--night-card)!important;border-color:var(--night-line)!important}
+html.dark #showcase-modal-body [class~="dark:bg-zinc-800/60"]{background-color:var(--night-card);border-color:var(--night-line)}
+html.dark #showcase-modal-body [class~="dark:bg-[#06286c]/40"]{background-color:var(--night-card);border-color:var(--night-line);color:var(--night-success)}
+html.dark #showcase-modal-body [class~="dark:text-zinc-300"]{color:var(--night-secondary)}
+html.dark #showcase-modal-body :is([class~="dark:text-zinc-400"],[class~="dark:text-zinc-500"]){color:var(--night-secondary)}
+html.dark #showcase-modal-body :is([class~="dark:divide-zinc-800"],[class~="dark:divide-zinc-800/80"])>:not([hidden])~:not([hidden]){border-color:var(--night-line)}
+html.dark #showcase-modal-body>:last-child{background-color:var(--night-card);border-color:var(--night-line)}
+html.dark #showcase-modal-body :is([data-modal-prev],[data-modal-next],[data-modal-close]){background-color:var(--night-raised);color:var(--night-fg);border-color:var(--night-control-line)}
+html.dark #showcase-modal-body [data-modal-relock]{color:var(--night-warning);background-color:var(--night-raised);border-color:var(--night-control-line)}
+html.dark #showcase-modal-body>:last-child a[target="_blank"]{background:var(--night-primary);color:#fff}
+
+/* OTP paint only: six-input controller, orb and service states remain intact. */
+html.dark #security-otp-card{background:linear-gradient(180deg,var(--night-overlay),var(--night-card));border-color:var(--night-control-line);color:var(--night-fg)}
+html.dark #security-otp-title{color:var(--night-fg)}
+html.dark #security-otp-subtitle{color:var(--night-secondary)}
+html.dark #otp-container .otp-input-base{background:var(--night-card);border-color:var(--night-control-line)}
+html.dark #otp-container .otp-input-base.otp-input-active{border-color:var(--night-focus)!important;background:var(--night-raised)}
+html.dark #otp-container .otp-input-base.otp-input-success{border-color:var(--night-success)!important;background:var(--night-raised)}
+html.dark #otp-container .otp-input-base.otp-input-error{border-color:var(--night-error)!important;background:var(--night-raised)}
+html.dark #otp-container .otp-slot>div span{color:var(--night-fg)}
+html.dark #otp-container .otp-slot:has(.otp-input-error)>div span{color:var(--night-error)}
+html.dark #otp-container .otp-slot:has(.otp-input-success)>div span{color:var(--night-success)}
+html.dark #otp-container .caret-blink{background-color:var(--night-focus)}
+html.dark #otp-error-banner{color:var(--night-error);background-color:var(--night-raised);border-color:var(--night-error)}
+html.dark #otp-success-banner{color:var(--night-success);background-color:var(--night-raised);border-color:var(--night-success)}
+html.dark #security-otp-submit{background:var(--night-primary);color:#fff}
+
+/* Exact157 accent remains unchanged; its backdrop is the contrast-tested Canvas. */
+html.dark #contact.contact-impact{background:var(--night-canvas);color:var(--night-fg)}
+html.dark #contact .contact-impact-kicker{color:var(--night-link)}
+html.dark #contact .contact-impact-intro{color:var(--night-secondary)}
+html.dark #contact .contact-impact-divider{background:var(--night-line)}
+
+/* Adapt the existing metal without new shadows or altered rim/inset geometry. */
+html.dark .glass-business-card{background:var(--night-rim);color:var(--night-fg)}
+html.dark .glass-business-card .business-card-inner{background:var(--night-metal)}
+html.dark .journey-overlay-stack .glass-business-card :is(h2,.journey-close){color:var(--night-fg)}
+html.dark .glass-business-card :is(.business-card-role,.business-card-availability,.journey-intro,.business-card-copyright){color:var(--night-secondary)}
+html.dark .glass-business-card .business-card-copyright{border-color:var(--night-line)}
+html.dark .glass-business-card .business-contact-pill{background:var(--night-raised);border-color:var(--night-control-line)}
+html.dark .glass-business-card .business-card-action{color:var(--night-fg);border-color:transparent;background:transparent}
+html.dark .glass-business-card :is(.business-contact-value,.business-contact-copy){color:var(--night-secondary);border-color:var(--night-control-line)}
+html.dark .glass-business-card .business-contact-done{color:var(--night-success)}
+html.dark .glass-business-card .business-contact-status{background:var(--night-raised);color:var(--night-error)}
+html.dark .glass-business-card .business-contact-pill[data-copy-state="failed"]{border-color:var(--night-error)}
+html.dark .glass-business-card .journey-primary{background:var(--night-primary);color:#fff}
+html.dark .glass-business-card .journey-secondary{background:var(--night-raised);color:var(--night-fg);border-color:var(--night-control-line)}
+html.dark .glass-business-card :is(.journey-close,.business-card-action,.business-contact-copy,.business-contact-done,.journey-actions a):focus-visible{outline-color:var(--night-focus)}
+
+/* Shared original utility nodes, neutral nav states and an independent selected cue. */
+html.dark #portfolio-navigation,html.dark #portfolio-navigation #toggle-wrapper,html.dark #portfolio-navigation #toggle-wrapper #elastic-lang-toggle,html.dark #portfolio-navigation #toggle-wrapper #theme-toggle-container{
+ --seg-bg:var(--night-card);--seg-pill:var(--night-raised);--seg-border:var(--night-line);--seg-pill-border:var(--night-control-line);
+ --utility-ink:var(--night-fg);--utility-muted:var(--night-secondary);--utility-active:var(--night-link);--notch-ink:var(--night-fg);--notch-muted:var(--night-secondary);--notch-accent:var(--night-link);
+ --nav-idle-title:var(--night-fg);--nav-idle-ink:var(--night-secondary);--nav-idle-icon:var(--night-secondary);--nav-idle-chevron:var(--night-secondary)
+}
+html.dark #portfolio-navigation .notch-shell::before{background:linear-gradient(145deg,var(--night-raised),var(--night-card));border-color:var(--night-line)}
+html.dark #portfolio-navigation .notch-main::before{background:linear-gradient(145deg,var(--night-card),var(--night-canvas))}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active){color:var(--nav-idle-ink)}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active) :is(.rail-route-copy strong,.rail-phone-label){color:var(--nav-idle-title)}
+html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active) :is(.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){color:var(--nav-idle-ink)}
+html.dark #portfolio-navigation :is(.glass-desktop-settings,.glass-mobile-settings,.glass-mobile-groups){border-color:var(--night-line)}
+html.dark #portfolio-navigation :focus-visible{outline-color:var(--night-focus)!important}
+@media(min-width:768px){
+ html.dark #portfolio-navigation[data-compact] .notch-trigger.is-active{background:#003ea0;color:#fff;box-shadow:inset 0 0 0 1px rgba(130,184,255,.5)}
+ html.dark #portfolio-navigation[data-compact] .notch-trigger.is-active :is(.rail-route-copy strong,.rail-phone-label,.rail-route-summary,.island-group-icon,.rail-expanded-icon,.rail-route-chevron){color:#fff}
+}
+@media(max-width:767px){
+ html.dark #portfolio-navigation .notch-shell{background:var(--night-rim)}
+ html.dark #portfolio-navigation .notch-main{background:linear-gradient(160deg,var(--night-card),var(--night-canvas))}
+ html.dark #portfolio-navigation :is(.notch-expansion,.notch-expansion-inner){background:var(--night-card);border-color:var(--night-line)}
+ html.dark #portfolio-navigation .glass-menu-toggle{background:var(--night-raised);color:var(--night-fg)}
+}
+
+html.dark .glass-footer{background:var(--night-rim);color:var(--night-fg)}
+html.dark .glass-footer-inner{background:var(--night-metal)}
+html.dark .glass-footer :is(.glass-footer-columns,.glass-copyright){color:var(--night-secondary);border-color:var(--night-line)}
+html.dark .glass-footer .glass-social-link{background:var(--night-raised);color:var(--night-fg);border-color:var(--night-control-line)}
+
+/* THEME171: only the shared visible Night moon changes ink. */
+html.dark #portfolio-navigation #toggle-wrapper #theme-toggle .theme-icon-moon{color:#e8dcc6!important}
+/* CAP172: explicit inactive Night fit-stage hierarchy; active and native flow are unchanged. */
+@media(min-width:768px){html.dark #skills .cap-layout[data-capability-mode="fit"] .cap-selector[aria-selected="false"]:not([aria-current="true"]) :is(.cap-kicker,.cap-row-heading h3,.cap-row-description){color:#8292a7}}
+
+/* NAV173: halve only the Night language tray and selected-language strokes. */
+html.dark #portfolio-navigation #toggle-wrapper #elastic-lang-toggle{--seg-border:rgba(45,60,80,.5);--seg-pill-border:rgba(107,129,158,.5)}
+
+/* SURF182: Night material is the rendered ticker card, not its overridden source rule. */
+html.dark{--identity-card-fill:#0c1836;--identity-card-line:rgba(255,255,255,.1);--identity-card-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+html.dark #about>.about-editorial-card,html.dark #skills :is(.cap-mindset-card,.cap-skill-chip),html.dark #skills .cap-tools-list>li,html.dark #skills .cap-tools-list>li:last-child,html.dark #academic,html.dark #interests .interest-row{background:var(--identity-card-fill)!important;border-color:var(--identity-card-line)!important;box-shadow:var(--identity-card-shadow)!important}
+
+/* CAP181: inactive desktop intro ink remains AA-readable; active ink is unchanged. */
+@media(min-width:768px){html.dark #skills .cap-layout[data-capability-mode="fit"] .cap-selector[aria-selected="false"]:not([aria-current="true"]) :is(.cap-kicker,.cap-row-heading h3,.cap-row-description){color:#748397}}

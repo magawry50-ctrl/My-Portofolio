@@ -1,0 +1,28 @@
+{
+  "name": "mhalmaghawry-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build:styles": "node tools/build-styles.cjs",
+    "build": "node tools/build-production.cjs",
+    "build:cloudflare": "node tools/build-cloudflare.cjs",
+    "check:cloudflare": "node tools/cloudflare-mount-regression.cjs",
+    "preview:cloudflare": "node tools/serve-cloudflare-preview.cjs 4180",
+    "check:production": "node tools/private-fingerprint-regression.cjs && node tools/private-release-regression.cjs",
+    "check:private": "node tools/private-preview-regression.cjs && node tools/otp-lifecycle-regression.cjs",
+    "check": "node tools/verify-portfolio.cjs && node tools/ar179-regression.cjs && node tools/nav159-regression.cjs && node tools/mobile-reading-regression.cjs && node tools/mobile-navigation-regression.cjs && node tools/cap170-regression.cjs && node tools/cap181-regression.cjs && node tools/ending-regression.cjs && node tools/dark160-check.cjs && node tools/carousel-motion-regression.cjs",
+    "check:release": "node tools/check-release-baseline.cjs",
+    "preview:source": "node tools/serve-portfolio.cjs 4175",
+    "preview:production": "node tools/serve-protected-preview.cjs 4179 dist",
+    "check:repository": "node tools/check-repository.cjs"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  },
+  "overrides": {
+    "postcss-selector-parser": "7.1.7"
+  }
+}
