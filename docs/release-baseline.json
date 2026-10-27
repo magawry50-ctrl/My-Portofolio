@@ -1024,12 +1024,12 @@
     {
       "path": "index.html",
       "bytes": 968623,
-      "sha256": "d30d97ead7910efffa7a7dac332f1e20a20b01519920707eb11144067e58cde0"
+      "sha256": "bea840eba351512df8256b6e1df155db52bd0a9fb43670d7b680ed19805d7fc4"
     },
     {
       "path": "og-image.png",
-      "bytes": 126063,
-      "sha256": "6c63ab837792eb2fd3f52dc3601cec4f8cfdd0812b14d6f321cd602890c9f792"
+      "bytes": 263836,
+      "sha256": "fc79493350f9d43e8204677878d7302e87cc19b65a25b4c998350a872bd63bd5"
     },
     {
       "path": "robots.txt",

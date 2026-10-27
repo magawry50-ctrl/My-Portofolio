@@ -1015,12 +1015,12 @@
     {
       "path": "public/index.html",
       "bytes": 968775,
-      "sha256": "356eff00f257ed00c72671f9a9c2b0efd69cde463f0337c04f8d940380c52891"
+      "sha256": "7f24ee09dc1832a9b3f9cd63f178a850eac19c6ffe91990220e3ad7866b01a07"
     },
     {
       "path": "public/og-image.png",
-      "bytes": 126063,
-      "sha256": "6c63ab837792eb2fd3f52dc3601cec4f8cfdd0812b14d6f321cd602890c9f792"
+      "bytes": 263836,
+      "sha256": "fc79493350f9d43e8204677878d7302e87cc19b65a25b4c998350a872bd63bd5"
     },
     {
       "path": "public/site.webmanifest",
@@ -1035,7 +1035,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16208,
-      "sha256": "a8a30b846d3a963868610eeb78422a944ce554ed03d855d5000b8198a0bebee0"
+      "sha256": "210d445d124ab7c1c279dde86a08991b87156e934380634b98d213b44b5340d9"
     },
     {
       "path": "wrangler.jsonc",
