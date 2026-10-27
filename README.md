@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `c4594898e4f8fc63e2f4cfd0ceb92b3227aaf0ffb587322dca84f7589105b65b`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `d78c9fa60e9852125f6f67824e228b062fdd306e602aa095d8e7840efb51abc2`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -26,6 +26,10 @@ npm run preview:cloudflare
 ```
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 204 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
+
+## Current local candidate — SHARE194
+
+SHARE194 is a local candidate, not yet published. The static 1200×630 PNG uses the existing approved home portrait and lion mark with the approved name and Business & Product Developer role, rendered using the existing Inter face. The image is 126,063 bytes; no new font, dependency or marketing wording is introduced. The no-JavaScript HTML now has a clean English OG/Twitter name and the existing English description, en_US locale/ar_EG alternate, PNG type/alt metadata and a content-versioned image URL. The mounted builder preserves the query in canonical HTTPS image URLs; root-mode output retains its valid origin-relative image path. Version194-6c63ab837792 derives from the approved PNG hash. Page body, scripts, styles, 625+625 dictionary values and the complete FAV193 set/references are unchanged. The existing mounted HTTP regression checks bot-like requests without JavaScript, both language-query defaults, image version/bytes/dimensions/MIME and GET/HEAD. Root manifest: `d78c9fa60e9852125f6f67824e228b062fdd306e602aa095d8e7840efb51abc2` (209 files); mounted manifest: `f74df94e1d3360049eb7e193fccc0e2e0e65d7686be7e4f96d686a4efd03168b` (204 public assets/208 bundle files). All 384 curated source paths remain. Independent source/native/clean-export and hosted acceptance remain pending; no WhatsApp message, external preview-cache refresh or publication result is claimed. Earlier releases retain their own evidence.
 
 ## Published FAV193 — bounded acceptance approved
 

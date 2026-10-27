@@ -1023,13 +1023,13 @@
     },
     {
       "path": "index.html",
-      "bytes": 968477,
-      "sha256": "55e5a2b7f0a37d849a2e47ffbc3285e94a16ffebf86c96ae0d1f29479ac9a354"
+      "bytes": 968623,
+      "sha256": "d30d97ead7910efffa7a7dac332f1e20a20b01519920707eb11144067e58cde0"
     },
     {
       "path": "og-image.png",
-      "bytes": 31774,
-      "sha256": "b9fc8dba1022b49ce2c2745455e46a4625e44c94fc031ba945467d11014a5f53"
+      "bytes": 126063,
+      "sha256": "6c63ab837792eb2fd3f52dc3601cec4f8cfdd0812b14d6f321cd602890c9f792"
     },
     {
       "path": "robots.txt",

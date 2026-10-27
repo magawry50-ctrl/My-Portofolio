@@ -7,7 +7,7 @@ function transform(file,bytes){
  let text=bytes.toString('utf8');
  if(file==='index.html'){
   text=text.replace(/https:\/\/almaghawry\.com\//g,canonical).replace(/@MoAlMaghawry/g,'@mhalmaghawry');
-  text=text.replace(/(<meta property="og:image" content=")\/og-image.png"/,'$1'+canonical+'og-image.png"').replace(/(<meta name="twitter:image" content=")\/og-image.png"/,'$1'+canonical+'og-image.png"');
+  text=text.replace(/(<meta (?:property="og:image"|name="twitter:image") content=")\/og-image\.png(\?[^" ]*)?"/g,(_,prefix,query='')=>prefix+canonical+'og-image.png'+query+'"');
   if(/rel="canonical"/.test(text))throw Error('Unexpected source canonical; review mounted metadata');
   text=text.replace('</title>','</title>\n    <link rel="canonical" href="'+canonical+'">');
  }else if(file==='404.html'){
