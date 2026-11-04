@@ -1,6 +1,7 @@
 /* Public approved wording only. No spreadsheet, account, owner notes, or review exports. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const fixture=require('./fixtures/approved-copy202.json'),source=fs.readFileSync('index.html','utf8'),notfound=fs.readFileSync('404.html','utf8');
+const motion203=require('./fixtures/approved-motion203-ui.json');
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const a=source.indexOf('const I18N = '),b=source.indexOf('// --- Language Switching Logic',a),dictionary=vm.runInNewContext(source.slice(a,b)+'\nI18N');
 const decode=s=>s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&nbsp;/g,' ');
@@ -33,12 +34,23 @@ for(const u of fixture.units){
 }
 assert.deepEqual(missing,[],'Every non-dictionary approved unit has its exact existing static/runtime value');
 // Preserve the design, paths and media. Added list items have no layout classes.
-assert.equal(hash([...source.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map(m=>m[1]).join('\n')),fixture.baseline.cssSHA256,'All inline CSS bytes preserved');
+assert.equal(motion203.copy202ApprovalSHA256,fixture.approvalSHA256);
+assert.equal(motion203.previousInlineCssSHA256,fixture.baseline.cssSHA256);
+assert.equal(hash([...source.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map(m=>m[1]).join('\n')),motion203.inlineCssSHA256,'Inline CSS differs only by the separately reviewed MOTION203 closed/open sheet pointer gates');
 const staticPart=source.slice(0,a);
+assert.deepEqual(motion203.removedStaticClasses,['concept-carousel-controls']);
+assert.deepEqual(motion203.addedStaticClasses,['concepts-disclosure']);
+const retainedClasses=fixture.baseline.staticClasses.filter(value=>!motion203.removedStaticClasses.includes(value));
+assert.equal(retainedClasses.length,fixture.baseline.staticClasses.length-1,'Only the removed Concepts arrow host leaves the old class sequence');
 const actualClasses=[...staticPart.matchAll(/\bclass="([^"]*)"/g)].map(m=>m[1]);let originalClass=0;const addedClasses=[];
-for(const value of actualClasses){if(value===fixture.baseline.staticClasses[originalClass])originalClass++;else addedClasses.push(value);}
-assert.equal(originalClass,fixture.baseline.staticClasses.length,'Every existing static layout class retained in order');
-assert.deepEqual(addedClasses,Array(3).fill('list-disc list-inside ml-5 space-y-1 mt-2'),'Only existing rich-list classes added to three previously flat initial fallbacks');
+for(const value of actualClasses){if(value===retainedClasses[originalClass])originalClass++;else addedClasses.push(value);}
+assert.equal(originalClass,retainedClasses.length,'Every retained static layout class remains in order');
+assert.deepEqual(addedClasses.sort(),[...Array(3).fill('list-disc list-inside ml-5 space-y-1 mt-2'),...motion203.addedStaticClasses].sort(),'Only the existing three rich lists and reviewed Concepts disclosure add layout classes');
+assert.deepEqual(motion203.removedControlIds,['concepts-previous','concepts-next']);
+motion203.removedControlIds.forEach(id=>assert(!staticPart.includes(`id="${id}"`)));
+assert.equal(motion203.addedControlId,'concepts-show-more');
+assert(source.includes(`<button id="concepts-show-more" class="concepts-disclosure" type="button" aria-expanded="false" aria-controls="glass-folders-grid restricted-project-launcher">${motion203.newCopy.en.show}</button>`),'The one added control has pinned semantics and initial wording');
+for(const lang of ['en','ar'])for(const state of ['show','hide'])assert(source.includes(`'${motion203.newCopy[lang][state]}'`),'Every new disclosure word is separately pinned');
 assert.deepEqual([...staticPart.matchAll(/\b(?:href|src|data-src|data-media-src)="([^"]*)"/g)].map(m=>m[0]),fixture.baseline.linksAndAssets,'All authored links/assets preserved');
 // Verify all 357 initial data-i18n fallbacks as users see them before locale initialization.
 let fallbacks=0;
@@ -67,4 +79,4 @@ for(const lang of ['ar','en','ar','en'])for(const isDark of [true,false]){
  assert.equal(theme.attrs.title,lang==='ar'?(dark?'التبديل للوضع النهاري':'التبديل للوضع الليلي'):(dark?'Switch to light theme':'Switch to dark theme'));
  inputs.forEach((n,i)=>assert.equal(n.attrs['aria-label'],lang==='ar'?`الخانة ${i+1} من رمز المعاينة`:`Preview code digit ${i+1}`));
 }
-console.log(`COPY202 PASS: ${fixture.units.length} units / ${fixture.sectionCount} sections; ${keyCount} exact keyed locale values; ${composites} composed units; ${dormant} dormant units; ${fallbacks} fallbacks; ${nodes.length} static localized occurrences; repeated EN/AR and theme labels; CSS/classes/links/assets preserved.`);
+console.log(`COPY202 PASS: ${fixture.units.length} original units / ${fixture.sectionCount} sections; ${keyCount} exact keyed locale values; ${composites} composed units; ${dormant} dormant units; ${fallbacks} fallbacks; ${nodes.length} static localized occurrences; repeated EN/AR and theme labels; only separately pinned MOTION203 CSS/class/control/new-copy delta; all links/assets preserved.`);

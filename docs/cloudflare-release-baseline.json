@@ -259,8 +259,8 @@
     },
     {
       "path": "public/assets/liquid-glass.css",
-      "bytes": 39275,
-      "sha256": "a2ea4df3ef93ca653d1f7625249ab5cc26b7ce15bcd1dfb7b44c74e89234a605"
+      "bytes": 39479,
+      "sha256": "ad75768bc3448507a279723a425d17bbed4654626d37c6c75264e2105040738b"
     },
     {
       "path": "public/assets/loader-cast-ii.js",
@@ -409,13 +409,13 @@
     },
     {
       "path": "public/assets/mobile-navigation.css",
-      "bytes": 5961,
-      "sha256": "9748e876722c4ccfcd5b64b4a6137a27c0fbd28be44d8920cdd744b9e6c057e7"
+      "bytes": 5718,
+      "sha256": "f849247df5a92e148dd2b538da8fcb2574ad45c374d819f81c2b046745772788"
     },
     {
       "path": "public/assets/mobile-navigation.js",
-      "bytes": 10285,
-      "sha256": "344ce03e4479cb81d9e82fcdd1260c395c77f341708e0f2b8843d3d38fdd9e10"
+      "bytes": 8112,
+      "sha256": "2e33f2e60236a2d61de2a24ae803ac30807a4476be9f8175af437cd72d909d7c"
     },
     {
       "path": "public/assets/mobile-reading.css",
@@ -569,8 +569,8 @@
     },
     {
       "path": "public/assets/project-preview.css",
-      "bytes": 11489,
-      "sha256": "a056389050c7259da704acaf7569237e003e11920bf74993de63e7a4ed9ce579"
+      "bytes": 8567,
+      "sha256": "fb392aba3e1a1ab29b08b2d762401fbbbb77190fd2a3f3029aef31a696f97e46"
     },
     {
       "path": "public/assets/remote/photo-1578844251758-2f71da64c96f.webp",
@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 972253,
-      "sha256": "d29be8c7a5c86adfcef18e4694d3eb55fdc7442e63c3ec3b10884c50766f3b7a"
+      "bytes": 975049,
+      "sha256": "15ff013e2e88ae73d30f9185d309960c68848677e14abc3fdefd1b808cf6dc4f"
     },
     {
       "path": "public/og-image.png",
@@ -1034,8 +1034,8 @@
     },
     {
       "path": "worker.mjs",
-      "bytes": 16208,
-      "sha256": "7ccd918f6dea51ebc04954045cd11604d85a27358f3063362ce6d4694399a7a5"
+      "bytes": 16206,
+      "sha256": "5affe5215f3390241470ba3bc2146dd385fbc4af831e4e82017591ea798f10e5"
     },
     {
       "path": "wrangler.jsonc",

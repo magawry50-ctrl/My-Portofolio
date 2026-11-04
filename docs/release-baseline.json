@@ -268,8 +268,8 @@
     },
     {
       "path": "assets/liquid-glass.css",
-      "bytes": 39275,
-      "sha256": "a2ea4df3ef93ca653d1f7625249ab5cc26b7ce15bcd1dfb7b44c74e89234a605"
+      "bytes": 39479,
+      "sha256": "ad75768bc3448507a279723a425d17bbed4654626d37c6c75264e2105040738b"
     },
     {
       "path": "assets/loader-cast-ii.js",
@@ -418,13 +418,13 @@
     },
     {
       "path": "assets/mobile-navigation.css",
-      "bytes": 5961,
-      "sha256": "9748e876722c4ccfcd5b64b4a6137a27c0fbd28be44d8920cdd744b9e6c057e7"
+      "bytes": 5718,
+      "sha256": "f849247df5a92e148dd2b538da8fcb2574ad45c374d819f81c2b046745772788"
     },
     {
       "path": "assets/mobile-navigation.js",
-      "bytes": 10285,
-      "sha256": "344ce03e4479cb81d9e82fcdd1260c395c77f341708e0f2b8843d3d38fdd9e10"
+      "bytes": 8112,
+      "sha256": "2e33f2e60236a2d61de2a24ae803ac30807a4476be9f8175af437cd72d909d7c"
     },
     {
       "path": "assets/mobile-reading.css",
@@ -578,8 +578,8 @@
     },
     {
       "path": "assets/project-preview.css",
-      "bytes": 11489,
-      "sha256": "a056389050c7259da704acaf7569237e003e11920bf74993de63e7a4ed9ce579"
+      "bytes": 8567,
+      "sha256": "fb392aba3e1a1ab29b08b2d762401fbbbb77190fd2a3f3029aef31a696f97e46"
     },
     {
       "path": "assets/remote/photo-1578844251758-2f71da64c96f.webp",
@@ -1023,8 +1023,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 972101,
-      "sha256": "329bdd882c99e3fd9f267404f33fbb20cdc3e72d95533c362162a96e3e08320b"
+      "bytes": 974897,
+      "sha256": "94dc292654573677c61515782b7c8964b78b62854113d3bda1a03a1b006f1001"
     },
     {
       "path": "og-image.png",

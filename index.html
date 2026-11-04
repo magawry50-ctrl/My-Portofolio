@@ -850,7 +850,7 @@
           border-radius: 16px;
           overflow: hidden;
           cursor: pointer;
-          pointer-events: auto;
+          pointer-events: none;
           background: linear-gradient(180deg, #ffffff 0%, #f2f2f0 100%);
           box-shadow:
             inset 0 1px 0 rgba(255, 255, 255, .9),
@@ -866,6 +866,7 @@
             translate .9s var(--gf-ease),
             opacity .9s var(--gf-ease);
         }
+        .gf-root[data-open] .gf-sheet { pointer-events: auto; }
         .gf-root[data-tone="dark"] .gf-sheet, html.dark .gf-root .gf-sheet { background: linear-gradient(180deg, #2c2c30 0%, #1c1c1f 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 0 0 .5px rgba(255, 255, 255, .08), 0 12px 28px -8px rgba(0, 0, 0, .7); }
         .gf-sheet--art { background: #1a1a1d; }
         .gf-root[data-open] .gf-sheet:hover,
@@ -4215,13 +4216,9 @@
                             </div>
                             <p class="project-section-intro text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mt-1" data-i18n="work_intro">Venture concepts, product directions, and business models developed into structured proposals.</p>
                         </div>
-                        <div class="concept-carousel-controls" hidden>
-                            <button id="concepts-previous" type="button" aria-label="Previous concepts" data-copy-en="Previous concepts" data-copy-ar="التصوّرات السابقة" data-copy-attribute="aria-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
-                            <button id="concepts-next" type="button" aria-label="Next concepts" data-copy-en="Next concepts" data-copy-ar="التصوّرات التالية" data-copy-attribute="aria-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
-                        </div>
                     </div>
 
-                    <!-- CONCEPT130: one native row; original public/private folder hosts remain intact. -->
+                    <!-- MOTION203: normal-flow folder rows; the disclosure includes private launchers. -->
                     <div id="concepts-viewport">
                     <div id="glass-folders-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 md:gap-y-14 lg:gap-y-16 gap-x-6 justify-items-center w-full py-6 min-h-[440px]">
                         <!-- Populated dynamically by initGlassFolderShowcase -->
@@ -4229,6 +4226,7 @@
 
                     <div id="restricted-project-launcher" class="restricted-project-host"></div>
                     </div>
+                    <button id="concepts-show-more" class="concepts-disclosure" type="button" aria-expanded="false" aria-controls="glass-folders-grid restricted-project-launcher">Show more</button>
 
                     <!-- AlignUI-Style Precision Case Study Modal -->
                     <div id="showcase-modal"
@@ -8130,7 +8128,34 @@
 
         if (!grid) return null;
         let stopGridVideos = () => {}, stopModalVideos = () => {}, artObserver = null, folderArtFrame = null;
-        let folderInteractionCleanups = [], conceptCarousel = null;
+        let folderInteractionCleanups = [], collectionExpanded = false;
+        const collectionToggle = document.getElementById('concepts-show-more');
+        let collectionAnchorFrame = null, collectionAnchorGeneration = 0;
+        function cancelCollectionAnchor() {
+            collectionAnchorGeneration++;
+            if (collectionAnchorFrame !== null) cancelAnimationFrame(collectionAnchorFrame);
+            collectionAnchorFrame = null;
+            window.removeEventListener('wheel', cancelCollectionAnchor);
+            window.removeEventListener('touchstart', cancelCollectionAnchor);
+        }
+        function preserveCollectionAnchor(top) {
+            const generation = collectionAnchorGeneration, view = document.documentElement.dataset.portfolioView;
+            window.addEventListener('wheel', cancelCollectionAnchor, { passive: true });
+            window.addEventListener('touchstart', cancelCollectionAnchor, { passive: true });
+            collectionAnchorFrame = requestAnimationFrame(() => {
+                if (generation !== collectionAnchorGeneration) return;
+                collectionAnchorFrame = null;
+                window.removeEventListener('wheel', cancelCollectionAnchor);
+                window.removeEventListener('touchstart', cancelCollectionAnchor);
+                if (privateDisposed || document.hidden || collectionExpanded || document.documentElement.dataset.portfolioView !== view || collectionToggle?.isConnected === false) return;
+                const delta = collectionToggle.getBoundingClientRect().top - top;
+                if (Math.abs(delta) < 1) return;
+                const previous = document.documentElement.style.scrollBehavior;
+                document.documentElement.style.scrollBehavior = 'auto';
+                window.scrollTo({ top: Math.max(0, window.scrollY + delta), behavior: 'auto' });
+                document.documentElement.style.scrollBehavior = previous;
+            });
+        }
 
         // --- Mathematics and Procedural Liquid Noise Art ---
         const ART_PRESETS = {
@@ -8427,6 +8452,15 @@
         let currentActiveFilter = 'all';
         const restrictedHost = document.getElementById('restricted-project-launcher');
         const folderRoots = () => [...grid.querySelectorAll('.gf-root'), ...(restrictedHost?.querySelectorAll('.gf-root') || [])];
+        function fitFolderRows() {
+            const columns = window.innerWidth >= 1280 ? 4 : window.innerWidth >= 768 ? 2 : 1;
+            const available = grid.clientWidth;
+            if (!available) return;
+            const size = Math.min(340, (available - 24 * (columns - 1) - (columns === 1 ? 24 : 0)) / columns);
+            folderRoots().forEach(root => root.style.setProperty('--gf-scale', String(Math.max(.1, size / 340)), 'important'));
+        }
+        const folderSizeObserver = 'ResizeObserver' in window ? new ResizeObserver(fitFolderRows) : null;
+        folderSizeObserver?.observe(grid);
         const folderByIndex = index => folderRoots().find(root => root.getAttribute('data-project-index') === String(index));
         const focusCollectionFallback = () => ([...filterBtns].find(button => button.getAttribute('data-filter') === currentActiveFilter) || document.getElementById('selected-work-title'))?.focus({ preventScroll: true });
         let activeModalIndex = null;
@@ -8477,14 +8511,21 @@
                 ['bg-brand-teal', 'text-white', 'shadow-md', 'active', 'ring-2', 'ring-brand-teal/40'].forEach(name => button.classList.toggle(name, selected));
                 ['bg-gray-100', 'dark:bg-gray-800/80', 'text-gray-700', 'dark:text-gray-300'].forEach(name => button.classList.toggle(name, !selected));
             });
+            let visiblePublic = 0;
             grid.querySelectorAll('.gf-root').forEach(root => {
                 const index = Number(root.getAttribute('data-project-index'));
                 const matchesFilter = currentActiveFilter === 'all' || root.getAttribute('data-category') === currentActiveFilter;
-                root.hidden = !matchesFilter;
+                root.hidden = !matchesFilter || (!collectionExpanded && currentActiveFilter === 'all' && visiblePublic >= 4);
+                if (matchesFilter) visiblePublic++;
                 if (root.hidden && root.contains(document.activeElement)) focusCollectionFallback();
             });
+            if (restrictedHost) restrictedHost.hidden = !collectionExpanded;
+            restrictedHost?.querySelectorAll('.gf-root').forEach(root => { root.hidden = !collectionExpanded; });
+            if (collectionToggle) {
+                collectionToggle.setAttribute('aria-expanded', String(collectionExpanded));
+                collectionToggle.textContent = currentLang === 'ar' ? (collectionExpanded ? 'عرض أقل' : 'عرض المزيد') : (collectionExpanded ? 'Show less' : 'Show more');
+            }
             surfaceRevealManager?.syncVisibility();
-            conceptCarousel?.refresh(folderRoots().filter(root => !root.hidden));
         }
 
         // Render all 9 Glass Folders (8 Standard + 1 Restricted Matte-Black Barcode Folder)
@@ -8661,6 +8702,7 @@
         }
 
         function renderFolders(langOverride) {
+            cancelCollectionAnchor();
             stopGridVideos(); artObserver?.disconnect();
             if (folderArtFrame !== null) cancelAnimationFrame(folderArtFrame);
             folderInteractionCleanups.forEach(dispose => dispose()); folderInteractionCleanups = [];
@@ -8857,23 +8899,8 @@
             if (restrictedHost) {
                 restrictedHost.innerHTML = PROJECTS_CATALOG.map((project, index) => project.isRestricted ? renderRestrictedFolder(project, index, dict) : '').join('');
             }
+            fitFolderRows();
             applyCollectionVisibility(dict);
-            if (!conceptCarousel) {
-                const viewport = document.getElementById('concepts-viewport'), section = grid.closest('section'), scales = new WeakMap();
-                if (viewport && section) conceptCarousel = initInterestsCarousel(viewport, folderRoots(), {
-                    controls: '.concept-carousel-controls', previous: '#concepts-previous', next: '#concepts-next',
-                    previousKey: 'concepts_previous', nextKey: 'concepts_next', labelledBy: 'selected-work-title',
-                    prefix: 'concept', stageClass: 'concept-scroll-frame', minWidth: 1024, edgePadding: true,
-                    children: [...section.children].filter(node => node.matches('.project-section-header,#concepts-viewport')),
-                    beforeMeasure(roots) {
-                        const width = Math.max(1, viewport.clientWidth - 48), count = window.innerWidth >= 1024 ? 3.25 : window.innerWidth >= 768 ? 2 : 1;
-                        const size = count === 3.25 ? Math.max(1, (viewport.clientWidth - 24 - 3 * 24) / 3.25) : count === 1 ? Math.min(299.2, Math.max(1, width - 28)) : Math.min(340, (width - 24) / count);
-                        viewport.style.setProperty('--concept-shadow-room', Math.ceil(80 * size / 340) + 'px');
-                        roots.forEach(root => { if (!scales.has(root)) scales.set(root, [root.style.getPropertyValue('--gf-scale'), root.style.getPropertyPriority('--gf-scale')]); root.style.setProperty('--gf-scale', String(size / 340), 'important'); });
-                    },
-                    afterDestroy() { viewport.style.removeProperty('--concept-shadow-room'); folderRoots().forEach(root => { const value = scales.get(root); if (value?.[0]) root.style.setProperty('--gf-scale', ...value); else root.style.removeProperty('--gf-scale'); }); }
-                });
-            }
             // Each rendered grid owns exactly one playback lifecycle.
             stopGridVideos = watchVisibleVideos(grid);
 
@@ -8958,6 +8985,7 @@
 
                 const setOpen = (openState) => {
                     isOpen = openState;
+                    sheets.forEach(sheet => { sheet.inert = !isOpen; sheet.tabIndex = isOpen ? 0 : -1; sheet.setAttribute('aria-hidden', String(!isOpen)); });
                     if (isOpen) {
                         rootEl.setAttribute('data-open', 'true');
                         hitBtn?.setAttribute('aria-expanded', 'true');
@@ -8975,6 +9003,7 @@
                     }
                 };
 
+                setOpen(false);
                 const setMenu = (menuState) => {
                     isMenuOpen = menuState;
                     if (isMenuOpen) {
@@ -9053,6 +9082,7 @@
                 sheets.forEach(sheet => {
                     sheet.addEventListener('click', (e) => {
                         e.stopPropagation();
+                        if (!isOpen) return;
                         if (isRestricted && !isRestrictedProjectUnlocked(idx)) {
                             openSecurityOtpModal(idx, false);
                             return;
@@ -9306,6 +9336,7 @@
                 const restrictedEl = folderByIndex(targetIdx);
                 if (restrictedEl) {
                     restrictedEl.setAttribute('data-open', 'true');
+                    restrictedEl.querySelector?.('.gf-hit')?.click();
                 }
                 if (!openFolderOnly) {
                     openCaseStudyModal(targetIdx);
@@ -9368,6 +9399,17 @@
         listenPrivate(window, 'pagehide', () => { cancelPrivateRequests(); privatePreviews.destroy(); }, { once:true });
 
         // Filter Buttons handling
+        if (collectionToggle) listenPrivate(collectionToggle, 'click', () => {
+            cancelCollectionAnchor();
+            const priorTop = collectionExpanded ? collectionToggle.getBoundingClientRect().top : null;
+            collectionExpanded = !collectionExpanded;
+            applyCollectionVisibility();
+            sectionStackManager?.refresh(false);
+            sideNavManager?.updateActiveNav();
+            if (priorTop !== null) preserveCollectionAnchor(priorTop);
+        });
+        listenPrivate(document, 'portfolio:viewchange', cancelCollectionAnchor);
+        listenPrivate(document, 'visibilitychange', cancelCollectionAnchor);
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const filter = btn.getAttribute('data-filter') || 'all';
@@ -9747,7 +9789,7 @@
             },
             openModal: openCaseStudyModal,
             closeModal: closeModal,
-            destroy() { if (privateDisposed) return; privateDisposed = true; cancelPrivateRequests(); privatePreviews.destroy(); privateRequestCleanups.splice(0).forEach(remove => remove()); closeSecurityOtpModal(); closeModal(); conceptCarousel?.destroy(); conceptCarousel = null; },
+            destroy() { if (privateDisposed) return; privateDisposed = true; cancelCollectionAnchor(); folderSizeObserver?.disconnect(); cancelPrivateRequests(); privatePreviews.destroy(); privateRequestCleanups.splice(0).forEach(remove => remove()); closeSecurityOtpModal(); closeModal(); },
             closeDialogs() {
                 // A hash/history view switch transfers focus to its new destination, not an old hidden folder.
                 if (modal) modal._dialogOpener = null;
@@ -10750,6 +10792,16 @@
         let hoverUnfolded = false, railPinned = false, forceCompact = false;
         let compactIntent = null;
         let railAnimations = [], railGeneration = 0, railPaintLayer = null;
+        let viewAnimation = null;
+        function cancelViewMotion() { viewAnimation?.cancel(); viewAnimation = null; }
+        function enterView(groupId) {
+            cancelViewMotion();
+            const view = views.find(node => node.dataset.groupView === groupId);
+            if (motion.matches || document.hidden || !view?.animate) return;
+            const animation = view.animate([{ opacity: .82 }, { opacity: 1 }], { duration: 220, easing: 'cubic-bezier(.16,1,.3,1)' });
+            viewAnimation = animation;
+            animation.finished.then(() => { if (viewAnimation === animation) viewAnimation = null; }, () => {});
+        }
         const railPaintCopies = new Map(), railPaintDecor = new Map(), railPaintRows = new Map(), railStyleRestores = [];
         function cancelRailMorph() {
             railGeneration++; railAnimations.forEach(a => a.cancel()); railAnimations = [];
@@ -10792,7 +10844,7 @@
             const outer = before.shell.getBoundingClientRect(), inner = before.main.getBoundingClientRect();
             const radius = parseFloat(getComputedStyle(before.shell).borderTopLeftRadius), innerRadius = radius - 2;
             if (![before.outer.width, before.outer.height, before.outer.radius, before.inner.width, before.inner.height, before.inner.radius, outer.width, outer.height, inner.width, inner.height, radius].every(Number.isFinite)) return;
-            const generation = ++railGeneration, startedAt = document.timeline?.currentTime, options = { duration: 420, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' };
+            const generation = ++railGeneration, startedAt = document.timeline?.currentTime, options = { duration: 280, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' };
             header.dataset.railMorph = compact ? 'closing' : 'opening';
             const animate = (node, frames, extra = {}) => { const a = node.animate(frames, { ...options, ...extra }); if (Number.isFinite(startedAt)) a.startTime = startedAt; a.finished.catch(() => {}); railAnimations.push(a); return a; };
             const layer = () => {
@@ -10895,9 +10947,9 @@
             });
         }
         const entryById = id => entries.find(entry => entry.id === id) || (['cap-core-skills-title', 'cap-tools-title', 'cap-panel-skills', 'cap-panel-tools'].includes(id) ? entries.find(entry => entry.id === 'skills') : undefined);
-        function activateGroup(groupId) {
+        function activateGroup(groupId, destinationId) {
             if (activeGroup === groupId || !NAVIGATION_GROUPS.some(group => group.id === groupId)) return false;
-            closeMenu(false, true);
+            cancelViewMotion(); cancelRailMorph();
             activeGroup = groupId;
             document.documentElement.dataset.portfolioView = groupId;
             header.dataset.activeView = groupId;
@@ -10906,7 +10958,8 @@
                 view.hidden = hidden; view.inert = hidden;
                 if (hidden) view.setAttribute('aria-hidden', 'true'); else view.removeAttribute('aria-hidden');
             });
-            setCurrent(NAVIGATION_GROUPS.find(group => group.id === groupId).sections[0][0]);
+            setCurrent(destinationId || NAVIGATION_GROUPS.find(group => group.id === groupId).sections[0][0]);
+            closeMenu(false, true);
             refreshPending = true;
             // Immediately cancels hidden render/media work; observers retain their first-visible state.
             document.dispatchEvent(new Event('portfolio:viewchange'));
@@ -11043,15 +11096,15 @@
             try {
                 sectionStackManager?.prepareNavigation();
                 capabilitiesPanelsManager?.selectForAnchor(id);
-                const switched = activateGroup(entry.group);
-                closeMenu(false); readMetrics();
+                const switched = activateGroup(entry.group, id);
+                if (!switched) setCurrent(id);
+                closeMenu(false);
                 capabilitiesPanelsManager?.refreshScroll(); pillarsGalleryManager?.refreshScroll();
                 sectionStackManager?.refresh(false); readMetrics();
                 const target = metrics.find(metric => metric.id === entry.id);
                 const localDestination = capabilitiesPanelsManager?.targetForAnchor(id) ?? pillarsGalleryManager?.targetForAnchor(id);
                 const destination = Number.isFinite(localDestination) ? localDestination : Math.max(0, target.top - target.clearance);
                 if (historyMode === 'push' && location.hash !== '#' + id) history.pushState(null, '', '#' + id);
-                setCurrent(id);
                 if (focus) {
                     const added = !entry.element.hasAttribute('tabindex');
                     if (added) {
@@ -11069,6 +11122,7 @@
                     window.scrollTo({ top: destination, behavior: 'auto' });
                     document.documentElement.style.scrollBehavior = previous;
                 } else window.scrollTo({ top: destination, behavior: 'smooth' });
+                if (switched) enterView(entry.group);
                 return true;
             } finally {
                 if (crossView) document.dispatchEvent(new Event('portfolio:viewnavigationsettled'));
@@ -11214,8 +11268,8 @@
             header.dataset.railLatinFont = Array.from(document.fonts).some(face => face.family.replace(/["']/g, '') === 'PortfolioInter' && face.status === 'loaded') ? 'loaded' : 'not-loaded';
             schedule(true);
         });
-        listen(document, 'visibilitychange', () => { if (document.hidden) { compactIntent = null; cancelRailMorph(); railPinned = hoverUnfolded = false; forceCompact = false; closeMenu(false, true); setCompact(false); cancelRailMorph(); } else { lastScrollY = window.scrollY; schedule(true); } });
-        listen(motion, 'change', () => { if (motion.matches) { cancelRailMorph(); finishMenu(); } });
+        listen(document, 'visibilitychange', () => { if (document.hidden) { cancelViewMotion(); compactIntent = null; cancelRailMorph(); railPinned = hoverUnfolded = false; forceCompact = false; closeMenu(false, true); setCompact(false); cancelRailMorph(); } else { lastScrollY = window.scrollY; schedule(true); } });
+        listen(motion, 'change', () => { if (motion.matches) { cancelViewMotion(); cancelRailMorph(); finishMenu(); } });
         const followLocation = () => {
             let id;
             try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { return; }
@@ -11232,7 +11286,7 @@
         else ready();
         function updateLabels() {
             if (disposed) return;
-            compactIntent = null; cancelRailMorph();
+            compactIntent = null; cancelViewMotion(); cancelRailMorph();
             syncToggleLabel();
             header.querySelector('.glass-nav-brand')?.setAttribute('aria-label', label('name'));
             header.querySelector('[data-notch-landmark]').setAttribute('aria-label', label('notch_navigation'));
@@ -11244,7 +11298,7 @@
         }
         updateLabels();
         return { updateActiveNav: () => schedule(true), updateLabels, goToSection, closeMenu, showMenu, destroy() {
-            disposed = true; compactIntent = null; cancelRailMorph(); closeMenu(false, true);
+            disposed = true; compactIntent = null; cancelViewMotion(); cancelRailMorph(); closeMenu(false, true);
             phoneNavigation?.destroy();
             if (pendingFrame !== null) cancelAnimationFrame(pendingFrame); pendingFrame = null;
             cleanups.forEach(stop => stop()); dialogObserver.disconnect(); resizeObserver?.disconnect();
@@ -11465,7 +11519,7 @@
             slot.className = 'section-stack-slot'; sheet.className = 'section-stack-sheet';
             slot.dataset.stackSource = sheet.dataset.stackSource = id;
             section.parentNode.insertBefore(slot, section); slot.appendChild(sheet); sheet.appendChild(section);
-            return { section, slot, sheet, index, top: 0, height: 0, width: 0, left: 0, start: 0, end: 0, pinTop: 0, pinned: false, covered: false };
+            return { section, slot, sheet, index, flowOnly: id === 'work', top: 0, height: 0, width: 0, left: 0, start: 0, end: 0, pinTop: 0, pinned: false, covered: false };
         }).filter(Boolean) }));
         const records = groups.flatMap(group => group.records);
         if (!records.length) return null;
@@ -11482,7 +11536,8 @@
             portals.push({ dialog, marker });
         });
         records.forEach(record => {
-            record.fadeTargets = [...record.section.children].flatMap(child => child.classList.contains('project-section-header') ? [...child.children] : [child])
+            // Concepts owns live folder/disclosure hit targets throughout normal scrolling.
+            record.fadeTargets = (record.flowOnly ? [] : [...record.section.children]).flatMap(child => child.classList.contains('project-section-header') ? [...child.children] : [child])
                 .filter(child => !['STYLE', 'SCRIPT', 'NOSCRIPT'].includes(child.tagName) && !['showcase-modal', 'security-otp-modal'].includes(child.id))
                 .map(element => ({ element, previous: element.getAttribute('data-stack-fade-content') }));
             record.fadeTargets.forEach(({ element }) => element.setAttribute('data-stack-fade-content', ''));
@@ -11532,8 +11587,8 @@
                 const last = group.records[group.records.length - 1];
                 const exited = !active || y >= (group.exit ?? last.top - clearance) - 1;
                 group.records.forEach(record => {
-                    const pin = active && !exited && record !== last && y >= record.start && exposed !== record;
-                    const mode = !active ? 'flow' : exited ? 'exit' : 'stack';
+                    const pin = active && !exited && !record.flowOnly && record !== last && y >= record.start && exposed !== record;
+                    const mode = !active || record.flowOnly ? 'flow' : exited ? 'exit' : 'stack';
                     record.slot.dataset.stackMode = record.sheet.dataset.stackMode = mode;
                     if (pin && !record.pinned) {
                         record.slot.style.height = record.height + 'px';

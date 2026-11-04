@@ -51,9 +51,11 @@
 !/tools/ending-regression.cjs
 !/tools/fixtures/navigation.cjs
 !/tools/fixtures/approved-copy202.json
+!/tools/fixtures/approved-motion203-ui.json
 !/tools/fixtures/surfaces.cjs
 !/tools/font-vendor-manifest.json
 !/tools/mobile-navigation-regression.cjs
+!/tools/motion203-regression.cjs
 !/tools/mobile-reading-regression.cjs
 !/tools/nav159-regression.cjs
 !/tools/otp-lifecycle-regression.cjs

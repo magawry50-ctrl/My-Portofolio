@@ -255,6 +255,8 @@ html.dark #portfolio-navigation[data-compact] .notch-trigger:not(.is-active):hov
 #portfolio-navigation #theme-toggle-container,#portfolio-navigation #theme-toggle{background:transparent!important;border:0!important;box-shadow:none!important}
 /* NAV159: the finite rail owner is the sole opening/closing timeline. */
 @media(min-width:768px){#portfolio-navigation[data-rail-morph] :is(.rail-route-copy,.rail-route-chevron,#elastic-lang-toggle){transition:none}}
+/* MOTION203: semantic selection owns palette immediately, including morph snapshots. */
+#portfolio-navigation .notch-trigger,#portfolio-navigation .notch-trigger *{transition-property:opacity!important}
 
 /* NAV169: quiet desktop hover is distinct from the unchanged brand-selected state. */
 @media(min-width:768px) and (hover:hover) and (pointer:fine){

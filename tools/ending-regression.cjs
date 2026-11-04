@@ -78,7 +78,7 @@ for(const lang of ['en','ar'])for(const reduced of [false,true]){
 }
 // Execute the actual route writer with the actual ending owner, including finally cleanup.
 {
- const e=fixture({width:375}),ctx=e.context,trace=[];e.document.documentElement.style={};ctx.disposed=false;ctx.activeGroup='about';ctx.motion=e.motion;ctx.sectionStackManager=ctx.capabilitiesPanelsManager=ctx.pillarsGalleryManager=null;
+ const e=fixture({width:375}),ctx=e.context,trace=[];e.document.documentElement.style={};ctx.disposed=false;ctx.activeGroup='about';ctx.motion=e.motion;ctx.sectionStackManager=ctx.capabilitiesPanelsManager=ctx.pillarsGalleryManager=null;ctx.enterView=()=>{};
  const entry=id=>({id,group:id==='collaborate'?'collaborate':'work',element:e.viewRoot});ctx.entryById=entry;ctx.closeMenu=ctx.readMetrics=ctx.setCurrent=()=>{};ctx.listen=(n,k,fn,o)=>n.addEventListener(k,fn,o);ctx.metrics=[{id:'impact',top:32,clearance:0},{id:'collaborate',top:32,clearance:0}];ctx.location={hash:''};ctx.history={pushState(_a,_b,hash){ctx.location.hash=hash}};
  ctx.activateGroup=group=>{const changed=ctx.activeGroup!==group;ctx.activeGroup=group;e.document.documentElement.dataset.portfolioView=group;e.near=true;trace.push('viewchange');e.document.emit('portfolio:viewchange');return changed};
  e.document.addEventListener('portfolio:viewnavigationstart',()=>trace.push('begin'));e.document.addEventListener('portfolio:viewnavigationsettled',()=>trace.push('settled'));
