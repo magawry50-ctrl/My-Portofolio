@@ -1,4 +1,10 @@
-# Published corrected SHARE194 — current portrait share card and clean English metadata
+# COPY202 — reviewed bilingual content release candidate
+
+Adopts the approved 796 English/Arabic copy units across 27 sections, with exact composed headings, rich lists, 357 initial fallbacks, accessibility and preview labels, sharing variants and 404 text. The 150 dormant units remain dormant. Original CSS/media/links/contact destinations, motion, private authorization and routing are preserved. Arabic head fields bind to the existing browser language refresh; static crawler tags remain English. Public-only exact-copy regression joins the existing behavior suites, bringing reviewed source inputs from 384 to 386.
+
+Independent source/regression QA is Approved at index SHA256 `e81eae2ea0333666e4a2456db52baecd2e944c271436c17f6208b9b8f756730c`. Fresh `check`, `check:private`, `check:production` and `check:repository` passed, including two identical guarded builds. Root manifest `4822e026e214a1aafad057da24c985faf8efa89720db0036173aff473e1a6ae0` retains 209 files; mounted manifest `ceed4232f9a6dcfd1da67f2313670618ad8f654039313712364ba09435cced4b` retains 204 public assets/208 bundle files. Only index/404 runtime bytes and their generated Worker size metadata differ. Exact clean-export, native-browser and hosted release evidence remain separate gates; no publication is claimed for this candidate.
+
+# Published corrected SHARE194 — previous portrait share card and clean English metadata
 
 Corrected SHARE194 was published on 2026-10-28 from source commit `f0cf559b7b4a7242ffb68b61f227cbc92d83d357` as Worker `8c5fd2ce-15f2-4c72-bd1d-e5f9d4d20456`. The operator uploaded index and OG image, reused 202 unchanged assets and retained the existing four narrow routes/ASSETS-only configuration. The 1200×630 share image uses the existing portrait, name/role and authentic transparent white/gold mark on navy, without a white logo square. Its 263,836-byte PNG has SHA256 `fc79493350f9d43e8204677878d7302e87cc19b65a25b4c998350a872bd63bd5`; version `194-fc79493350f9` derives from those bytes. All 748,256 pixels outside the existing mark region are identical to the prior unpublished candidate. Actual FAV193 square icons/references, page body, scripts, styles and 625+625 dictionaries are unchanged. The earlier white-chip candidate was superseded and never published.
 

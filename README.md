@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**, manifest SHA256 `e26b255ccdf8d616635f55d9452c0da3777486e48080f2e2fbc9f813bd648832`. The authorized Cloudflare target is instead the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **209 runtime files**. The reviewed COPY202 candidate has manifest SHA256 `4822e026e214a1aafad057da24c985faf8efa89720db0036173aff473e1a6ae0`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -27,7 +27,13 @@ npm run preview:cloudflare
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 204 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
 
-## Published corrected SHARE194 — bounded acceptance approved
+## COPY202 — approved bilingual content, release candidate
+
+COPY202 adopts all 796 approved English/Arabic units in 27 sections, including existing accessibility, preview UI, metadata and 404 paths. Eight composed headings/sentences retain their visual fragments; all 357 initial fallbacks match the approved copy. All 150 unreferenced units remain dormant. CSS, media, original links/contact destinations, motion owners, private authorization and the existing four routes are preserved. Arabic sharing fields use the existing client-side language boundary; this does not establish HTTP-localized crawler responses.
+
+Independent source/regression QA is Approved at source index SHA256 `e81eae2ea0333666e4a2456db52baecd2e944c271436c17f6208b9b8f756730c`. Fresh `check`, `check:private`, `check:production` and `check:repository` passed; production checks reproduced two identical guarded builds. The public-only copy fixture is part of the 386-input source inventory. Reviewed root/mounted baselines contain 209 files and 204 public assets/208 bundle files respectively. Mounted manifest: `ceed4232f9a6dcfd1da67f2313670618ad8f654039313712364ba09435cced4b`. Only index/404 runtime bytes change; the generated Worker changes only those two asset-size entries. Exact clean-export, native-browser and hosted release acceptance remain separate gates. No COPY202 publication is claimed here.
+
+## Published corrected SHARE194 — previous bounded acceptance
 
 Corrected SHARE194 was published on 2026-10-28 from source commit `f0cf559b7b4a7242ffb68b61f227cbc92d83d357` as Worker `8c5fd2ce-15f2-4c72-bd1d-e5f9d4d20456`. The operator uploaded index and OG image, reused 202 unchanged assets and retained the existing four narrow routes/ASSETS-only configuration. The 1200×630 share image uses the existing portrait, name/role and authentic transparent white/gold mark on navy, without a white logo square. Its 263,836-byte PNG has SHA256 `fc79493350f9d43e8204677878d7302e87cc19b65a25b4c998350a872bd63bd5`; version `194-fc79493350f9` derives from those bytes. All 748,256 pixels outside the existing mark region are identical to the prior unpublished candidate. Actual FAV193 square icons/references, page body, scripts, styles and 625+625 dictionaries are unchanged. The earlier white-chip candidate was superseded and never published.
 

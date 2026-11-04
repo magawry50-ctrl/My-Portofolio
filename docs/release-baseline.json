@@ -23,8 +23,8 @@
     },
     {
       "path": "404.html",
-      "bytes": 4480,
-      "sha256": "4436cbe55d7a52155150d628c2675417c6acb3f756e5ddf5ca7932005b0b404d"
+      "bytes": 4413,
+      "sha256": "0b5d26e7f0b46dc8edcba45c91660de80e49060fe5109d9809c9bb817984427d"
     },
     {
       "path": "apple-touch-icon.png",
@@ -1023,8 +1023,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 968623,
-      "sha256": "bea840eba351512df8256b6e1df155db52bd0a9fb43670d7b680ed19805d7fc4"
+      "bytes": 972101,
+      "sha256": "329bdd882c99e3fd9f267404f33fbb20cdc3e72d95533c362162a96e3e08320b"
     },
     {
       "path": "og-image.png",

@@ -40,6 +40,7 @@
 !/tools/serve-cloudflare-preview.cjs
 !/tools/build-styles.cjs
 !/tools/ar179-regression.cjs
+!/tools/copy202-regression.cjs
 !/tools/cap170-regression.cjs
 !/tools/cap181-regression.cjs
 !/tools/carousel-motion-regression.cjs
@@ -49,6 +50,7 @@
 !/tools/dark160-check.cjs
 !/tools/ending-regression.cjs
 !/tools/fixtures/navigation.cjs
+!/tools/fixtures/approved-copy202.json
 !/tools/fixtures/surfaces.cjs
 !/tools/font-vendor-manifest.json
 !/tools/mobile-navigation-regression.cjs
