@@ -80,7 +80,10 @@
             translation.dir = 'ltr';
             document.getElementById('error-title').textContent = 'الصفحة غير موجودة';
             document.getElementById('home-label').textContent = 'العودة إلى ملف الأعمال';
-            document.querySelector('.home-link').href = '/?lang=ar';
+            const homeLink = document.querySelector('.home-link');
+            const homeURL = new URL(homeLink.getAttribute('href'), location.href);
+            homeURL.searchParams.set('lang', 'ar');
+            homeLink.href = homeURL.pathname + homeURL.search + homeURL.hash;
         }
     </script>
 </body>

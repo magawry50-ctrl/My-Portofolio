@@ -14,8 +14,8 @@
     },
     {
       "path": "public/404.html",
-      "bytes": 4501,
-      "sha256": "39c70509740569737ee7127d1f6f377f9abd1055c6ea5c54ca7b44e7aeee4a11"
+      "bytes": 4715,
+      "sha256": "21aa201f1d53583c92499d98a99a32710a4ab632247b7b41fab289cf6711ffed"
     },
     {
       "path": "public/apple-touch-icon.png",
@@ -1035,7 +1035,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16208,
-      "sha256": "e431c9e06529e0912aad1fc5e5dcaf028cec9108d58ccb4d76712e7406a10b48"
+      "sha256": "7ccd918f6dea51ebc04954045cd11604d85a27358f3063362ce6d4694399a7a5"
     },
     {
       "path": "wrangler.jsonc",

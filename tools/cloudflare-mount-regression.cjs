@@ -2,6 +2,17 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),http=require('node:http'),vm=require('node:vm'),{DatabaseSync}=require('node:sqlite');
 const {createCloudflarePreview}=require('./serve-cloudflare-preview.cjs');
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
+function assertNotFoundLocale(markup,pageURL,language,expectedHome){
+ const homeHref=markup.match(/<a\s+href="([^"]*)"\s+class="home-link\b/)[1];
+ const home={href:homeHref,getAttribute(name){return name==='href'?homeHref:null}};
+ const nodes=Object.fromEntries(['error-description','error-translation','error-title','home-label'].map(id=>[id,{textContent:markup.match(new RegExp('<[^>]+id="'+id+'"[^>]*>([\\s\\S]*?)<\\/[^>]+>'))[1].trim()}]));
+ const document={documentElement:{lang:'en',dir:'ltr',style:{}},getElementById:id=>nodes[id],querySelector:selector=>selector==='.home-link'?home:null};
+ const location=new URL(pageURL),context=vm.createContext({document,location,URL,URLSearchParams});
+ for(const script of markup.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g))vm.runInContext(script[1],context);
+ assert.equal(document.documentElement.lang,language,'Actual 404 inline locale script sets language');
+ assert.equal(home.href,expectedHome,'Actual 404 locale script preserves authored portfolio mount');
+ assert.equal(nodes['home-label'].textContent,language==='ar'?'العودة إلى ملف الأعمال':'Back to Portfolio');
+}
 async function main(){
  const manifest=JSON.parse(fs.readFileSync('cloudflare/bundle-manifest.json')),publicFiles=manifest.files.filter(record=>record.path.startsWith('public/'));
  assert.deepEqual(fs.readFileSync('cloudflare/bundle-manifest.json'),fs.readFileSync('docs/cloudflare-release-baseline.json'),'Mounted bundle equals reviewed baseline');
@@ -62,6 +73,12 @@ async function main(){
   for(const route of ['/','/?lang=ar','/company','/mhalmaghawry-other','/founder-other']){r=await get(route);assert.equal(r.headers.get('X-Local-Origin-Passthrough'),'true','Company route passes to origin');}
   for(const route of ['tools/check-private-release.cjs','server/private-preview-worker.mjs','_worker.js','_routes.json','_headers','build-manifest.json','docs/ARCHITECTURE.md','missing/deep/page','assets%2fprivate-previews.js']){r=await get('/mhalmaghawry/'+route);assert.equal(r.status,404);assert(!(await r.text()).includes('configured(env)'));}
   r=await get('/mhalmaghawry/missing/deep/page');const missing=await r.text();assert(missing.includes('href="/mhalmaghawry/"'));assert(missing.includes('/mhalmaghawry/assets/fonts/'));
+  const root404=fs.readFileSync('dist/404.html','utf8');
+  for(const language of ['en','ar']){
+   const query='?lang='+language,suffix=language==='ar'?'?lang=ar':'';
+   assertNotFoundLocale(root404,'https://portfolio.example/missing/deep/page'+query,language,'/'+suffix);
+   assertNotFoundLocale(missing,'https://pinexen.com/mhalmaghawry/missing/deep/page'+query,language,'/mhalmaghawry/'+suffix);
+  }
   for(const record of publicFiles){r=await get('/mhalmaghawry/'+record.path.slice(7),{method:'HEAD'});assert.equal(r.status,record.path==='public/index.html'?200:200,record.path);assert.equal((await r.arrayBuffer()).byteLength,0);}
   for(const file of ['assets/private-previews.js','assets/loader-cast-ii/material-aux.png','assets/fonts/Inter-Latin.woff2'].filter(file=>publicFiles.some(record=>record.path==='public/'+file))){r=await get('/mhalmaghawry/'+file);assert.equal(hash(Buffer.from(await r.arrayBuffer())),hash(fs.readFileSync('cloudflare/public/'+file)));}
   const video=publicFiles.find(record=>record.path.endsWith('-detail.mp4')).path.slice(7);r=await get('/mhalmaghawry/'+video,{headers:{Range:'bytes=1-9'}});assert.equal(r.status,206);assert.equal((await r.arrayBuffer()).byteLength,9);assert.match(r.headers.get('Content-Range'),/^bytes 1-9\//);
