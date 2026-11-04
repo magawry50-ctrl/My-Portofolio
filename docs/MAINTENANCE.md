@@ -16,9 +16,11 @@ The Night palette is recorded in `night-palette.json`; active/focus/hover roles 
 | `npm run check:private` | Real Worker HTTP/SQLite authorization, expiry/revocation/rate limits/Range/empty cases and actual async gate lifecycle |
 | `npm run check:production` | Portable fingerprint negative fixtures, decoded leak checks, allowlisted dependency closure, cache-rule disjointness, owned-output guards and repeated deterministic builds |
 | `npm run check:release` | Byte equality with the reviewed 209-file manifest |
-| `npm run build:cloudflare` / `npm run check:cloudflare` | Isolated mounted bundle; real HTTP aliases, all public asset HEADs, body preservation, source denials, Range/HEAD, root passthrough, unset503, dummy SQLite sessions and media |
+| `npm run build:cloudflare` / `npm run check:cloudflare` | Isolated mounted bundle; four actual 404 inline-script locale cases (root/mounted EN/AR); real HTTP aliases, all public asset HEADs, body preservation, source denials, Range/HEAD, root passthrough, unset503, dummy SQLite sessions and media |
 
 The curated checks include the public-only approved bilingual copy fixture and execute the actual locale and capability surface/panel/native-reading owners. They require no workspace-only copy map, old before snapshots or private archives. Composite visual fragments must concatenate to one approved unit; do not fill each fragment with the full sentence. Keep dormant entries dormant. Historical uncurated snapshot-chain scripts are not part of `npm run check`: several retain superseded HERO140/TOOLS58 boundaries or an older duplicated surface fixture, so their failures are not represented as current passing evidence. Those exact historical assertions were not weakened to force a pass.
+
+404 locale scripts must derive return destinations from the authored home anchor before setting language query parameters. A root-relative JavaScript literal can erase the mount applied to HTML at build time; static href checks alone do not detect that failure. Preserve the four actual-script cases and verify both return actions on the hosted site.
 
 Passive desktop scrolling must not acquire rail-opening authority. The 768–1439px logical reading inset is local to affected text regions; preserve phone, larger-desktop and card/art geometry. Review rail/text bounding-box intersections in both directions, since zero document overflow alone does not establish clearance.
 
