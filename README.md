@@ -17,7 +17,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**. The reviewed COPY202 release has manifest SHA256 `22ae8736af0ac9268a3d04ee268308499123699c7588ffafb47e463f905667ec`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **209 runtime files**. The reviewed MOTION203 release has manifest SHA256 `97b7af526b639490952dc2f6a339f23716004653b34d4a5f32f63895eb7d56a1`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -27,7 +27,15 @@ npm run preview:cloudflare
 
 The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 204 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
 
-## Published COPY202 — approved bilingual content
+## Published MOTION203 — navigation and folder interactions
+
+MOTION203 is published at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source `46006355e47376aece06bd9c10f0f972543c76ba` (tree `e2f886445c82b676e78d5509f2940f61188f185d`) as Worker `a9a9e7dd-e264-4658-8ec1-d2b1897ecd07`. Five public assets were uploaded and 199 reused. The 388-input source inventory produces 209 root runtime files and a mounted bundle of 208 files/204 public assets. Mounted manifest: `bb929b2a833ba5ceb3ea6c28bacc3dd236391397877498236e1cf9680eaa017e`. Served HTML is 975,049 bytes, SHA256 `15ff013e2e88ae73d30f9185d309960c68848677e14abc3fdefd1b808cf6dc4f`.
+
+Original phone icons and the moving selection pill share one interruptible 200ms timeline; view changes use a cancellable 220ms fade. Concepts starts with four folders in normal document flow: one column below 768px, two below 1280px, four from 1280px. Localized Show more/less reveals all 11 folders, including the three existing private launchers. Files become interactive only after their folder opens. Concepts is excluded from outer pin/fade ownership, and collapse preserves the focused disclosure's viewport position with one instant correction. All 796 COPY202 approved units remain exact; the four new disclosure words and authorized UI delta are separately pinned.
+
+Independent source, native, exact-export and final published QA are Approved. The four required suites passed before the narrow flow/viewport repairs; affected checks passed again after each repair. The clean export passed locked install, build, release, repository and mounted checks. Seventeen hosted HTTP checks and an independent fresh HTTP sample pass. Actual published desktop/phone actions confirm 4→11→4 folders with retained collapse focus/context, the correct file modal, rapid phone selection with original white icons aligned to the pill, no document overflow and no console warnings/errors in the sampled states. These results do not establish FPS or coverage of every device. Routing, company-origin separation and private authorization retain their existing boundaries.
+
+## Previous published COPY202 — approved bilingual content
 
 COPY202 is published at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source commit `a9ad1ba9638f14b904a7494e61d909082d19ccf6` (tree `d17dbd68c9882c5eb26c536a907d937b378166b1`) as Worker `908ae408-5c2c-47fd-86c6-640a4e7b2552`. The existing `/founder` and `www` aliases retain query parameters through canonical redirects; the four narrow routes, ASSETS-only configuration and company-root separation are preserved.
 
@@ -79,6 +87,6 @@ The three locked project identities are public, but their previews are intention
 
 ## Publication and rights
 
-This update is maintained on `codex/portfolio-performance-arabic`. The repository’s legacy GitHub Pages publication from `main:/` is independent; merging there may publish the root. A source push remains separate from Cloudflare deployment. Worker `pinexen-portfolio` version `8c5fd2ce-15f2-4c72-bd1d-e5f9d4d20456` is the current deployed version for `pinexen.com/mhalmaghawry/`, with `/founder` aliases and canonicalizing `www` routes. Its source commit `f0cf559b7b4a7242ffb68b61f227cbc92d83d357`, mounted identity and bounded source/release/hosted/native acceptance are recorded in the corrected SHARE194 checkpoint above. The white-chip candidate was never published. Earlier releases retain their separate evidence; those results are not reused as fresh proof for this release. No universal sharing-cache, field-performance or uptime guarantee is given. No automatic deployment workflow is included. Private bindings/secrets remain deliberately unconfigured.
+This update is maintained on `codex/portfolio-performance-arabic`. The repository’s legacy GitHub Pages publication from `main:/` is independent; merging there may publish the root. A source push remains separate from Cloudflare deployment. Worker `pinexen-portfolio` version `a9a9e7dd-e264-4658-8ec1-d2b1897ecd07` is the current deployment; its exact MOTION203 source, manifests and bounded acceptance are recorded above. Earlier releases retain their separate evidence. No automatic deployment workflow is included. Private bindings/secrets remain deliberately unconfigured.
 
 No project-wide reuse license is granted here. Photos, logos, user-supplied artwork and third-party assets have their respective rights; public visibility does not grant permission to reuse them. Existing font/icon/Tailwind license notices are retained beside their assets.

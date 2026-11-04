@@ -1,6 +1,16 @@
 # Cloudflare release — scoped portfolio mount
 
-## Current hosting handover — published COPY202
+## Current hosting handover — published MOTION203
+
+MOTION203 is deployed at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source `46006355e47376aece06bd9c10f0f972543c76ba`, tree `e2f886445c82b676e78d5509f2940f61188f185d`, as Worker `a9a9e7dd-e264-4658-8ec1-d2b1897ecd07`. Deployment uploaded five public assets and reused 199. The four narrow routes, aliases, ASSETS-only configuration, company-root separation and private authorization remain in place.
+
+The 388-input export produces 209 root runtime files and 208 mounted bundle files/204 public assets. Root manifest: `97b7af526b639490952dc2f6a339f23716004653b34d4a5f32f63895eb7d56a1`. Mounted manifest: `bb929b2a833ba5ceb3ea6c28bacc3dd236391397877498236e1cf9680eaa017e`. Actual served HTML is 975,049 bytes with SHA256 `15ff013e2e88ae73d30f9185d309960c68848677e14abc3fdefd1b808cf6dc4f`.
+
+Phone selection moves the original icons and pill together over 200ms; the 220ms view fade cancels on replacement. Concepts uses normal-flow rows, four initial folders, one/two/four columns at the 768px/1280px breakpoints, and localized Show more/less for all 11 folders. Closed files remain inert. Scoped outer-stack exclusion keeps disclosure/file targets reachable, and a one-shot collapse correction retains the focused button's viewport context. All 796 previously approved bilingual units remain unchanged.
+
+Source, native, exact-export and final published QA are Approved. The four required suites passed once before the narrow flow/viewport repairs; affected checks were repeated after each. The clean export passed locked install, build, release, repository and mounted checks. Seventeen hosted HTTP checks and an independent fresh HTTP sample pass. Published desktop/phone actions verify 4→11→4 folders, retained collapse focus/viewport context, correct exposed-file modal, rapid original-white-icon/pill alignment, no document overflow and clear consoles in the sampled states. This bounded acceptance does not establish FPS or universal-device rendering.
+
+## Previous hosting handover — published COPY202
 
 COPY202 is published at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source commit `a9ad1ba9638f14b904a7494e61d909082d19ccf6` (tree `d17dbd68c9882c5eb26c536a907d937b378166b1`) as Worker `908ae408-5c2c-47fd-86c6-640a4e7b2552`. The existing `/founder` and `www` aliases retain query parameters through canonical redirects; the four narrow routes, ASSETS-only configuration and company-root separation are preserved.
 
@@ -91,9 +101,9 @@ npm run preview:cloudflare
 
 Review `http://127.0.0.1:4180/mhalmaghawry/`. The adapter executes the actual mounted Worker and private handler. It substitutes a local 404 marker for company-origin passthrough and leaves private bindings unset. It does not prove Cloudflare TLS, compression, caching, DNS or production authorization.
 
-`cloudflare/public/` contains 204 allowlisted runtime assets for the reviewed COPY202 candidate. The generated `worker.mjs`, `mount-worker.mjs`, byte-identical private handler, `wrangler.jsonc` and bundle manifest stay **outside** the asset directory. The public binding excludes `_worker.js`, `_routes.json`, `_headers`, `_redirects`, robots, build manifests, source, tools, docs and private policy. Deploy using the generated config; do not upload the whole repository/bundle as static assets. The builder scans all output for retired confidential fingerprints and verifies the complete owned tree. Unknown/modified output files cause refusal. Every file is below 25 MiB; no external rendering dependency is introduced.
+`cloudflare/public/` contains 204 allowlisted runtime assets for the reviewed MOTION203 release. The generated `worker.mjs`, `mount-worker.mjs`, byte-identical private handler, `wrangler.jsonc` and bundle manifest stay **outside** the asset directory. The public binding excludes `_worker.js`, `_routes.json`, `_headers`, `_redirects`, robots, build manifests, source, tools, docs and private policy. Deploy using the generated config; do not upload the whole repository/bundle as static assets. The builder scans all output for retired confidential fingerprints and verifies the complete owned tree. Unknown/modified output files cause refusal. Every file is below 25 MiB; no external rendering dependency is introduced.
 
-The original `dist/` remains the separate root-mode Pages/local build. Current reviewed candidate hashes are recorded in the COPY202 section above and in the two release-baseline manifests. Earlier published versions retain their separate results below that section. Both build targets are deterministic; neither generated folder is committed.
+The original `dist/` remains the separate root-mode Pages/local build. Current reviewed release hashes are recorded in the MOTION203 section above and in the two release-baseline manifests. Earlier published versions retain their separate results. Both build targets are deterministic; neither generated folder is committed.
 
 ## Worker and route configuration
 
@@ -142,6 +152,6 @@ The public asset wrapper has a streaming single-byte-range fallback when the Ass
 
 Before declaring production complete, verify canonical/alias/query behavior, native hash and language routing, desktop/phone Day/Night layout, loader/media/font loading and media seeking, scoped 404, source/control denials, private503 with focus restoration, root-origin continuity, actual headers and actual cache responses. Local fixtures cannot establish field Core Web Vitals or Cloudflare behavior.
 
-Keep corrected SHARE194 as the current published, bounded-approved release reference; retain FAV193, EXP190, NAV188/VIEW189, MOT186/TYPE187 and COL185 as previously bounded-approved rollback references. For a future regression, the operator can select a previously approved Worker deployment; for this initial publication, removing **only the four portfolio routes** restores origin handling. Do not create a root catch-all or substitute the source repository as an asset directory. A failed future release should roll back to a known approved version, never to retired credentials or experimental bodies. Preserve company-origin ownership; a proxy-mode reversal is an operator decision after checking other dependencies.
+Keep MOTION203 as the current published release reference; retain COPY202 and the earlier bounded-approved versions as rollback references. For a future regression, the operator can select a previously approved Worker deployment; removing **only the four portfolio routes** restores origin handling. Do not create a root catch-all or substitute the source repository as an asset directory. A failed future release should roll back to a known approved version, never to retired credentials or experimental bodies. Preserve company-origin ownership; a proxy-mode reversal is an operator decision after checking other dependencies.
 
 The public Git repository has legacy GitHub Pages publication from `main:/`; that remains independent and cannot execute this Workers setup. No automatic deployment workflow is added. Current-source cleanup does not claim old Git history was scrubbed.
