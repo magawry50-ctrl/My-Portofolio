@@ -1,5 +1,13 @@
 # Maintenance and release review
 
+## Current FOLDER204 interaction contract
+
+FOLDER204 is published as Worker `8b5e84dc-9635-48af-94b3-a7f7a6dae2ee`. Source/native and predeployment gates pass; fresh hosted native review confirms direct one-click To-Get.me details with no full-unfold stage. Final independent hosted T8 verdict: Approved. The earlier MOTION203 acceptance below remains historical evidence for its unchanged boundaries.
+
+Primary Concepts folder activation opens details immediately, without a full-unfold intermediate state. Preserve the existing half-open hover/focus effect and MOTION203 grid/disclosure behavior. Only the explicit More → Open Folder action unfolds files. A locked primary opens OTP and resumes details once; the explicit unfold action resumes separately. Test both continuations and deny expired/invalid authorization at activation time.
+
+The primary button is a dialog opener, not a disclosure. COPY-0613 alone changes to “Open project details” / “فتح تفاصيل المشروع”, pinned under `folder204.actionLabelOverrides` in the existing UI-delta fixture. Do not rewrite the original COPY202 fixture or relax other unit checks. Native review must include single click/tap, Enter/Space, hover preservation, optional menu/file actions and locked-preview denial.
+
 ## Editing
 
 Keep English/Arabic keys and fallback markup synchronized. Preserve exact brand spellings and original asset identity. Test both directions, Night/Day, phone/desktop, reduced motion, keyboard focus and interrupted interactions. Do not normalize existing runtime bytes merely to change line endings. The inventory checker also rejects Windows-reserved device basenames, invalid filename characters and trailing dots/spaces; do not bypass Git filename safety settings.
@@ -17,7 +25,7 @@ The Night palette is recorded in `night-palette.json`; active/focus/hover roles 
 
 | Command | Evidence |
 |---|---|
-| `npm run check` | Exact COPY202 units/fallbacks and separately pinned MOTION203 UI delta; actual desktop/phone navigation and original-icon paint, responsive reading, capability replay/native distance, localized attributes, ending/route owners, Night paint and Interests carousel lifecycle; actual Concepts flow/disclosure/file gates, shared breakpoints and one-shot collapse anchoring |
+| `npm run check` | Exact COPY202 units/fallbacks, separately pinned MOTION203 UI delta and FOLDER204 primary action label; actual desktop/phone navigation and original-icon paint, responsive reading, capability replay/native distance, localized attributes, ending/route owners, Night paint and Interests carousel lifecycle; direct Concepts primary activation, optional menu/file gates, flow/disclosure, shared breakpoints and one-shot collapse anchoring |
 | `npm run check:private` | Real Worker HTTP/SQLite authorization, expiry/revocation/rate limits/Range/empty cases and actual async gate lifecycle |
 | `npm run check:production` | Portable fingerprint negative fixtures, decoded leak checks, allowlisted dependency closure, cache-rule disjointness, owned-output guards and repeated deterministic builds |
 | `npm run check:release` | Byte equality with the reviewed 209-file manifest |

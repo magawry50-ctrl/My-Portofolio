@@ -93,16 +93,22 @@ async function main(){
    ctx.window.innerWidth=viewport;grid.clientWidth=width;ctx.fitFolderRows();const scale=+roots[0].style['--gf-scale'];assert(scale>0&&scale<=1);assert(340*scale*columns+24*(columns-1)<=width+.001,'Actual measured columns fit '+viewport);assert(roots.every(r=>+r.style['--gf-scale']===scale));
   }
  }
- // Run the actual event bindings: a closed/hovered folder cannot open a project via a file.
+ // FOLDER204: primary activation goes straight to details; only the explicit menu unfolds files.
  for(const restricted of [false,true]){
   const root=new Node(),sheets=Array.from({length:3},()=>new Node());root.sheets=sheets;root.setAttribute('data-project-index','0');root.nodes=Object.fromEntries(['.gf-hit','.gf-key--more','.gf-menu','.gf-menu-toggle-folder','.gf-menu-open-study'].map(k=>[k,new Node()]));
-  const doc=new Node();let details=0,gates=0,unlocked=!restricted;
-  const ctx=vm.createContext({grid:{querySelectorAll:()=>[root]},restrictedHost:null,PROJECTS_CATALOG:[{isRestricted:restricted}],captureSheetVideoSnapshot:()=>()=>{},folderInteractionCleanups:[],getDict:()=>({gf_open_folder:'Open folder',gf_close_folder:'Close folder'}),document:doc,surfaceRevealManager:null,isRestrictedProjectUnlocked:()=>unlocked,openSecurityOtpModal(){gates++;},openCaseStudyModal(){details++;},requestAnimationFrame(){throw Error('Unexpected idle RAF');},cancelAnimationFrame(){}});
+  const doc=new Node(),gates=[];let details=0,unlocked=!restricted;
+  const ctx=vm.createContext({grid:{querySelectorAll:()=>restricted?[]:[root]},restrictedHost:restricted?{querySelectorAll:()=>[root]}:null,PROJECTS_CATALOG:[{isRestricted:restricted}],captureSheetVideoSnapshot:()=>()=>{},folderInteractionCleanups:[],getDict:()=>({gf_open_folder:'Open folder',gf_close_folder:'Close folder'}),document:doc,surfaceRevealManager:null,isRestrictedProjectUnlocked:()=>unlocked,openSecurityOtpModal(idx,only){gates.push([idx,only]);},openCaseStudyModal(){details++;},requestAnimationFrame(){throw Error('Unexpected idle RAF');},cancelAnimationFrame(){}});
   vm.runInContext(extract('        function bindFolderInteractions()', '        // --- 6-Digit Security OTP'),ctx);ctx.bindFolderInteractions();
-  assert(sheets.every(s=>s.inert&&s.tabIndex===-1&&s.attrs['aria-hidden']==='true'));sheets[0].click();assert.equal(details,0);assert.equal(gates,0);
-  root.nodes['.gf-hit'].click();if(restricted){assert.equal(gates,1);assert(sheets.every(s=>s.inert));unlocked=true;root.nodes['.gf-hit'].click();}
-  assert.equal(root.attrs['data-open'],'true');assert.equal(root.nodes['.gf-hit'].attrs['aria-expanded'],'true');assert(sheets.every(s=>!s.inert&&s.tabIndex===0&&s.attrs['aria-hidden']==='false'));sheets[0].click();assert.equal(details,1);
-  root.nodes['.gf-hit'].click();assert.equal(root.attrs['data-open'],undefined);assert(sheets.every(s=>s.inert&&s.tabIndex===-1));sheets[1].click();assert.equal(details,1);ctx.folderInteractionCleanups.forEach(fn=>fn());assert([...doc.handlers.values()].every(set=>!set.size));
+  assert(sheets.every(s=>s.inert&&s.tabIndex===-1&&s.attrs['aria-hidden']==='true'));sheets[0].click();assert.equal(details,0);assert.equal(gates.length,0);
+  root.nodes['.gf-key--more'].click();assert.equal(root.nodes['.gf-menu'].attrs['data-open'],'true');
+  root.nodes['.gf-hit'].click();assert.equal(root.nodes['.gf-menu'].attrs['data-open'],undefined,'Primary closes the options menu');
+  if(restricted){assert.deepEqual(gates,[[0,false]]);assert.equal(details,0);assert(sheets.every(s=>s.inert));root.nodes['.gf-menu-toggle-folder'].click();assert.deepEqual(gates.at(-1),[0,true]);assert.equal(root.attrs['data-open'],undefined);unlocked=true;root.nodes['.gf-hit'].click();}
+  assert.equal(details,1,'One primary activation opens one details popup');assert.equal(root.attrs['data-open'],undefined,'Primary never enters the full-open stage');assert.equal(root.nodes['.gf-hit'].attrs['aria-expanded'],undefined);assert(sheets.every(s=>s.inert&&s.tabIndex===-1));
+  root.nodes['.gf-hit'].click();assert.equal(details,2,'Repeated primary activation opens details rather than toggling files');
+  root.nodes['.gf-menu-toggle-folder'].click();assert.equal(root.attrs['data-open'],'true');assert.equal(root.nodes['.gf-menu-toggle-folder'].attrs['aria-expanded'],'true');assert(sheets.every(s=>!s.inert&&s.tabIndex===0&&s.attrs['aria-hidden']==='false'));sheets[0].click();assert.equal(details,3);
+  if(restricted){unlocked=false;sheets[1].click();assert.equal(details,3,'Exposed private sheets remain fail-closed after authorization expires');assert.deepEqual(gates.at(-1),[0,false]);root.nodes['.gf-menu-open-study'].click();assert.equal(details,3);assert.deepEqual(gates.at(-1),[0,false]);unlocked=true;}
+  root.nodes['.gf-menu-open-study'].click();assert.equal(details,4,'Explicit case-study menu action still opens details');
+  root.nodes['.gf-menu-toggle-folder'].click();assert.equal(root.attrs['data-open'],undefined);assert.equal(root.nodes['.gf-menu-toggle-folder'].attrs['aria-expanded'],'false');assert(sheets.every(s=>s.inert&&s.tabIndex===-1));sheets[1].click();assert.equal(details,4);ctx.folderInteractionCleanups.forEach(fn=>fn());assert([...doc.handlers.values()].every(set=>!set.size));
  }
  const fixture=require('./fixtures/navigation.cjs').fixture;
  for(const lang of ['en','ar']){
@@ -124,6 +130,7 @@ async function main(){
  assert(fs.readFileSync('assets/project-preview.css','utf8').includes('overflow:visible'));
  assert(/@media\(min-width:1280px\)\{[^}]*grid-template-columns:repeat\(4/.test(fs.readFileSync('assets/project-preview.css','utf8')),'The visual grid and measured owner share the tablet/desktop breakpoint');
  assert(fs.readFileSync('assets/liquid-glass.css','utf8').includes('transition-property:opacity!important'));
- console.log('PASS MOTION203: actual outer stack keeps collapsed/expanded Concepts flow-only; actual4→11→4 disclosure preserves collapse viewport/focus with one guarded auto correction in EN/AR and reduced motion; measured4/2/1 columns, closed/open/private file gates, one pre-viewchange selection commit,220ms latest-view ownership and stale/locale/hidden/reduced/disposal cleanup.');
+ const hitTemplates=[...source.matchAll(/<button type="button" class="gf-hit"([\s\S]*?)<\/button>/g)];assert.equal(hitTemplates.length,2);for(const hit of hitTemplates){assert(hit[1].includes('aria-haspopup="dialog"'));assert(!hit[1].includes('aria-expanded'));}assert(source.includes("'فتح تفاصيل المشروع' : 'Open project details'"));
+ console.log('PASS MOTION203 + FOLDER204: flow-only4→11→4 Concepts disclosure, viewport/focus ownership,4/2/1 columns, direct primary details with no full-open intermediate, explicit menu/file actions, fail-closed private gates, dialog semantics, navigation motion and lifecycle cleanup.');
 }
 main().catch(e=>{console.error(e.stack);process.exitCode=1;});

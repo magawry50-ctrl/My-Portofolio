@@ -2,6 +2,12 @@
 
 Bilingual English/Arabic portfolio with Identity, Impact and Opportunities views. The site uses native HTML/CSS/JavaScript, local fonts and media, and a pinned Tailwind 3 build. There is no client framework or external rendering dependency.
 
+## Published FOLDER204 — direct folder activation
+
+One click/tap on a Concepts folder opens project details directly; keyboard Enter/Space uses the same native button action. The existing half-open hover preview, four-folder grid and Show more/less remain. Full unfolding is optional through More → Open Folder. Locked previews still require OTP, then resume the requested action once. The public action label now reads “Open project details” / “فتح تفاصيل المشروع”; this sole COPY202 label exception is pinned separately, with the original approval fixture unchanged.
+
+FOLDER204 is published as Worker `8b5e84dc-9635-48af-94b3-a7f7a6dae2ee`, uploading one public asset and reusing 203. Public/private/repository, production, mounted and predeployment checks pass with source/native approval. Fresh hosted review confirms one click opens the correct To-Get.me modal with no full-unfold stage; queried founder/www aliases preserve queries through 308 redirects. Final independent hosted T8 verdict: Approved. Served HTML: 975,067 bytes, SHA256 `77c495d3813e554bedebb6550fdc83e09915bc5e68c8cf5068fccd8c99af89c5`. Mounted manifest: `0da39dcb6bb9adc59be5c5aa1d62ddab129448778822157cf028917306f5cccd`. The MOTION203 record below describes the earlier published version.
+
 ## Run and verify
 
 Use Node **24 or newer**; the security fixtures use Node's SQLite module. The verified development runtime is Node 24.18.0.
@@ -17,7 +23,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**. The reviewed MOTION203 release has manifest SHA256 `97b7af526b639490952dc2f6a339f23716004653b34d4a5f32f63895eb7d56a1`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **209 runtime files**. The reviewed FOLDER204 release has manifest SHA256 `ca3eed7042b09363145f2c97ce89319e0a1c3e8cbd6032e47cd4838a33e0f901`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -87,6 +93,6 @@ The three locked project identities are public, but their previews are intention
 
 ## Publication and rights
 
-This update is maintained on `codex/portfolio-performance-arabic`. The repository’s legacy GitHub Pages publication from `main:/` is independent; merging there may publish the root. A source push remains separate from Cloudflare deployment. Worker `pinexen-portfolio` version `a9a9e7dd-e264-4658-8ec1-d2b1897ecd07` is the current deployment; its exact MOTION203 source, manifests and bounded acceptance are recorded above. Earlier releases retain their separate evidence. No automatic deployment workflow is included. Private bindings/secrets remain deliberately unconfigured.
+This update is maintained on `codex/portfolio-performance-arabic`. The repository’s legacy GitHub Pages publication from `main:/` is independent; merging there may publish the root. A source push remains separate from Cloudflare deployment. Worker `pinexen-portfolio` version `8b5e84dc-9635-48af-94b3-a7f7a6dae2ee` is the current deployment; its FOLDER204 manifests and bounded acceptance are recorded above. Earlier releases retain their separate evidence. No automatic deployment workflow is included. Private bindings/secrets remain deliberately unconfigured.
 
 No project-wide reuse license is granted here. Photos, logos, user-supplied artwork and third-party assets have their respective rights; public visibility does not grant permission to reuse them. Existing font/icon/Tailwind license notices are retained beside their assets.

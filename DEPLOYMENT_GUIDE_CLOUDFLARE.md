@@ -1,6 +1,12 @@
 # Cloudflare release — scoped portfolio mount
 
-## Current hosting handover — published MOTION203
+## Current hosting handover — published FOLDER204
+
+FOLDER204 is deployed at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) as Worker `8b5e84dc-9635-48af-94b3-a7f7a6dae2ee`, uploading one public asset and reusing 203. Primary Concepts activation opens details directly; the existing hover preview, grid/disclosure and optional menu unfolding remain. Source/native, production, mounted and predeployment gates pass. Fresh hosted native review confirms one click opens the correct To-Get.me details popup without a full-unfold intermediate; queried founder/www aliases preserve queries through 308 redirects. Final independent hosted T8 verdict: Approved.
+
+Root manifest: `ca3eed7042b09363145f2c97ce89319e0a1c3e8cbd6032e47cd4838a33e0f901`. Mounted manifest: `0da39dcb6bb9adc59be5c5aa1d62ddab129448778822157cf028917306f5cccd`. Exact hosted HTML: 975,067 bytes, SHA256 `77c495d3813e554bedebb6550fdc83e09915bc5e68c8cf5068fccd8c99af89c5`. This bounded acceptance does not establish every-device rendering, field performance or configured private authorization. Prior release records retain their version-specific evidence below.
+
+## Previous hosting handover — published MOTION203
 
 MOTION203 is deployed at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source `46006355e47376aece06bd9c10f0f972543c76ba`, tree `e2f886445c82b676e78d5509f2940f61188f185d`, as Worker `a9a9e7dd-e264-4658-8ec1-d2b1897ecd07`. Deployment uploaded five public assets and reused 199. The four narrow routes, aliases, ASSETS-only configuration, company-root separation and private authorization remain in place.
 

@@ -14,5 +14,15 @@
   "newCopy": {
     "en": {"show": "Show more", "hide": "Show less"},
     "ar": {"show": "عرض المزيد", "hide": "عرض أقل"}
+  },
+  "folder204": {
+    "task": "FOLDER204",
+    "reason": "User corrected primary activation to open details directly; full unfolding remains an explicit menu action.",
+    "actionLabelOverrides": {
+      "COPY-0613": {
+        "en": "Open project details",
+        "ar": "فتح تفاصيل المشروع"
+      }
+    }
   }
 }

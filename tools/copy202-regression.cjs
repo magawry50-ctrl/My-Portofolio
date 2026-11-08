@@ -2,6 +2,8 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto');
 const fixture=require('./fixtures/approved-copy202.json'),source=fs.readFileSync('index.html','utf8'),notfound=fs.readFileSync('404.html','utf8');
 const motion203=require('./fixtures/approved-motion203-ui.json');
+const actionLabelOverrides=motion203.folder204.actionLabelOverrides;
+assert.deepEqual(actionLabelOverrides,{'COPY-0613':{en:'Open project details',ar:'فتح تفاصيل المشروع'}},'Only the FOLDER204 primary action label may replace approved copy');
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const a=source.indexOf('const I18N = '),b=source.indexOf('// --- Language Switching Logic',a),dictionary=vm.runInNewContext(source.slice(a,b)+'\nI18N');
 const decode=s=>s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&nbsp;/g,' ');
@@ -23,7 +25,7 @@ for(const u of fixture.units){
  }else{
   const text=u.file==='404.html'?notfound:source;
   for(const lang of ['en','ar']){
-   const value=u[lang],variants=[value,JSON.stringify(value).slice(1,-1),value.replace(/'/g,"\\'"),value.replace(/&/g,'&amp;').replace(/"/g,'&quot;')];
+   const value=actionLabelOverrides[u.id]?.[lang]??u[lang],variants=[value,JSON.stringify(value).slice(1,-1),value.replace(/'/g,"\\'"),value.replace(/&/g,'&amp;').replace(/"/g,'&quot;')];
    // The copyright year and decorative acronym are existing runtime composition, not literals.
    if(u.id==='COPY-0040'){assert(text.includes('id="footer-year"'));assert(text.includes(lang==='ar'?'محمد المغاوري':'Mohamed Al-Maghawry'));continue;}
    if(u.id==='COPY-0515'){assert(text.includes('<span>M</span><span>O</span><span>P</span><span>A</span><span>A</span><span>C</span><span>E</span>'));continue;}
@@ -32,7 +34,7 @@ for(const u of fixture.units){
   }
  }
 }
-assert.deepEqual(missing,[],'Every non-dictionary approved unit has its exact existing static/runtime value');
+assert.deepEqual(missing,[],'Every non-dictionary approved unit has its exact existing value or the single separately pinned FOLDER204 action label');
 // Preserve the design, paths and media. Added list items have no layout classes.
 assert.equal(motion203.copy202ApprovalSHA256,fixture.approvalSHA256);
 assert.equal(motion203.previousInlineCssSHA256,fixture.baseline.cssSHA256);
@@ -79,4 +81,4 @@ for(const lang of ['ar','en','ar','en'])for(const isDark of [true,false]){
  assert.equal(theme.attrs.title,lang==='ar'?(dark?'التبديل للوضع النهاري':'التبديل للوضع الليلي'):(dark?'Switch to light theme':'Switch to dark theme'));
  inputs.forEach((n,i)=>assert.equal(n.attrs['aria-label'],lang==='ar'?`الخانة ${i+1} من رمز المعاينة`:`Preview code digit ${i+1}`));
 }
-console.log(`COPY202 PASS: ${fixture.units.length} original units / ${fixture.sectionCount} sections; ${keyCount} exact keyed locale values; ${composites} composed units; ${dormant} dormant units; ${fallbacks} fallbacks; ${nodes.length} static localized occurrences; repeated EN/AR and theme labels; only separately pinned MOTION203 CSS/class/control/new-copy delta; all links/assets preserved.`);
+console.log(`COPY202 PASS: ${fixture.units.length} original units / ${fixture.sectionCount} sections; ${keyCount} exact keyed locale values; ${composites} composed units; ${dormant} dormant units; ${fallbacks} fallbacks; ${nodes.length} static localized occurrences; repeated EN/AR and theme labels; only separately pinned MOTION203 UI delta and FOLDER204 primary action label; all links/assets preserved.`);

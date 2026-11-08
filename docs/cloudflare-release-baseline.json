@@ -1014,8 +1014,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 975049,
-      "sha256": "15ff013e2e88ae73d30f9185d309960c68848677e14abc3fdefd1b808cf6dc4f"
+      "bytes": 975067,
+      "sha256": "77c495d3813e554bedebb6550fdc83e09915bc5e68c8cf5068fccd8c99af89c5"
     },
     {
       "path": "public/og-image.png",
@@ -1035,7 +1035,7 @@
     {
       "path": "worker.mjs",
       "bytes": 16206,
-      "sha256": "5affe5215f3390241470ba3bc2146dd385fbc4af831e4e82017591ea798f10e5"
+      "sha256": "2ed538756b6ab16fddc8de9c35a5af4624214e23d95db00506910bb59d496e23"
     },
     {
       "path": "wrangler.jsonc",

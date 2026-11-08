@@ -8645,7 +8645,7 @@
                                         <div class="gf-front">
                                             <!-- Main Hit Button -->
                                             <button type="button" class="gf-hit"
-                                                    aria-expanded="false"
+                                                    aria-haspopup="dialog"
                                                     aria-label="${currentLang === 'ar' ? 'فتح المعاينة' : 'Open preview'} ${title}">
                                             </button>
 
@@ -8845,10 +8845,10 @@
                                         <path d="${FRONT_PATH}" stroke="url(#gf-rim-${uid})"></path>
                                     </svg>
 
-                                    <!-- Main Hit Button to Toggle Open/Close -->
+                                    <!-- Main Hit Button opens project details directly. -->
                                     <button type="button" class="gf-hit"
-                                            aria-expanded="false"
-                                            aria-label="${currentLang === 'ar' ? 'فتح المجلد أو إغلاقه' : 'Open or close folder'} ${title}">
+                                            aria-haspopup="dialog"
+                                            aria-label="${currentLang === 'ar' ? 'فتح تفاصيل المشروع' : 'Open project details'} ${title}">
                                     </button>
 
                                     <!-- Folder Label & Meta -->
@@ -8961,7 +8961,7 @@
             return () => { cancelled = true; observer?.disconnect(); changes.disconnect(); document.removeEventListener('portfolio:viewchange', load); window.removeEventListener('scroll', load); if (image) { image.onload = image.onerror = null; } };
         }
 
-        // Bind 3D Pointer Tracking, Hinge Toggle, and Sheet Clicks
+        // Bind 3D pointer tracking, direct project activation, and optional menu/file actions
         function bindFolderInteractions() {
             const rootEls = [...grid.querySelectorAll('.gf-root'), ...(restrictedHost?.querySelectorAll('.gf-root') || [])];
 
@@ -8988,14 +8988,14 @@
                     sheets.forEach(sheet => { sheet.inert = !isOpen; sheet.tabIndex = isOpen ? 0 : -1; sheet.setAttribute('aria-hidden', String(!isOpen)); });
                     if (isOpen) {
                         rootEl.setAttribute('data-open', 'true');
-                        hitBtn?.setAttribute('aria-expanded', 'true');
+                        menuToggle?.setAttribute('aria-expanded', 'true');
                         if (menuToggle) {
                             const dict = getDict();
                             menuToggle.textContent = dict['gf_close_folder'] || 'إغلاق المجلد';
                         }
                     } else {
                         rootEl.removeAttribute('data-open');
-                        hitBtn?.setAttribute('aria-expanded', 'false');
+                        menuToggle?.setAttribute('aria-expanded', 'false');
                         if (menuToggle) {
                             const dict = getDict();
                             menuToggle.textContent = dict['gf_open_folder'] || 'فتح المجلد';
@@ -9040,7 +9040,7 @@
                     if (!raf) raf = requestAnimationFrame(writeCoords);
                 });
 
-                // Front Panel Hit Click -> Toggle Open (or require  if restricted & locked)
+                // Front panel activation opens details immediately; locked projects keep their OTP gate.
                 hitBtn?.addEventListener('click', (e) => {
                     e.stopPropagation();
                     setMenu(false);
@@ -9048,7 +9048,7 @@
                         openSecurityOtpModal(idx, false);
                         return;
                     }
-                    setOpen(!isOpen);
+                    openCaseStudyModal(idx);
                 });
 
                 // Key Button Click -> Toggle Menu
@@ -9333,12 +9333,10 @@
                 if (generation !== otpGeneration || !otpModal.classList.contains('modal-open')) return;
                 closeSecurityOtpModal();
                 renderFolders();
-                const restrictedEl = folderByIndex(targetIdx);
-                if (restrictedEl) {
-                    restrictedEl.setAttribute('data-open', 'true');
-                    restrictedEl.querySelector?.('.gf-hit')?.click();
-                }
-                if (!openFolderOnly) {
+                if (openFolderOnly) {
+                    // Only the explicit menu action unfolds files after authorization.
+                    folderByIndex(targetIdx)?.querySelector('.gf-menu-toggle-folder')?.click();
+                } else {
                     openCaseStudyModal(targetIdx);
                 }
             }, 520);
