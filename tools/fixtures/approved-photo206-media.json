@@ -1,0 +1,35 @@
+{
+  "task": "PHOTO206",
+  "galleryId": "fp-team-masonry",
+  "originalCount": 14,
+  "alt": "FP International Team",
+  "assets": [
+    {
+      "path": "assets/team/fp-team-15.webp",
+      "sha256": "94b8a26bcc3b2e72f3c5dbdb5f7e3c865f6c199abc51740a77100bcde59d0987",
+      "bytes": 136272,
+      "width": 960,
+      "height": 1280,
+      "format": "webp",
+      "metadata": []
+    },
+    {
+      "path": "assets/team/fp-team-16.webp",
+      "sha256": "2443bdd11828212546f9030f7f25e0ee654df7912469f704af19d85c07daeb46",
+      "bytes": 94852,
+      "width": 960,
+      "height": 1280,
+      "format": "webp",
+      "metadata": []
+    },
+    {
+      "path": "assets/team/fp-team-17.webp",
+      "sha256": "eec3777d3df0e79791811d59d20d9f1207e8752ac08326552e6b16b69e8368ff",
+      "bytes": 44050,
+      "width": 960,
+      "height": 443,
+      "format": "webp",
+      "metadata": []
+    }
+  ]
+}

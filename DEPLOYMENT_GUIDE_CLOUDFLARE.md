@@ -1,6 +1,12 @@
 # Cloudflare release — scoped portfolio mount
 
-## Current hosting handover — published FOLDER204
+## Current hosting handover — published PHOTO206
+
+PHOTO206 is published as Worker `12c051c7-c3ab-4ed4-a194-4fd041e45a9e`, uploading four public assets and reusing 203. Source, private, production, repository, mounted and native predeployment QA gates passed. Live checks returned the exact HTML and all three new assets with status 200; 17 gallery items were present and all three new images loaded in English desktop and Arabic mobile review without document overflow. Final independent hosted T8 verdict: Approved. Root manifest: `3bf9facd6d444d9f35f7bad40b838f0cbaefc4613977489a27a91de51872a5bc`; mounted manifest: `44207625f532dd4a44e577e5443dd8765ca47cd0124bc58ddee8c12b755f9045`. Hosted HTML: 976,193 bytes, SHA256 `25b9a4af69ecd5485f923fc8de388b66e52c3c992a65961e836ec759e6eb6521`. These bounded checks do not establish every-device rendering or field performance.
+
+The source inventory has 392 inputs; runtime output has 212 root files and 211 mounted bundle files/207 public assets. PHOTO206 only appends the three supplied full-composition photographs to the FP International gallery (14→17). Original media, copy, styling, interactions and the immutable COPY202 fixture remain unchanged.
+
+## Previous hosting handover — published FOLDER204
 
 FOLDER204 is deployed at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) as Worker `8b5e84dc-9635-48af-94b3-a7f7a6dae2ee`, uploading one public asset and reusing 203. Primary Concepts activation opens details directly; the existing hover preview, grid/disclosure and optional menu unfolding remain. Source/native, production, mounted and predeployment gates pass. Fresh hosted native review confirms one click opens the correct To-Get.me details popup without a full-unfold intermediate; queried founder/www aliases preserve queries through 308 redirects. Final independent hosted T8 verdict: Approved.
 

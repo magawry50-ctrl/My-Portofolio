@@ -2,6 +2,10 @@
 
 Bilingual English/Arabic portfolio with Identity, Impact and Opportunities views. The site uses native HTML/CSS/JavaScript, local fonts and media, and a pinned Tailwind 3 build. There is no client framework or external rendering dependency.
 
+## Published PHOTO206 — FP International gallery additions
+
+PHOTO206 appends the three supplied office photographs to the Executive Leadership & Venture Setup gallery, bringing it from 14 to 17 photos. Existing photographs, text, styling and gallery behavior remain. Proportional WebP derivatives preserve the full compositions, strip incidental metadata and use the existing lazy/noscript convention with actual intrinsic dimensions. PHOTO206 is published as Worker `12c051c7-c3ab-4ed4-a194-4fd041e45a9e`, uploading four public assets and reusing 203. Source, private, production, repository, mounted and native predeployment QA gates passed. Live checks returned the exact HTML and all three new assets with status 200; 17 gallery items were present and all three new images loaded in English desktop and Arabic mobile review without document overflow. Final independent hosted T8 verdict: Approved. Root manifest: `3bf9facd6d444d9f35f7bad40b838f0cbaefc4613977489a27a91de51872a5bc`; mounted manifest: `44207625f532dd4a44e577e5443dd8765ca47cd0124bc58ddee8c12b755f9045`. Hosted HTML: 976,193 bytes, SHA256 `25b9a4af69ecd5485f923fc8de388b66e52c3c992a65961e836ec759e6eb6521`. These bounded checks do not establish every-device rendering or field performance. FOLDER204 below retains its historical release evidence.
+
 ## Published FOLDER204 — direct folder activation
 
 One click/tap on a Concepts folder opens project details directly; keyboard Enter/Space uses the same native button action. The existing half-open hover preview, four-folder grid and Show more/less remain. Full unfolding is optional through More → Open Folder. Locked previews still require OTP, then resume the requested action once. The public action label now reads “Open project details” / “فتح تفاصيل المشروع”; this sole COPY202 label exception is pinned separately, with the original approval fixture unchanged.
@@ -23,7 +27,7 @@ npm run preview:production
 
 The last command serves the clean build at `http://127.0.0.1:4179`. Private API configuration is deliberately unset there: unavailable 503 responses are expected. For source UI development, use `npm run preview:source` at port 4175. These local servers do not prove Cloudflare TLS, caching or configured authorization.
 
-`dist/` is the root-mode Pages/local-review output: **209 runtime files**. The reviewed FOLDER204 release has manifest SHA256 `ca3eed7042b09363145f2c97ce89319e0a1c3e8cbd6032e47cd4838a33e0f901`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
+`dist/` is the root-mode Pages/local-review output: **212 runtime files**. The reviewed PHOTO206 release has manifest SHA256 `3bf9facd6d444d9f35f7bad40b838f0cbaefc4613977489a27a91de51872a5bc`. The authorized Cloudflare target is the isolated Workers Assets package for `https://pinexen.com/mhalmaghawry/`:
 
 ```sh
 npm run build:cloudflare
@@ -31,7 +35,7 @@ npm run check:cloudflare
 npm run preview:cloudflare
 ```
 
-The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 204 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
+The preview is `http://127.0.0.1:4180/mhalmaghawry/`. Its company-root passthrough is represented by a local 404 marker. The generated `cloudflare/public/` contains only 207 public runtime assets; the Worker/config and bundle manifest sit outside that asset binding. Deploy through the generated config, never by treating the entire repository or bundle directory as public assets. See the deployment guide before any external action.
 
 ## Published MOTION203 — navigation and folder interactions
 

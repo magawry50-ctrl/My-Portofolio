@@ -52,6 +52,7 @@
 !/tools/fixtures/navigation.cjs
 !/tools/fixtures/approved-copy202.json
 !/tools/fixtures/approved-motion203-ui.json
+!/tools/fixtures/approved-photo206-media.json
 !/tools/fixtures/surfaces.cjs
 !/tools/font-vendor-manifest.json
 !/tools/mobile-navigation-regression.cjs

@@ -677,6 +677,21 @@
       "sha256": "c5625f78e4fb69c6319238d3db6570eec77f4bb4c45d1b009a0d4438c88349f8"
     },
     {
+      "path": "assets/team/fp-team-15.webp",
+      "bytes": 136272,
+      "sha256": "94b8a26bcc3b2e72f3c5dbdb5f7e3c865f6c199abc51740a77100bcde59d0987"
+    },
+    {
+      "path": "assets/team/fp-team-16.webp",
+      "bytes": 94852,
+      "sha256": "2443bdd11828212546f9030f7f25e0ee654df7912469f704af19d85c07daeb46"
+    },
+    {
+      "path": "assets/team/fp-team-17.webp",
+      "bytes": 44050,
+      "sha256": "eec3777d3df0e79791811d59d20d9f1207e8752ac08326552e6b16b69e8368ff"
+    },
+    {
       "path": "assets/tools/antigravity.png",
       "bytes": 71914,
       "sha256": "e0cd08ccd10cd8d08ccf0ba449823ee88495825c0841619618100d3ab089f51e"
@@ -1023,8 +1038,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 974915,
-      "sha256": "163c02e61136b23204195acb6982946183c209a716e3fdd01b9ea2fe0ff0b9c4"
+      "bytes": 976041,
+      "sha256": "a31f6c0d2c9398ee85d350d64c472fd77faa2c1974c4e20669debfd92b77568c"
     },
     {
       "path": "og-image.png",

@@ -5,6 +5,25 @@ const motion203=require('./fixtures/approved-motion203-ui.json');
 const actionLabelOverrides=motion203.folder204.actionLabelOverrides;
 assert.deepEqual(actionLabelOverrides,{'COPY-0613':{en:'Open project details',ar:'فتح تفاصيل المشروع'}},'Only the FOLDER204 primary action label may replace approved copy');
 const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
+// PHOTO206 adds exactly three supplied gallery photos; the original copy approval stays immutable.
+const photo206=require('./fixtures/approved-photo206-media.json');
+assert.equal(photo206.task,'PHOTO206');assert.equal(photo206.galleryId,'fp-team-masonry');assert.equal(photo206.originalCount,14);assert.equal(photo206.alt,'FP International Team');
+assert.deepEqual(photo206.assets.map(({path,width,height})=>({path,width,height})),[
+ {path:'assets/team/fp-team-15.webp',width:960,height:1280},
+ {path:'assets/team/fp-team-16.webp',width:960,height:1280},
+ {path:'assets/team/fp-team-17.webp',width:960,height:443}
+],'Only the three explicitly supplied PHOTO206 derivatives are admitted');
+const galleryStart=source.indexOf('<div id="fp-team-masonry"'),galleryEnd=source.indexOf('\n                                                </div>',galleryStart);
+assert(galleryStart>=0&&galleryEnd>galleryStart);
+const gallery=source.slice(galleryStart,galleryEnd),photoNodes=photo206.assets.map(asset=>{
+ const bytes=fs.readFileSync(asset.path);assert.equal(bytes.length,asset.bytes);assert.equal(hash(bytes),asset.sha256,'Pinned supplied photo bytes: '+asset.path);
+ return `<div class="fp-masonry-item group"><img data-media-src="${asset.path}" alt="${photo206.alt}" width="${asset.width}" height="${asset.height}" decoding="async" loading="lazy"><noscript><img src="${asset.path}" alt="${photo206.alt}" width="${asset.width}" height="${asset.height}" decoding="async" loading="lazy"></noscript></div>`;
+});
+assert.equal((gallery.match(/class="fp-masonry-item group"/g)||[]).length,photo206.originalCount+3);
+const appendedPhotoNodes=photoNodes.map(node=>'                                                    '+node).join(gallery.includes('\r\n')?'\r\n':'\n');
+assert(gallery.trimEnd().endsWith(appendedPhotoNodes),'PHOTO206 nodes must be appended together after the original fourteen');
+let originalLayoutSource=source;
+for(const node of photoNodes){assert.equal(source.split(node).length-1,1,'Each lazy/noscript pair is present exactly once');originalLayoutSource=originalLayoutSource.replace(new RegExp('\\r?\\n {52}'+node.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')),'');}
 const a=source.indexOf('const I18N = '),b=source.indexOf('// --- Language Switching Logic',a),dictionary=vm.runInNewContext(source.slice(a,b)+'\nI18N');
 const decode=s=>s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&nbsp;/g,' ');
 const plain=s=>decode(s.replace(/<br\b[^>]*>/gi,'\n').replace(/<\/?(?:ul|li)\b[^>]*>/gi,'\n').replace(/<[^>]*>/g,'')).split('\n').map(s=>s.trim()).filter(Boolean).join('\n');
@@ -39,7 +58,7 @@ assert.deepEqual(missing,[],'Every non-dictionary approved unit has its exact ex
 assert.equal(motion203.copy202ApprovalSHA256,fixture.approvalSHA256);
 assert.equal(motion203.previousInlineCssSHA256,fixture.baseline.cssSHA256);
 assert.equal(hash([...source.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map(m=>m[1]).join('\n')),motion203.inlineCssSHA256,'Inline CSS differs only by the separately reviewed MOTION203 closed/open sheet pointer gates');
-const staticPart=source.slice(0,a);
+const staticPart=originalLayoutSource.slice(0,originalLayoutSource.indexOf('const I18N = '));
 assert.deepEqual(motion203.removedStaticClasses,['concept-carousel-controls']);
 assert.deepEqual(motion203.addedStaticClasses,['concepts-disclosure']);
 const retainedClasses=fixture.baseline.staticClasses.filter(value=>!motion203.removedStaticClasses.includes(value));
@@ -53,7 +72,7 @@ motion203.removedControlIds.forEach(id=>assert(!staticPart.includes(`id="${id}"`
 assert.equal(motion203.addedControlId,'concepts-show-more');
 assert(source.includes(`<button id="concepts-show-more" class="concepts-disclosure" type="button" aria-expanded="false" aria-controls="glass-folders-grid restricted-project-launcher">${motion203.newCopy.en.show}</button>`),'The one added control has pinned semantics and initial wording');
 for(const lang of ['en','ar'])for(const state of ['show','hide'])assert(source.includes(`'${motion203.newCopy[lang][state]}'`),'Every new disclosure word is separately pinned');
-assert.deepEqual([...staticPart.matchAll(/\b(?:href|src|data-src|data-media-src)="([^"]*)"/g)].map(m=>m[0]),fixture.baseline.linksAndAssets,'All authored links/assets preserved');
+assert.deepEqual([...staticPart.matchAll(/\b(?:href|src|data-src|data-media-src)="([^"]*)"/g)].map(m=>m[0]),fixture.baseline.linksAndAssets,'All original authored links/assets preserved after removing only the three pinned PHOTO206 additions');
 // Verify all 357 initial data-i18n fallbacks as users see them before locale initialization.
 let fallbacks=0;
 for(const m of staticPart.matchAll(/<([a-z][\w:-]*)\b[^>]*data-i18n="([^"]+)"[^>]*>/gi)){
@@ -81,4 +100,4 @@ for(const lang of ['ar','en','ar','en'])for(const isDark of [true,false]){
  assert.equal(theme.attrs.title,lang==='ar'?(dark?'التبديل للوضع النهاري':'التبديل للوضع الليلي'):(dark?'Switch to light theme':'Switch to dark theme'));
  inputs.forEach((n,i)=>assert.equal(n.attrs['aria-label'],lang==='ar'?`الخانة ${i+1} من رمز المعاينة`:`Preview code digit ${i+1}`));
 }
-console.log(`COPY202 PASS: ${fixture.units.length} original units / ${fixture.sectionCount} sections; ${keyCount} exact keyed locale values; ${composites} composed units; ${dormant} dormant units; ${fallbacks} fallbacks; ${nodes.length} static localized occurrences; repeated EN/AR and theme labels; only separately pinned MOTION203 UI delta and FOLDER204 primary action label; all links/assets preserved.`);
+console.log(`COPY202 PASS: ${fixture.units.length} original units / ${fixture.sectionCount} sections; ${keyCount} exact keyed locale values; ${composites} composed units; ${dormant} dormant units; ${fallbacks} fallbacks; ${nodes.length} static localized occurrences; repeated EN/AR and theme labels; only separately pinned MOTION203 UI delta, FOLDER204 primary action label and three PHOTO206 media additions; all original links/assets preserved.`);
