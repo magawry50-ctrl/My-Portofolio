@@ -1,0 +1,28 @@
+{
+  "task": "MOTION203",
+  "copy202ApprovalSHA256": "ed4b09615ef05db3c93299d3068a24b1cb1a17e70defac41c4f37a1d9af50dc8",
+  "previousInlineCssSHA256": "bda6ae8e301da4bc56bbc37bd04d7d9d08817d244d47e67439f980aba165c192",
+  "inlineCssSHA256": "8489fe31d948bd85ba09c8c34d62867eb3b224e8c01302b5b69a0d7748356b03",
+  "inlineCssChanges": [
+    "gf-sheet pointer-events auto becomes none",
+    "gf-root[data-open] gf-sheet pointer-events auto is added"
+  ],
+  "removedStaticClasses": ["concept-carousel-controls"],
+  "addedStaticClasses": ["concepts-disclosure"],
+  "removedControlIds": ["concepts-previous", "concepts-next"],
+  "addedControlId": "concepts-show-more",
+  "newCopy": {
+    "en": {"show": "Show more", "hide": "Show less"},
+    "ar": {"show": "عرض المزيد", "hide": "عرض أقل"}
+  },
+  "folder204": {
+    "task": "FOLDER204",
+    "reason": "User corrected primary activation to open details directly; full unfolding remains an explicit menu action.",
+    "actionLabelOverrides": {
+      "COPY-0613": {
+        "en": "Open project details",
+        "ar": "فتح تفاصيل المشروع"
+      }
+    }
+  }
+}

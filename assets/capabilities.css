@@ -1,0 +1,239 @@
+/* DESIGN-25: the supplied infographic owns this scoped editorial composition. */
+#skills.capabilities-section{--cap-bg:#f8fbff;--cap-ink:#0a0d14;--cap-copy:#657291;--cap-meta:#6b7280;--cap-line:#dce8fa;--cap-blue:#0052ff;background:var(--cap-bg);color:var(--cap-ink);padding:24px 0 12px}
+.dark #skills.capabilities-section{--cap-bg:#0a1120;--cap-ink:#f2f6ff;--cap-copy:#adbcd6;--cap-meta:#9ca3af;--cap-line:#26364f;--cap-blue:#66a9ff}
+#skills .cap-header{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;margin-bottom:26px}
+#skills .cap-kicker{display:flex;align-items:center;gap:18px;margin:0 0 12px;font-size:11px;line-height:1.5;font-weight:800;letter-spacing:.14em;color:var(--cap-copy)}
+#skills .cap-kicker::before{content:"";flex:none;width:32px;height:2px;background:var(--cap-blue)}
+#skills .cap-overline{color:var(--cap-blue);grid-column:1}
+#skills .cap-header h2{grid-column:1/-1;margin:0 0 7px;font-size:clamp(30px,3.2vw,48px);line-height:1.2;font-weight:800;letter-spacing:-.04em}
+#skills .cap-header h2>span{color:var(--cap-ink)}
+#skills .cap-header h2>span:not(:first-child){color:var(--cap-blue)}
+#skills .cap-header h2>span span{color:inherit}
+#skills .cap-intro{grid-column:1/-1;max-width:680px;margin:0;color:var(--cap-copy);font-size:18px;line-height:1.4}
+#skills .capabilities-row{display:grid;grid-template-columns:minmax(210px,.95fr) minmax(0,3.05fr);gap:30px;padding:20px 0;border-bottom:1px solid var(--cap-line)}
+#skills .cap-mindset-row{padding-top:0}
+#skills .cap-row-heading{align-self:center;min-width:0}
+#skills .cap-row-heading h3{margin:0 0 6px;font-size:clamp(27px,2.3vw,36px);line-height:1.1;font-weight:800;letter-spacing:-.04em}
+#skills .cap-row-description{color:var(--cap-copy);margin:0;max-width:31ch;font-size:18px;line-height:1.4}
+#skills .cap-mindset-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;min-width:0}
+#skills .cap-mindset-card{position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:16px;min-width:0;min-height:300px;border:1px solid var(--cap-line);border-radius:10px;padding:24px 22px;overflow:hidden;background:transparent}
+#skills .cap-card-header{display:grid;grid-template-columns:minmax(0,1fr) min(34%,110px);align-items:center;gap:10px;min-height:96px}
+#skills .cap-mindset-card h4{min-width:0;margin:0;color:var(--cap-ink);font-size:23px;line-height:1.25;font-weight:800;letter-spacing:-.035em;text-wrap:balance}
+#skills .cap-card-description{margin:0;color:var(--cap-copy);font-size:18px;line-height:1.5}
+#skills .cap-card-tags{align-self:end;min-height:3em;margin:4px 0 0;color:var(--cap-meta);font-size:12px;line-height:1.5;letter-spacing:.08em;font-weight:400;text-transform:uppercase}
+#skills .cap-point-cloud{position:relative;width:100%;height:96px;min-width:0;pointer-events:none}
+#skills .cap-point-cloud canvas{display:block;width:100%;height:100%}
+#skills .cap-skills-content{min-width:0;position:relative;align-self:center;padding-top:12px}
+#skills .cap-skills-window{overflow:hidden;width:100%;direction:ltr}
+
+
+#skills .cap-skill-set{display:flex;flex:none;min-width:0;margin:0;padding:0;list-style:none}
+#skills .cap-skill-chip{display:grid;grid-template-columns:38px minmax(0,1fr);align-items:center;align-content:center;justify-items:start;direction:ltr;gap:12px;flex:0 0 clamp(210px,17vw,250px);min-width:0;padding:5px 12px;border-inline-end:1px solid var(--cap-line);color:var(--cap-ink)}
+#skills .cap-skill-chip svg{width:38px;height:38px;flex:none;color:var(--cap-blue)}
+#skills .cap-skill-chip span{font-size:16px;font-weight:700;line-height:1.4;width:100%;direction:ltr;text-align:left}
+
+
+
+
+#skills .cap-tools-list{display:flex;flex:none;min-width:var(--cap-tools-visible-width,850px);grid-template-columns:repeat(7,minmax(0,1fr));row-gap:28px;list-style:none;margin:0;padding:0;align-self:center}
+#skills .cap-tools-list li{display:flex;align-items:center;flex-direction:column;gap:11px;flex:0 0 clamp(166px,13.5vw,215px);min-width:0;padding:0 6px;text-align:center;border-inline-end:1px solid var(--cap-line)}
+#skills .cap-tools-list li:last-child{border:0}
+#skills .cap-tools-list bdi{font-size:13.5px;line-height:1.4;color:var(--cap-copy);overflow-wrap:normal;word-break:normal;unicode-bidi:isolate}
+
+html[dir="rtl"] #skills .cap-header h2,html[dir="rtl"] #skills .cap-row-heading h3,html[dir="rtl"] #skills .cap-mindset-card h4{letter-spacing:0}
+html[dir="rtl"] #skills .cap-card-tags{letter-spacing:0}
+html[dir="rtl"] #skills .cap-skill-chip span{direction:rtl;text-align:right}
+html[dir="rtl"] #skills .cap-header h2{font-size:clamp(28px,2.8vw,44px)}
+@media(max-width:1535px){#skills .cap-mindset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1099px){#skills .capabilities-row{grid-template-columns:1fr;gap:23px}#skills .cap-row-description{max-width:58ch}#skills .cap-row-heading h3{font-size:30px}#skills .cap-mindset-card{padding-inline:16px}#skills .cap-tools-list{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:24px}#skills .cap-tools-list li{padding:0 6px}}
+@media(max-width:767px){#skills.capabilities-section{padding:24px 0 12px}#skills .cap-header{grid-template-columns:1fr;gap:0;margin-bottom:26px}#skills .cap-kicker{font-size:10px;gap:12px;margin-bottom:13px}#skills .cap-header h2{font-size:32px}html[dir="rtl"] #skills .cap-header h2{font-size:30px;line-height:1.45}#skills .cap-intro{font-size:17px}#skills .cap-row-description{font-size:17px}#skills .cap-mindset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#skills .cap-tools-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 0}#skills .cap-skills-content{padding-top:30px}}
+@media(max-width:479px){#skills .cap-mindset-grid{grid-template-columns:1fr}#skills .cap-mindset-card{min-height:288px;padding:22px}#skills .cap-card-description{max-width:30ch}#skills .cap-skill-chip{flex-basis:210px;padding-inline:12px}}
+@media(prefers-reduced-motion:reduce){#skills .cap-skills-window{overflow:visible}#skills .cap-skill-set{display:grid;width:100%;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:20px 0}#skills .cap-skill-set[aria-hidden="true"]{display:none}#skills .cap-skill-chip{padding-inline:16px}}
+
+/* Equal loop halves stay at least as wide as the visible window after resize/locale. */
+#skills .cap-skill-set{min-width:var(--cap-visible-width,850px)}
+#skills .cap-skill-chip{flex-grow:1}
+#skills:not([data-skills-motion]) .cap-skills-window{overflow:visible}
+
+#skills:not([data-skills-motion]) .cap-skill-set{min-width:0;width:100%;flex-wrap:wrap}
+#skills:not([data-skills-motion]) .cap-skill-set[aria-hidden="true"]{display:none}
+@media(prefers-reduced-motion:reduce){#skills .cap-skill-set{min-width:0}}
+
+#skills[data-skills-motion="static"] .cap-skills-window{overflow:visible}
+
+#skills[data-skills-motion="static"] .cap-skill-set{display:grid;min-width:0;width:100%;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:20px 0}
+#skills[data-skills-motion="static"] .cap-skill-set[aria-hidden="true"]{display:none}
+
+/* Smallest-phone brand words remain intact. */
+@media(max-width:359px){#skills .cap-tools-list{grid-template-columns:repeat(2,minmax(0,1fr))}#skills .cap-tools-list bdi{max-width:100%;overflow-wrap:normal;word-break:normal}}
+
+/* TOOLS-35 / OPTICAL-36: original PNGs with measured artwork in independent frames. */
+#skills .cap-tool-logos{display:flex;align-items:center;justify-content:center;direction:ltr;gap:4px;width:max-content;max-width:100%;height:40px;flex:none}
+#skills .cap-tool-mark{position:relative;display:block;flex:0 0 40px;width:40px;height:40px}
+#skills .cap-tool-mark .cap-tool-logo{position:absolute;display:block;left:calc(50% + var(--logo-x));top:calc(50% + var(--logo-y));width:var(--logo-width);height:var(--logo-height);max-width:none;transform:translate(-50%,-50%)}
+#skills .cap-tool-mark.cap-tool-dark{display:none}
+.dark #skills .cap-tool-mark.cap-tool-light{display:none}
+.dark #skills .cap-tool-mark.cap-tool-dark{display:block}
+@media(max-width:1535px){#skills .cap-tools-list{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:767px){#skills .cap-tools-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:479px){#skills .cap-tools-list{grid-template-columns:repeat(2,minmax(0,1fr))}#skills .cap-tools-list li{padding-inline:2px}}
+
+/* GRADIENT-30: one continuous clipped gradient across both final headline phrases. */
+#skills .cap-header h2>span.cap-title-gradient{display:inline;background:linear-gradient(90deg,#0056ee 0%,#00bef0 100%);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+#skills .cap-header h2>span.cap-title-gradient span{color:inherit;-webkit-text-fill-color:inherit}
+
+/* MIRROR-37: only the first particle artwork changes visual orientation. */
+#skills .cap-mindset-card[data-shape="peak"] .cap-point-cloud canvas{transform:scaleX(-1)}
+/* ALIGN-52: icon stays physically left; the label alone follows its reading direction. */
+html[dir="rtl"] #skills .cap-skill-chip{direction:ltr;justify-items:start}
+
+/* MOTION-43: independent viewport/lifecycle, equal tool halves, same chip travel speed as Skills. */
+#skills .cap-tools-content{position:relative;min-width:0;align-self:center}
+#skills .cap-tools-window{overflow:hidden;width:100%;direction:ltr}
+
+
+#skills:not([data-tools-motion]) .cap-tools-window,#skills[data-tools-motion="static"] .cap-tools-window{overflow:visible}
+
+#skills:not([data-tools-motion]) .cap-tools-list,#skills[data-tools-motion="static"] .cap-tools-list{display:grid;width:100%;min-width:0}
+#skills:not([data-tools-motion]) .cap-tools-list[aria-hidden="true"],#skills[data-tools-motion="static"] .cap-tools-list[aria-hidden="true"]{display:none}
+html[dir="rtl"] #skills .cap-tools-list bdi{direction:rtl}
+@media(prefers-reduced-motion:reduce){#skills .cap-tools-window{overflow:visible}#skills .cap-tools-list{display:grid;width:100%;min-width:0}#skills .cap-tools-list[aria-hidden="true"]{display:none}}
+
+/* SPACE-46: each moving logo cluster has the same80px of surrounding cell space. */
+#skills:is([data-tools-motion="running"],[data-tools-motion="paused"]) .cap-tools-list li{--tool-cluster-width:40px;flex:0 0 calc(var(--tool-cluster-width) + 80px);width:calc(var(--tool-cluster-width) + 80px);padding-inline:8px}
+#skills:is([data-tools-motion="running"],[data-tools-motion="paused"]) .cap-tools-list li:has(>.cap-tool-logos[data-mark-count="2"]){--tool-cluster-width:84px}
+#skills:is([data-tools-motion="running"],[data-tools-motion="paused"]) .cap-tools-list li:has(>.cap-tool-logos[data-mark-count="3"]){--tool-cluster-width:128px}
+#skills:is([data-tools-motion="running"],[data-tools-motion="paused"]) .cap-tools-list bdi{width:100%}
+@media(prefers-reduced-motion:reduce){#skills[data-tools-motion] .cap-tools-list li{width:auto;flex-basis:auto}}
+
+/* ALIGN-50: captions center under their clusters; the last cell also separates the loop seam. */
+#skills .cap-tools-list bdi{text-align:center}
+#skills:is([data-tools-motion="running"],[data-tools-motion="paused"]) .cap-tools-list li:last-child{border-inline-end:1px solid var(--cap-line)}
+
+/* CARD-54: the same quiet outline material as the Mindset cards, with a full seam gap. */
+#skills .cap-skill-chip,#skills .cap-tools-list li,#skills .cap-tools-list li:last-child{box-sizing:border-box;border:1px solid var(--cap-line);border-radius:10px;background:transparent}
+#skills .cap-tools-list li{padding-block:12px}
+#skills .cap-skill-set,#skills .cap-tools-list{gap:12px;padding-inline-end:12px}
+#skills:not([data-skills-motion]) .cap-skill-set,#skills[data-skills-motion="static"] .cap-skill-set,#skills:not([data-tools-motion]) .cap-tools-list,#skills[data-tools-motion="static"] .cap-tools-list{gap:12px;padding-inline-end:0}
+@media(prefers-reduced-motion:reduce){#skills .cap-skill-set,#skills .cap-tools-list{gap:12px;padding-inline-end:0}}
+@media(max-width:479px){#skills:not([data-tools-motion]) .cap-tools-list,#skills[data-tools-motion="static"] .cap-tools-list{grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))}}
+@media(max-width:479px) and (prefers-reduced-motion:reduce){#skills .cap-tools-list{grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr))}}
+
+/* PANEL-56: readable selectors and one intrinsically stable content stage. */
+#skills .cap-layout{display:grid;grid-template-columns:minmax(210px,.95fr) minmax(0,3.05fr);align-items:start;gap:30px;padding-top:8px}
+#skills .cap-selector-list{display:flex;flex-direction:column;gap:48px;min-width:0}
+#skills .cap-selector{display:block;padding:18px 0;text-decoration:none;color:var(--cap-ink);border-bottom:0}
+#skills .cap-selector:first-child{padding-top:0}
+#skills .cap-selector .cap-kicker{margin-bottom:10px}
+#skills .cap-selector .cap-row-heading h3{color:var(--cap-ink)}
+#skills .cap-selector[aria-selected="false"] .cap-kicker,#skills .cap-selector[aria-selected="false"] .cap-row-heading h3{color:var(--cap-copy)}
+#skills .cap-selector:focus-visible,#skills .cap-panel:focus-visible{outline:2px solid var(--cap-blue);outline-offset:4px;border-radius:10px}
+#skills .cap-stage,#skills .cap-panel{min-width:0}
+#skills .cap-panel{margin-bottom:28px}
+#skills .cap-layout[data-capability-active] .cap-stage{display:grid;align-items:start}
+#skills .cap-layout[data-capability-active] .cap-panel{grid-area:1/1;align-self:start;margin:0}
+#skills .cap-layout[data-capability-active] .cap-panel[aria-hidden="true"]{visibility:hidden;pointer-events:none}
+#skills .cap-stage .cap-skill-set{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%;min-width:0;margin:0;padding:0;list-style:none}
+#skills .cap-stage .cap-skill-chip{width:auto;min-width:0;flex:none;padding:16px 12px}
+#skills .cap-stage .cap-tools-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,144px),1fr));gap:12px;width:100%;min-width:0;margin:0;padding:0;align-self:start}
+#skills .cap-stage .cap-tools-list li{width:auto;min-width:0;flex:none;padding:16px 6px}
+@media(max-width:1099px){#skills .cap-layout{grid-template-columns:minmax(190px,.85fr) minmax(0,2.15fr);gap:24px}#skills .cap-selector .cap-row-heading h3{font-size:28px}#skills .cap-selector .cap-row-description{font-size:16px}#skills .cap-stage .cap-skill-set{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){#skills .cap-layout{grid-template-columns:1fr;gap:24px}#skills .cap-selector-list{gap:36px}#skills .cap-selector,#skills .cap-selector:first-child{padding:14px 0}#skills .cap-selector .cap-row-heading{display:grid;grid-template-columns:minmax(100px,.75fr) minmax(0,1.25fr);gap:4px 14px;align-items:start}#skills .cap-selector .cap-kicker{grid-column:1;margin:0;font-size:10px;gap:8px}#skills .cap-selector .cap-kicker::before{width:16px}#skills .cap-selector .cap-row-heading h3{grid-column:1;margin:0;font-size:23px;line-height:1.2}#skills .cap-selector .cap-row-description{grid-column:2;grid-row:1/3;font-size:14px;line-height:1.45;max-width:none}#skills .cap-stage .cap-skill-set{grid-template-columns:1fr}#skills .cap-stage .cap-tools-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* LIST-59: original Mindset content and particles in four full-width numbered rows. */
+#skills .cap-mindset-grid.cap-mindset-list{grid-template-columns:1fr;width:100%;max-width:960px;justify-self:start}
+#skills .cap-mindset-list .cap-mindset-card{grid-template-columns:56px minmax(0,1fr) 144px;grid-template-rows:auto;align-items:center;gap:16px;min-height:128px;padding:14px 18px}
+#skills .cap-card-number{display:flex;align-items:center;min-height:56px;padding-inline-end:16px;border-inline-end:1px solid var(--cap-line);font-size:32px;line-height:1;font-weight:800;color:var(--cap-blue)}
+#skills .cap-card-copy{display:grid;gap:8px;min-width:0}
+#skills .cap-mindset-list .cap-card-header{display:block;min-height:0}
+#skills .cap-mindset-list .cap-card-tags{min-height:0;margin:0}
+#skills .cap-mindset-list .cap-point-cloud{width:144px;height:96px;max-width:100%}
+@media(max-width:767px){#skills .cap-mindset-list .cap-mindset-card{grid-template-columns:28px minmax(0,1fr) 80px;grid-template-rows:auto auto auto;gap:8px;min-height:0;padding:16px 12px}#skills .cap-card-number{grid-column:1;grid-row:1;min-height:48px;padding-inline-end:6px;font-size:20px}#skills .cap-card-copy{display:contents}#skills .cap-mindset-list .cap-card-header{grid-column:2;grid-row:1}#skills .cap-mindset-list .cap-card-description{grid-column:2/4;grid-row:2}#skills .cap-mindset-list .cap-card-tags{grid-column:2/4;grid-row:3}#skills .cap-mindset-list .cap-point-cloud{grid-column:3;grid-row:1;width:80px;height:96px}}
+
+/* TIMELINE-60: wait for the outgoing panel, then introduce the requested panel. */
+#skills .cap-layout[data-capability-active] .cap-stage{overflow:clip;overflow-clip-margin:4px}
+#skills .cap-layout[data-capability-active] .cap-panel{visibility:hidden;pointer-events:none}
+#skills .cap-layout[data-capability-active] .cap-panel[data-capability-painted="true"]{visibility:visible}
+#skills .cap-layout[data-capability-active] .cap-panel[data-capability-painted="true"][aria-hidden="false"]{pointer-events:auto}
+#skills .cap-selector .cap-kicker,#skills .cap-selector .cap-row-heading h3{transition:color 300ms ease-in-out}
+@media(prefers-reduced-motion:reduce){#skills .cap-selector .cap-kicker,#skills .cap-selector .cap-row-heading h3{transition:none}}
+
+/* SCROLL-64: native reading intervals; tall layouts keep every panel in document flow. */
+.native-reading-track{position:relative;min-width:0}
+.native-reading-track[data-reading-mode="fit"]>.native-reading-frame{position:sticky;top:var(--reading-top,88px)}
+#skills .cap-layout[data-capability-mode="flow"] .cap-stage{display:block;overflow:visible}
+#skills .cap-layout[data-capability-mode="flow"] .cap-panel{visibility:visible;pointer-events:auto;margin-bottom:40px}
+#skills .cap-layout[data-capability-mode="flow"] .cap-panel:last-child{margin-bottom:0}
+#skills .cap-selector{transform:translateX(0);transition:transform 300ms ease-in-out}
+#skills .cap-selector[aria-selected="true"],#skills .cap-selector[aria-current="true"]{transform:translateX(10px)}
+#skills .cap-selector .cap-kicker,#skills .cap-selector .cap-row-heading h3,#skills .cap-selector .cap-row-description{transition:color 300ms ease-in-out}
+#skills .cap-selector[aria-current="false"] .cap-kicker,#skills .cap-selector[aria-current="false"] .cap-row-heading h3{color:var(--cap-copy)}
+#skills .cap-selector[aria-selected="true"] .cap-row-description,#skills .cap-selector[aria-current="true"] .cap-row-description{color:var(--cap-ink)}
+@media(prefers-reduced-motion:reduce){#skills .cap-selector,#skills .cap-selector .cap-kicker,#skills .cap-selector .cap-row-heading h3,#skills .cap-selector .cap-row-description{transition:none}}
+
+/* SCROLL-65: no collapsing upstream content in a tall/native-flow gallery. */
+#pillars-gallery[data-expertise-mode="fit"]{height:520px!important;min-height:520px!important}
+#pillars-gallery[data-expertise-mode="flow"]{flex-direction:column!important;height:auto!important}
+#pillars-gallery[data-expertise-mode="flow"]>.pillar-gallery-item{flex:none!important;min-height:480px!important;cursor:default}
+#pillars-gallery[data-expertise-mode="flow"] .view-expanded{height:auto}
+#pillars-gallery[data-expertise-mode="flow"] .view-expanded>div:first-child{height:auto}
+#pillars-gallery[data-expertise-mode="flow"] .view-expanded h4{white-space:normal}
+#pillars-gallery .view-collapsed:focus-visible{outline:2px solid var(--brand-blue,#0056ee);outline-offset:-4px}
+
+/* SCROLL-65 reduced motion: no automatic flex interpolation or entry keyframe. */
+@media(prefers-reduced-motion:reduce){#pillars-gallery[data-expertise-mode]>.pillar-gallery-item{transition:none!important}#pillars-gallery[data-expertise-mode] .view-expanded{animation:none!important}}
+
+/* STACK-66: natural-size slots, opaque native cover sheets and no extra pin spacing. */
+.section-stack-slot,.section-stack-sheet{display:flow-root;min-width:0}
+.section-stack-sheet{position:relative}
+.section-stack-sheet[data-stack-mode="stack"]{z-index:var(--stack-layer,1)}
+.section-stack-sheet[data-stack-mode="stack"]::before{content:"";position:absolute;top:0;left:var(--stack-plate-left,0);width:var(--stack-plate-width,100%);height:var(--stack-plate-height,100%);z-index:-1;pointer-events:none;background:#f7faff}
+.dark .section-stack-sheet[data-stack-mode="stack"]::before{background:#070d1e}
+.section-stack-sheet[data-stack-fading="true"] [data-stack-fade-content]{opacity:var(--stack-content-opacity,1)}
+.selected-work-catalogue>.section-stack-slot>.section-stack-sheet>#work{padding-bottom:32px}
+
+/* REVEAL-67: four requested card groups share one gentle whole-surface entrance. */
+:is(#academic,#glass-folders-grid>.gf-root,#contact>.grid>a,#pillars-gallery>.pillar-gallery-item).surface-reveal-pending,
+:is(#academic,#glass-folders-grid>.gf-root,#contact>.grid>a,#pillars-gallery>.pillar-gallery-item).surface-reveal-entering{--surface-distance:24px}
+:is(#academic,#glass-folders-grid>.gf-root,#contact>.grid>a,#pillars-gallery>.pillar-gallery-item).surface-reveal-entering{animation-duration:650ms;animation-timing-function:cubic-bezier(.22,.61,.36,1)}
+@media(prefers-reduced-motion:reduce){[data-surface-reveal-scope="card"]{opacity:1!important;translate:none!important;animation:none!important}}
+
+/* HEADER-68: contain the original header spacing within the shared sticky frame. */
+.reading-composition{display:flow-root;min-width:0}
+#skills .native-reading-track[data-reading-mode="fit"]>.reading-composition .cap-selector-list{gap:48px}
+#skills .native-reading-track[data-reading-mode="fit"]>.reading-composition .cap-selector{padding-block:0}
+#skills .native-reading-track[data-reading-mode="fit"]>.reading-composition .cap-selector:first-child{padding-block-start:0}
+#skills .native-reading-track[data-reading-mode="fit"]>.reading-composition .cap-selector .cap-kicker{margin-bottom:4px}
+#skills .native-reading-track[data-reading-mode="fit"]>.reading-composition .cap-selector .cap-row-heading h3{margin-bottom:4px}
+
+/* FLOAT-69: Mindset arrives in physical right-to-left order; original particle transforms stay independent. */
+#strengths .cap-mindset-card.surface-reveal-pending{translate:32px 0}
+#strengths .cap-mindset-list{overflow-x:clip}
+#strengths .cap-mindset-card.surface-reveal-entering{animation-name:mindset-card-enter;animation-duration:600ms;animation-timing-function:cubic-bezier(.22,.61,.36,1)}
+@keyframes mindset-card-enter{from{opacity:0;translate:32px 0}to{opacity:1;translate:none}}
+@media(prefers-reduced-motion:reduce){[data-surface-reveal-scope="mindset"]{opacity:1!important;translate:none!important;animation:none!important}}
+
+/* THEME158: white Day cards; Night cards inherit the incumbent dark capability tokens. */
+html:not(.dark) #skills :is(.cap-mindset-card,.cap-skill-chip),html:not(.dark) #skills .cap-tools-list>li,html:not(.dark) #skills .cap-tools-list>li:last-child{background:#fff;color:#0a0d14;--cap-ink:#0a0d14;--cap-copy:#657291;--cap-meta:#6b7280;--cap-blue:#0052ff}
+.dark #skills :is(.cap-mindset-card,.cap-skill-chip),.dark #skills .cap-tools-list>li{background:var(--cap-bg)}
+
+/* CAP170: desktop stage siblings reveal in one short, DOM-ordered list sequence. */
+@media(min-width:768px){
+#skills [data-capability-reveal="true"].surface-reveal-pending{translate:0 8px}
+#skills [data-capability-reveal="true"].surface-reveal-entering{animation-name:capability-card-enter;animation-duration:260ms;animation-timing-function:cubic-bezier(.22,.61,.36,1)}
+}
+@keyframes capability-card-enter{from{opacity:0;translate:0 8px}to{opacity:1;translate:none}}
+@media(prefers-reduced-motion:reduce){#skills [data-capability-reveal="true"]{opacity:1!important;translate:none!important;animation:none!important}}
+
+/* CAP181: replay alternates animation identity; only fitted desktop intros indent inward. */
+@media(min-width:768px){#skills [data-capability-reveal="true"][data-capability-cycle="again"].surface-reveal-entering{animation-name:capability-card-enter-again}#skills .cap-layout[data-capability-mode="fit"] .cap-selector[aria-selected="true"]{transform:translateX(20px)}html[dir="rtl"] #skills .cap-layout[data-capability-mode="fit"] .cap-selector[aria-selected="true"]{transform:translateX(-20px)}}
+@keyframes capability-card-enter-again{from{opacity:0;translate:0 8px}to{opacity:1;translate:none}}
+
+/* CAP181: only large inactive Day titles fade further; normal copy keeps its AA ink. */
+@media(min-width:768px){html:not(.dark) #skills .cap-layout[data-capability-mode="fit"] .cap-selector[aria-selected="false"]:not([aria-current="true"]) .cap-row-heading h3{color:#7b879b}}
+
+/* SURF182: exact computed ticker material; reference and internal content stay unchanged. */
+:root{--identity-card-fill:#fff;--identity-card-line:rgba(229,231,235,.8);--identity-card-shadow:0 1px 2px 0 rgba(0,0,0,.05)}
+html #about>.about-editorial-card,html #skills :is(.cap-mindset-card,.cap-skill-chip),html #skills .cap-tools-list>li,html #skills .cap-tools-list>li:last-child,html #academic,html #interests .interest-row{background:var(--identity-card-fill)!important;border:1px solid var(--identity-card-line)!important;border-radius:28px!important;box-shadow:var(--identity-card-shadow)!important}
+#skills .cap-layout[data-capability-mode] :is(.cap-skills-window,.cap-tools-window){overflow:visible}
+#interests[data-interest-carousel="true"] .interest-rows{padding-block-end:28px}

@@ -1,0 +1,88 @@
+{
+  "retiredValueHashes": [
+    "5dd5f5c40b72d4c3a3210a1b463eb55a500689255786480c33baacaf037acd64"
+  ],
+  "privateValueHashes": [
+    {
+      "key": "proj_classified_desc",
+      "sha256": "a14bf60f68199b2b622d2e889ecf3fc658e0a2e02d32647b769176cd84bb10cd",
+      "length": 79
+    },
+    {
+      "key": "proj_classified_concept",
+      "sha256": "a9bcb8747b95b0321b9d4e6ebbd146a59e20f03d018c96fbdf3d8ca3403eb29b",
+      "length": 121
+    },
+    {
+      "key": "proj_classified_challenge",
+      "sha256": "b098a3f92ac375f6569e88ae5b6c0804f70f5d68dbccb8eb2ca29a44df85a2c7",
+      "length": 81
+    },
+    {
+      "key": "proj_classified_approach",
+      "sha256": "c6378e205d0e2b8e44f3e5c8fec7c89060033f71c23298e7b7579eef4db81540",
+      "length": 112
+    },
+    {
+      "key": "proj_classified_result1",
+      "sha256": "5ef60ef76821977c065229b6601bfdb67bfdc8a0e6bd27f34b74b7012d802a7d",
+      "length": 47
+    },
+    {
+      "key": "proj_classified_result2",
+      "sha256": "fb9613b2a97cd93400c5b79dc35b0c272007531e46b61f06c740141193711a85",
+      "length": 51
+    },
+    {
+      "key": "proj_classified_result3",
+      "sha256": "3798f6f850a6aca4c6984de15268ad46bf916d958bc1d3cae5f7de83aeeda646",
+      "length": 42
+    },
+    {
+      "key": "work_highlight_9",
+      "sha256": "eaaa4e3da01290b435aa94373e4ea63ad00f7969a40273d48438c1c147884cdb",
+      "length": 13
+    },
+    {
+      "key": "proj_classified_desc",
+      "sha256": "e9eafcbd247e45dda2b691b19d55202538dc09bb6aa31949a98c978856da7bbd",
+      "length": 108
+    },
+    {
+      "key": "proj_classified_concept",
+      "sha256": "71708295d7000524adafbf0311193279061d312d5a46181398881ca6b11328bf",
+      "length": 128
+    },
+    {
+      "key": "proj_classified_challenge",
+      "sha256": "d20d727aed0b7ebe5803a6da9f2e292ba95453b31bb25591a4bfc994df5635e2",
+      "length": 109
+    },
+    {
+      "key": "proj_classified_approach",
+      "sha256": "d6a0918802a5f823a6bf7ba554e5dd5cd3d62658a03d7106599dc0edc56c1413",
+      "length": 142
+    },
+    {
+      "key": "proj_classified_result1",
+      "sha256": "e194448c078618f83fe0c0eac69d62172b01b6f10ffbe6eaca997930f89d6399",
+      "length": 58
+    },
+    {
+      "key": "proj_classified_result2",
+      "sha256": "2bd725ea2b37b9ffd88411b1948098e9969547bcde443288d64601c613f933af",
+      "length": 61
+    },
+    {
+      "key": "proj_classified_result3",
+      "sha256": "9549f540e8021a1424baec9e27776b619f50fd971f26ff158d3456110774f06c",
+      "length": 66
+    },
+    {
+      "key": "work_highlight_9",
+      "sha256": "6d498286cd00e327dc3a23c637417b662b8bdd788f7a18568ae85499b255f7a9",
+      "length": 18
+    }
+  ],
+  "publicArtifactAllowed": false
+}

@@ -1,0 +1,3 @@
+# Preserve accepted runtime/source bytes across checkouts, including mixed historical line endings.
+# A release manifest is byte-addressed; Git must not silently apply core.autocrlf conversions.
+* -text

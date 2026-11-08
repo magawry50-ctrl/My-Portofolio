@@ -1,0 +1,80 @@
+/* INTEREST76: reference row structure with the incumbent blue pill palette. */
+#interests .interest-section-icon{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border-radius:12px;background:transparent;border:0;box-shadow:none;color:#003ea0}
+html.dark #interests .interest-section-icon{background:transparent;color:#bad5ff}
+#interests .interest-section-icon svg{width:26px;height:26px}
+#interests .interests-intro{max-width:90ch;margin:-8px 0 28px;font-size:16px;line-height:1.6;color:#64748b}
+html.dark #interests .interests-intro{color:#b0bfd2}
+#interests .interest-rows{display:flex;flex-direction:column;gap:14px}
+#interests .interest-row{display:grid;grid-template-columns:minmax(0,34fr) minmax(0,66fr);align-items:center;gap:28px;padding:22px 24px;border:1px solid #dae9ff;border-radius:16px;min-width:0}
+html.dark #interests .interest-row{border-color:rgba(70,142,255,.25)}
+#interests .interest-row-intro{display:flex;align-items:center;gap:18px;min-width:0}
+#interests .interest-category-icon{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border-radius:12px;background:transparent;border:0;box-shadow:none;color:#003ea0}
+html.dark #interests .interest-category-icon{background:transparent;color:#bad5ff}
+#interests .interest-category-icon svg{width:28px;height:28px}
+#interests .interest-category-copy{min-width:0;border-inline-start:1px solid #dae9ff;padding-inline-start:20px}
+html.dark #interests .interest-category-copy{border-color:rgba(70,142,255,.25)}
+#interests .interest-category-copy h3{font-size:18px;line-height:1.4;font-weight:700;color:#111827;margin:0 0 6px;overflow-wrap:break-word}
+html.dark #interests .interest-category-copy h3{color:#f3f4f6}
+#interests .interest-category-copy p{font-size:15px;line-height:1.55;color:#64748b;margin:0;overflow-wrap:break-word}
+html.dark #interests .interest-category-copy p{color:#b0bfd2}
+#interests .interest-row ul{min-width:0;align-content:center;align-items:center}
+#interests .interest-pill{max-width:100%;overflow-wrap:break-word}
+@media(max-width:1099px){#interests .interest-row{grid-template-columns:minmax(0,38fr) minmax(0,62fr);gap:20px;padding:20px}#interests .interest-row-intro{gap:12px}#interests .interest-category-copy{padding-inline-start:14px}}
+@media(max-width:767px){#interests .interests-intro{margin:0 0 24px;font-size:15px}#interests .interest-row{grid-template-columns:minmax(0,1fr);gap:18px;padding:18px 14px}#interests .interest-category-copy h3{font-size:17px}#interests .interest-category-copy p{font-size:14px}#interests .interest-row ul{gap:10px}}
+
+/* USER77: row is the sole visual entrance; pills remain readable static children. */
+#interests{overflow-x:clip}
+#interests .interest-row .interest-pill{opacity:1;transform:none;transition:none}
+#interests .interest-row.surface-reveal-pending{translate:32px 0}
+#interests .interest-row.surface-reveal-entering{animation-name:mindset-card-enter;animation-duration:600ms;animation-timing-function:cubic-bezier(.22,.61,.36,1)}
+@media(prefers-reduced-motion:reduce){[data-surface-reveal-scope="interests"]{opacity:1!important;translate:none!important;animation:none!important}}
+
+/* INTEREST112: original five groups become manual native-snap cards when enhanced. */
+.interest-carousel-controls[hidden]{display:none!important}
+#interests .interest-carousel-controls{display:flex;flex:none;gap:8px;margin-inline-start:auto;padding-inline-start:16px}
+#interests .interest-carousel-controls button{display:flex;align-items:center;justify-content:center;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid #dae9ff;border-radius:50%;background:transparent;color:#003ea0;cursor:pointer}
+html.dark #interests .interest-carousel-controls button{border-color:rgba(70,142,255,.3);color:#bad5ff}
+#interests .interest-carousel-controls button:disabled{opacity:.35;cursor:default}
+#interests .interest-carousel-controls button:focus-visible,#interests .interest-rows:focus-visible{outline:2px solid #003ea0;outline-offset:3px}
+html.dark #interests .interest-carousel-controls button:focus-visible,html.dark #interests .interest-rows:focus-visible{outline-color:#bad5ff}
+html[dir="rtl"] #interests .interest-carousel-controls svg{transform:scaleX(-1)}
+#interests[data-interest-carousel="true"] .interest-rows{flex-direction:row;align-items:stretch;gap:16px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scroll-padding-inline:0;padding-block:4px 16px;scrollbar-width:thin;scrollbar-color:#b4cdf4 transparent}
+html.dark #interests[data-interest-carousel="true"] .interest-rows{scrollbar-color:#355482 transparent}
+#interests[data-interest-carousel="true"] .interest-row{box-sizing:border-box;display:flex;flex-direction:column;align-items:stretch;flex:0 0 calc((100% - 48px)/4.25);gap:0;padding:24px;scroll-snap-align:start}
+#interests[data-interest-carousel="true"] .interest-row-intro{flex-direction:column;align-items:flex-start;gap:14px}
+#interests[data-interest-carousel="true"] .interest-category-copy{border:0;padding:0}
+#interests[data-interest-carousel="true"] .interest-row ul{border-top:1px solid #dae9ff;margin-block-start:20px;padding-block-start:20px;align-content:flex-start;align-items:flex-start}
+html.dark #interests[data-interest-carousel="true"] .interest-row ul{border-color:rgba(70,142,255,.25)}
+@media(max-width:1099px){#interests[data-interest-carousel="true"] .interest-row{flex-basis:calc((100% - 24px)/2.25);padding:20px}}
+@media(max-width:767px){#interests[data-interest-carousel="true"] .interest-row{flex-basis:calc(100% - 28px);padding:20px 18px}#interests .interest-carousel-controls{gap:4px;padding-inline-start:8px}}
+
+/* INTEREST121: compact informational tags use available card width, not action styling. */
+#interests .interest-row ul{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;align-content:flex-start;align-items:flex-start}
+#interests .interest-row .interest-pill{box-sizing:border-box;display:inline-flex;flex:0 0 auto;width:auto;max-width:100%;margin:0;padding:6px 10px;font-size:13px;font-weight:400;line-height:1.45;letter-spacing:0;white-space:normal;overflow-wrap:break-word;background:transparent;color:#475569;border:1px solid #cbd5e1;box-shadow:none}
+html.dark #interests .interest-row .interest-pill{background:transparent;color:#cbd5e1;border-color:#475569;box-shadow:none}
+#interests[data-interest-carousel="true"] .interest-row ul{margin-block-start:16px;padding-block-start:16px}
+@media(min-width:768px){#interests[data-interest-carousel="true"] .interest-row{flex-basis:clamp(360px,calc((100% - 48px)/4.25),420px);padding:20px}}
+@media(max-width:767px){#interests .interest-row .interest-pill{padding-inline:8px}}
+
+/* INTEREST122: native page distance owns horizontal progress only when the whole stage fits. */
+#interests[data-interest-carousel="true"] .interest-rows{scrollbar-width:none}
+#interests[data-interest-carousel="true"] .interest-rows::-webkit-scrollbar{display:none}
+#interests[data-interest-scroll="fit"]{overflow:visible}
+#interests[data-interest-scroll="fit"]>.interest-scroll-frame{position:sticky;top:var(--interest-reading-top);min-height:var(--interest-stage-height);overflow:clip}
+#interests[data-interest-scroll="fit"] .interest-rows{scroll-snap-type:none;scroll-behavior:auto}
+
+/* THEME158: white Day cards; incumbent Night surface and original dark text/tag/glyph roles. */
+html:not(.dark) #interests .interest-row{background:#fff}
+html:not(.dark) #interests .interest-row .interest-category-copy h3{color:#111827}
+html:not(.dark) #interests .interest-row .interest-category-copy p{color:#64748b}
+html:not(.dark) #interests .interest-row .interest-category-icon{color:#003ea0}
+html.dark #interests .interest-row{background:#0c1836}
+
+/* INTEREST153: static physical-edge fades confined to the enhanced carousel viewport. */
+#interests[data-interest-carousel="true"] #interests-pill-cloud.interest-rows{-webkit-mask-image:linear-gradient(to right,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(to right,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
+
+/* MOB184: allow the original phone header to wrap; reserve its computed6px focus outline. */
+@media(max-width:767px){
+#interests .interests-header{flex-wrap:wrap;row-gap:12px}
+#interests .interests-header .interest-carousel-controls{padding:6px}
+}

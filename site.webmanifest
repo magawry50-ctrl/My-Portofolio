@@ -9,18 +9,18 @@
   "theme_color": "#14b8a6",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon.svg?v=193-b06373975da9",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/favicon.png",
+      "src": "/favicon.png?v=193-b06373975da9",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/apple-touch-icon.png?v=193-b06373975da9",
       "sizes": "180x180",
       "type": "image/png"
     }

@@ -1,0 +1,153 @@
+/* BUSINESS82: natural end marker plus one nonmodal, clipped overlay viewport. */
+#portfolio-end{height:1px;pointer-events:none}
+.business-card-viewport{width:calc(100% - 32px);max-width:540px;margin:0 auto}
+.business-card-viewport[data-business-overlay="true"]{position:fixed;inset:0;z-index:42;width:auto;max-width:none;margin:0;overflow:clip;pointer-events:none}
+.glass-business-card{width:100%;max-width:540px;margin:0;padding:3px;border-radius:28px;background:linear-gradient(180deg,#fff 0%,#c9c9c9 9%,#a1a1a1 32%,#757575 73%,#fff 100%);box-shadow:0 8px 24px rgba(0,0,0,.1);color:#0a0a0c}
+.glass-business-card[data-business-overlay="true"]{position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:min(540px,calc(100% - 32px));max-height:calc(100dvh - var(--notch-offset,90px) - 32px);overflow-y:auto;overscroll-behavior:contain;pointer-events:auto}
+.glass-business-card[hidden]{display:none}
+body.loader-active .business-card-viewport[data-business-overlay="true"]{display:none}
+.business-card-signature{display:block;width:132px;height:auto;margin:0 0 12px;filter:brightness(0)}
+.business-card-inner{padding:24px;border-radius:25px;background:linear-gradient(150deg,#d0d0d0 0%,#e8e8e8 50.17%,#c8c8c8 100%);box-shadow:inset 0 1px 1.5px rgba(0,0,0,.07),inset 0 -1px 1.5px rgba(0,0,0,.07)}
+.business-card-main{display:flex;align-items:flex-start;flex-direction:column;gap:18px;min-width:0}
+.business-card-identity{width:100%;min-width:0}
+.business-card-identity h2{margin:0 0 8px;font-size:24px;font-weight:700;line-height:1.3;overflow-wrap:break-word}
+.business-card-role{font-size:16px;line-height:1.5;margin:0 0 6px;color:#49494e}
+.business-card-availability{font-size:14px;line-height:1.5;margin:0;color:#49494e}
+.business-card-actions{display:flex;flex:none;flex-wrap:wrap;align-items:center;gap:8px}
+.business-card-action{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border:1px solid rgba(10,10,12,.12);border-radius:999px;background:rgba(255,255,255,.25);color:#0a0a0c;text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.business-card-action:hover,.business-card-action:focus-visible{background:rgba(255,255,255,.6)}
+.business-card-action:focus-visible{outline:2px solid #003ea0;outline-offset:3px}
+.business-card-action :is(svg,.material-symbols-outlined,.fab){width:18px;height:18px;font-size:18px;line-height:18px;text-align:center;flex:none}
+.business-card-action svg{fill:currentColor}
+.business-card-copyright{border-top:1px solid rgba(10,10,12,.1);padding-top:14px;margin:18px 0 0;font-size:12px;line-height:1.5;color:#49494e}
+@media(max-width:767px){.business-card-inner{padding:16px}.business-card-identity h2{font-size:22px}.business-card-actions{display:grid;grid-template-columns:repeat(4,44px);gap:8px}.business-card-role{font-size:15px}.business-card-availability{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.business-card-action{transition:none}}
+
+/* CONTACT103: the supplied centered invitation, with a static local blue wash. */
+#contact.contact-impact{box-sizing:border-box;min-height:calc(100svh - var(--notch-offset,90px) - 80px);display:flex;flex-direction:column;justify-content:center;padding:clamp(64px,8vw,116px) 24px;text-align:center;border-radius:28px;background:radial-gradient(ellipse at 50% 55%,#fff 0%,#f5f9ff 72%);color:#10141f}
+.dark #contact.contact-impact{background:radial-gradient(ellipse at 50% 55%,#101e38 0%,#0a1124 75%);color:#f1f6ff}
+#contact.contact-impact>:is(.contact-impact-kicker,h2,.contact-impact-intro){text-align:center!important}
+.contact-impact-kicker{margin:0;color:#456bb3;font-size:14px;line-height:1.5;font-weight:700;letter-spacing:.04em}
+.dark .contact-impact-kicker{color:#9cbdff}
+.contact-impact-divider{display:block;width:32px;height:1px;margin:24px auto 26px;background:#91b5ff}
+#contact.contact-impact h2{margin:0;font-size:clamp(36px,4.9vw,72px);font-weight:800;line-height:1.18;letter-spacing:-.035em}
+.contact-impact-accent{background:linear-gradient(to right,#0152e9,#39c8ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.contact-impact-intro{max-width:900px;margin:24px auto 0;color:#66728d;font-size:clamp(17px,1.8vw,24px);line-height:1.5}
+.dark .contact-impact-intro{color:#adbcd6}
+.contact-impact-action{display:inline-flex;align-self:center;align-items:center;justify-content:center;gap:20px;min-height:56px;max-width:100%;margin-top:38px;padding:16px 30px;border-radius:16px;background:#004cff;color:#fff;text-decoration:none;font-size:18px;line-height:1.4;font-weight:700;box-shadow:0 12px 26px rgba(0,76,255,.15)}
+.contact-impact-action svg{width:22px;height:22px;flex:none}
+.contact-impact-action:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+#mm-profile-wrapper #contact.contact-impact a.contact-impact-action{background-color:#004cff!important;color:#fff!important;border:1px solid transparent!important}
+#mm-profile-wrapper #contact.contact-impact a.contact-impact-action svg{color:#fff!important}
+html[dir="rtl"] #contact.contact-impact h2{letter-spacing:0}
+
+/* CONTACT114: reference44px idle/open/done phases; original metal card remains unchanged. */
+.business-card-actions{width:100%;min-width:0;gap:10px}
+.business-contact-pill{box-sizing:border-box;position:relative;flex:0 0 auto;width:44px;height:44px;max-width:100%;min-width:0;border:1px solid rgba(10,10,12,.12);border-radius:22px;background:rgba(255,255,255,.25)}
+.business-contact-pill>.business-card-action{position:absolute;inset:-1px;border-color:transparent;background:transparent;transition:opacity .4s cubic-bezier(.32,.72,0,1),transform .4s cubic-bezier(.32,.72,0,1);opacity:1;transform:translateY(0)}
+.business-contact-pill[data-state="open"]>.business-card-action,.business-contact-pill[data-state="done"]>.business-card-action{opacity:0;transform:translateY(-8px);pointer-events:none}
+.business-contact-details,.business-contact-done{box-sizing:border-box;position:absolute;inset:0;display:flex;align-items:center;gap:8px;padding-inline:10px;min-width:0;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .2s ease,transform .2s cubic-bezier(.32,.72,0,1)}
+.business-contact-pill[data-state="open"] .business-contact-details,.business-contact-pill[data-state="done"] .business-contact-done{opacity:1;transform:translateY(0);pointer-events:auto;transition-delay:40ms}
+.business-contact-pill[data-state="done"] .business-contact-details{transform:translateY(-8px)}
+.business-contact-glyph{width:15px!important;height:15px!important;font-size:15px!important;line-height:15px!important;flex:none}
+.business-contact-value{flex:1;min-width:0;white-space:nowrap;overflow-x:auto;scrollbar-width:thin;user-select:text;color:#14233f;font-size:14px;line-height:1.5;font-weight:500;text-decoration:none;text-align:start}
+.business-contact-value:hover{text-decoration:underline;text-underline-offset:3px}
+.business-contact-copy{box-sizing:border-box;display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:0;border-inline-start:1px solid rgba(10,10,12,.12);border-radius:0 22px 22px 0;background:transparent;color:#14233f;cursor:pointer}
+.business-contact-copy svg{width:16px;height:16px;fill:none;flex:none}
+.business-contact-done{justify-content:center;color:#176447;font-size:12px;line-height:1.5;font-weight:500}
+.business-contact-check{width:15px;height:15px;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .4s cubic-bezier(.32,.72,0,1)}
+.business-contact-pill[data-state="done"] .business-contact-check{stroke-dashoffset:0}
+.business-contact-status{position:absolute;inset-inline:0;top:calc(100% + 6px);z-index:4;padding:6px 8px;border-radius:8px;background:#e8e8e8;color:#8e2331;font-size:12px;line-height:1.4}
+.business-contact-status:empty{display:none}
+.business-contact-status span{display:block}
+.business-contact-pill[data-copy-state="failed"]{border-color:#8e2331}
+.business-contact-details :is(a,button):focus-visible,.business-contact-done:focus-visible{outline:2px solid #003ea0;outline-offset:2px}
+@media(max-width:767px){.business-card-actions{gap:10px}.business-card-actions[data-contact-open="true"]{display:flex;flex-wrap:wrap}#contact.contact-impact{justify-content:flex-start;padding:64px 20px}.contact-impact-action{padding-inline:22px;font-size:17px}}
+@media(prefers-reduced-motion:reduce){.business-contact-pill *{transition:none!important;animation:none!important}}
+
+/* JOURNEY109: visit-aware endings share one bounded, nonmodal overlay viewport. */
+.journey-close{display:none}
+.business-card-viewport[data-business-overlay="true"]>.journey-overlay-stack{position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));display:flex;align-items:flex-end;gap:16px;width:max-content;max-width:calc(100% - 32px);max-height:calc(100dvh - var(--notch-offset,90px) - 32px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;pointer-events:auto;direction:ltr}
+.journey-overlay-stack[hidden]{display:none!important}
+.journey-overlay-stack>.glass-business-card[data-business-overlay="true"]{position:relative;inset:auto;width:540px;max-width:100%;max-height:none;flex:none;overflow:visible;box-sizing:border-box}
+html[dir="rtl"] .journey-overlay-stack>.glass-business-card{direction:rtl}
+.glass-business-card[data-business-overlay="true"] .journey-close{position:absolute;z-index:3;top:12px;right:12px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid rgba(10,10,12,.12);border-radius:50%;background:rgba(255,255,255,.4);color:#14233f;cursor:pointer}
+.journey-overlay-stack .business-card-signature{pointer-events:none}
+.journey-close:focus-visible,.journey-actions a:focus-visible{outline:2px solid #003ea0;outline-offset:3px}
+.journey-overlay-stack .business-card-identity h2{padding-right:40px}
+.journey-card h2{margin:0 44px 12px 0;font-size:24px;line-height:1.3;font-weight:800}
+.journey-intro{margin:0 0 20px;color:#49494e;font-size:15px;line-height:1.5}
+.journey-actions{display:flex;flex-wrap:wrap;gap:8px}
+.journey-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:10px 16px;border-radius:12px;font-size:14px;line-height:1.4;font-weight:700;text-decoration:none;overflow-wrap:break-word}
+.journey-primary{background:#174cc2;color:#fff}.journey-secondary{background:rgba(255,255,255,.4);color:#14233f;border:1px solid rgba(10,10,12,.12)}
+
+@media(max-width:1160px){.business-card-viewport[data-business-overlay="true"]>.journey-overlay-stack{flex-direction:column;align-items:stretch}}
+@media(max-width:767px){.journey-card h2{font-size:22px}.journey-intro{font-size:14px}.journey-actions a{padding-inline:12px}}
+
+/* CARDS118: supplied wide metallic ending cards; original owners and real actions. */
+html[lang="en"] :is(#journey-card,#business-card) :is(h2,p,a,button,[data-i18n]){font-family:PortfolioInter,Arial,sans-serif!important;font-optical-sizing:auto}
+html[lang="en"] .journey-actions a{font-weight:600}
+html[lang="ar"] :is(.business-contact-value,.business-contact-done){font-weight:400}
+html[lang="ar"] :is(#journey-card,#business-card) :is(h2,.journey-intro,.business-card-role){text-align:start!important}
+.business-card-viewport{max-width:600px}
+.business-card-viewport[data-business-overlay="true"]>.journey-overlay-stack{max-width:calc(100% - 32px)}
+.journey-overlay-stack>.glass-business-card[data-business-overlay="true"]{width:600px}
+.glass-business-card{max-width:600px;border-radius:30px;background:linear-gradient(145deg,#fff,#c7cacf 55%,#fff);box-shadow:0 18px 40px rgba(49,72,110,.15)}
+.business-card-inner{padding:24px 28px 20px;border-radius:27px;background:linear-gradient(145deg,#d6d8da,#eeeeef 48%,#cdd0d2)}
+.business-card-main{gap:18px}
+.journey-overlay-stack .business-card-identity h2{margin:0 0 8px;padding-right:44px;font-size:30px;line-height:1.2;font-weight:800;color:#080a0e}
+.business-card-role{margin:0;font-size:16px;line-height:1.5;color:#62666e}
+.business-card-actions{--contact-action-size:48px;--contact-glyph-size:20px;gap:12px}
+.business-card-action{width:var(--contact-action-size,48px);height:var(--contact-action-size,48px);background:rgba(255,255,255,.35);border:1px solid rgba(45,50,58,.16)}
+.business-card-action :is(svg,.material-symbols-outlined,.fab){width:var(--contact-glyph-size);height:var(--contact-glyph-size);font-size:var(--contact-glyph-size);line-height:var(--contact-glyph-size)}
+.business-contact-glyph{width:var(--contact-glyph-size)!important;height:var(--contact-glyph-size)!important;font-size:var(--contact-glyph-size)!important;line-height:var(--contact-glyph-size)!important}
+.business-contact-pill{width:var(--contact-action-size,48px);height:var(--contact-action-size,48px);border-radius:999px;background:rgba(255,255,255,.35);border-color:rgba(45,50,58,.16)}
+.business-contact-pill>.business-card-action{width:var(--contact-action-size,48px);height:var(--contact-action-size,48px)}
+.business-card-copyright{width:100%;padding-top:14px;margin:18px 0 0;border-top:1px solid rgba(73,80,88,.2);font-size:12px;line-height:1.5;color:#666b74}
+.journey-card .business-card-inner{padding:22px 28px 14px}
+.journey-card h2{margin:0 44px 8px 0;font-size:26px;line-height:1.2;font-weight:800;color:#080a0e}
+.journey-intro{margin:0 0 14px;font-size:16px;line-height:1.5;color:#62666e}
+.journey-actions{gap:12px}
+.journey-actions a{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:44px;padding:10px 20px;border-radius:999px;font-size:14px;line-height:1.3;font-weight:700}
+.journey-actions a svg{width:20px;height:20px;flex:none}
+.journey-primary{background:linear-gradient(180deg,#1686ff,#0052ff);color:#fff;box-shadow:0 8px 18px rgba(0,96,255,.15)}
+.journey-secondary{background:rgba(255,255,255,.22);color:#0b0d11;border:1px solid rgba(73,80,88,.22)}
+
+
+html[dir="rtl"] .journey-actions svg{transform:scaleX(-1)}
+@media(max-width:767px){
+ .business-card-inner{padding:26px 20px 20px}.business-card-main{gap:20px}
+ .journey-overlay-stack .business-card-identity h2,.journey-card h2{font-size:26px;line-height:1.25}
+ .business-card-role,.journey-intro{font-size:17px;line-height:1.5}
+ .business-card-actions{--contact-action-size:44px;--contact-glyph-size:18px;gap:10px}
+ .business-card-copyright{padding-top:16px;margin-top:20px;font-size:12px}
+ .journey-card .business-card-inner{padding:26px 20px 14px}
+ .journey-actions{gap:10px}.journey-actions a{padding-inline:20px;font-size:15px;min-height:44px}
+}
+
+/* CARDS124: journey invitation is25% narrower; contact details keep their600px budget. */
+.journey-overlay-stack>.journey-card[data-business-overlay="true"]{width:450px;box-shadow:none}
+.journey-card .business-card-inner{padding:18px 22px 12px}
+.journey-card h2{font-size:22px;line-height:1.25}
+.journey-card .journey-intro{font-size:14px;line-height:1.5;margin-bottom:12px}
+.journey-card .journey-actions{gap:10px}
+.journey-card .journey-actions a{font-size:13px;min-height:44px;padding:10px 16px;gap:12px}
+
+@media(max-width:767px){.journey-card .business-card-inner{padding:22px 20px 14px}.journey-card h2{font-size:26px}.journey-card .journey-intro{font-size:17px}.journey-card .journey-actions a{font-size:15px;padding-inline:20px}}
+
+/* CARDS131: footer-free journey cards; incumbent16px content-card radius. */
+.journey-overlay-stack>.journey-card[data-business-overlay="true"]{border-radius:16px}
+.journey-card .business-card-inner{padding:18px 22px;border-radius:13px}
+.journey-card[data-business-overlay="true"] .journey-close{background:transparent;border:0;border-radius:0;box-shadow:none}
+@media(max-width:767px){.journey-card .business-card-inner{padding:22px 20px}}
+
+/* NAV145 short RTL: keep the original card X clear of the right-hand rail. */
+@media(min-width:768px) and (max-height:700px){
+ html[dir="rtl"] .glass-business-card[data-business-overlay="true"] .journey-close{left:12px;right:auto}
+ html[dir="rtl"] .journey-overlay-stack .business-card-identity h2{padding-right:0;padding-left:44px}
+ html[dir="rtl"] .journey-card h2{margin-right:0;margin-left:44px}
+}
+
+/* CONTACT149: contact-only bare close target and shadow-free overlay edge. */
+#business-card[data-business-overlay="true"] .journey-close{background:transparent;border:0;border-radius:0;box-shadow:none}
+.journey-overlay-stack>#business-card[data-business-overlay="true"]{box-shadow:none}

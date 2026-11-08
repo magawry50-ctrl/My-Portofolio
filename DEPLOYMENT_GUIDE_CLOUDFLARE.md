@@ -1,88 +1,169 @@
-# 🚀 دليل رفع وتشغيل البورتفوليو على Cloudflare مع ربط الدومين الخاص
+# Cloudflare release — scoped portfolio mount
 
-مرحبًا أستاذ محمد،
-تم تجهيز ملفات البورتفوليو بالكامل داخل هذا المجلد (`Portfolio`) بأعلى معايير الجودة والأداء والسيو (SEO)، وهي جاهزة 100% للرفع المباشر على **Cloudflare Pages**.
+## Current hosting handover — published PHOTO206
 
----
+PHOTO206 is published as Worker `12c051c7-c3ab-4ed4-a194-4fd041e45a9e`, uploading four public assets and reusing 203. Source, private, production, repository, mounted and native predeployment QA gates passed. Live checks returned the exact HTML and all three new assets with status 200; 17 gallery items were present and all three new images loaded in English desktop and Arabic mobile review without document overflow. Final independent hosted T8 verdict: Approved. Root manifest: `3bf9facd6d444d9f35f7bad40b838f0cbaefc4613977489a27a91de51872a5bc`; mounted manifest: `44207625f532dd4a44e577e5443dd8765ca47cd0124bc58ddee8c12b755f9045`. Hosted HTML: 976,193 bytes, SHA256 `25b9a4af69ecd5485f923fc8de388b66e52c3c992a65961e836ec759e6eb6521`. These bounded checks do not establish every-device rendering or field performance.
 
-## 📁 محتويات مجلد المشروع
+The source inventory has 392 inputs; runtime output has 212 root files and 211 mounted bundle files/207 public assets. PHOTO206 only appends the three supplied full-composition photographs to the FP International gallery (14→17). Original media, copy, styling, interactions and the immutable COPY202 fixture remain unchanged.
 
-| الملف | الوظيفة |
-|---|---|
-| `index.html` | ملف البورتفوليو الأساسي بعد إصلاح الأخطاء البرمجية وإضافة وسوم السيو والمشاركة ومنع وميض الوضع الليلي. |
-| `404.html` | صفحة خطأ احترافية متوافقة مع هوية الموقع والألوان والوضع الليلي في حال فتح رابط غير موجود. |
-| `_headers` | إعدادات ترويسات الأمان والحماية (Security Headers) وسرعة الكاش (Caching) الخاصة بـ Cloudflare. |
-| `_redirects` | ملف إدارة التوجيهات والروابط المختصرة لكلاود فلير. |
-| `favicon.svg` | أيقونة الموقع الفيكتور الحديثة متجاوبة مع كافة الشاشات بألوان علامتك التجارية. |
-| `favicon.ico` | أيقونة كلاسيكية متوافقة مع كافة المتصفحات ومحركات البحث. |
-| `favicon.png` & `apple-touch-icon.png` | أيقونات عالية الدقة لشاشات الهواتف ومتصفحات iOS وSafari. |
-| `og-image.png` | بطاقة المعاينة الجذابة والاحترافية عند مشاركة رابط الموقع على LinkedIn و WhatsApp و X و Facebook. |
-| `robots.txt` | توجيهات عناكب البحث وأرشفة Google. |
-| `sitemap.xml` | خريطة الموقع لمساعدة محركات البحث في أرشفة الموقع سريعًا. |
-| `site.webmanifest` | ملف تعريف الموقع كتطبيق ويب (PWA) قابل للإضافة للشاشة الرئيسية بالهواتف. |
+## Previous hosting handover — published FOLDER204
 
----
+FOLDER204 is deployed at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) as Worker `8b5e84dc-9635-48af-94b3-a7f7a6dae2ee`, uploading one public asset and reusing 203. Primary Concepts activation opens details directly; the existing hover preview, grid/disclosure and optional menu unfolding remain. Source/native, production, mounted and predeployment gates pass. Fresh hosted native review confirms one click opens the correct To-Get.me details popup without a full-unfold intermediate; queried founder/www aliases preserve queries through 308 redirects. Final independent hosted T8 verdict: Approved.
 
-## 🛠️ التحسينات التقنية التي تمت على الكود:
-1. **إصلاح الأخطاء البرمجية في CSS و HTML**:
-   - إزالة القوس المغلق الزائد في كود التنسيق الذي كان يعيق قراءة بعض القواعد.
-   - إغلاق وسم `div` غير مغلق في قسم الواجهة (`#home`) مما يضمن توافق DOM بنسبة 100%.
-2. **سيو احترافي ومشاركة اجتماعية متكاملة (Open Graph & Twitter Cards)**:
-   - إضافة وسوم المعاينة الصورية والوصفية باللغتين العربية والإنجليزية.
-3. **منع وميض الوضع المظلم (Anti-FOUC)**:
-   - حقن كود خفيف في الـ `<head>` يفحص تفضيل المستخدم قبل رسم الصفحة لمنع حدوث وميض أبيض عند فتح الوضع الليلي.
-4. **تحديث ذكي للغة (Language & Meta Sync)**:
-   - يدعم الموقع التحديد الذكي للغة بناءً على تفضيل الزائر أو الرابط (`?lang=ar` أو `?lang=en`).
-   - يتحدث وصف الموقع في الـ Meta تلقائيًا عند التبديل بين اللغتين لضمان دقة محركات البحث.
-5. **أمان الروابط الخارجية**:
-   - إضافة `rel="noopener noreferrer"` على جميع الروابط الخارجية لحماية الخصوصية والأمان.
+Root manifest: `ca3eed7042b09363145f2c97ce89319e0a1c3e8cbd6032e47cd4838a33e0f901`. Mounted manifest: `0da39dcb6bb9adc59be5c5aa1d62ddab129448778822157cf028917306f5cccd`. Exact hosted HTML: 975,067 bytes, SHA256 `77c495d3813e554bedebb6550fdc83e09915bc5e68c8cf5068fccd8c99af89c5`. This bounded acceptance does not establish every-device rendering, field performance or configured private authorization. Prior release records retain their version-specific evidence below.
 
----
+## Previous hosting handover — published MOTION203
 
-## 🌐 خطوات الرفع على Cloudflare Pages (خلال دقيقتين)
+MOTION203 is deployed at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source `46006355e47376aece06bd9c10f0f972543c76ba`, tree `e2f886445c82b676e78d5509f2940f61188f185d`, as Worker `a9a9e7dd-e264-4658-8ec1-d2b1897ecd07`. Deployment uploaded five public assets and reused 199. The four narrow routes, aliases, ASSETS-only configuration, company-root separation and private authorization remain in place.
 
-### 🔹 الطريقة الأولى: الرفع المباشر (Direct Upload - السحب والإفلات) ⚡
+The 388-input export produces 209 root runtime files and 208 mounted bundle files/204 public assets. Root manifest: `97b7af526b639490952dc2f6a339f23716004653b34d4a5f32f63895eb7d56a1`. Mounted manifest: `bb929b2a833ba5ceb3ea6c28bacc3dd236391397877498236e1cf9680eaa017e`. Actual served HTML is 975,049 bytes with SHA256 `15ff013e2e88ae73d30f9185d309960c68848677e14abc3fdefd1b808cf6dc4f`.
 
-1. سجّل الدخول إلى حسابك على [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. من القائمة الجانبية، اختر **Workers & Pages**.
-3. اضغط على زر **Create application** (أو **Create**).
-4. اختر تبويب **Pages**، ثم اضغط على **Upload assets**.
-5. اكتب اسم المشروع (مثلاً: `mohamed-almaghawry` أو `portfolio`).
-6. قم بسحب وإسقاط محتويات مجلد `Portfolio` بالكامل، أو اضغط المجلد في ملف `.zip` وارفعه.
-7. اضغط على **Deploy site**.
-8. مبروك! سيصبح موقعك متاحاً فوراً على رابط مجاني مثل: `https://mohamed-almaghawry.pages.dev`.
+Phone selection moves the original icons and pill together over 200ms; the 220ms view fade cancels on replacement. Concepts uses normal-flow rows, four initial folders, one/two/four columns at the 768px/1280px breakpoints, and localized Show more/less for all 11 folders. Closed files remain inert. Scoped outer-stack exclusion keeps disclosure/file targets reachable, and a one-shot collapse correction retains the focused button's viewport context. All 796 previously approved bilingual units remain unchanged.
 
----
+Source, native, exact-export and final published QA are Approved. The four required suites passed once before the narrow flow/viewport repairs; affected checks were repeated after each. The clean export passed locked install, build, release, repository and mounted checks. Seventeen hosted HTTP checks and an independent fresh HTTP sample pass. Published desktop/phone actions verify 4→11→4 folders, retained collapse focus/viewport context, correct exposed-file modal, rapid original-white-icon/pill alignment, no document overflow and clear consoles in the sampled states. This bounded acceptance does not establish FPS or universal-device rendering.
 
-### 🔹 الطريقة الثانية: الربط عبر مستودع GitHub (مستحسن للتحديثات التلقائية) 🔄
+## Previous hosting handover — published COPY202
 
-1. قم بإنشاء مستودع جديد على حسابك في GitHub وقم برفع ملفات المجلد إليه.
-2. في لوحة Cloudflare Pages، اختر **Connect to Git**.
-3. اختر مستودعك، ثم اضبط الإعدادات التالية:
-   - **Framework preset**: `None`
-   - **Build command**: اتركه فارغاً.
-   - **Build output directory**: اتركه `/` (أو فارغ).
-4. اضغط **Save and Deploy**. الآن كل تعديل ترفعه على GitHub سيتم نشره على موقعك تلقائياً خلال ثوانٍ.
+COPY202 is published at [pinexen.com/mhalmaghawry/](https://pinexen.com/mhalmaghawry/) from source commit `a9ad1ba9638f14b904a7494e61d909082d19ccf6` (tree `d17dbd68c9882c5eb26c536a907d937b378166b1`) as Worker `908ae408-5c2c-47fd-86c6-640a4e7b2552`. The existing `/founder` and `www` aliases retain query parameters through canonical redirects; the four narrow routes, ASSETS-only configuration and company-root separation are preserved.
 
----
+All 796 approved English/Arabic units across 27 sections are adopted, including eight composed headings/sentences, rich lists, 357 initial fallbacks, accessibility/preview labels, sharing fields and 404 text. All 150 unreferenced units remain dormant. CSS, media, contact destinations, motion and private authorization are unchanged. Arabic sharing fields use the existing browser language refresh; static crawler tags remain English. The Arabic 404 return link now derives its destination from the authored anchor, preserving the portfolio mount and `lang=ar` instead of navigating to the company root.
 
-## 🔗 ربط الدومين الخاص بك (Custom Domain)
+Independent source, exact-export and final bounded hosted QA are Approved. Fresh `check`, `check:private`, `check:production` and `check:repository` passed, including two identical guarded builds. The 386-input export passed locked install, build, reviewed release/repository checks and the mounted HTTP suite, including 204 asset HEADs. The 404-only follow-up reran the affected copy, build, release and mounted checks; unchanged behavior suites retain the earlier COPY202 evidence. The targeted repair also passes four actual inline-script 404 cases for root/mounted EN/AR; the former mounted Arabic behavior is rejected by the same regression. Final root manifest: `22ae8736af0ac9268a3d04ee268308499123699c7588ffafb47e463f905667ec` (209 files). Final mounted manifest: `6db35fd0c0c8d02a6d22063e959fd70e86e2cd034331b328506eef45d28e74d4` (204 public assets/208 bundle files). Runtime differences from the prior release are confined to index/404 and their generated asset-size metadata; all remaining runtime assets and handlers retain their bytes.
 
-1. ادخل إلى مشروعك داخل **Workers & Pages** على كلاود فلير.
-2. اذهب إلى تبويب **Custom domains** في الأعلى.
-3. اضغط على **Set up a custom domain**.
-4. أدخل اسم الدومين الخاص بك (مثلاً: `almaghawry.com` أو `www.almaghawry.com`).
-5. **إذا كان الدومين مضافاً بالفعل داخل حسابك في Cloudflare**:
-   - سيتعرف كلاود فلير عليه تلقائيًا ويقوم بإنشاء سجلات الـ DNS (CNAME) تلقائيًا بضغطة زر **Activate domain**.
-6. **إذا كان الدومين مسجلًا لدى شركة أخرى (مثل GoDaddy أو Namecheap)**:
-   - سيطلب منك كلاود فلير إضافة سجل `CNAME` في مزود النطاق يشير إلى اسم مشروعك على pages.dev، أو تغيير الـ Nameservers لكلاود فلير للاستفادة الكاملة من الحماية والسرعة.
-7. سيتم إصدار وتفعيل شهادة الأمان **SSL (HTTPS)** مجانًا وتلقائيًا خلال 1 إلى 5 دقائق.
+Prepublication native review covered 24 viewport/language/theme/view combinations: 1366×768 desktop and 390×844 phone, English/Arabic, light/dark, and all three views. Recorded document overflow and sampled visible text clipping were zero. Desktop capture scaling limits pixel-exact screenshot claims; DOM geometry and actual interactions provide separate evidence. Bounded hosted verification passed 12 checks for exact index/404 bytes, queried aliases, source denials, unavailable private API and unchanged company root. Published native 404 review verified both English and Arabic return actions reach the portfolio, retaining Arabic where selected. Main HTML remains 972,253 bytes with SHA256 `d29be8c7a5c86adfcef18e4694d3eb55fdc7442e63c3ec3b10884c50766f3b7a`. This evidence does not claim every physical device, field performance, configured private authentication or refreshed third-party preview caches. Earlier releases retain their own historical evidence.
 
----
+## Previous hosting handover — corrected SHARE194 bounded acceptance approved
 
-## ✏️ خطوة أخيرة اختيارية (تحديث اسم الدومين في الملفات):
+Corrected SHARE194 was published on 2026-10-28 from source commit `f0cf559b7b4a7242ffb68b61f227cbc92d83d357` as Worker `8c5fd2ce-15f2-4c72-bd1d-e5f9d4d20456`. The operator uploaded index and OG image, reused 202 unchanged assets and retained the existing four narrow routes/ASSETS-only configuration. The 1200×630 share image uses the existing portrait, name/role and authentic transparent white/gold mark on navy, without a white logo square. Its 263,836-byte PNG has SHA256 `fc79493350f9d43e8204677878d7302e87cc19b65a25b4c998350a872bd63bd5`; version `194-fc79493350f9` derives from those bytes. All 748,256 pixels outside the existing mark region are identical to the prior unpublished candidate. Actual FAV193 square icons/references, page body, scripts, styles and 625+625 dictionaries are unchanged. The earlier white-chip candidate was superseded and never published.
 
-قبل أو بعد الرفع، يمكنك استبدال الرابط المؤقت `https://almaghawry.com/` باسم الدومين الفعلي الخاص بك في الملفات التالية:
-- `robots.txt` (سطر Sitemap)
-- `sitemap.xml` (سطر `<loc>`)
-- `index.html` (في وسوم `og:url` و `twitter:url`)
+The approved corrected 384-input export reproduced root manifest `e26b255ccdf8d616635f55d9452c0da3777486e48080f2e2fbc9f813bd648832` (209 files) and mounted manifest `5a21d9da4beeb18b9802563c5c2ba34305b6234c3c1d0a9e579c814fe27bcbde` (204 public assets/208 bundle files). Five fresh commands passed: locked install, build, reviewed root release, repository and actual mounted HTTP checks, including 204 asset HEADs and the new no-JavaScript share-metadata/PNG checks. The ten behavior suites passed on the preceding SHARE194 export and remain prior evidence for byte-identical owners; they were not freshly rerun on the corrected export.
+
+Independent source/format, corrected exact-export and bounded hosted QA are Approved. Raw bot-like EN/AR-query HTML returned exact 968,775-byte responses (SHA256 `7f24ee09dc1832a9b3f9cd63f178a850eac19c6ffe91990220e3ad7866b01a07`) with clean English OG/Twitter metadata and the canonical versioned HTTPS image URL. PNG GET/full decode and HEAD passed exact bytes, 1200×630 dimensions, image/png MIME, length and revalidation cache checks. Four queried aliases, the www image redirect and company-origin continuity passed. Published native review confirmed clean title/new image URLs/FAV193 references, actual `/founder?lang=ar&share=fc794933` navigation to canonical Arabic, no overflow and no browser warnings/errors. The hosted full image rendered complete and clear without the white chip. Existing browser JavaScript still localizes the Arabic description; this is not a claim of HTTP-localized Arabic metadata. The 202 unchanged assets were not individually refetched. No actual WhatsApp message, WhatsApp rendering/cache refresh, previously sent card update, universal-device or field-performance result is claimed. Earlier published releases retain their own bounded evidence.
+
+
+## Published FAV193 hosting handover — bounded acceptance approved
+
+FAV193 was published on 2026-10-26 from source commit `600e9416cf9fbe94e2b24f7948bbd2304880c45b` as Worker version `e4f5b629-ed0d-448a-8215-ef18556cd474`. The operator deployed the approved exact 384-input export, uploading seven changed public files and reusing 197 unchanged assets through the existing four narrow routes and ASSETS-only configuration. The favicon set uses the original supplied lion/Arabic-M/gold artwork on a white square; both SVG paths and square viewBox are preserved. Existing root filenames provide SVG, 32px PNG, 180px Apple icon and multi-size ICO. Version `193-b06373975da9` updates index/404 links and manifest references; mounted paths retain the query with one portfolio prefix. Manifest purpose is any, without a maskable-safe claim. Page content, 625+625 locale values, styles, scripts, animation, private handlers and routing are unchanged. All 384 curated inputs remain; no new source path or dependency is added. Root manifest: `c4594898e4f8fc63e2f4cfd0ceb92b3227aaf0ffb587322dca84f7589105b65b` (209 files); mounted manifest: `9de89e40a0191310a0ec99d92d19a5061dbf6c4b0e04216606c8ba4c0db51a27` (204 public assets/208 bundle files). Independent source, exact-export and bounded hosted QA are Approved: all seven changed files match exported bytes/SHA256, MIME and cache policies; four queried bare aliases and five www versioned asset redirects preserve paths/queries, with company-origin continuity. The exact export passed locked install, ten current suites, build, reviewed release, repository and mounted checks. Published native review confirmed all five versioned references after canonical EN reload and after actual `/founder?lang=ar` navigation to canonical AR, with no horizontal overflow or browser warnings/errors. The hosted Apple icon decoded at 180×180 and displayed the complete mark on white. Browser-tab favicon chrome was not exposed; these checks verify references and icon assets, not universal browser/OS favicon-cache eviction. The 197 unchanged assets were not individually refetched. No universal-device, field-performance or configured-private-authentication guarantee is implied. Earlier releases retain their own version-specific evidence.
+
+
+## Published EXP190 hosting handover — bounded acceptance approved
+
+EXP190, source commit `d360a7ad323f158fed388da30710075e36cf70c9`, is published as Worker version `7ef0d153-c67c-4b19-8139-3c3bd7cff8b4`. The operator deployed the approved exact export, uploading index, Night CSS and the new hashed utility stylesheet while reusing 201 unchanged public assets. Five Experience Role Details groups are plain readable groups: redundant inset backgrounds, borders, divider and padding are removed; every label, role/company/metadata value, screen-reader node and sibling Overview/Skills card remains. Kreston’s extra inset/ring is removed. The sixth disclosure has no Role Details group and is wholly unchanged, including its three distinct job cards. One Night predecessor selector preserves the following Overview border. Compilation removes only 11 unused selector contexts, with no added selectors or changed surviving declarations. No copy, controller, disclosure behavior, artwork, typography or font changes. All 383 prior source inputs remain; only the generated hashed stylesheet is added, for 384 inputs. Root manifest: `75128ce23e55329ab3d4fc877634b549ab0b0408436175b828fcf68b0c433bf8` (209 files); mounted manifest: `e1e149732814bbeec510188026a0ca37e4459f889268aeabca836587b135d7cb` (204 public assets/208 bundle files). Independent source/native and exact-export release QA are Approved. The four prepublication computed modes—EN Day/Night at 1366×768 and AR Day/Night at 390×844—confirm five ID-keyed plain groups, 12px label spacing, preserved Night Overview borders and zero document overflow. These computed checks do not mean every group was visually opened in every mode; actual desktop selection checks separately cover all five. Independent bounded hosted QA approved all three changed public files against the exact mounted export: HTML 968,534 bytes (SHA256 `66a52571912cfe6d0b75be3924f4d3f1acc3f9f647f89848aa813ec040a2f214`), Night CSS 17,124 bytes and compiled CSS 68,633 bytes. All returned 200 with the expected HTML/CSS MIME and cache policies; both CSS hashes match the reviewed manifest. Queried www/founder aliases retained their queries through 308 canonical redirects, and both company-origin baselines were unchanged. Published native review sampled EN Night at 1366×768 and AR Night at 390×844: all five ID-keyed groups, their inner groups and Kreston’s extra inset were transparent with zero borders/radii/shadows/padding, 12px label spacing, matching content/scroll widths and zero document overflow. Both published samples were Night; the earlier four-mode review remains separate evidence. Browser warnings/errors were empty. The 201 unchanged public assets were reused and not individually fetched again; unchanged media/private-handler hosted matrices were not rerun. This is bounded browser/source verification, not a claim covering all physical devices, physical Safari, actual zoom, field performance, uptime or configured private authentication. Earlier published checkpoints retain their own evidence.
+
+
+## Published NAV188/VIEW189 hosting handover — bounded acceptance approved
+
+NAV188/VIEW189, source commit `0087e8d00622a54c0ef3f170d066f850c3c17a18`, is published as Worker version `764b1863-64f0-4e96-a0c7-0f6bcf96dc28`. The operator deployed the approved exact export, uploading only index and reusing 203 unchanged public assets. Passive desktop scrolling no longer opens the side rail; deliberate primary hover/focus/toggle, scrollspy, the accepted morph and phone behavior remain. At 768–1439px, a mirrored text-only inset clears the compact rail without changing card/art/offer widths or type. The prepublication native audit recorded 135 first-pass samples and 12 corrected locale/theme/view samples at 1366×768; 76 text Range targets have no final rail intersection or negative gap, with a minimum measured positive clearance of 8.5px. The Expertise gallery remains 1232px wide; phone/larger-desktop, one-line offer headers and a sampled public modal passed their bounded guards. Existing measured Capabilities flow fallback remains available. All ten current checks, independent source/native QA and the exact 383-input locked-install export/release gate are Approved. Root manifest (209 files): `af9de41ae1f164c17356b524491bcd3ab03436c3583aea03da46d8112da721a8`; mounted manifest (204 public assets/208 bundle files): `cf610427b351f14575679a5cf1f48f638bc2451bb876e40a070ef205ff1929e5`. Public runtime changes only HTML; generated Worker metadata follows its bytes. No asset, font, dependency, copy, private handler or route is added. Independent bounded hosted QA approved the canonical HTML response: 200, 969,691 bytes; SHA256 `8ec2b2a3bae6c88418e160e51725ddf44ede1f244ee608198924ae553d968a12`, exactly matching the mounted export, with public/max-age=0/must-revalidate caching. Queried www/founder aliases retained their queries through 308 canonical redirects, and both company-origin baselines were unchanged. Published 1366×768 native review passed EN Day pristine scroll 3395→3088 up→3548.5 down→3318 up, always compact with zero document overflow; AR Night upward scrolling also remained compact. Published Arabic text Range checks have zero rail intersections, minimum 8.5px positive clearance and the 1232px Expertise gallery with zero track padding. Browser warnings/errors were empty. The 203 unchanged public assets were reused and not individually fetched again; prior hosted media/private matrices were not rerun for these unchanged handlers. This bounded acceptance does not establish universal rendering, physical Safari behavior, actual 200% zoom, FPS, field Core Web Vitals, uptime or configured private authentication. Earlier published checkpoints retain their version-specific evidence.
+
+
+The authorized target is **https://pinexen.com/mhalmaghawry/**. The bare `/mhalmaghawry`, `/founder` and `/founder/` normalize to that address with the query retained. Hash navigation and language queries continue within the mount.
+
+## Previous MOT186/TYPE187 hosting handover — bounded acceptance approved
+
+MOT186/TYPE187, source commit `77cabe2064c90e61032a08168998ef4b802bf193`, is published as Worker version `5b5e7be9-a17a-4335-8b85-2389cad2cf87`. The operator uploaded two static files (index and typography CSS) and reused 202 unchanged assets. Explicit Concepts/Interests controls use a finite owner-local glide while native vertical scrolling stays direct; English text consistently uses the existing Inter variable font, Arabic retains Almarai, ordinary offer text has a 16px floor and footer actions have 44px targets. Independent source/lifecycle and bounded prepublication native review approved the release candidate. That native pass retained one-line desktop offer headers, confirmed readable profile leading/settled weight and checked phone layout/end-card navigation. Reflow at 720px was measured; actual 200% browser zoom was not established, and no FPS or field Core Web Vitals result is claimed. Root manifest: `1d9ed7dab2ee88a9dbaac23a287990ec7b20e6ff8b410fd942ad6f47e007c2c1` (209 files); mounted manifest: `4aa0847ae51e30b5d0963d2fea519a5834a47104cc214dc22d4c9a4d2afdb84a` (204 public assets/208 bundle files). Only index and the new typography stylesheet change in public runtime; generated asset metadata changes accordingly. The original media, fonts, protected handler, mount routing, DNS and configured-private-access status remain unchanged. The exact 383-input locked-install export passed all ten current suites and the 204-asset local mounted HTTP gate, with no source-byte drift. Independent bounded hosted QA approved both changed files by exact mounted-export bytes/SHA256 and revalidation policy, both queried www/founder 308 aliases and unchanged company-origin baselines. Published native review passed EN Day at 1440px and AR Night at 320px: correct existing font families, 16–17.76px narrative, 44px actions, one-line desktop offer headers and no horizontal overflow. Published Concepts samples moved continuously through offsets 392→582→676.5→731.5→765.5 with matching page progress, moving→idle state and no overflow; browser warnings/errors were empty. The 202 unchanged assets were not individually fetched again, and prior server/Range/private matrices were not rerun for this unchanged boundary. These bounded checks do not establish physical Safari behavior, actual 200% zoom, FPS, field Core Web Vitals, uptime or universal rendering.
+
+## Previous COL185 hosting handover — bounded acceptance approved
+
+The operator published source commit **`5822a71`** as Worker **`pinexen-portfolio`**, version **`b108ffac-dfc0-4f08-9671-af53cce97bb0`**. Root manifest: `a17c93917de276a2c7f2cb9bd8da123d76bd1f6f4232dacb30b1644af4ff5b30` (208 runtime files); mounted manifest: `73005de304c96530ba5c78a68ba76cc5b1cd2c1b099f55d0f63ed513e2b0a6d1` (203 public assets/207 bundle files). Both collaboration headers use the full card width while body measures, copy, artwork and footer actions remain unchanged; compiled utility CSS only removes the obsolete nowrap selector.
+
+Existing current-owner checks and the 381-input clean-export install/build/release gate passed. Independent bounded hosted QA approved exact served bytes for both changed files (mounted HTML and utility CSS), queried www/founder canonical 308 redirects and both company-origin baselines. Operator live review verified both titles and their own metadata on one line in EN Day at 1440px and 1024px and AR Night at 1440px, with no horizontal overflow; the original body widths of 300.4375px and 221.84375px were retained. The 201 unchanged assets were not individually fetched again, and earlier server/Range/private matrices were not rerun. These checks do not establish physical Safari behavior, field Core Web Vitals, universal rendering or uptime. Private bindings remain unset; no configured private-authentication success is claimed. Previous releases retain their separate version-specific results below.
+
+## Previous MOB184 hosting handover — bounded acceptance approved
+
+The operator published source commit **`7f8d89e`** as Worker **`pinexen-portfolio`**, version **`f91ad5e7-01eb-493f-ba1a-b350befa36c2`**. Root manifest: `a3bc6aa5571111b8c498369071547fb06de189e07b1bd78e3089342535e50cb3`; mounted manifest: `da142fcbe65997addc02f1993314a98b3d45b04a411607e222e06fba53a6b8d9`. The deployment uploaded two changed static files (index and Interests CSS) and reused 201 unchanged assets.
+
+The baseline mobile audit recorded 96 anchor checkpoints and one confirmed clipped-arrow defect. All eight 320/390px EN/AR Day/Night final combinations passed header wrapping/button bounds and the measured 6px focus reserve; desktop nowrap was unchanged. Existing current-owner checks and the 380-input staged/exported install/build/release gate passed. Independent read-only hosted QA approved both changed files by exact byte length/SHA256, plus canonical queried www and founder redirects. Operator live native review passed all eight 320/390px EN/AR Day/Night states: 44px buttons and their full 6px focus paint remain inside the section, the navigation fits and there is no horizontal overflow. The 201 unchanged assets were not individually fetched again, and the prior Range/private/HEAD matrix was not rerun for this unchanged server/route boundary. These bounded viewport checks do not establish physical Safari behavior, field Core Web Vitals, uptime or configured private authentication.
+
+## Previous AR179–COL183 hosting handover — bounded acceptance approved
+
+The operator published source commit **`114c815`** as Worker **`pinexen-portfolio`**, version **`9c1452be-e25f-4e83-a734-b1a16edf1d6f`**. The mounted manifest is `1336cf39c7c1db8f97eafd6d45b33c507e6a131d95a4cf6dcfb2c31565aca084`; the root-mode manifest is `56a796f0b1f609331ed9cbe920494cc85fb311df57cafbe8937691f3c88f4ce0`. The 380-input source closure and public/private boundary are unchanged by this documentation update. Independent hosted QA and the bounded operator native review approved this version. Publication does not establish field Core Web Vitals, uptime or configured private-authentication success.
+
+Independent hosted verification passed:
+
+- **Six changed public files** return 200 and match the reviewed clean export exactly: index, 404, capabilities CSS, mobile-reading CSS, Night CSS and hashed main utility CSS. The **197 unchanged public assets** match the manifest and were not individually fetched again.
+- **Sixteen aliases across HTTP/HTTPS and apex/www**, plus the explicit trailing www mount, canonicalize with query values retained.
+- **Three media cases** pass: exact bytes 1–9 with 206/Content-Range, unsatisfiable 416 with total length, and bodyless HEAD 200 with full length/Accept-Ranges.
+- **Six private API checks** intentionally return 503/no-store across three identities and GET/HEAD; **three source/control paths** remain 404.
+- **Two company-origin baselines** retain apex 301→www and the unchanged www 200 body.
+
+Operator native review loaded the exact requested www URL through canonicalization and verified both bare 32px collaboration header icons, no header arrows, own metadata/footer actions, Arabic RTL and Day/Night switching. No horizontal overflow or console warnings/errors was observed in that bounded pass. This is not a universal rendering, field performance or uptime claim. Private bindings remain unset; no configured-authentication success is claimed.
+
+## Previous hosting handover — bounded hosted acceptance approved
+
+The operator deployed Worker **`pinexen-portfolio`**, version **`99f74d2a-7d5d-4c2d-ba8b-01c91d4e8a15`**. The deployed bundle is the reviewed mounted manifest `4bf5733024db3ea31340ca46a53798397a0f160f173133265f65c25a7971a9b0`.
+
+The apex portfolio path has returned200 and its founder alias308 after deployment. Natural propagation completed for `www.pinexen.com`; the operator observed its canonical308 and the exact user URL loading the portfolio in a native browser. After the streaming correction was deployed, `brom-detail.mp4` Range`bytes=1-9` returned206,9bytes and `Content-Range: bytes 1-9/18538626`; an out-of-bounds range returned416,0bytes and `Content-Range: bytes */18538626`.
+
+Independent hosted QA approved this exact version/bundle: **203/203 public asset HEADs,7 actual edge Range cases,16 aliases across both hosts,2 company-origin baselines,9 source/control404s,6 private503/no-store responses, and exact hosted HTML hash** passed. Native review also observed the portfolio through the requested `www` URL. This is bounded release acceptance, not a field Core Web Vitals, universal performance, uptime or configured-private-authentication claim.
+
+The local checks below independently passed against the exact staged/exported bundle. They establish reproducibility and owner behavior, not edge propagation, hosted rendering, TLS/cache policy or complete production acceptance. Private resources and access values remain unconfigured; private API503 remains intentional.
+
+## Build and review
+
+Use Node 24+ (verified 24.18.0):
+
+```sh
+npm ci --ignore-scripts --no-audit --no-fund
+npm run build:cloudflare
+npm run check:cloudflare
+npm run check:private
+npm run check:release
+npm run preview:cloudflare
+```
+
+Review `http://127.0.0.1:4180/mhalmaghawry/`. The adapter executes the actual mounted Worker and private handler. It substitutes a local 404 marker for company-origin passthrough and leaves private bindings unset. It does not prove Cloudflare TLS, compression, caching, DNS or production authorization.
+
+`cloudflare/public/` contains 204 allowlisted runtime assets for the reviewed MOTION203 release. The generated `worker.mjs`, `mount-worker.mjs`, byte-identical private handler, `wrangler.jsonc` and bundle manifest stay **outside** the asset directory. The public binding excludes `_worker.js`, `_routes.json`, `_headers`, `_redirects`, robots, build manifests, source, tools, docs and private policy. Deploy using the generated config; do not upload the whole repository/bundle as static assets. The builder scans all output for retired confidential fingerprints and verifies the complete owned tree. Unknown/modified output files cause refusal. Every file is below 25 MiB; no external rendering dependency is introduced.
+
+The original `dist/` remains the separate root-mode Pages/local build. Current reviewed release hashes are recorded in the MOTION203 section above and in the two release-baseline manifests. Earlier published versions retain their separate results. Both build targets are deterministic; neither generated folder is committed.
+
+## Worker and route configuration
+
+The generated config names `pinexen-portfolio` in the selected account, with an `ASSETS` binding to `./public`, `run_worker_first: true`, `html_handling: none`, and `not_found_handling: none`. `workers.dev` and preview URLs are disabled. The four routes are:
+
+```text
+pinexen.com/mhalmaghawry*
+pinexen.com/founder*
+www.pinexen.com/mhalmaghawry*
+www.pinexen.com/founder*
+```
+
+The terminal wildcard is necessary to match query-bearing aliases. The wrapper validates the allowed host and exact mount/slash boundary; suffix lookalikes pass unchanged to the existing origin. Controlled `www` requests and HTTP requests on either production host redirect to the HTTPS apex canonical, preserving path/query; founder/bare aliases normalize to the canonical portfolio root. This HTTPS rule does not affect loopback previews or company/lookalike paths. It does not capture `/`, other company pages or root `/robots.txt`, and has no SPA fallback. Unknown HTTPS apex mounted paths receive the scoped 404. See [Routes](https://developers.cloudflare.com/workers/configuration/routing/routes/), [Assets binding](https://developers.cloudflare.com/workers/static-assets/binding/) and [HTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/).
+
+Routes require the apex and `www` DNS records to be proxied. Preserve their current origin values and unrelated DNS/mail/security settings. Do not create an apex Worker Custom Domain or a catch-all route, which would change company-root ownership. The operator owns account/DNS changes and hosted verification.
+
+For a later approved release, the operator can deploy from the repository using:
+
+```sh
+npx wrangler deploy --config cloudflare/wrangler.jsonc
+```
+
+This command is provided for the authorized operator; builds and checks never invoke it. The version recorded above was deployed separately by the operator. Validate the installed Wrangler/config against current official documentation before future use. [Wrangler deployment](https://developers.cloudflare.com/workers/wrangler/commands/#deploy), [configuration](https://developers.cloudflare.com/workers/wrangler/configuration/).
+
+### Operator authorization recorded for this release
+
+Use least privilege and restrict authorization to the single intended deployment account. The successful release authorization used `account:read`, `workers_scripts:write`, `workers_routes:write` and `zone:read`, with the tool’s automatically included offline scope. In this run, legacy `workers:write` alone did not authorize the Deployments API; this is an observed release result, not a universal scope specification. Keep credentials in the secure OS credential store, never Git or public docs. Do not request all accounts/scopes or copy tokens, authorization codes, challenges or credential-store exports into the repository. Recheck current official tool requirements before future authorization.
+
+## Metadata and company separation
+
+Only mounted output rewrites canonical/OG/Twitter URLs and the approved `@mhalmaghawry` handle. Social images, manifest start/scope/id/icons, sitemap language alternatives and 404 home/font/style links are mount-scoped. Source root-mode previews retain their original routing and design.
+
+The portfolio sitemap is `/mhalmaghawry/sitemap.xml`; the future company-root robots policy may reference it. A robots file under the mount would not replace standard root crawler policy, so no robots file is included in this mounted package. Company-root metadata and future hosting remain separate.
+
+## Private boundary and response policy
+
+The same protected handler owns `/mhalmaghawry/api/previews/*` after internal prefix stripping. The client derives this base from its own loaded script URL; there is no global base tag. Only allowlisted private media fields receive an output prefix. `__Host-preview-*` cookies retain **Path=/**, Secure, HttpOnly and SameSite=Strict; a scoped cookie Path would invalidate the `__Host-` contract.
+
+All three public restricted identities are empty. Missing bindings/secrets intentionally return 503; there is no client-valid credential or authored private payload. This release provisions no R2/D1 resources, codes or secrets. Later configuration requires separate review of [PRIVATE_PREVIEW_SETUP.md](server/PRIVATE_PREVIEW_SETUP.md), including fresh expiring project codes, schema, private storage and sessions. Never put values in Git, commands, logs or evidence. Unset503 is not a claim of successful configured production authentication.
+
+The wrapper applies public security headers and revalidation caching. Only generated content-hashed Tailwind CSS is immutable; mutable URLs revalidate. Private API responses retain their handler's no-store policy. Root-mode `_headers` explicitly includes the new typography stylesheet under the existing mutable-CSS revalidation policy; the mounted owner applies the same policy without a Worker-source change. Source `_headers` is not silently treated as a Workers configuration file; actual hosted headers must be checked after deployment.
+
+The public asset wrapper has a streaming single-byte-range fallback when the Assets binding returns a full200 response. Trusted generated file sizes cover missing upstream length metadata. It preserves validators/cache policy, handles valid206 and unsatisfiable416, matches strong/date `If-Range` exactly, cancels unused streams and uses `FixedLengthStream` for known response lengths. It never buffers a complete video. Late ranges must stream/discard preceding chunks if the binding cannot seek; memory stays bounded, but this is not a claim of origin-level random access. Unsupported multipart ranges retain full200 behavior; encoded representations are not sliced using uncompressed sizes. See [Workers streaming](https://developers.cloudflare.com/workers/runtime-apis/streams/), [known response lengths](https://developers.cloudflare.com/workers/runtime-apis/response/#set-the-content-length-header) and [HTTP If-Range semantics](https://www.rfc-editor.org/rfc/rfc9110.html#section-13.1.5). The measured hosted result above is distinct from the full independent acceptance checklist.
+
+## Acceptance and rollback
+
+Before declaring production complete, verify canonical/alias/query behavior, native hash and language routing, desktop/phone Day/Night layout, loader/media/font loading and media seeking, scoped 404, source/control denials, private503 with focus restoration, root-origin continuity, actual headers and actual cache responses. Local fixtures cannot establish field Core Web Vitals or Cloudflare behavior.
+
+Keep MOTION203 as the current published release reference; retain COPY202 and the earlier bounded-approved versions as rollback references. For a future regression, the operator can select a previously approved Worker deployment; removing **only the four portfolio routes** restores origin handling. Do not create a root catch-all or substitute the source repository as an asset directory. A failed future release should roll back to a known approved version, never to retired credentials or experimental bodies. Preserve company-origin ownership; a proxy-mode reversal is an operator decision after checking other dependencies.
+
+The public Git repository has legacy GitHub Pages publication from `main:/`; that remains independent and cannot execute this Workers setup. No automatic deployment workflow is added. Current-source cleanup does not claim old Git history was scrubbed.
