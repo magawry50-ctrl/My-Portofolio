@@ -11531,7 +11531,7 @@
             slot.className = 'section-stack-slot'; sheet.className = 'section-stack-sheet';
             slot.dataset.stackSource = sheet.dataset.stackSource = id;
             section.parentNode.insertBefore(slot, section); slot.appendChild(sheet); sheet.appendChild(section);
-            return { section, slot, sheet, index, flowOnly: id === 'work', top: 0, height: 0, width: 0, left: 0, start: 0, end: 0, pinTop: 0, pinned: false, covered: false };
+            return { section, slot, sheet, index, flowOnly: id === 'work' || id === 'academic', top: 0, height: 0, width: 0, left: 0, start: 0, end: 0, pinTop: 0, pinned: false, covered: false };
         }).filter(Boolean) }));
         const records = groups.flatMap(group => group.records);
         if (!records.length) return null;
