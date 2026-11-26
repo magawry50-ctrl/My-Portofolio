@@ -50,7 +50,7 @@
   function toggle(spec, button, row) {
    if (opened?.button === button) { close(); return; }
    close();
-   const index = Number(row.dataset[spec.index]); opened = { spec, button, index };
+   const index = Number(row.dataset[spec.index]); opened = { spec, button, index, scrollX: window.scrollX, scrollY: window.scrollY };
    spec.card.hidden = false; spec.card.inert = false; spec.card.dataset.mobilePreviewOpen = 'true';
    spec.buttons.forEach(item => item.setAttribute('aria-expanded', String(item === button)));
    spec.images.forEach((img, i) => { img.style.opacity = i === index ? '1' : '0'; img.style.transform = 'none'; img.style.filter = 'none'; img.setAttribute('aria-hidden', String(i !== index)); });
@@ -121,7 +121,10 @@
    refresh();
   }
   listen(window, 'resize', () => { close(); sync(); }, true);
-  listen(window, 'scroll', () => { if (opened) close(); }, { passive: true });
+  listen(window, 'scroll', () => {
+   // A scroll event queued before opening can arrive without moving the preview's anchor.
+   if (opened && (window.scrollX !== opened.scrollX || window.scrollY !== opened.scrollY)) close();
+  }, { passive: true });
   listen(document, 'pointerdown', event => { if (opened && !opened.spec.card.contains(event.target) && !opened.button.contains(event.target)) close(); });
   listen(document, 'keydown', event => { if (event.key === 'Escape' && opened) { event.preventDefault(); close(true); } });
   listen(document, 'visibilitychange', () => { if (document.hidden) close(); });
