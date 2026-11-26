@@ -3,7 +3,7 @@
  'use strict';
  window.createMobileReading = function ({ refresh = () => {}, label = key => key } = {}) {
   const phone = matchMedia('(max-width:767px)'), hover = matchMedia('(any-hover: hover)'), reduced = matchMedia('(prefers-reduced-motion:reduce)'), cleanups = [], moves = [];
-  let disposed = false, mobile = false, opened = null, patentInput = '';
+  let disposed = false, mobile = false, opened = null;
   const listen = (node, event, fn, options) => { node?.addEventListener(event, fn, options); cleanups.push(() => node?.removeEventListener(event, fn, options)); };
   const remember = (node, target, after = false) => {
    if (!node || !target) return;
@@ -91,7 +91,7 @@
   }
   function syncPreviews() {
    for (const spec of specs) {
-    const needsTap = spec.index !== 'patentIndex' || (patentInput ? patentInput === 'touch' : !hover.matches);
+    const needsTap = spec.pointerType ? spec.pointerType === 'touch' : !hover.matches;
     const enabled = spec.card.dataset.mobilePreview === 'true';
     if (mobile && needsTap && !enabled) enablePreview(spec);
     else if ((!mobile || !needsTap) && enabled) disablePreview(spec);
@@ -124,14 +124,18 @@
    syncPreviews();
    refresh();
   }
-  const patents = specs.find(spec => spec.index === 'patentIndex');
-  listen(patents?.container, 'pointerover', event => {
-   if (event.pointerType !== 'mouse' && event.pointerType !== 'touch') return;
-   if (patentInput === event.pointerType) return;
-   patentInput = event.pointerType;
+  for (const spec of specs) {
+   listen(spec.container, 'pointerover', event => {
+    if (event.pointerType !== 'mouse' && event.pointerType !== 'touch') return;
+    if (spec.pointerType === event.pointerType) return;
+    spec.pointerType = event.pointerType;
+    syncPreviews();
+   }, true);
+  }
+  listen(hover, 'change', () => {
+   specs.forEach(spec => { spec.pointerType = ''; });
    syncPreviews();
-  }, true);
-  listen(hover, 'change', () => { patentInput = ''; syncPreviews(); });
+  });
   listen(window, 'resize', () => { close(); sync(); }, true);
   listen(window, 'scroll', () => { if (opened) close(); }, { passive: true });
   listen(document, 'pointerdown', event => { if (opened && !opened.spec.card.contains(event.target) && !opened.button.contains(event.target)) close(); });

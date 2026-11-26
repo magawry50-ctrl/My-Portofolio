@@ -3589,7 +3589,7 @@
                         <div id="awards" class="relative mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200/90 dark:border-white/10" role="region" aria-labelledby="competition-wins-title exhibition-participation-title">
                     <div id="awards-showcase-container" class="relative">
 
-                        <!-- Floating Cursor Photo Preview (same behavior as Filed Patents; hidden on touch/small screens) -->
+                        <!-- Floating photo preview for competitions and exhibitions -->
                         <div id="awards-preview-card" hidden
                              class="pointer-events-none absolute top-0 left-0 z-30 overflow-hidden rounded-2xl shadow-2xl border border-gray-700/60 dark:border-gray-600/50 bg-gray-900/90 opacity-0 hidden md:block"
                              style="will-change: transform, opacity, width, height; transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
@@ -10169,7 +10169,7 @@
         const card = document.getElementById('awards-preview-card');
         if (!container || !card) return null;
         setFloatingPreviewVisibility(card, false);
-        const finePreview = () => window.innerWidth >= 768 && window.matchMedia('(hover:hover) and (pointer:fine)').matches && card.dataset.mobilePreview !== 'true';
+        const canHover = () => card.dataset.mobilePreview !== 'true';
 
         const items = container.querySelectorAll('.award-item');
         const images = card.querySelectorAll('.award-preview-img');
@@ -10182,40 +10182,47 @@
 
         function dims(i) {
             const img = images[i];
-            const ratio = (img && img.naturalWidth) ? img.naturalWidth / img.naturalHeight : 1.4;
+            const ratio = img && ((img.naturalWidth / img.naturalHeight) || (img.width / img.height)) || 1.4;
             const targetW = ratio < 1 ? 220 : 320;
             return { width: targetW, height: Math.round(targetW / ratio) };
         }
 
         function paintPreview() {
-            if (!finePreview()) return false;
-            const cw = container.getBoundingClientRect().width;
+            if (!canHover()) return false;
+            const rect = container.getBoundingClientRect();
             const moving = Math.abs(pos.x - mouse.x) + Math.abs(pos.y - mouse.y) + Math.abs(w - tw) + Math.abs(h - th) + Math.abs(scale - tScale) > .04;
             pos.x = lerp(pos.x, mouse.x, 0.15);
             pos.y = lerp(pos.y, mouse.y, 0.15);
             w = lerp(w, tw, 0.14); h = lerp(h, th, 0.14); scale = lerp(scale, tScale, 0.14);
-            card.style.width = `${w.toFixed(1)}px`;
-            card.style.height = `${h.toFixed(1)}px`;
+            const fit = Math.min(1, rect.width / w, Math.max(1, window.innerHeight - 16) / h);
+            const cardWidth = w * fit;
+            const cardHeight = h * fit;
+            card.style.width = `${cardWidth.toFixed(1)}px`;
+            card.style.height = `${cardHeight.toFixed(1)}px`;
             const isRTL = document.getElementById('mm-profile-wrapper')?.getAttribute('dir') === 'rtl';
-            let x = isRTL ? pos.x - w - 25 : pos.x + 25;
+            let x = isRTL ? pos.x - cardWidth - 25 : pos.x + 25;
             if (x < 10) x = pos.x + 20;
-            if (x + w > cw - 10) x = pos.x - w - 20;
-            x = Math.max(0, Math.min(x, Math.max(0, cw - w)));
-            const y = pos.y - h / 2;
+            if (x + cardWidth > rect.width - 10) x = pos.x - cardWidth - 20;
+            x = Math.max(0, Math.min(x, Math.max(0, rect.width - cardWidth)));
+            const viewportTop = 8 - rect.top;
+            const viewportBottom = window.innerHeight - 8 - cardHeight - rect.top;
+            const y = Math.max(viewportTop, Math.min(pos.y - cardHeight / 2, viewportBottom));
             card.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
             return moving;
         }
-        runVisibleAnimation(container, paintPreview, { fps: 60, active: () => visible && finePreview() });
+        runVisibleAnimation(container, paintPreview, { fps: 60, active: () => visible && canHover() });
 
         function hidePreview() {
+            if (!visible) return;
             visible = false; tScale = 0.88;
-            if (!finePreview()) return;
+            card.style.removeProperty('display');
+            if (!canHover()) return;
             setFloatingPreviewVisibility(card, false);
             items.forEach(item => item.classList.remove('is-active'));
         }
 
-        container.addEventListener('mousemove', (e) => {
-            if (!finePreview()) return;
+        container.addEventListener('pointermove', (e) => {
+            if (e.pointerType !== 'mouse' || !visible) return;
             const r = container.getBoundingClientRect();
             mouse.x = e.clientX - r.left;
             mouse.y = e.clientY - r.top;
@@ -10223,8 +10230,8 @@
 
         items.forEach((item) => {
             const idx = parseInt(item.dataset.awardIndex, 10);
-            item.addEventListener('mouseenter', event => {
-                if (!finePreview()) return;
+            item.addEventListener('pointerenter', event => {
+                if (event.pointerType !== 'mouse' || !canHover()) return;
                 card.style.borderColor = awardPreviewStrokes[idx];
                 card.style.borderWidth = '2px';
                 const rect = container.getBoundingClientRect();
@@ -10234,6 +10241,7 @@
                 if (!visible) { w = tw; h = th; pos.x = mouse.x; pos.y = mouse.y; }
                 visible = true; tScale = 1;
                 paintPreview();
+                card.style.display = 'block';
                 setFloatingPreviewVisibility(card, true);
                 images.forEach((img, i) => {
                     const on = i === idx;
@@ -10243,9 +10251,8 @@
                 });
                 items.forEach(it => it.classList.toggle('is-active', it === item));
             });
-            item.addEventListener('mouseleave', hidePreview);
+            item.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') hidePreview(); });
         });
-        container.addEventListener('mouseleave', hidePreview);
         return { update: hidePreview };
     }
 
