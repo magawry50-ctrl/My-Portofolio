@@ -11140,7 +11140,6 @@
                 if (crossView) document.dispatchEvent(new Event('portfolio:viewnavigationsettled'));
             }
         }
-        const hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
         const mobileToggle = header.querySelector('.glass-menu-toggle');
         const primaryNode = header.querySelector('.notch-primary');
         const mobileGroups = header.querySelector('.glass-mobile-groups');
@@ -11188,7 +11187,8 @@
         listen(mobileToggle, 'keydown', event => {
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); showMenu(activeGroup, true, event.key === 'ArrowUp', true); }
         });
-        const desktopHover = () => window.innerWidth >= 768 && hoverMedia.matches;
+        const desktopHover = event => window.innerWidth >= 768
+            && (event.pointerType === 'mouse' || (event.pointerType === 'pen' && event.buttons === 0));
         const overSettings = event => {
             if (!utilities || window.innerWidth < 768) return false;
             if (utilities.contains(event.target)) return true;
@@ -11201,7 +11201,7 @@
             compactIntent = button ? { group: button.dataset.notchGroup, x: event.clientX, y: event.clientY, at: Date.now() } : null;
         };
         listen(primaryNode, 'pointerenter', event => {
-            if (event.pointerType === 'touch' || !desktopHover() || overSettings(event)) return;
+            if (!desktopHover(event) || overSettings(event)) return;
             rememberCompactTarget(event);
             forceCompact = false; hoverUnfolded = true; setCompact(false);
         });
@@ -11215,7 +11215,7 @@
             hoverUnfolded = false; if (!railPinned) wantsCompact = true; schedule();
         });
         buttons.forEach((button, index) => {
-            listen(button, 'pointerenter', event => { if (event.pointerType !== 'touch' && desktopHover()) { rememberCompactTarget(event); forceCompact = false; hoverUnfolded = true; setCompact(false); } });
+            listen(button, 'pointerenter', event => { if (desktopHover(event)) { rememberCompactTarget(event); forceCompact = false; hoverUnfolded = true; setCompact(false); } });
             listen(button, 'click', event => { const intended = event.detail > 0 && compactIntent && Date.now() - compactIntent.at <= 650 && Math.hypot(event.clientX - compactIntent.x, event.clientY - compactIntent.y) <= 8 ? compactIntent.group : button.dataset.notchGroup; compactIntent = null; goToSection(NAVIGATION_GROUPS.find(group => group.id === intended).sections[0][0]); });
             listen(button, 'keydown', event => {
                 const targets = window.innerWidth < 768 ? [...buttons, mobileToggle] : buttons;
