@@ -35,3 +35,6 @@ html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
  [data-mobile-preview="true"] .patent-preview-img,[data-mobile-preview="true"] .award-preview-img{object-fit:contain}
 }
 @media(prefers-reduced-motion:reduce){[data-mobile-preview="true"],[data-mobile-preview="true"] *{transition:none!important;animation:none!important}}
+@media(max-width:767px) and (any-hover:hover){
+ #patents:not([data-tap-preview="true"]) .patent-item .mt-3{display:none}
+}
