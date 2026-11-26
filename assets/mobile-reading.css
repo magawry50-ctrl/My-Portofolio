@@ -9,6 +9,8 @@
 html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
 #value-offer .value-card-icon>svg{width:100%;height:100%}
 #value-offer .value-card-icon>i{font-size:inherit}
+/* Patent images are shown by the hover or tap preview. */
+#patents .patent-item .mt-3{display:none}
 @media(max-width:767px){
  #value-offer .value-card-icon{width:24px;height:24px;font-size:24px}
  #about .about-editorial-grid[data-mobile-reading="true"]{gap:0}
@@ -16,7 +18,7 @@ html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
  #pillars-gallery .canvas-mount-point[data-mobile-art="true"]{margin-bottom:24px}
  #skills .cap-layout[data-mobile-reading="true"]>.cap-selector-list{display:none}
  #skills .cap-layout[data-mobile-reading="true"] .cap-panel>.cap-selector{display:block;margin-bottom:24px}
- #academic[data-tap-preview="true"] .award-mobile-gallery,#patents[data-tap-preview="true"] .patent-item .mt-3{display:none}
+ #academic[data-tap-preview="true"] .award-mobile-gallery{display:none}
  .mobile-preview-trigger{display:inline-flex;align-items:center;min-height:44px;max-width:100%;padding:0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;text-align:inherit;cursor:pointer}
  /* MOB180: keep native markers outside the atomic preview button's wrapping line. */
  #academic[data-tap-preview="true"] #awards-showcase-container ul{list-style-position:outside;padding-inline-start:1.25em}
@@ -35,6 +37,3 @@ html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
  [data-mobile-preview="true"] .patent-preview-img,[data-mobile-preview="true"] .award-preview-img{object-fit:contain}
 }
 @media(prefers-reduced-motion:reduce){[data-mobile-preview="true"],[data-mobile-preview="true"] *{transition:none!important;animation:none!important}}
-@media(max-width:767px) and (any-hover:hover){
- #patents:not([data-tap-preview="true"]) .patent-item .mt-3{display:none}
-}
