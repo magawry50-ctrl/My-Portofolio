@@ -16,7 +16,7 @@ html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
  #pillars-gallery .canvas-mount-point[data-mobile-art="true"]{margin-bottom:24px}
  #skills .cap-layout[data-mobile-reading="true"]>.cap-selector-list{display:none}
  #skills .cap-layout[data-mobile-reading="true"] .cap-panel>.cap-selector{display:block;margin-bottom:24px}
- #academic[data-tap-preview="true"] .award-mobile-gallery{display:none}
+ #academic[data-tap-preview="true"] .award-mobile-gallery,#patents[data-tap-preview="true"] .patent-item .mt-3{display:none}
  .mobile-preview-trigger{display:inline-flex;align-items:center;min-height:44px;max-width:100%;padding:0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;text-align:inherit;cursor:pointer}
  /* MOB180: keep native markers outside the atomic preview button's wrapping line. */
  #academic[data-tap-preview="true"] #awards-showcase-container ul{list-style-position:outside;padding-inline-start:1.25em}
@@ -33,13 +33,5 @@ html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
  #awards-preview-card[data-mobile-preview="true"][hidden],#patents-preview-card[data-mobile-preview="true"][hidden]{display:none!important}
  .mobile-preview-close{position:absolute;inset-block-start:4px;inset-inline-end:4px;z-index:5;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:50%;background:rgba(0,0,0,.75);color:#fff;font-size:28px;line-height:1;cursor:pointer}
  [data-mobile-preview="true"] .patent-preview-img,[data-mobile-preview="true"] .award-preview-img{object-fit:contain}
-}
-/* Keep patent artwork and filing details in the reading flow when hover is unavailable. */
-@media not all and (min-width: 768px) and (hover: hover) and (pointer: fine) {
- #patents [data-patent-layout]{flex-direction:column;align-items:stretch;gap:.75rem}
- #patents [data-patent-layout] > :last-child{align-self:flex-start;flex-wrap:wrap}
- #patents [data-patent-thumbnail]{display:block;height:auto}
- #patents [data-patent-thumbnail] img{height:auto;max-height:15rem}
- #patents-preview-card:not([data-mobile-preview="true"]){display:none}
 }
 @media(prefers-reduced-motion:reduce){[data-mobile-preview="true"],[data-mobile-preview="true"] *{transition:none!important;animation:none!important}}

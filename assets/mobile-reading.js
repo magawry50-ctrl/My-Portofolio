@@ -2,8 +2,8 @@
 (function () {
  'use strict';
  window.createMobileReading = function ({ refresh = () => {}, label = key => key } = {}) {
-  const phone = matchMedia('(max-width:767px)'), reduced = matchMedia('(prefers-reduced-motion:reduce)'), cleanups = [], moves = [];
-  let disposed = false, mobile = false, opened = null;
+  const phone = matchMedia('(max-width:767px)'), hover = matchMedia('(any-hover: hover)'), reduced = matchMedia('(prefers-reduced-motion:reduce)'), cleanups = [], moves = [];
+  let disposed = false, mobile = false, opened = null, patentInput = '';
   const listen = (node, event, fn, options) => { node?.addEventListener(event, fn, options); cleanups.push(() => node?.removeEventListener(event, fn, options)); };
   const remember = (node, target, after = false) => {
    if (!node || !target) return;
@@ -50,7 +50,7 @@
   function toggle(spec, button, row) {
    if (opened?.button === button) { close(); return; }
    close();
-   const index = Number(row.dataset[spec.index]); opened = { spec, button, index, scrollX: window.scrollX, scrollY: window.scrollY };
+   const index = Number(row.dataset[spec.index]); opened = { spec, button, index };
    spec.card.hidden = false; spec.card.inert = false; spec.card.dataset.mobilePreviewOpen = 'true';
    spec.buttons.forEach(item => item.setAttribute('aria-expanded', String(item === button)));
    spec.images.forEach((img, i) => { img.style.opacity = i === index ? '1' : '0'; img.style.transform = 'none'; img.style.filter = 'none'; img.setAttribute('aria-hidden', String(i !== index)); });
@@ -62,8 +62,7 @@
    }
    spec.close.setAttribute('aria-label', label('work_close_modal')); position();
   }
-  function enablePreviews() {
-   for (const spec of specs) {
+  function enablePreview(spec) {
     spec.section.dataset.tapPreview = 'true'; spec.card.dataset.mobilePreview = 'true'; spec.card.hidden = true; spec.card.inert = true;
     document.body.appendChild(spec.card); spec.card.appendChild(spec.close);
     for (const row of spec.rows) {
@@ -76,11 +75,9 @@
      button.addEventListener('click', () => toggle(spec, button, row));
      spec.buttons.push(button); button._previewText = text; button._previewKey = key;
     }
-   }
   }
-  function disablePreviews() {
-   close();
-   for (const spec of specs) {
+  function disablePreview(spec) {
+    if (opened?.spec === spec) close();
     for (const button of spec.buttons) {
      const text = button._previewText; while (button.firstChild) text.insertBefore(button.firstChild, button);
      if (button._previewKey) text.setAttribute('data-i18n', button._previewKey);
@@ -91,6 +88,13 @@
     if (spec.style === null) spec.card.removeAttribute('style'); else spec.card.setAttribute('style', spec.style);
     spec.images.forEach((img, i) => { if (spec.imageStyles[i] === null) img.removeAttribute('style'); else img.setAttribute('style', spec.imageStyles[i]); if (spec.imageHidden[i] === null) img.removeAttribute('aria-hidden'); else img.setAttribute('aria-hidden', spec.imageHidden[i]); });
     spec.card.hidden = true; spec.card.inert = false; delete spec.card.dataset.mobilePreview; delete spec.section.dataset.tapPreview;
+  }
+  function syncPreviews() {
+   for (const spec of specs) {
+    const needsTap = spec.index !== 'patentIndex' || (patentInput ? patentInput === 'touch' : !hover.matches);
+    const enabled = spec.card.dataset.mobilePreview === 'true';
+    if (mobile && needsTap && !enabled) enablePreview(spec);
+    else if ((!mobile || !needsTap) && enabled) disablePreview(spec);
    }
   }
   function restoreListSemantics() {
@@ -109,22 +113,27 @@
     if (profile) profile.dataset.mobileReading = 'true';
     if (layout) layout.dataset.mobileReading = 'true';
     list?.removeAttribute('role'); list?.removeAttribute('aria-orientation');
-    enablePreviews();
    } else {
-    disablePreviews(); moves.forEach(move => move.marker.after(move.node));
+    moves.forEach(move => move.marker.after(move.node));
     if (portrait) delete portrait.dataset.mobilePortrait;
     document.querySelectorAll('#pillars-gallery .canvas-mount-point').forEach(node => delete node.dataset.mobileArt);
     if (profile) delete profile.dataset.mobileReading;
     if (layout) delete layout.dataset.mobileReading;
     restoreListSemantics();
    }
+   syncPreviews();
    refresh();
   }
+  const patents = specs.find(spec => spec.index === 'patentIndex');
+  listen(patents?.container, 'pointerover', event => {
+   if (event.pointerType !== 'mouse' && event.pointerType !== 'touch') return;
+   if (patentInput === event.pointerType) return;
+   patentInput = event.pointerType;
+   syncPreviews();
+  }, true);
+  listen(hover, 'change', () => { patentInput = ''; syncPreviews(); });
   listen(window, 'resize', () => { close(); sync(); }, true);
-  listen(window, 'scroll', () => {
-   // A scroll event queued before opening can arrive without moving the preview's anchor.
-   if (opened && (window.scrollX !== opened.scrollX || window.scrollY !== opened.scrollY)) close();
-  }, { passive: true });
+  listen(window, 'scroll', () => { if (opened) close(); }, { passive: true });
   listen(document, 'pointerdown', event => { if (opened && !opened.spec.card.contains(event.target) && !opened.button.contains(event.target)) close(); });
   listen(document, 'keydown', event => { if (event.key === 'Escape' && opened) { event.preventDefault(); close(true); } });
   listen(document, 'visibilitychange', () => { if (document.hidden) close(); });
@@ -132,7 +141,7 @@
   listen(reduced, 'change', () => close()); listen(phone, 'change', sync);
   listen(window, 'pagehide', () => destroy());
   function destroy() {
-   if (disposed) return; close(); if (mobile) { mobile = false; disablePreviews(); moves.forEach(move => move.marker.after(move.node)); }
+   if (disposed) return; close(); if (mobile) { mobile = false; syncPreviews(); moves.forEach(move => move.marker.after(move.node)); }
    disposed = true; cleanups.forEach(stop => stop());
    moves.forEach(move => move.marker.remove()); specs.forEach(spec => spec.marker.remove());
    if (portrait) delete portrait.dataset.mobilePortrait; if (profile) delete profile.dataset.mobileReading; if (layout) delete layout.dataset.mobileReading; restoreListSemantics();
