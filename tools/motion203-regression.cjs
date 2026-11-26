@@ -10,7 +10,7 @@ class Node {
  click(){this.emit('click');} setAttribute(k,v){this.attrs[k]=String(v);}getAttribute(k){return this.attrs[k]??null;}removeAttribute(k){delete this.attrs[k];}
  contains(n){return n===this;}querySelector(q){return this.nodes?.[q]||null;}querySelectorAll(){return this.sheets||[];}
 }
-function stackFixture(){
+function stackFixture(group='work'){
  const handlers=new Map(),frames=new Map(),resizes=[];let serial=0,scrollY=0;
  const listen=(key,fn)=>{if(!handlers.has(key))handlers.set(key,new Set());handlers.get(key).add(fn);};
  const fire=key=>{for(const fn of handlers.get(key)||[])fn();};
@@ -32,11 +32,14 @@ function stackFixture(){
    return{top:0,left:28,width:1232,height:this.offsetHeight};
   }
  }
- const view=new Element('portfolio-view-work');view.dataset.groupView='work';
- const sections=Object.fromEntries([['work',772],['client-works',912],['patents',488]].map(([id,height])=>{const n=new Element(id);n.height=height;view.appendChild(n);return[id,n];}));
+ const view=new Element('portfolio-view-'+group);view.dataset.groupView=group;
+ const definitions=group==='work'?[['work',772],['client-works',912],['patents',488]]:[['pillars',772],['skills',912],['academic',980],['interests',488]];
+ const sections=Object.fromEntries(definitions.map(([id,height])=>{const n=new Element(id);n.height=height;view.appendChild(n);return[id,n];}));
  function topOf(section){let top=1000;for(const node of view.children){const original=node.className==='section-stack-slot'?node.children[0].children[0]:node;if(original===section)return top;top+=original.height+120;}return top;}
- const disclosure=sections.work.appendChild(new Element('concepts-show-more'));disclosure.owner=sections.work;disclosure.local=650;
- const doc={hidden:false,body:new Element('body'),activeElement:null,documentElement:{dataset:{portfolioView:'work'},style:{},clientWidth:1366,dir:'ltr',get scrollHeight(){return topOf(sections.patents)+sections.patents.height+400;}},getElementById:id=>sections[id],querySelector:()=>null,createElement:()=>new Element(),addEventListener:(k,f)=>listen('d:'+k,f),removeEventListener:(k,f)=>handlers.get('d:'+k)?.delete(f),dispatchEvent:e=>fire('d:'+e.type)};
+ const disclosure=sections.work?.appendChild(new Element('concepts-show-more'));
+ if(disclosure){disclosure.owner=sections.work;disclosure.local=650;}
+ const last=sections[definitions.at(-1)[0]];
+ const doc={hidden:false,body:new Element('body'),activeElement:null,documentElement:{dataset:{portfolioView:group},style:{},clientWidth:1366,dir:'ltr',get scrollHeight(){return topOf(last)+last.height+400;}},getElementById:id=>sections[id],querySelector:()=>null,createElement:()=>new Element(),addEventListener:(k,f)=>listen('d:'+k,f),removeEventListener:(k,f)=>handlers.get('d:'+k)?.delete(f),dispatchEvent:e=>fire('d:'+e.type)};
  doc.body.appendChild(view);
  const win={innerWidth:1366,innerHeight:768,get scrollY(){return scrollY;},matchMedia:()=>({matches:false}),addEventListener:(k,f)=>listen('w:'+k,f),removeEventListener:(k,f)=>handlers.get('w:'+k)?.delete(f)};
  const ctx=vm.createContext({window:win,document:doc,capabilitiesPanelsManager:null,pillarsGalleryManager:null,getComputedStyle:()=>({getPropertyValue:()=> '24px'}),Event:class{constructor(type){this.type=type;}},requestAnimationFrame:fn=>{frames.set(++serial,fn);return serial;},cancelAnimationFrame:key=>frames.delete(key),ResizeObserver:class{constructor(fn){this.fn=fn;resizes.push(this);}observe(){}disconnect(){}},listenMediaChange:()=>()=>{}});
@@ -64,6 +67,18 @@ async function main(){
   // The subsequent section retains its own finite tail-stack behavior after Concepts has left.
   const selected=e.sections['client-works'].parentNode,selectedSlot=selected.parentNode;e.scroll(+selectedSlot.dataset.stackStart);assert.equal(selectedSlot.dataset.stackPinned,'true');
   e.manager.destroy();assert.equal(work.parentNode,e.view);assert.equal(e.frames.size,0);
+ }
+ {
+  const e=stackFixture('about'),academic=e.sections.academic,skills=e.sections.skills.parentNode,pillars=e.sections.pillars.parentNode;
+  const handoff=e.topOf(academic)-768;
+  e.scroll(handoff-1);assert.equal(skills.style.position,'fixed');
+  for(const y of [handoff,handoff+250,e.topOf(academic)-24]){
+   e.scroll(y);
+   for(const sheet of [pillars,skills]){assert.equal(sheet.dataset.stackMode,'exit');assert.notEqual(sheet.style.position,'fixed');}
+   assert.equal(academic.parentNode.dataset.stackMode,'flow');
+  }
+  e.scroll(handoff-1);assert.equal(skills.style.position,'fixed');
+  e.manager.destroy();
  }
  for(const lang of ['en','ar'])for(const reduced of [false,true]){
   const roots=Array.from({length:11},(_,i)=>{const n=new Node(i);n.setAttribute('data-project-index',i);n.setAttribute('data-category',i%2?'product':'venture');return n;});

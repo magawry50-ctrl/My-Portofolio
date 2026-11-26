@@ -11599,8 +11599,9 @@
                 const last = group.records[group.records.length - 1];
                 const exited = !active || y >= (group.exit ?? last.top - clearance) - 1;
                 group.records.forEach(record => {
-                    const pin = active && !exited && !record.flowOnly && record !== last && y >= record.start && exposed !== record;
-                    const mode = !active || record.flowOnly ? 'flow' : exited ? 'exit' : 'stack';
+                    const finished = exited || y >= record.end;
+                    const pin = active && !finished && !record.flowOnly && record !== last && y >= record.start && exposed !== record;
+                    const mode = !active || record.flowOnly ? 'flow' : finished ? 'exit' : 'stack';
                     record.slot.dataset.stackMode = record.sheet.dataset.stackMode = mode;
                     if (pin && !record.pinned) {
                         record.slot.style.height = record.height + 'px';
@@ -11658,7 +11659,13 @@
             groups.forEach(group => {
                 if (!groupActive(group)) return;
                 group.exit = Math.min(group.records[group.records.length - 1].top - clearance, naturalMax);
-                group.records.forEach(record => { record.slot.dataset.stackExit = String(group.exit); });
+                let nextFlowTop = Infinity;
+                for (const record of [...group.records].reverse()) {
+                    // Release earlier sheets before the next section in normal flow enters the viewport.
+                    record.end = nextFlowTop - window.innerHeight;
+                    if (record.flowOnly) nextFlowTop = record.top;
+                    record.slot.dataset.stackExit = String(group.exit);
+                }
             });
             records.forEach((record, i) => { record.sheet.dataset.stackMode = oldModes[i] || 'flow'; record.covered = oldCovered[i]; record.section.dataset.stackCovered = record.sheet.dataset.stackCovered = String(record.covered); });
             measuring = false;
