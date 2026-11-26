@@ -36,10 +36,10 @@ html.dark #value-offer .value-card-icon{color:var(--night-link,#2bbbff)}
 }
 /* Keep patent artwork and filing details in the reading flow when hover is unavailable. */
 @media not all and (min-width: 768px) and (hover: hover) and (pointer: fine) {
- #patents .patent-row{flex-direction:column;align-items:stretch;gap:.75rem}
- #patents .patent-row > :last-child{align-self:flex-start;flex-wrap:wrap}
- #patents .patent-thumbnail{display:block;height:auto}
- #patents .patent-thumbnail img{height:auto;max-height:15rem}
+ #patents [data-patent-layout]{flex-direction:column;align-items:stretch;gap:.75rem}
+ #patents [data-patent-layout] > :last-child{align-self:flex-start;flex-wrap:wrap}
+ #patents [data-patent-thumbnail]{display:block;height:auto}
+ #patents [data-patent-thumbnail] img{height:auto;max-height:15rem}
  #patents-preview-card:not([data-mobile-preview="true"]){display:none}
 }
 @media(prefers-reduced-motion:reduce){[data-mobile-preview="true"],[data-mobile-preview="true"] *{transition:none!important;animation:none!important}}
