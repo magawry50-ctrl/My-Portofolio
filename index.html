@@ -3589,7 +3589,7 @@
                         <div id="awards" class="relative mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-slate-200/90 dark:border-white/10" role="region" aria-labelledby="competition-wins-title exhibition-participation-title">
                     <div id="awards-showcase-container" class="relative">
 
-                        <!-- Floating Cursor Photo Preview (same behavior as Filed Patents; hidden on touch/small screens) -->
+                        <!-- Floating photo preview for competitions and exhibitions -->
                         <div id="awards-preview-card" hidden
                              class="pointer-events-none absolute top-0 left-0 z-30 overflow-hidden rounded-2xl shadow-2xl border border-gray-700/60 dark:border-gray-600/50 bg-gray-900/90 opacity-0 hidden md:block"
                              style="will-change: transform, opacity, width, height; transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
@@ -10169,7 +10169,7 @@
         const card = document.getElementById('awards-preview-card');
         if (!container || !card) return null;
         setFloatingPreviewVisibility(card, false);
-        const finePreview = () => window.innerWidth >= 768 && window.matchMedia('(hover:hover) and (pointer:fine)').matches && card.dataset.mobilePreview !== 'true';
+        const canHover = () => card.dataset.mobilePreview !== 'true';
 
         const items = container.querySelectorAll('.award-item');
         const images = card.querySelectorAll('.award-preview-img');
@@ -10182,40 +10182,47 @@
 
         function dims(i) {
             const img = images[i];
-            const ratio = (img && img.naturalWidth) ? img.naturalWidth / img.naturalHeight : 1.4;
+            const ratio = img && ((img.naturalWidth / img.naturalHeight) || (img.width / img.height)) || 1.4;
             const targetW = ratio < 1 ? 220 : 320;
             return { width: targetW, height: Math.round(targetW / ratio) };
         }
 
         function paintPreview() {
-            if (!finePreview()) return false;
-            const cw = container.getBoundingClientRect().width;
+            if (!canHover()) return false;
+            const rect = container.getBoundingClientRect();
             const moving = Math.abs(pos.x - mouse.x) + Math.abs(pos.y - mouse.y) + Math.abs(w - tw) + Math.abs(h - th) + Math.abs(scale - tScale) > .04;
             pos.x = lerp(pos.x, mouse.x, 0.15);
             pos.y = lerp(pos.y, mouse.y, 0.15);
             w = lerp(w, tw, 0.14); h = lerp(h, th, 0.14); scale = lerp(scale, tScale, 0.14);
-            card.style.width = `${w.toFixed(1)}px`;
-            card.style.height = `${h.toFixed(1)}px`;
+            const fit = Math.min(1, rect.width / w, Math.max(1, window.innerHeight - 16) / h);
+            const cardWidth = w * fit;
+            const cardHeight = h * fit;
+            card.style.width = `${cardWidth.toFixed(1)}px`;
+            card.style.height = `${cardHeight.toFixed(1)}px`;
             const isRTL = document.getElementById('mm-profile-wrapper')?.getAttribute('dir') === 'rtl';
-            let x = isRTL ? pos.x - w - 25 : pos.x + 25;
+            let x = isRTL ? pos.x - cardWidth - 25 : pos.x + 25;
             if (x < 10) x = pos.x + 20;
-            if (x + w > cw - 10) x = pos.x - w - 20;
-            x = Math.max(0, Math.min(x, Math.max(0, cw - w)));
-            const y = pos.y - h / 2;
+            if (x + cardWidth > rect.width - 10) x = pos.x - cardWidth - 20;
+            x = Math.max(0, Math.min(x, Math.max(0, rect.width - cardWidth)));
+            const viewportTop = 8 - rect.top;
+            const viewportBottom = window.innerHeight - 8 - cardHeight - rect.top;
+            const y = Math.max(viewportTop, Math.min(pos.y - cardHeight / 2, viewportBottom));
             card.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
             return moving;
         }
-        runVisibleAnimation(container, paintPreview, { fps: 60, active: () => visible && finePreview() });
+        runVisibleAnimation(container, paintPreview, { fps: 60, active: () => visible && canHover() });
 
         function hidePreview() {
+            if (!visible) return;
             visible = false; tScale = 0.88;
-            if (!finePreview()) return;
+            card.style.removeProperty('display');
+            if (!canHover()) return;
             setFloatingPreviewVisibility(card, false);
             items.forEach(item => item.classList.remove('is-active'));
         }
 
-        container.addEventListener('mousemove', (e) => {
-            if (!finePreview()) return;
+        container.addEventListener('pointermove', (e) => {
+            if (e.pointerType !== 'mouse' || !visible) return;
             const r = container.getBoundingClientRect();
             mouse.x = e.clientX - r.left;
             mouse.y = e.clientY - r.top;
@@ -10223,8 +10230,8 @@
 
         items.forEach((item) => {
             const idx = parseInt(item.dataset.awardIndex, 10);
-            item.addEventListener('mouseenter', event => {
-                if (!finePreview()) return;
+            item.addEventListener('pointerenter', event => {
+                if (event.pointerType !== 'mouse' || !canHover()) return;
                 card.style.borderColor = awardPreviewStrokes[idx];
                 card.style.borderWidth = '2px';
                 const rect = container.getBoundingClientRect();
@@ -10234,6 +10241,7 @@
                 if (!visible) { w = tw; h = th; pos.x = mouse.x; pos.y = mouse.y; }
                 visible = true; tScale = 1;
                 paintPreview();
+                card.style.display = 'block';
                 setFloatingPreviewVisibility(card, true);
                 images.forEach((img, i) => {
                     const on = i === idx;
@@ -10243,9 +10251,8 @@
                 });
                 items.forEach(it => it.classList.toggle('is-active', it === item));
             });
-            item.addEventListener('mouseleave', hidePreview);
+            item.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') hidePreview(); });
         });
-        container.addEventListener('mouseleave', hidePreview);
         return { update: hidePreview };
     }
 
@@ -10321,13 +10328,12 @@
         let currentScale = 0.88;
         let targetScale = 0.88;
         let isVisible = false;
-        const finePreview = () => window.innerWidth >= 768 && window.matchMedia('(hover:hover) and (pointer:fine)').matches && previewCard.dataset.mobilePreview !== 'true';
-        let animId = null;
+        const canHover = () => previewCard.dataset.mobilePreview !== 'true';
 
         const lerp = (start, end, factor) => start + (end - start) * factor;
 
         function animate() {
-            if (finePreview()) {
+            if (canHover()) {
                 const containerRect = container.getBoundingClientRect();
                 const moving = Math.abs(smoothPos.x - mousePos.x) + Math.abs(smoothPos.y - mousePos.y) + Math.abs(currentCardWidth - targetCardWidth) + Math.abs(currentCardHeight - targetCardHeight) + Math.abs(currentScale - targetScale) > .04;
                 smoothPos.x = lerp(smoothPos.x, mousePos.x, 0.15);
@@ -10338,28 +10344,34 @@
                 currentCardHeight = lerp(currentCardHeight, targetCardHeight, 0.14);
                 currentScale = lerp(currentScale, targetScale, 0.14);
 
-                previewCard.style.width = `${currentCardWidth.toFixed(1)}px`;
-                previewCard.style.height = `${currentCardHeight.toFixed(1)}px`;
+                const fit = Math.min(1, containerRect.width / currentCardWidth, Math.max(1, window.innerHeight - 16) / currentCardHeight);
+                const cardWidth = currentCardWidth * fit;
+                const cardHeight = currentCardHeight * fit;
+                previewCard.style.width = `${cardWidth.toFixed(1)}px`;
+                previewCard.style.height = `${cardHeight.toFixed(1)}px`;
 
                 const isRTL = document.documentElement.dir === 'rtl' || document.getElementById('mm-profile-wrapper')?.getAttribute('dir') === 'rtl';
 
-                let targetX = isRTL ? (smoothPos.x - currentCardWidth - 25) : (smoothPos.x + 25);
-                let targetY = smoothPos.y - (currentCardHeight / 2);
+                let targetX = isRTL ? (smoothPos.x - cardWidth - 25) : (smoothPos.x + 25);
+                let targetY = smoothPos.y - (cardHeight / 2);
 
                 // Boundary clamping inside container
                 if (targetX < 10) targetX = smoothPos.x + 20;
-                if (targetX + currentCardWidth > containerRect.width - 10) targetX = smoothPos.x - currentCardWidth - 20;
-                targetX = Math.max(0, Math.min(targetX, Math.max(0, containerRect.width - currentCardWidth)));
+                if (targetX + cardWidth > containerRect.width - 10) targetX = smoothPos.x - cardWidth - 20;
+                targetX = Math.max(0, Math.min(targetX, Math.max(0, containerRect.width - cardWidth)));
+                const viewportTop = 8 - containerRect.top;
+                const viewportBottom = window.innerHeight - 8 - cardHeight - containerRect.top;
+                targetY = Math.max(viewportTop, Math.min(targetY, viewportBottom));
 
                 previewCard.style.transform = `translate3d(${targetX.toFixed(1)}px, ${targetY.toFixed(1)}px, 0) scale(${currentScale.toFixed(3)})`;
                 return moving;
             }
 
         }
-        runVisibleAnimation(container, animate, { fps: 60, active: () => isVisible && finePreview() });
+        runVisibleAnimation(container, animate, { fps: 60, active: () => isVisible && canHover() });
 
-        container.addEventListener('mousemove', (e) => {
-            if (!finePreview()) return;
+        container.addEventListener('pointermove', (e) => {
+            if (e.pointerType !== 'mouse' || !isVisible) return;
             const rect = container.getBoundingClientRect();
             mousePos.x = e.clientX - rect.left;
             mousePos.y = e.clientY - rect.top;
@@ -10372,7 +10384,7 @@
             const desc = item.querySelector('.patent-desc');
 
             const handleEnter = event => {
-                if (!finePreview()) return;
+                if (event.pointerType !== 'mouse' || !canHover()) return;
                 const rect = container.getBoundingClientRect();
                 mousePos.x = event.clientX - rect.left; mousePos.y = event.clientY - rect.top;
                 const dims = getPatentDimensions(index);
@@ -10381,10 +10393,8 @@
 
                 if (!isVisible) {
                     smoothPos.x = mousePos.x; smoothPos.y = mousePos.y;
-                    currentCardWidth = dims.width;
-                    currentCardHeight = dims.height;
-                    previewCard.style.width = `${currentCardWidth}px`;
-                    previewCard.style.height = `${currentCardHeight}px`;
+                    currentCardWidth = targetCardWidth;
+                    currentCardHeight = targetCardHeight;
                 }
 
                 isVisible = true;
@@ -10394,12 +10404,11 @@
                 previewCard.style.borderColor = theme.borderColor;
                 previewCard.style.boxShadow = `0 20px 45px ${theme.shadowColor}, 0 10px 25px rgba(0, 0, 0, 0.35)`;
 
-                if (finePreview()) {
-                    animate();
-                    previewCard.classList.remove('opacity-0');
-                    previewCard.classList.add('opacity-100');
-                    setFloatingPreviewVisibility(previewCard, true);
-                }
+                animate();
+                previewCard.style.display = 'block';
+                previewCard.classList.remove('opacity-0');
+                previewCard.classList.add('opacity-100');
+                setFloatingPreviewVisibility(previewCard, true);
 
                 images.forEach((img, i) => {
                     if (i === index) {
@@ -10435,8 +10444,8 @@
                 }
             };
 
-            const handleLeave = () => {
-                if (!finePreview()) return;
+            const handleLeave = event => {
+                if (event.pointerType !== 'mouse') return;
                 hidePreview();
                 if (hoverBg) {
                     hoverBg.classList.add('opacity-0', 'scale-95');
@@ -10456,19 +10465,21 @@
                 }
             };
 
-            item.addEventListener('mouseenter', handleEnter);
-            item.addEventListener('mouseleave', handleLeave);
+            item.addEventListener('pointerenter', handleEnter);
+            item.addEventListener('pointerleave', handleLeave);
         });
 
         function hidePreview() {
+            if (!isVisible) return;
             isVisible = false;
-            if (!finePreview()) return;
+            previewCard.style.removeProperty('display');
+            if (!canHover()) return;
             targetScale = 0.88;
             previewCard.classList.remove('opacity-100');
             previewCard.classList.add('opacity-0');
             setFloatingPreviewVisibility(previewCard, false);
         }
-        container.addEventListener('mouseleave', hidePreview);
+        container.addEventListener('pointerleave', event => { if (event.pointerType === 'mouse') hidePreview(); });
 
         refreshPatentBadge();
         return {
@@ -11129,7 +11140,6 @@
                 if (crossView) document.dispatchEvent(new Event('portfolio:viewnavigationsettled'));
             }
         }
-        const hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)');
         const mobileToggle = header.querySelector('.glass-menu-toggle');
         const primaryNode = header.querySelector('.notch-primary');
         const mobileGroups = header.querySelector('.glass-mobile-groups');
@@ -11177,7 +11187,8 @@
         listen(mobileToggle, 'keydown', event => {
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') { event.preventDefault(); showMenu(activeGroup, true, event.key === 'ArrowUp', true); }
         });
-        const desktopHover = () => window.innerWidth >= 768 && hoverMedia.matches;
+        const desktopHover = event => window.innerWidth >= 768
+            && (event.pointerType === 'mouse' || (event.pointerType === 'pen' && event.buttons === 0));
         const overSettings = event => {
             if (!utilities || window.innerWidth < 768) return false;
             if (utilities.contains(event.target)) return true;
@@ -11190,7 +11201,7 @@
             compactIntent = button ? { group: button.dataset.notchGroup, x: event.clientX, y: event.clientY, at: Date.now() } : null;
         };
         listen(primaryNode, 'pointerenter', event => {
-            if (event.pointerType === 'touch' || !desktopHover() || overSettings(event)) return;
+            if (!desktopHover(event) || overSettings(event)) return;
             rememberCompactTarget(event);
             forceCompact = false; hoverUnfolded = true; setCompact(false);
         });
@@ -11204,7 +11215,7 @@
             hoverUnfolded = false; if (!railPinned) wantsCompact = true; schedule();
         });
         buttons.forEach((button, index) => {
-            listen(button, 'pointerenter', event => { if (event.pointerType !== 'touch' && desktopHover()) { rememberCompactTarget(event); forceCompact = false; hoverUnfolded = true; setCompact(false); } });
+            listen(button, 'pointerenter', event => { if (desktopHover(event)) { rememberCompactTarget(event); forceCompact = false; hoverUnfolded = true; setCompact(false); } });
             listen(button, 'click', event => { const intended = event.detail > 0 && compactIntent && Date.now() - compactIntent.at <= 650 && Math.hypot(event.clientX - compactIntent.x, event.clientY - compactIntent.y) <= 8 ? compactIntent.group : button.dataset.notchGroup; compactIntent = null; goToSection(NAVIGATION_GROUPS.find(group => group.id === intended).sections[0][0]); });
             listen(button, 'keydown', event => {
                 const targets = window.innerWidth < 768 ? [...buttons, mobileToggle] : buttons;
@@ -11520,7 +11531,7 @@
             slot.className = 'section-stack-slot'; sheet.className = 'section-stack-sheet';
             slot.dataset.stackSource = sheet.dataset.stackSource = id;
             section.parentNode.insertBefore(slot, section); slot.appendChild(sheet); sheet.appendChild(section);
-            return { section, slot, sheet, index, flowOnly: id === 'work', top: 0, height: 0, width: 0, left: 0, start: 0, end: 0, pinTop: 0, pinned: false, covered: false };
+            return { section, slot, sheet, index, flowOnly: id === 'work' || id === 'academic', top: 0, height: 0, width: 0, left: 0, start: 0, end: 0, pinTop: 0, pinned: false, covered: false };
         }).filter(Boolean) }));
         const records = groups.flatMap(group => group.records);
         if (!records.length) return null;
@@ -11588,8 +11599,9 @@
                 const last = group.records[group.records.length - 1];
                 const exited = !active || y >= (group.exit ?? last.top - clearance) - 1;
                 group.records.forEach(record => {
-                    const pin = active && !exited && !record.flowOnly && record !== last && y >= record.start && exposed !== record;
-                    const mode = !active || record.flowOnly ? 'flow' : exited ? 'exit' : 'stack';
+                    const finished = exited || y >= record.end;
+                    const pin = active && !finished && !record.flowOnly && record !== last && y >= record.start && exposed !== record;
+                    const mode = !active || record.flowOnly ? 'flow' : finished ? 'exit' : 'stack';
                     record.slot.dataset.stackMode = record.sheet.dataset.stackMode = mode;
                     if (pin && !record.pinned) {
                         record.slot.style.height = record.height + 'px';
@@ -11647,7 +11659,13 @@
             groups.forEach(group => {
                 if (!groupActive(group)) return;
                 group.exit = Math.min(group.records[group.records.length - 1].top - clearance, naturalMax);
-                group.records.forEach(record => { record.slot.dataset.stackExit = String(group.exit); });
+                let nextFlowTop = Infinity;
+                for (const record of [...group.records].reverse()) {
+                    // Release earlier sheets before the next section in normal flow enters the viewport.
+                    record.end = nextFlowTop - window.innerHeight;
+                    if (record.flowOnly) nextFlowTop = record.top;
+                    record.slot.dataset.stackExit = String(group.exit);
+                }
             });
             records.forEach((record, i) => { record.sheet.dataset.stackMode = oldModes[i] || 'flow'; record.covered = oldCovered[i]; record.section.dataset.stackCovered = record.sheet.dataset.stackCovered = String(record.covered); });
             measuring = false;

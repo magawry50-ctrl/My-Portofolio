@@ -70,6 +70,10 @@ function environment(lang='en'){
   e.context.manager.destroy();assert.equal(e.frames.size+e.timers.size,0);
  }
  for(const lang of ['en','ar']){const e=context.makeFixture({animated:true,width:390,lang});e.flush();for(const y of [800,600,120,0]){e.window.scrollY=y;e.emit('scroll',{},true);e.flush();assert.equal(e.header.dataset.compact,'false','Desktop compact preference never changes the phone layout');}e.context.manager.showMenu('about');assert.equal(e.header.dataset.expanded,'true');e.context.manager.closeMenu();e.context.manager.destroy();assert.equal(e.frames.size+e.timers.size,0);}
+ const hybrid=context.makeFixture({animated:true,width:1100,fine:false});hybrid.flush();
+ hybrid.primary.emit('pointerenter',{pointerType:'touch'});assert.equal(hybrid.header.dataset.compact,'true');
+ hybrid.primary.emit('pointerenter',{pointerType:'mouse'});assert.equal(hybrid.header.dataset.compact,'false');
+ hybrid.header.emit('pointerleave',{pointerType:'mouse'});hybrid.flush();assert.equal(hybrid.header.dataset.compact,'true');hybrid.context.manager.destroy();
  const theme=environment().e;theme.primary.emit('pointerenter',{pointerType:'mouse'});assert.equal(theme.header.dataset.railMorph,'opening');theme.theme.emit('click');assert.equal(theme.header.dataset.railMorph,undefined,'The actual theme control cancels stale palette paint before switching');assert(theme.animations.every(a=>a.cancelled));assert(!theme.main.children.some(node=>node.dataset.railPaint));theme.context.manager.destroy();
  const phone=context.makeFixture({animated:true,railMotion:true,width:320});phone.flush();phone.context.manager.showMenu('about');assert.equal(phone.header.dataset.railMorph,undefined);assert.equal(phone.animations.length,0,'Desktop morph does not run for the phone disclosure');phone.context.manager.destroy();
  console.log('PASS NAV159 actual owner: one280ms clock, two-endpoint nested chrome, settings FLIP, inert outgoing paint, partial reversal position/opacity, locale/reduced/disposal cleanup; no opening squeeze or idle loop; NAV188 passive scroll never opens while deliberate hover/focus/toggle and scrollspy remain intact.');
